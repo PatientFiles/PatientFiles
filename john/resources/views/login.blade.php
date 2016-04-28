@@ -7,7 +7,7 @@
      <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h1>Laravel 5 Project</h1>
+                <h1>Patient FIles</h1>
                 <hr>
                 <p>Im only one call away , Ill be there to save the day. Superman!</p>
                 <a id="sign_in" href="#about" class="btn btn-primary btn-xl page-scroll">Sign In</a>
@@ -28,7 +28,7 @@
                             <input  style="width: 50%" class="form-control" type="text" placeholder="Email Address">
                         </div>
                         <div class="form-group" align="center">
-                            <input style="width: 50%" class="form-control" type="text" placeholder="Password">
+                            <input type="password" style="width: 50%" class="form-control" type="text" placeholder="Password">
                         </div>
                         <div class="form-group">
                             <button class="btn btn-default btn-xl wow tada">Sign In</button>
@@ -64,6 +64,9 @@
                         </div>
                         <div class="form-group" align="center">
                             <input type="password" style="width: 50%" class="form-control" type="text" placeholder="Password">
+                        </div>
+                         <div class="form-group" align="center">
+                            <input type="password" style="width: 50%" class="form-control" type="text" placeholder="Confirm Password">
                         </div>
                         <div class="form-group" align="center">
                             <button id="sign_up" style="color: white" class="btn btn-default btn-xl wow tada">Sign Up</button>

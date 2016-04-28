@@ -70,7 +70,7 @@ p {
 }
 
 .bg-primary {
-    background-color: #337ab7;
+     background-image: url(../img/sign_wall.png);
 }
 
 .bg-dark {

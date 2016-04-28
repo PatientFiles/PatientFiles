@@ -16,4 +16,6 @@ Route::resource('/','loginController');
 
 Route::resource('home','homeController');
 
+Route::resource('patientRecords','homeController@patientRecords');
+
 

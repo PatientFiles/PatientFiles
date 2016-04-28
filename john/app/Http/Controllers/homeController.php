@@ -18,6 +18,14 @@ class homeController extends Controller
         return view('pages.homePage');
     }
 
+    public function patientRecords()
+    {
+        return view('pages.patientRecordsPage');
+    }
+
+
+
+
     /**
      * Show the form for creating a new resource.
      *

@@ -31,8 +31,13 @@
                             <input type="password" style="width: 50%" class="form-control" type="text" placeholder="Password">
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-default btn-xl wow tada">Sign In</button>
+                            <button class="btn btn-default btn-xl wow tada">Sign In</button> 
                         </div>
+
+                        <div class="form-group">
+                          <span>or   Sign in with   </span><a href="#"><img src="img/withMd.png" width="55px" ></a>
+                        </div>
+
                     </form>
 
                     

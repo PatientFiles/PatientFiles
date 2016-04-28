@@ -60,7 +60,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Logo -->
         <a href="index2.html" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>A</b>LT</span>
+          <span class="logo-mini"><b>Pe</b>dics</span>
           <!-- logo for regular state and mobile devices -->
           <span class="logo-lg"><b>Patient</b>Files</span>
         </a>
@@ -185,7 +185,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <!-- Menu Body -->
                   <!-- Menu Footer-->
                   <li class="user-footer">
-                    <div class="pull-left">
+                    <div class="pull-left btn-group">
                       <a href="#" class="btn btn-default btn-flat">Profile</a>
                     </div>
                     <div class="pull-left">

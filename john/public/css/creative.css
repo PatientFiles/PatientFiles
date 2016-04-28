@@ -14,7 +14,10 @@ body {
     font-family: Merriweather,'Helvetica Neue',Arial,sans-serif;
 }
 
-
+button#sign_up, a#sign_in
+{
+    background-color: #3c8dbc;
+}
 
 
 hr {
@@ -40,6 +43,7 @@ a {
 div.container-fluid
 {
     background: #3c8dbc;
+    border-bottom: black;
 
 
 }
@@ -161,7 +165,7 @@ aside {
     }
 
     .navbar-default.affix {
-        border-color: rgba(34,34,34,.05);
+        border-color: white;
         background-color: #fff;
     }
 

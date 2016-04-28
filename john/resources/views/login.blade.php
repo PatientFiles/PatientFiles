@@ -1,6 +1,6 @@
-@extends('layouts.main')
+@extends('layouts.mainLayout')
 
-@include('layouts.header')
+@include('layouts.headerLayout')
 
 @section('content')
 

@@ -6,11 +6,14 @@
 
      <header>
         <div class="header-content">
-            <div class="header-content-inner">
+            <div class="header-content-inner btn-group" role="group">
                 <h1>Patient FIles</h1>
-                <hr>
-                <p>Im only one call away , Ill be there to save the day. Superman!</p>
-                <a id="sign_in" href="#about" class="btn btn-primary btn-xl page-scroll">Sign In</a>
+                <p>Transforming the Doctor-Patient experience through cloud-based electronic
+medical records accessible anytime, anywhere.</p>
+                <div>
+                <a id="sign_in" href="#services" class="btn btn-primary btn-xl page-scroll">Get Started</a>
+                  <a id="sign_in" href="#about" class="btn btn-primary btn-xl page-scroll">Sign In</a> 
+                </div>
             </div>
         </div>
     </header>
@@ -20,22 +23,30 @@
         <div class="container" >
             <div class="row" >
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Login Your Account</h2>
-                    <hr class="light">
+                <br><br><br>
+                    <h2 class="section-heading" style="color: black">Login Your Account</h2>
+                    <hr class="">
                     
                     <form role="form" >
                         <div class="form-group" align="center">
                             <input  style="width: 50%" class="form-control" type="text" placeholder="Email Address">
                         </div>
-                        <div class="form-group" align="center">
-                            <input type="password" style="width: 50%" class="form-control" type="text" placeholder="Password">
+                        <div id="psw" class="form-group" align="center">
+                            <input placeholder="Password" type="password" name="password" class="password form-control" >
                         </div>
-                        <div class="form-group">
-                            <button class="btn btn-default btn-xl wow tada">Sign In</button> 
+                        <div id="chk" class="form-group form-inline" align="center">
+                            <input type="radio" id="showHide" class="form-control"/>
+                            <label for="showHide" id="showHideLabel" >Show Password</label>
+                        </div>
+                        <div class="form-group" >
+                            <button  align="center" class="btn btn-default btn-xl wow tada">Sign In</button> 
                         </div>
 
                         <div class="form-group">
-                          <span>or   Sign in with   </span><a href="#"><img src="img/withMd.png" width="55px" ></a>
+                          <span style="color: black;font-weight: bold;">or   Sign in using your        </span>
+                          <a href="#"><img src="img/withMd.png" width="55px" > 
+                            <span style="color: black;font-weight: bold;">      Account</span>
+                          </a>
                         </div>
 
                     </form>
@@ -88,7 +99,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Let's Get In Touch!</h2>
+                    <h2 class="section-heading">Get In Touch with Patient Files!</h2>
                     <hr class="primary">
                     <p>Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
                 </div>

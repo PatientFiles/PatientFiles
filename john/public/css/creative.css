@@ -71,6 +71,8 @@ p {
 
 .bg-primary {
      background-image: url(../img/sign_wall.png);
+     height: 700px;
+     box-shadow: 0 0 20px #2F2828;
 }
 
 .bg-dark {
@@ -493,4 +495,57 @@ img::-moz-selection {
 
 body {
     webkit-tap-highlight-color: #222;
+}
+
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+
+/*
+    password
+*/
+
+
+div#psw input
+{
+    color: black;
+    width: 50%;
+}
+
+div#chk input, div#chk label
+{
+    color: black;
+    display: inline-block;
+}
+
+/*****
+footer effects
+***/
+
+section#contact
+{
+    box-shadow: 0 0 20px #D0D0D0;
+}
+
+hr
+{
+    border-color: rgba(19, 37, 237, 0.5);
+    height: 0.1px;
+}
+
+section#services
+{
+    background-color: #ecf0f5;
+}
+
+input
+{
+    box-shadow: 0 0 20px #D0D0D0;
+}
+
+.navbar-default .nav > li.active > a, .navbar-default .nav > li.active > a:focus {
+    color: #3c8dbc !important;
+    background-color: transparent;
+    font-weight: bold;
 }

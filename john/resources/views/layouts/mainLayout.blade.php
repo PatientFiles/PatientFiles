@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Welcome to My Site </title>
+	<title> Welcome to Patient Files</title>
 	
 	<meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foundation for Sites</title>
 
 
 <!---------BOOTSTRAP STYLE SHEET------------------ -->
@@ -34,11 +33,25 @@
 
 
 
+    <script>
+            $(document).ready(function() 
+            {
+                $("#showHide").click(function() 
+                {
+                    if ($(".password").attr("type") == "password") {
+                            $(".password").attr("type", "text");
 
+                    } else {
+                            $(".password").attr("type", "password");
+                    }
+                });
+            });
+    </script>
 
  	<script src="js/npm.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap.js"></script>
+    <script src="js/jquery.min.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>

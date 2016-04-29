@@ -12,7 +12,6 @@
 medical records accessible anytime, anywhere.</p>
                 <div>
                 <a id="sign_in" href="#services" class="btn btn-primary btn-xl page-scroll">Get Started</a>
-                  <a id="sign_in" href="#about" class="btn btn-primary btn-xl page-scroll">Sign In</a> 
                 </div>
             </div>
         </div>
@@ -24,7 +23,7 @@ medical records accessible anytime, anywhere.</p>
             <div class="row" >
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                 <br><br><br>
-                    <h2 class="section-heading" style="color: black">Login Your Account</h2>
+                    <h2 class="section-heading" style="color: black"><span class="glyphicon glyphicon-user"></span>  Login Your Account</h2>
                     <hr class="">
                     
                     <form role="form" >
@@ -35,7 +34,7 @@ medical records accessible anytime, anywhere.</p>
                             <input placeholder="Password" type="password" name="password" class="password form-control" >
                         </div>
                         <div id="chk" class="form-group form-inline" align="center">
-                            <input type="radio" id="showHide" class="form-control"/>
+                            <input type="checkbox" id="showHide" class="form-control"/>
                             <label for="showHide" id="showHideLabel" >Show Password</label>
                         </div>
                         <div class="form-group" >
@@ -44,9 +43,9 @@ medical records accessible anytime, anywhere.</p>
 
                         <div class="form-group">
                           <span style="color: black;font-weight: bold;">or   Sign in using your        </span>
-                          <a href="#"><img src="img/withMd.png" width="55px" > 
+                          <a href="#"><img src="img/withMd.png" width="55px" > </a>
                             <span style="color: black;font-weight: bold;">      Account</span>
-                          </a>
+                          
                         </div>
 
                     </form>
@@ -61,7 +60,7 @@ medical records accessible anytime, anywhere.</p>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Create Account</h2>
+                    <h2 class="section-heading"><span class="glyphicon glyphicon-plus-sign"></span>  Create Account</h2>
                     <hr class="primary">
                 </div>
             </div>

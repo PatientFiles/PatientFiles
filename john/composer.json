@@ -6,7 +6,9 @@
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.2.*"
+        "laravel/framework": "5.2.*",
+        "keeguon/oauth2-php": ">=1.0.0",
+        "league/oauth2-server": "^5.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -47,4 +49,5 @@
     "config": {
         "preferred-install": "dist"
     }
+
 }

@@ -16,10 +16,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right" >
                     <li >
-                        <a style="color: white" class="page-scroll" href="#about">Sign In</a>
+                        <a style="color: white" class="page-scroll " href="#about"><span class="glyphicon glyphicon-user"></span> Sign In</a>
                     </li>
                     <li>
-                        <a style="color: white" class="page-scroll" href="#services">Create Account</a>
+                        <a style="color: white" class="page-scroll" href="#services"><span class="glyphicon glyphicon-plus-sign"></span> Create Account</a>
                     </li>
                    
                 </ul>

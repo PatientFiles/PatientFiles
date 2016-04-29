@@ -86,6 +86,12 @@ medical records accessible anytime, anywhere.</p>
                         <div class="form-group" align="center">
                             <button id="sign_up" style="color: white" class="btn btn-default btn-xl wow tada">Sign Up</button>
                         </div>
+                        <div class="form-group" align="center">
+                          <span style="color: black;font-weight: bold;">or   Create a         </span>
+                          <a href="#"><img src="img/withMd.png" width="55px" > </a>
+                            <span style="color: black;font-weight: bold;">      Account</span>
+                          
+                        </div>
                     </form>
                 </div>
             </div>

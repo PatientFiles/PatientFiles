@@ -7,7 +7,7 @@
      <header>
         <div class="header-content">
             <div class="header-content-inner btn-group" role="group">
-                <h1>Patient FIles</h1>
+                <h1>Patient FIles</h1><br><br>
                 <p>Transforming the Doctor-Patient experience through cloud-based electronic
 medical records accessible anytime, anywhere.</p>
                 <div>

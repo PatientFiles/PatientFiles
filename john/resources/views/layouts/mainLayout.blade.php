@@ -36,13 +36,17 @@
     <script>
             $(document).ready(function() 
             {
-                $("#showHide").click(function() 
+                $(".showHide").click(function() 
                 {
                     if ($(".password").attr("type") == "password") {
                             $(".password").attr("type", "text");
+                            $("#showHideLabel").attr("style", "display:none");
+                            $("#showHideLabel1").attr("style", "display:absolute");
 
                     } else {
                             $(".password").attr("type", "password");
+                            $("#showHideLabel1").attr("style", "display:none");
+                            $("#showHideLabel").attr("style", "display:absolute");
                     }
                 });
             });

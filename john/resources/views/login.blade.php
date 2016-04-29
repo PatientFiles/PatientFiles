@@ -27,15 +27,16 @@ medical records accessible anytime, anywhere.</p>
                     <hr class="">
                     
                     <form role="form" >
-                        <div class="form-group" align="center">
-                            <input  style="width: 50%" class="form-control" type="text" placeholder="Email Address">
+
+                        <div class="form-group form-inline" align="center">
+                            <input  style="width: 59%" class="form-control" type="text" placeholder="Email Address / Username">
                         </div>
-                        <div id="psw" class="form-group" align="center">
+                        <div id="psw" class="form-group form-inline" align="center">
                             <input placeholder="Password" type="password" name="password" class="password form-control" >
+                            <a style="display: absolute" class="showHide btn btn-primary " for="showHide" id="showHideLabel" >Show</a>
+                            <a style="display: none" class="showHide btn btn-success" for="showHide" id="showHideLabel1" >Hide</a>
                         </div>
                         <div id="chk" class="form-group form-inline" align="center">
-                            <input type="checkbox" id="showHide" class="form-control"/>
-                            <label for="showHide" id="showHideLabel" >Show Password</label>
                         </div>
                         <div class="form-group" >
                             <button  align="center" class="btn btn-default btn-xl wow tada">Sign In</button> 

@@ -194,7 +194,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <a href="#" class="btn btn-default btn-flat">Account Settings</a>
                     </div>
                     <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                      <a href="logout" class="btn btn-default btn-flat">Sign out</a>
                     </div>
                   </li>
                 </ul>
@@ -240,8 +240,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <ul class="sidebar-menu">
             <li class="header">MENU</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
-            <li><a href="#"><i class="fa fa-link"></i> <span>Patient Records</span></a></li>
+            <li class="active"><a href="home"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
+            <li><a href="patientRecords"><i class="fa fa-link"></i> <span>Patient Records</span></a></li>
             <li class="treeview">
               <a href="#"><i class="fa fa-link"></i> <span>Management</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">

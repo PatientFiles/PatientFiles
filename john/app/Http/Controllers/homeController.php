@@ -23,6 +23,16 @@ class homeController extends Controller
         return view('pages.patientRecordsPage');
     }
 
+    public function dashboard()
+    {
+        return redirect('home');
+    }
+
+    public function logout()
+    {
+        return redirect('/');
+    }
+
 
 
 

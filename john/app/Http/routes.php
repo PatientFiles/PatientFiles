@@ -16,6 +16,10 @@ Route::resource('/','loginController');
 
 Route::resource('home','homeController');
 
+Route::resource('dashboard','homeController@dashboard');
+
 Route::resource('patientRecords','homeController@patientRecords');
+
+Route::resource('logout','homeController@logout');
 
 

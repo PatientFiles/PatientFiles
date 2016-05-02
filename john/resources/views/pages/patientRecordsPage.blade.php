@@ -18,14 +18,11 @@
 			  <button type="button" class="btn btn-lg btn-default">Under Treatment</button>
 			  <button type="button" class="btn btn-lg btn-default">Released</button>
 		 </div>
-		 <div style="float: right;">
-		 	<input style="height: 30px" type="text" placeholder="search">
-		 </div>
 	</div>	
 
 	<hr id="p_hr1">
 
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row">
 			<div class="col-lg-12 col-sm-12 table-responsive">	
 				<table class="table table-bordered table-hover table-striped table-fixed ">

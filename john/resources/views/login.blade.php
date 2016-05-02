@@ -44,7 +44,7 @@ medical records accessible anytime, anywhere.</p>
 
                         <div class="form-group">
                           <span style="color: black;font-weight: bold;">or   Sign in using your        </span>
-                          <a href="#"><img src="img/withMd.png" width="55px" > </a>
+                          <a href="/facebook"><img src="img/withMd.png" width="55px" > </a>
                             <span style="color: black;font-weight: bold;">      Account</span>
                           
                         </div>

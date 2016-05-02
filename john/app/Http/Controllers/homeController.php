@@ -13,16 +13,36 @@ class homeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+   
+    /*
+    * HOME PAGE
+    */
     public function index()
     {
         return view('pages.homePage');
     }
 
+
+
+    /*
+    * Patient Records PAGE
+    */
     public function patientRecords()
     {
         return view('pages.patientRecordsPage');
     }
 
+    /*
+    * Add NEW PATIENT PAGE
+    */
+    public function addPatient()
+    {
+        return view('pages.addPatient');
+    }
+
+    /*
+    * DASHBOARD
+    */
     public function dashboard()
     {
         return redirect('home');

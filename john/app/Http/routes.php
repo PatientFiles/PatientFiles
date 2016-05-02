@@ -20,6 +20,11 @@ Route::resource('dashboard','homeController@dashboard');
 
 Route::resource('patientRecords','homeController@patientRecords');
 
+
+Route::resource('addPatient','homeController@addPatient');
+
 Route::resource('logout','homeController@logout');
+
+
 
 

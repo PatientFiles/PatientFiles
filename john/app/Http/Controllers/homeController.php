@@ -71,6 +71,11 @@ class homeController extends Controller
         return redirect('/');
     }
 
+    public function viewProfile()
+    {
+        return view('patientProfile');
+    }
+
 
 
 

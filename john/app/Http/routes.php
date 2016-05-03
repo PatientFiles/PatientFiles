@@ -28,6 +28,6 @@ Route::resource('patientProfile','homeController@patientProfile');
 
 Route::resource('logout','homeController@logout');
 
-
+Route::resource('viewProfile','homeController@viewProfile');
 
 

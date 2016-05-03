@@ -73,7 +73,7 @@ class homeController extends Controller
 
     public function viewProfile()
     {
-        return view('patientProfile');
+        return view('pages.patientProfile');
     }
 
 

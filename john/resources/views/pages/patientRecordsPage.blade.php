@@ -1,16 +1,18 @@
-@extends('layouts.patientRecordsLayout')
+@extends('layouts.masterLayout')
 
 
 @section('content')
-
-	<div class="row" align="center">
-		<div class="col-xs-12">
-			<div>
-				<h1> Patient Records </h1>
-			</div>
-		</div>
-	</div>
-
+<section class="content-header">
+      <h1>
+        Patient Records
+        <small>Optional description</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+        <li class="active">Here</li>
+      </ol>
+ </section>
+	 
 	<div class="container" align="center">
 		<div class="btn-group" role="group" aria-label="..." >
 			  <button type="button" class="btn btn-lg btn-default">All</button>
@@ -54,4 +56,4 @@
 	</div>
 
 
-@endsection
+@stop

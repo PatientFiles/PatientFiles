@@ -1,4 +1,4 @@
-@extends('layouts.addPatientLayout')
+@extends('layouts.masterLayout')
 
  
 @section('content')

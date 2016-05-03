@@ -32,6 +32,15 @@ class homeController extends Controller
         return view('pages.patientRecordsPage');
     }
 
+
+    /*
+    * SEARCH RESULT
+    */
+    public function searchResult()
+    {
+        return view('pages.searchResult');
+    }
+
     /*
     * Add NEW PATIENT PAGE
     */
@@ -39,6 +48,15 @@ class homeController extends Controller
     {
         return view('pages.addPatient');
     }
+
+    /*
+    *   patientProfile
+    */
+    public function patientProfile()
+    {
+        return view('pages.patientProfile');
+    }
+
 
     /*
     * DASHBOARD

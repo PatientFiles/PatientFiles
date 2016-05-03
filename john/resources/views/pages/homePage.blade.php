@@ -19,7 +19,7 @@
         	<div class="row">  <! Start // ROW  -->
         		<div class="col-lg-6 col-xs-12">	 <! FIRST TABLE  -->
         			<div> 	<!-- TITLE **** --> 
-						<h3> Recent Consultaion </h3>
+						<h3> Recent Consultation </h3>
 					</div>	<! end title 1 //>
 
 					<!-- TABLE RECENT CONSULTATION /  -->

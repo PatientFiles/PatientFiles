@@ -61,9 +61,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Logo -->
         <a href="index2.html" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>A</b>LT</span>
+          <span class="logo-mini"><b>P</b>FS</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>PED</b>ICS</span>
+          <span class="logo-lg"><b>Patient</b>Files</span>
         </a>
 
         <!-- Header Navbar -->
@@ -170,14 +170,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Menu Toggle Button -->
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <!-- The user image in the navbar-->
-                  <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                  <img src="img/prof_pic.png" class="user-image" alt="User Image">
                   <!-- hidden-xs hides the username on small devices so only the image appears. -->
                   <span class="hidden-xs">Jb De Castro</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- The user image in the menu -->
                   <li class="user-header">
-                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    <img src="img/prof_pic.png" class="img-circle" alt="User Image">
                     <p>
                       Jb De Castro - Web Developer
                       <small>Member since Nov. 2012</small>
@@ -223,7 +223,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+              <img src="img/prof_pic.png" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
               <p>Jb De Castro</p>

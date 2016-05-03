@@ -35,7 +35,7 @@
 	 								<td #patient>13010231 </td>
 	 								<td #patient> Steeve </td>
 	 								<td>
-										<a type="button" class="btn btn-primary" href="#" >View Profile</a> 
+										<a type="button" class="btn btn-primary" href="viewProfile" >View Profile</a> 
 	 								</td>
 	 							</tr>				
 	 						</tbody>
@@ -60,7 +60,7 @@
 	 								<td #patient>13010231 </td>
 	 								<td #patient> Steeve </td>
 	 								<td>
-										<a type="button" class="btn btn-primary" href="#" >View Profile</a> 
+										<a type="button" class="btn btn-primary" href="viewProfile" >View Profile</a> 
 	 								</td>
 	 							</tr>				
 	 						</tbody>

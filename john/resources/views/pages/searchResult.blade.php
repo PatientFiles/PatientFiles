@@ -16,23 +16,21 @@
 				<table class="table table-bordered table-hover table-striped table-fixed ">
 						<thead id="patient_table">
 								<th> Patient ID </th>
-								<th> Name</th>
-								<th> Surname </th>
+								<th>Patient Name</th>
 								<th> Room </th>
-								<th> Dicease </th>
+								<th> Disease </th>
 								<th> Doctor </th>
-								<th> Menu </th>
+								<th> Action </th>
 						</thead>		
 			 				<tbody>
 	 							<tr>
 	 								<td #patient>13010231 </td>
 	 								<td #patient> Steeve </td>
-	 								<td #patient> Wilder </td>
 	 								<td #patient> C401 </td>
 	 								<td #patient> Cancer Stage 4 </td>
 	 								<td #patient> Dr. John Benedict De Castor MD. </td>
 	 								<td>
-										<a type="button" class="btn btn-primary" href="#" >View Patient</a> 
+										<a type="button" class="btn btn-primary" href="viewProfile" >View Patient</a> 
 	 								</td>
 	 							</tr>				
 	 						</tbody>

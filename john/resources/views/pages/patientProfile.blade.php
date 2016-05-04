@@ -312,7 +312,7 @@
 
 	           <div class="tab-pane " id="vitals" > 
 		             
-        <!-- sidebar: style can be found in sidebar.less -->
+                      <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
    
           <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -462,7 +462,7 @@
 
 		</div>
 	</div>
-</div>
+
 
 
  

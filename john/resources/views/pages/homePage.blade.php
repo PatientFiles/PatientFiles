@@ -20,17 +20,36 @@
   
         <div class="container-fluid">
         	<div class="row">  <! Start // ROW  -->
-        		<div class="col-lg-6 col-xs-12 table-responsive " >	 
+        		<div class="col-lg-6 col-xs-12  " >	 
         		<! FIRST TABLE  -->
         			
 
 					<!-- TABLE RECENT CONSULTATION /  -->
-                <div class="box table-hover" >
+                <div class="box table-hover table-responsive" >
                 
                         <div class="box">
+          
+            <br>
+              <div class="col-xs-5"  > 
                 <div class="box-header">
-                  <h3 class="box-title">Hover Data Table</h3>
+                  <h3 class="box-title">Recent Consultation</h3>
                 </div><!-- /.box-header -->
+
+                 <div class="input-group" >
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                  </div><!-- /input-group -->
+
+                  <br>
+
+              </div> 
+                
+                
+         
+
+
                 <div class="box-body">
                   <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                     <thead>
@@ -110,15 +129,31 @@
               </div>	
 				</div>
 
-				<div class="col-lg-6 col-xs-12 table-responsive">	 <! SECOND TABLE  -->
+				<div class="col-lg-6 col-xs-12 ">	 <! SECOND TABLE  -->
         			
 
 					<!-- TABLE RECENT CONSULTATION /  -->
                     
-                        <div class="box">
+                        <div class="box table-responsive">
+
+               <br>
+              <div class="col-xs-5"  > 
                 <div class="box-header">
-                  <h3 class="box-title">Hover Data Table</h3>
+                  <h3 class="box-title">Alert / Reminders</h3>
                 </div><!-- /.box-header -->
+
+                 <div class="input-group" >
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                  </div><!-- /input-group -->
+                     
+                  <br>
+
+              </div> 
+
+
                 <div class="box-body">
                   <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                     <thead>

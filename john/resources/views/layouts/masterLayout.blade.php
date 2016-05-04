@@ -245,11 +245,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- /.search form -->
 
           <!-- Sidebar Menu -->
-          <ul class="sidebar-menu">
-            <li class="header">HEADER</li>
+          <ul class="sidebar-menu" >
+            <li class="header">Menu</li>
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="dashboard"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
-            <li><a href="patientRecords"><i class="fa fa-link"></i> <span>Patient Records</span></a></li>
+            <li ><a href="patientRecords"><i class="fa fa-link"></i> <span>Patient Records</span></a></li>
             <li class="treeview">
               <a href=""><i class="fa fa-link"></i> <span>Management</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">

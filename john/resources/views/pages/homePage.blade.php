@@ -3,6 +3,7 @@
 
 
 @section('content')
+
 	<section class="content-header">
 	          <h1>
 	            Dashboard
@@ -19,9 +20,9 @@
   <div class="panel-body" style="background-color:#ecf0f5">
   
         <div class="container-fluid">
-        	<div class="row">  <! Start // ROW  -->
+        	<div class="row">  <!-- Start // ROW  -->
         		<div class="col-lg-6 col-xs-12  " >	 
-        		<! FIRST TABLE  -->
+        		<!-- FIRST TABLE  -->
         			
 
 					<!-- TABLE RECENT CONSULTATION /  -->
@@ -129,7 +130,7 @@
               </div>	
 				</div>
 
-				<div class="col-lg-6 col-xs-12 ">	 <! SECOND TABLE  -->
+				<div class="col-lg-6 col-xs-12 ">	 <!-- SECOND TABLE  -->
         			
 
 					<!-- TABLE RECENT CONSULTATION /  -->
@@ -236,7 +237,7 @@
 
 						
 
-        	</div>	<! END CLASS ROW ///  >
+        	</div>	<!-- END CLASS ROW ///  -->
         </div>
 
      

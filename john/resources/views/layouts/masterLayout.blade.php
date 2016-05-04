@@ -267,8 +267,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Content Header (Page header) -->
         
         <!-- Main content -->
-  @yield('content') 
+  
       <section class="content">
+      @yield('content') 
+      </section>
+          
           <section id="contact">
         <div class="container">
             <div class="row">
@@ -289,8 +292,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
     </section>
             
-
-        </section> 
       </div><!-- /.content-wrapper -->
 
       <!-- Main Footer -->

@@ -6,7 +6,7 @@
 
 	<section class="content-header">
 	          <h1>
-	            Dashboard
+	            What's Happening
 	            <small>Patient Files</small>
 	          </h1>
 	          <ol class="breadcrumb">

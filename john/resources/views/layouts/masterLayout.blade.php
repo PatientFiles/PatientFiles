@@ -31,6 +31,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+
+
+
   </head>
   <!--
   BODY TAG OPTIONS:
@@ -59,7 +63,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <header class="main-header">
 
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="dashboard" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>P</b>FS</span>
           <!-- logo for regular state and mobile devices -->
@@ -248,13 +252,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <ul class="sidebar-menu" >
             <li class="header">Menu</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="dashboard"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
-            <li ><a href="patientRecords"><i class="fa fa-link"></i> <span>Patient Records</span></a></li>
+            <li class="active"><a href="dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+            <li ><a href="patientRecords"><i class="fa fa-book"></i> <span>Patient Records</span></a></li>
+            <li ><a href="patientRecords"><i class="fa fa-calendar-check-o"></i> <span>Scheduler</span></a></li>
             <li class="treeview">
-              <a href=""><i class="fa fa-link"></i> <span>Management</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <a href=""><i class="fa fa-black-tie"></i> <span>Management</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="#">Link in level 2</a></li>
-                <li><a href="#">Link in level 2</a></li>
+                <li><a href="#"><i class="fa fa-user"></i> Pediatricians</a></li>
+                <li><a href="#"><i class="fa fa-medkit"></i>Procedure</a></li>
+                <li><a href="#"><i class="fa  fa-stethoscope"></i>Treatment Plan</a></li>
+                <li><a href="#"><i class="fa  fa-money"></i>Accounting</a></li>
               </ul>
             </li>
           </ul><!-- /.sidebar-menu -->

@@ -27,7 +27,7 @@
           <div class="form-group"  style="float: right;padding-top: 13px">
             
                <div class="input-group" >
-                      <input type="text" class="form-control" placeholder="Search for...">
+                      <input type="text" class="form-control" placeholder="Search for Consultations">
                       <span class="input-group-btn">
                         <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
                       </span>
@@ -123,7 +123,7 @@
           <div class="form-group"  style="float: right;padding-top: 13px">
             
                <div class="input-group" >
-                      <input type="text" class="form-control" placeholder="Search for...">
+                      <input type="text" class="form-control" placeholder="Search for Reminders">
                       <span class="input-group-btn">
                         <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
                       </span>

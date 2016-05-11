@@ -30,4 +30,6 @@ Route::resource('logout','homeController@logout');
 
 Route::resource('viewProfile','homeController@viewProfile');
 
+Route::resource('medix','loginController@fetchData');
+
 

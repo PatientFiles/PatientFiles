@@ -29,7 +29,7 @@ medical records accessible anytime, anywhere.</p>
                     <form role="form" method="post" action="dashboard">
                         {!! csrf_field() !!}
                         <div class="form-group form-inline" align="center">
-                            <input  style="width: 59%" class="form-control" type="text" placeholder="Email Address / Username">
+                            <input  style="width: 59%" class="form-control" type="text" name="email" placeholder="Email Address / Username">
                         </div>
                         <div id="psw" class="form-group form-inline" align="center">
                             <input placeholder="Password" type="password" name="password" class="password form-control" >

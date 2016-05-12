@@ -9,7 +9,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 
-          <a class="navbar-brand page-scroll" href="#page-top" style="color: White"><b>Patient</b>Files</a>
+          <a class="navbar-brand page-scroll" href="#page-top" style="color: White;text-transform: none"><b>Patient</b>Files</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->

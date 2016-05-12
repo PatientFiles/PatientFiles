@@ -5,10 +5,10 @@
 @section('content')
 
      <header>
-        <div class="header-content">
-            <div class="header-content-inner btn-group" role="group">
-                <h1>Patient FIles</h1><br><br>
-                <p>Transforming the Doctor-Patient experience through cloud-based electronic
+        <div class="header-content" >
+            <div class="header-content-inner btn-group" role="group" align="left">
+                <h1>Patient Files</h1><br><br>
+                <p >Transforming the Doctor-Patient experience through cloud-based electronic
 medical records accessible anytime, anywhere.</p>
                 <div>
                 <a id="sign_in" href="#services" class="btn btn-primary btn-xl page-scroll">Get Started</a>

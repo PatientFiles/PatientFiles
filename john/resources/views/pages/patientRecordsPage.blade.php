@@ -34,121 +34,32 @@
                 <div class="box-body table-responsive" >
                   <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                       <thead>
-                      <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 177px;">Patient ID</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 224px;">Patient Name</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 205px;">Room</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 152px;">Disease</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Doctor</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Action</th></tr>
+                      <tr role="row">
+                      <th class="sorting_asc" tabindex="0" aria-controlsne: activate to sort column descending" style="width: 177px;="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engi">Patient ID</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 224px;">Patient Name</th>
+                      
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 152px;">Gender</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Contact Number</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Action</th>
+                      </tr>
                     </thead>
 
                     	<tbody>
+                    	@foreach($patients as $patient)
 	                    <tr role="row" class="odd">
-	                        <td class="sorting_1">12341234</td>
-	                        <td>Eric Marvin Baste</td>
-	                        <td>C501</td>
-	                        <td>Cancer</td>
-	                        <td>Dr. JB Killah</td>
+	                        <td class="sorting_1">{{ $patient['user']['id'] }}</td>
+	                        <td>{{ $patient['user']['firstname']." ".$patient['user']['lastname']}}</td>              
+	                        <td>{{ $patient['user']['gender'] }}</td>
+	                        <td></td>
 	                        <td>
 	                        	<a type="button" class="btn btn-primary" href="patientProfile" >View Profile</a> 
 	                        	
 	                        </td>
 	                    </tr>
-	                    <tr role="row" class="even">
-	                        <td class="sorting_1">12341234</td>
-	                        <td>Eric Marvin Baste</td>
-	                        <td>C501</td>
-	                        <td>Cancer</td>
-	                        <td>Dr. JB Killah</td>
-	                        <td>
-	                        	<a type="button" class="btn btn-primary" href="viewProfile" >View Profile</a> 
-	                        </td>
-	                    </tr>
-	                    <tr role="row" class="odd">
-	                        <td class="sorting_1">12341234</td>
-	                        <td>Eric Marvin Baste</td>
-	                        <td>C501</td>
-	                        <td>Cancer</td>
-	                        <td>Dr. JB Killah</td>
-	                        <td>
-	                        	<a type="button" class="btn btn-primary" href="viewProfile" >View Profile</a> 
-	                        </td>
-	                    </tr>
-	                    <tr role="row" class="even">
-	                        <td class="sorting_1">12341234</td>
-	                        <td>Eric Marvin Baste</td>
-	                        <td>C501</td>
-	                        <td>Cancer</td>
-	                        <td>Dr. JB Killah</td>
-	                        <td>
-	                        	<a type="button" class="btn btn-primary" href="viewProfile" >View Profile</a> 
-	                        </td>
-	                    </tr>
-	                    <tr role="row" class="odd">
-	                        <td class="sorting_1">12341234</td>
-	                        <td>Eric Marvin Baste</td>
-	                        <td>C501</td>
-	                        <td>Cancer</td>
-	                        <td>Dr. JB Killah</td>
-	                        <td>
-	                        	<a type="button" class="btn btn-primary" href="viewProfile" >View Profile</a> 
-	                        </td>
-	                    </tr>
-	                    <tr role="row" class="even">
-	                        <td class="sorting_1">12341234</td>
-	                        <td>Eric Marvin Baste</td>
-	                        <td>C501</td>
-	                        <td>Cancer</td>
-	                        <td>Dr. JB Killah</td>
-	                        <td>
-	                        	<a type="button" class="btn btn-primary" href="viewProfile" >View Profile</a> 
-	                        </td>
-	                    </tr>
-	                    <tr role="row" class="odd">
-	                        <td class="sorting_1">12341234</td>
-	                        <td>Eric Marvin Baste</td>
-	                        <td>C501</td>
-	                        <td>Cancer</td>
-	                        <td>Dr. JB Killah</td>
-	                        <td>
-	                        	<a type="button" class="btn btn-primary" href="viewProfile" >View Profile</a> 
-	                        </td>
-	                    </tr>
-	                    <tr role="row" class="even">
-	                        <td class="sorting_1">12341234</td>
-	                        <td>Eric Marvin Baste</td>
-	                        <td>C501</td>
-	                        <td>Cancer</td>
-	                        <td>Dr. JB Killah</td>
-	                        <td>
-	                        	<a type="button" class="btn btn-primary" href="viewProfile" >View Profile</a> 
-	                        </td>
-	                    </tr>
-	                    <tr role="row" class="odd">
-	                        <td class="sorting_1">12341234</td>
-	                        <td>Eric Marvin Baste</td>
-	                        <td>C501</td>
-	                        <td>Cancer</td>
-	                        <td>Dr. JB Killah</td>
-	                        <td>
-	                        	<a type="button" class="btn btn-primary" href="viewProfile" >View Profile</a> 
-	                        </td>
-	                    </tr>
-	                    <tr role="row" class="even">
-	                        <td class="sorting_1">12341234</td>
-	                        <td>Eric Marvin Baste</td>
-	                        <td>C501</td>
-	                        <td>Cancer</td>
-	                        <td>Dr. JB Killah</td>
-	                        <td>
-	                        	<a type="button" class="btn btn-primary" href="viewProfile" >View Profile</a> 
-	                        </td>
-	                    </tr>
-	                    <tr role="row" class="odd">
-	                        <td class="sorting_1">12341234</td>
-	                        <td>Eric Marvin Baste</td>
-	                        <td>C501</td>
-	                        <td>Cancer</td>
-	                        <td>Dr. JB Killah</td>
-	                        <td>
-	                        	<a type="button" class="btn btn-primary" href="viewProfile" >View Profile</a> 
-	                        </td>
-	                    </tr>
+	                    @endforeach
+	                  
+
+	                    
 	                    
                     </tbody>
 

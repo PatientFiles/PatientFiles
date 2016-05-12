@@ -42,12 +42,7 @@ medical records accessible anytime, anywhere.</p>
                             <button  align="center" class="btn btn-default btn-xl wow tada">Sign In</button> 
                         </div>
 
-                        <div class="form-group">
-                          <span style="color: black;font-weight: bold;">or   Sign in using your        </span>
-                          <a href="/medix"><img src="img/withMd.png" width="55px" > </a>
-                            <span style="color: black;font-weight: bold;">      Account</span>
-                          
-                        </div>
+                        
 
                     </form>
 
@@ -96,8 +91,7 @@ medical records accessible anytime, anywhere.</p>
                     </form>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
 
 

@@ -45,7 +45,7 @@
 	                        <td>Cancer</td>
 	                        <td>Dr. JB Killah</td>
 	                        <td>
-	                        	<a type="button" class="btn btn-primary" href="viewProfile" >View Profile</a> 
+	                        	<a type="button" class="btn btn-primary" href="patientProfile" >View Profile</a> 
 	                        	
 	                        </td>
 	                    </tr>

@@ -14,75 +14,72 @@ class homeController extends Controller
      * @return \Illuminate\Http\Response
      */
    
-    /*
-    * HOME PAGE
-    */
+    /**
+     * HOME PAGE
+     */
     public function index()
     {
         return view('pages.homePage');
     }
 
+    /**
+     * redirect to dashboard
+     */
+    public function dashboard()
+    {
+        return redirect('home');
+    }
 
-
-    /*
-    * Patient Records PAGE
-    */
+    /**
+     * Patient Records PAGE
+     */
     public function patientRecords()
     {
         return view('pages.patientRecordsPage');
     }
 
-
-    /*
-    * SEARCH RESULT
-    */
+    /**
+     * SEARCH RESULT
+     */
     public function searchResult()
     {
         return view('pages.searchResult');
     }
 
-    /*
-    * Add NEW PATIENT PAGE
-    */
-    public function addPatient()
+    /**
+     * patientProfile
+     */
+    public function patientProfile()
     {
-        return view('pages.addPatient');
+        return view('pages.patientProfile');
     }
 
-    /*
-    *   patientProfile
-    */
+    /**
+     *   dashboard
+     */
     public function patientProfile()
     {
         return view('pages.patientProfile');
     }
 
 
-    /*
-    * DASHBOARD
-    */
-    public function dashboard(Request $request)
+    /**
+     * Fetch patient date
+     */
+    public function fetchPatientData()
     {
-        $request -> all();
-
-        $email = $request -> input('email');
-        $pass  = $request -> input('password');
-
-        $http = new Client ('https://api.dev.medix.ph/v1/', 
+        $http = new Client('https://api.dev.medix.ph/v1/', 
             array(
-                'request.options' => array (
-                'exceptions' => false,
+                'request.options' => array(
+                    'exceptions' => false,
             )
         ));
 
-        $request = $http->post ('auth', null, array (
+        $request = $http->post('auth', null, array(
             'X-Tenant'      => 'dev',
             'client_id'     => 'pedix',
             'client_secret' => 'dOpOogNqpYkCbOybsflA',
-            'grant_type'    => 'password',
-            'username'      =>  $email,
-            'password'      =>  $pass,
-
+            'grant_type'    => 'client_credentials',
         ));
 
         // make a request to the token url
@@ -90,29 +87,33 @@ class homeController extends Controller
         $response = $request->send();
         $responseBody = $response->getBody(true);
         //dd($responseBody);
+        $responseArr = json_decode($responseBody, true);
+        $accessToken = $responseArr['access_token'];
+
+        // step2: use the token to make an API request
+        $request = $http->get('patient');
+
+        $request->addHeader(array(
+                            'X-Tenant'      => 'dev',
+                            'Authorization' =>'Bearer '.$accessToken
+                        ));
         
-
-        if ($response->getStatusCode() == 200) {
-            $responseArr = json_decode($responseBody, true);
-            $accessToken = $responseArr['access_token'];
-            return redirect('home');
-        }
-
-        return redirect('');
+        $response1 = $request->send();
+        // $response->getBody();
+        $responseBody1 = $response1->getBody(true);
+        $responseArr1 = json_decode($responseBody1, true);
+        $accessToken1 = $responseArr1['patient_id'];
+        dd($responseBody1);
+        echo $accessToken1;
     }
 
+    /**
+     * Logout user
+     */
     public function logout()
     {
         return redirect('/');
     }
-
-    public function viewProfile()
-    {
-        return view('pages.patientProfile');
-    }
-
-
-
 
     /**
      * Show the form for creating a new resource.

@@ -17,6 +17,10 @@ class loginController extends Controller
      */
     public function index()
     {
+        if (\Session::has('user')) {
+            return redirect('home');
+        }
+
         return view('login');
     }
 
@@ -61,9 +65,9 @@ class loginController extends Controller
         if ($response->getStatusCode() == 200) {
             $responseArr = json_decode($responseBody, true);
             $accessToken = $responseArr['access_token'];
+            \Session::put('user', $email);
             return redirect('home');
         }
-
         return redirect('');
     }
 

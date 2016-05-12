@@ -19,7 +19,11 @@ class homeController extends Controller
      */
     public function index()
     {
-        return view('pages.homePage');
+        if (\Session::has('user')) {
+            return view('pages.homePage');
+        }
+        
+        return redirect('');
     }
 
     /**
@@ -96,8 +100,6 @@ class homeController extends Controller
         $responseBody1 = $response1->getBody(true);
         $responseArr1 = json_decode($responseBody1, true);
         $accessToken1 = $responseArr1['patient_id'];
-        dd($responseBody1);
-        echo $accessToken1;
     }
 
     /**
@@ -105,7 +107,9 @@ class homeController extends Controller
      */
     public function logout()
     {
+        \Session::forget('user');
         return redirect('/');
+        
     }
 
     /**

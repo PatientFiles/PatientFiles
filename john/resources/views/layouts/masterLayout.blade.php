@@ -178,14 +178,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <!-- The user image in the navbar-->
                   <img src="img/prof_pic.png" class="user-image" alt="User Image">
                   <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                  <span class="hidden-xs">Jb De Castro</span>
+                  <span class="hidden-xs">{{  Session::get('user') }}</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- The user image in the menu -->
                   <li class="user-header">
                     <img src="img/prof_pic.png" class="img-circle" alt="User Image">
                     <p>
-                      Jb De Castro - Web Developer
+                      {{  Session::get('user') }} - Web Developer
                       <small>Member since Nov. 2012</small>
                     </p>
                   </li>
@@ -232,7 +232,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <img src="img/prof_pic.png" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-              <p>Jb De Castro</p>
+              <p>{{  Session::get('user') }}</p>
               <!-- Status -->
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>

@@ -54,13 +54,6 @@ class homeController extends Controller
         return view('pages.patientProfile');
     }
 
-    /**
-     *   dashboard
-     */
-    public function patientProfile()
-    {
-        return view('pages.patientProfile');
-    }
 
 
     /**

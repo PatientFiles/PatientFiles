@@ -20,7 +20,7 @@ class homeController extends Controller
     public function index()
     {
         if (\Session::has('user')) {
-            return view('pages.homePage');
+            return $this->recentConsult();
         }
         
         return redirect('');
@@ -71,11 +71,6 @@ class homeController extends Controller
         // $response->getBody();
         $result = $response1->json();
 
-        //echo $result['data'][0]['id'];
-
-        //echo $patient;
-        //dd($result);
-        //$accessToken1 = $responseArr1['patient_id'];
         return view('pages.patientRecordsPage')->with('patients', $result['data']);
     }
 
@@ -100,7 +95,7 @@ class homeController extends Controller
     /**
      * Fetch patient date
      */
-    public function fetchPatientData()
+    public function recentConsult()
     {
         $http = new Client('https://api.dev.medix.ph/v1/', 
             array(
@@ -127,16 +122,15 @@ class homeController extends Controller
         // step2: use the token to make an API request
         $request = $http->get('patient');
 
-        $request->addHeader(array(
-                            'X-Tenant'      => 'dev',
-                            'Authorization' =>'Bearer '.$accessToken
-                        ));
+        $request->addHeader('X-Tenant','dev');
+        $request->addHeader('Authorization','Bearer '.$accessToken);
         
         $response1 = $request->send();
         // $response->getBody();
-        $responseBody1 = $response1->getBody(true);
-        $responseArr1 = json_decode($responseBody1, true);
-        $accessToken1 = $responseArr1['patient_id'];
+        $result = $response1->json();
+        
+        //return view('pages.homePage')->with('consult', $result['data']);
+        return dd($result);
     }
 
     /**

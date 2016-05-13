@@ -1,0 +1,35 @@
+	
+	$http = new Client('https://api.dev.medix.ph/v1/', 
+            array(
+                'request.options' => array(
+                    'exceptions' => false,
+            )
+        ));
+
+        $request = $http->post('auth', null, array(
+            'X-Tenant'      => 'dev',
+            'client_id'     => 'pedix',
+            'client_secret' => 'dOpOogNqpYkCbOybsflA',
+            'grant_type'    => 'client_credentials',
+        ));
+
+        // make a request to the auth url for access token
+        $request->addHeader('X-Tenant', 'dev');
+        $response = $request->send();
+        $responseBody = $response->getBody(true);
+        //dd($responseBody);
+        $responseArr = json_decode($responseBody, true);
+        $accessToken = $responseArr['access_token'];
+
+        // API request for consultation
+        $request = $http->get('patient');
+
+        $request->addHeader('X-Tenant','dev');
+        $request->addHeader('Authorization','Bearer '.$accessToken);
+        
+        $response1 = $request->send();
+        // $response->getBody();
+        $result = $response1->json();
+        
+        //return view('pages.homePage')->with('consult', $result['data']);
+        return dd($result);

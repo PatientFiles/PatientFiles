@@ -15,6 +15,11 @@ class loginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('nocache');
+    }
+    
     public function index()
     {
         if (\Session::has('user')) {

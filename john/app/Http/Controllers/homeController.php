@@ -13,6 +13,10 @@ class homeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('nocache');
+    }
    
     /**
      * HOME PAGE
@@ -129,8 +133,8 @@ class homeController extends Controller
         // $response->getBody();
         $result = $response1->json();
         
-        //return view('pages.homePage')->with('consult', $result['data']);
-        return dd($result);
+        return view('pages.homePage')->with('consults', $result['data']);
+        //return dd($result);
     }
 
     /**

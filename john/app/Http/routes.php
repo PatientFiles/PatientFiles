@@ -35,4 +35,6 @@ Route::resource('viewProfile','homeController@viewProfile');
 
 Route::resource('dashboard','homeController@dashboard');
 
+Route::resource('register','homeController@register');
+
 

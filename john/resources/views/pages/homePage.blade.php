@@ -1,168 +1,61 @@
 @extends('layouts.masterLayout')
 
-
+ <!-- jQuery 2.1.4 -->
+   
 
 @section('content')
 
+<section class="content-header">
+            <h1>
+              Overview
+              <small>Patient Files</small>
+            </h1>
+            <ol class="breadcrumb">
+              <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+           
+            </ol>
+  </section>
 
-<h2>Overview</h2>
+<hr>
 
-
-<!-- MODALS -->
 <!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
 
+    <!-- Modal content-->
+    <div class="modal-content" >
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
 
-<div class="modal modal-default fade" id="myModal">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                    <h4 class="modal-title">Medical Apparatus</h4>
+         <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Area Chart</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                   </div>
-                  <div class="modal-body">
-                   
-
-<!-- BODY --> 
-                   <div class="box-body table-responsive" >
-                  <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
-                    <thead>
-                      <tr role="row">
-                      <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 177px;">Item ID</th>
-                          
-                          <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 224px;">Item Name</th>
-                          
-                          <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 205px;">Quantity</th>
-                          
-                        
-                    </thead>
-                   
-
-  <tbody>
-                    <tr role="row" class="odd">
-                        <td class="sorting_1">MD1001</td>
-                        <td>Gloves</td>
-                        <td>20</td>                  
-                    </tr>
-                    <tr role="row" class="odd">
-                        <td class="sorting_1">MD1002</td>
-                        <td>BLOOD PRESSURE MONITORS</td>
-                        <td>3</td>                  
-                    </tr>
-                     <tr role="row" class="odd">
-                        <td class="sorting_1">MD1003</td>
-                        <td>24 HOUR ABPM</td>
-                        <td>4</td>                  
-                    </tr>
-                     <tr role="row" class="odd">
-                        <td class="sorting_1">MD1004</td>
-                        <td>SPIROMETRY AND NEBULISERS</td>
-                        <td>2</td>                  
-                    </tr>
-                     <tr role="row" class="odd">
-                        <td class="sorting_1">MD1005</td>
-                        <td>OPHTHALMOSCOPE / OTOSCOPE SET</td>
-                        <td>5</td>                  
-                    </tr>
-                     
-           </tbody>  
-                  </table></div></div><div class="row"><div class="col-sm-5"><div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div></div><div class="col-sm-7"><div class="dataTables_paginate paging_simple_numbers" id="example2_paginate"><ul class="pagination"><li class="paginate_button previous disabled" id="example2_previous"><a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0">Previous</a></li><li class="paginate_button active"><a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0">1</a></li><li class="paginate_button "><a href="#" aria-controls="example2" data-dt-idx="2" tabindex="0">2</a></li><li class="paginate_button "><a href="#" aria-controls="example2" data-dt-idx="3" tabindex="0">3</a></li><li class="paginate_button "><a href="#" aria-controls="example2" data-dt-idx="4" tabindex="0">4</a></li><li class="paginate_button "><a href="#" aria-controls="example2" data-dt-idx="5" tabindex="0">5</a></li><li class="paginate_button "><a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0">6</a></li><li class="paginate_button next" id="example2_next"><a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0">Next</a></li></ul></div></div></div></div>
+                </div>
+                <div class="box-body">
+                  <div class="chart">
+                    <canvas id="areaChart" style="height:250px"></canvas>
+                  </div>
                 </div><!-- /.box-body -->
-        
-<!-- END BODY -->
+              </div><!-- /.box -->
 
 
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-default">Save changes</button>
-                  </div>
-                </div><!-- /.modal-content -->
-              </div><!-- /.modal-dialog -->
-            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
 
-<div class="modal modal-default fade" id="myModal2">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                    <h4 class="modal-title">Total Sales</h4>
-                  </div>
-                  <div class="modal-body">
-        <!-- BODY -->
-        <!-- AREA CHART -->
-             
-            <canvas id="mycanvas" width="400" height="400"></canvas>
+  </div>
+</div>
 
-             <script type="text/javascript">
-               var chrt = document.getElementById("mycanvas").getContext("2d");
-var myarr = [65, 59, 80, 81, 56, 55, 40];
-var data = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"], //x-axis
-    datasets: [
-        {
-            label: "My First dataset", //optional
-            fillColor: "rgba(220,220,220,0.8)",
-            strokeColor: "rgba(220,220,220,0.8)",
-            highlightFill: "rgba(220,220,220,0.75)",
-            highlightStroke: "rgba(220,220,220,1)",
-            data: [65, 59, 80, 81, 56, 55, 40] // y-axis
-        },
-    {
-            label: "My Second dataset", //optional
-            fillColor: "rgba(220,120,220,0.8)",
-            strokeColor: "rgba(220,120,220,0.8)",
-            highlightFill: "rgba(220,220,220,0.75)",
-            highlightStroke: "rgba(220,220,220,1)",
-            data: myarr
-        }
-    ]
-};
-
-var myFirstChart = new Chart(chrt).Bar(data);
-             </script>
-        <!-- END BODY -->                  
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-default">Save changes</button>
-                  </div>
-                </div><!-- /.modal-content -->
-              </div><!-- /.modal-dialog -->
-            </div>  
-<div class="modal modal-default fade" id="myModal3">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                    <h4 class="modal-title">Patient Registration</h4>
-                  </div>
-                  <div class="modal-body">
-                    <p>One fine body…</p>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-default">Save changes</button>
-                  </div>
-                </div><!-- /.modal-content -->
-              </div><!-- /.modal-dialog -->
-            </div>                        
-<div class="modal modal-default fade" id="myModal4">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                    <h4 class="modal-title">Patient Visits</h4>
-                  </div>
-                  <div class="modal-body">
-                    <p>One fine body…</p>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-default">Save changes</button>
-                  </div>
-                </div><!-- /.modal-content -->
-              </div><!-- /.modal-dialog -->
-            </div>  
 <!-- END MODAL -->
 
 
@@ -179,7 +72,7 @@ var myFirstChart = new Chart(chrt).Bar(data);
                 <div class="icon">
                   <i class="fa fa-shopping-cart"></i>
                 </div>
-                <a href="#" class="small-box-footer " data-toggle="modal" data-target="#myModal">
+                <a href="#" class="small-box-footer "  data-toggle="modal" data-target="#myModal" >
                   More info <i class="fa fa-arrow-circle-right "></i>
                 </a>
               </div>
@@ -236,12 +129,9 @@ var myFirstChart = new Chart(chrt).Bar(data);
 	<section class="content-header">
 	          <h1>
 	            What's Happening
-	            <small>Patient Files</small>
+	            <small></small>
 	          </h1>
-	          <ol class="breadcrumb">
-	            <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
 	         
-	          </ol>
 	</section>
 
 <br>
@@ -364,61 +254,27 @@ var myFirstChart = new Chart(chrt).Bar(data);
                 <div class="box-body table-responsive" >
                   <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                     <thead >
-                      <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Patient Name</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Date</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Time</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Procedure</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Observation</th></tr>
+                      <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Patient ID</th>
+                      <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Type</th>
+                      <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Chief Complaints</th>
+                      <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Checked In Date/Time</th>
+                      <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Consultation Start</th>
+                      <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Consultation End</th></tr>
                     </thead>
                     <tbody>
-
-                      <tr role="row" class="even">
-                        <td class="sorting_1">Brey De Castro</td>
-                        <td>jan. 12 , 2016</td>
-                        <td>11:30am</td>
-                        <td>Checkup</td>
-                        <td>Normal</td>
-                      </tr>
-                       <tr role="row" class="even">
-                        <td class="sorting_1">Brey De Castro</td>
-                        <td>jan. 12 , 2016</td>
-                        <td>11:30am</td>
-                        <td>Checkup</td>
-                        <td>Normal</td>
-                      </tr>
-                       <tr role="row" class="even">
-                        <td class="sorting_1">Brey De Castro</td>
-                        <td>jan. 12 , 2016</td>
-                        <td>11:30am</td>
-                        <td>Checkup</td>
-                        <td>Normal</td>
-                      </tr>
-                       <tr role="row" class="even">
-                        <td class="sorting_1">Brey De Castro</td>
-                        <td>jan. 12 , 2016</td>
-                        <td>11:30am</td>
-                        <td>Checkup</td>
-                        <td>Normal</td>
-                      </tr>
-                       <tr role="row" class="even">
-                        <td class="sorting_1">Brey De Castro</td>
-                        <td>jan. 12 , 2016</td>
-                        <td>11:30am</td>
-                        <td>Checkup</td>
-                        <td>Normal</td>
-                      </tr>
-                       <tr role="row" class="even">
-                        <td class="sorting_1">Brey De Castro</td>
-                        <td>jan. 12 , 2016</td>
-                        <td>11:30am</td>
-                        <td>Checkup</td>
-                        <td>Normal</td>
-                      </tr>
-                       <tr role="row" class="even">
-                        <td class="sorting_1">Brey De Castro</td>
-                        <td>jan. 12 , 2016</td>
-                        <td>11:30am</td>
-                        <td>Checkup</td>
-                        <td>Normal</td>
-                      </tr>
-                  
-                    
+                          @foreach($consults as $consult)
+                          @foreach($consult['patient_appointments'] as $cons)
+                          <tr role="row" >
+                          <td >{{ $cons['patient_id'] }}</td>
+                          <td>{{ $cons['type'] }}</td>
+                          <td>{{ $cons['chief_complaints'] }}</td>
+                          <td>{{ $cons['checkedin-datetime'] }}</td>
+                          <td>{{ $cons['consultation_start'] }}</td>
+                          <td>{{ $cons['consultation_end'] }}</td>
+                          </tr>
+                          @endforeach
+                          @endforeach
+                                              
 
 
 
@@ -428,6 +284,8 @@ var myFirstChart = new Chart(chrt).Bar(data);
             </div>
        </div>
 </div>     
+
+
 
 
 @stop

@@ -15,6 +15,7 @@
  	<div class="col-lg-3">
  		<img src="img/generic.png" class="img-circle" width="75%">
  	</div>
+ 	
  </div> <!-- End Row / -->
 	<hr >
 	<h4>Personal Information</h4>
@@ -89,6 +90,9 @@
 	</div>
 	
 </div>
+
+<hr>
+
   <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-primary" style="float: left">
 
 </div> <!-- END PANEL -->

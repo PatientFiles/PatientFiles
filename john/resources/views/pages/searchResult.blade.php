@@ -36,12 +36,12 @@
 	                    
 	                    <tr role="row" class="even">
 	                        <td class="sorting_1">12341234</td>
-	                        <td>Eric Marvin Baste</td>
+	                        <td>John Benedict De Castro</td>
 	                        <td>C501</td>
-	                        <td>Cancer</td>
+	                        <td>Lagnat</td>
 	                        <td>Dr. JB Killah</td>
 	                        <td>
-	                        	<a type="button" class="btn btn-primary" href="viewProfile" >View Profile</a> 
+	                        	<a type="button" class="btn btn-primary" href="patientProfile" >View Profile</a> 
 	                        </td>
 	                    </tr>
 	                    <tr role="row" class="odd">
@@ -51,7 +51,7 @@
 	                        <td>Cancer</td>
 	                        <td>Dr. JB Killah</td>
 	                        <td>
-	                        	<a type="button" class="btn btn-primary" href="viewProfile" >View Profile</a> 
+	                        	<a type="button" class="btn btn-primary" href="patientProfile" >View Profile</a> 
 	                        </td>
 	                    </tr>
 	                    <tr role="row" class="even">
@@ -61,7 +61,7 @@
 	                        <td>Cancer</td>
 	                        <td>Dr. JB Killah</td>
 	                        <td>
-	                        	<a type="button" class="btn btn-primary" href="viewProfile" >View Profile</a> 
+	                        	<a type="button" class="btn btn-primary" href="patientProfile" >View Profile</a> 
 	                        </td>
 	                    </tr>
 	                    <tr role="row" class="odd">
@@ -71,7 +71,7 @@
 	                        <td>Cancer</td>
 	                        <td>Dr. JB Killah</td>
 	                        <td>
-	                        	<a type="button" class="btn btn-primary" href="viewProfile" >View Profile</a> 
+	                        	<a type="button" class="btn btn-primary" href="patientProfile" >View Profile</a> 
 	                        </td>
 	                    </tr>
 	                    <tr role="row" class="even">
@@ -81,7 +81,7 @@
 	                        <td>Cancer</td>
 	                        <td>Dr. JB Killah</td>
 	                        <td>
-	                        	<a type="button" class="btn btn-primary" href="viewProfile" >View Profile</a> 
+	                        	<a type="button" class="btn btn-primary" href="patientProfile" >View Profile</a> 
 	                        </td>
 	                    </tr>
 	                    <tr role="row" class="odd">
@@ -91,7 +91,7 @@
 	                        <td>Cancer</td>
 	                        <td>Dr. JB Killah</td>
 	                        <td>
-	                        	<a type="button" class="btn btn-primary" href="viewProfile" >View Profile</a> 
+	                        	<a type="button" class="btn btn-primary" href="patientProfile" >View Profile</a> 
 	                        </td>
 	                    </tr>
 	                    <tr role="row" class="even">
@@ -101,7 +101,7 @@
 	                        <td>Cancer</td>
 	                        <td>Dr. JB Killah</td>
 	                        <td>
-	                        	<a type="button" class="btn btn-primary" href="viewProfile" >View Profile</a> 
+	                        	<a type="button" class="btn btn-primary" href="patientProfile" >View Profile</a> 
 	                        </td>
 	                    </tr>
 	                    <tr role="row" class="odd">
@@ -111,7 +111,7 @@
 	                        <td>Cancer</td>
 	                        <td>Dr. JB Killah</td>
 	                        <td>
-	                        	<a type="button" class="btn btn-primary" href="viewProfile" >View Profile</a> 
+	                        	<a type="button" class="btn btn-primary" href="patientProfile" >View Profile</a> 
 	                        </td>
 	                    </tr>
 	                    <tr role="row" class="even">
@@ -121,7 +121,7 @@
 	                        <td>Cancer</td>
 	                        <td>Dr. JB Killah</td>
 	                        <td>
-	                        	<a type="button" class="btn btn-primary" href="viewProfile" >View Profile</a> 
+	                        	<a type="button" class="btn btn-primary" href="patientProfile" >View Profile</a> 
 	                        </td>
 	                    </tr>
 	                    <tr role="row" class="odd">
@@ -131,7 +131,7 @@
 	                        <td>Cancer</td>
 	                        <td>Dr. JB Killah</td>
 	                        <td>
-	                        	<a type="button" class="btn btn-primary" href="viewProfile" >View Profile</a> 
+	                        	<a type="button" class="btn btn-primary" href="patientProfile" >View Profile</a> 
 	                        </td>
 	                    </tr>
 	                    

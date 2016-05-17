@@ -15,6 +15,7 @@
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="home"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
             <li><a href="patientRecords"><i class="fa fa-link"></i> <span>Patient Records</span></a></li>
+            <li><a href="Scheduler"><i class="fa fa-link"></i> <span>Scheduler</span></a></li>
             <li class="treeview">
               <a href="#"><i class="fa fa-link"></i> <span>Management</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">

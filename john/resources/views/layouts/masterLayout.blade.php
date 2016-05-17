@@ -22,6 +22,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="css/loading.css">
+     <link rel="stylesheet" href="css/loading2.css">
     <link rel="stylesheet" href="css/bootstrap-table.css">
     <link rel="stylesheet" href="css/datepicker3.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -30,6 +31,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src='plugins/chartjs/Chart.min.js'></script>
    <script src='plugins/chartjs/Chart.js'></script>
         <script src="/js/pace.js"></script>
+
          <script src="/js/bootstrap-datepicker.js"></script>
         
 

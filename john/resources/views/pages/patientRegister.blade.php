@@ -13,7 +13,7 @@
  	
  <div class="row "> <!-- ROW /  -->
  	<div class="col-lg-3">
- 		<img src="img/generic.png" class="img-circle" width="75%">
+ 		<img src="img/generic.png" class="img-circle" width="150px">
  	</div>
  	
  </div> <!-- End Row / -->

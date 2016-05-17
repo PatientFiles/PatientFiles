@@ -252,7 +252,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <ul class="sidebar-menu" >
             <li class="header">Menu</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="/medix"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+            <li class="active"><a href="/home"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
             <li ><a href="patientRecords"><i class="fa fa-book"></i> <span>Patient Records</span></a></li>
             <li ><a href="scheduler"><i class="fa fa-calendar-check-o"></i> <span>Scheduler</span></a></li>
             <li class="treeview">

@@ -18,6 +18,7 @@ Route::resource('/','loginController');
 
 Route::resource('medix','loginController@medixAPI');
 
+
 /*
  * ROUTE FOR HOME CONTROLLER
  */
@@ -36,5 +37,7 @@ Route::resource('viewProfile','homeController@viewProfile');
 Route::resource('dashboard','homeController@dashboard');
 
 Route::resource('register','homeController@register');
+
+Route::resource('scheduler','homeController@scheduler');
 
 

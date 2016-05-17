@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Http\Requests;
 use Guzzle\Http\Client;
 use Illuminate\Http\Request;
@@ -24,7 +25,7 @@ class homeController extends Controller
     public function index()
     {
         if (\Session::has('user')) {
-            return $this->recentConsult();
+            return $this->recent();
         }
         
         return redirect('');
@@ -94,12 +95,20 @@ class homeController extends Controller
         return view('pages.patientProfile');
     }
 
+    /**
+     * scheduler
+     */
+    public function scheduler()
+    {
+        return view('pages.schedulerPage');
+    }
+
 
 
     /**
      * Fetch patient date
      */
-    public function recentConsult()
+    public function recent()
     {
         $http = new Client('https://api.dev.medix.ph/v1/', 
             array(
@@ -132,9 +141,11 @@ class homeController extends Controller
         $response1 = $request->send();
         // $response->getBody();
         $result = $response1->json();
-        
-        return view('pages.homePage')->with('consults', $result['data']);
-        //return dd($result);
+        $mytime = Carbon::now();
+        return view('pages.homePage')
+            ->with('time', $mytime)
+            ->with('consults', $result['data']);
+       //return dd($result);
     }
 
     /**

@@ -254,7 +254,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="/home"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
             <li ><a href="patientRecords"><i class="fa fa-book"></i> <span>Patient Records</span></a></li>
-            <li ><a href="scheduler"><i class="fa fa-calendar-check-o"></i> <span>Scheduler</span></a></li>
+            <li ><a href="patientRecords"><i class="fa fa-calendar-check-o"></i> <span>Scheduler</span></a></li>
             <li class="treeview">
               <a href=""><i class="fa fa-black-tie"></i> <span>Management</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
@@ -384,22 +384,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
      
      
    
-    <script src="plugins/jQuery/jQuery-2.2.0.min.js"></script>
-<!-- Bootstrap 3.3.6 -->
-<script src="bootstrap/js/bootstrap.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-<!-- Slimscroll -->
-<script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
+ <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
+ <!-- Bootstrap 3.3.5 -->
+<script src="js/bootstrap.min.js"></script>
+ <script src="js/bootstrap-table.js"></script>
+<!-- ChartJS 1.0.1 -->
+<script src="plugins/chartjs/Chart.min.js"></script>
 <!-- FastClick -->
-<script src="plugins/fastclick/fastclick.js"></script>
+<script src="plugins/fastclick/fastclick.min.js"></script>
 <!-- AdminLTE App -->
-<script src="dist/js/app.min.js"></script>
+<script src="/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
-<!-- fullCalendar 2.2.5 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-<script src="plugins/fullcalendar/fullcalendar.min.js"></script>
+<script src="dist/js/demo.js">
 
  <script>
      

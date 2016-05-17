@@ -428,7 +428,7 @@
             return 'Search';
         },
         formatNoMatches: function () {
-            return 'No appointments for today';
+            return 'No matching records found';
         },
         formatPaginationSwitch: function () {
             return 'Hide/Show pagination';

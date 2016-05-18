@@ -26,11 +26,10 @@ class loginController extends Controller
     
     public function index()
     {
-        if (\Session::has('user')) {
-            return redirect('home');
+        if (! \Session::has('token')) {
+            return view('login');
         }
-
-        return view('login');
+        return redirect('home');
     }
 
 
@@ -53,7 +52,7 @@ class loginController extends Controller
         ];
 
         $auth = $this->medix->auth($data);
-        
+
 
         if (! $auth->access_token) {
              return redirect('/')->with('message',['type'=> 'danger','text' => 'Incorrect Email or Password']);

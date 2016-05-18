@@ -12,24 +12,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- jvectormap -->
-    <link rel="stylesheet" href="plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+    <link rel="stylesheet" href="/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="css/loading.css">
-     <link rel="stylesheet" href="css/loading2.css">
-    <link rel="stylesheet" href="css/bootstrap-table.css">
-    <link rel="stylesheet" href="css/datepicker3.css">
+    <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="/css/loading.css">
+     <link rel="stylesheet" href="/css/loading2.css">
+    <link rel="stylesheet" href="/css/bootstrap-table.css">
+    <link rel="stylesheet" href="/css/datepicker3.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
-  <script src='plugins/chartjs/Chart.min.js'></script>
-   <script src='plugins/chartjs/Chart.js'></script>
+    <link rel="stylesheet" href="/dist/css/skins/_all-skins.min.css">
+  <script src='/plugins/chartjs/Chart.min.js'></script>
+   <script src='/plugins/chartjs/Chart.js'></script>
         <script src="/js/pace.js"></script>
 
          <script src="/js/bootstrap-datepicker.js"></script>
@@ -95,7 +95,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <a href="#">
                           <div class="pull-left">
                             <!-- User Image -->
-                            <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                            <img src="/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                           </div>
                           <!-- Message title and timestamp -->
                           <h4>
@@ -174,14 +174,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Menu Toggle Button -->
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <!-- The user image in the navbar-->
-                  <img src="img/prof_pic.png" class="user-image" alt="User Image">
+                  <img src="/img/prof_pic.png" class="user-image" alt="User Image">
                   <!-- hidden-xs hides the username on small devices so only the image appears. -->
                   <span class="hidden-xs">{{  Session::get('fname') ." ". Session::get('lname') }}</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- The user image in the menu -->
                   <li class="user-header">
-                    <img src="img/prof_pic.png" class="img-circle" alt="User Image">
+                    <img src="/img/prof_pic.png" class="img-circle" alt="User Image">
                     <p>
                       <b>{{  Session::get('fname') ." ". Session::get('lname') }}</b>
                       <small>{{  Session::get('role') }}</small>
@@ -227,7 +227,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="img/prof_pic.png" class="img-circle" alt="User Image">
+              <img src="/img/prof_pic.png" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
               <p>{{  Session::get('fname') ." ". Session::get('lname') }}</p>
@@ -384,18 +384,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
      
      
    
- <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
+ <script src="/plugins/jQuery/jQuery-2.1.4.min.js"></script>
  <!-- Bootstrap 3.3.5 -->
-<script src="js/bootstrap.min.js"></script>
- <script src="js/bootstrap-table.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+ <script src="/js/bootstrap-table.js"></script>
 <!-- ChartJS 1.0.1 -->
-<script src="plugins/chartjs/Chart.min.js"></script>
+<script src="/plugins/chartjs/Chart.min.js"></script>
 <!-- FastClick -->
-<script src="plugins/fastclick/fastclick.min.js"></script>
+<script src="/plugins/fastclick/fastclick.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js">
+<script src="/dist/js/demo.js">
 
  <script>
      

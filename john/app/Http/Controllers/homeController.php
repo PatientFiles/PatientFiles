@@ -62,7 +62,11 @@ class homeController extends Controller
         if (! \Session::has('token')) {
             return redirect('');
         }
-        return view('pages.searchResult');
+        
+        $patients = $this->medix->get('patient');
+
+        return view('pages.searchResult')
+            ->with('search', $patients->data);
     }
 
     /**
@@ -75,7 +79,7 @@ class homeController extends Controller
         }
         $profile = $this->medix->get('patient/'.$id);
 
-        
+
         return view('pages.patientProfile')
             ->with('prof', $profile->data);
     }

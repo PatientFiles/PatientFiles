@@ -27,7 +27,7 @@
                 <div class="box-body box-profile">
                   <img class="profile-user-img img-responsive img-circle" src="/img/prof_pic.png" alt="User profile picture">
                   <h3 class="profile-username text-center">{{$prof->user->firstname." ".$prof->user->lastname}} </h3>
-                  <p class="text-muted text-center">Software Engineer</p>
+                  <p class="text-muted text-center">{{$prof->user->nickname}}</p>
 
                   <ul class="list-group list-group-unbordered">
                     <li class="list-group-item">
@@ -37,7 +37,7 @@
                       <b>Nickname</b> <a class="pull-right">{{$prof->user->nickname}}</a>
                     </li>
                     <li class="list-group-item">
-                      <b>Birth Date</b> <a class="pull-right">{{ date('F d, Y', strtotime($prof->user->birthdate)) }}</a>
+                      <b>Birth Date</b> <a class="pull-right">{{ $prof->user->birthdate }}</a>
                     </li>
                   </ul>
 

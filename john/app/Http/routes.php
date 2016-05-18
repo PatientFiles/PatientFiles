@@ -28,7 +28,7 @@ Route::resource('patientRecords','homeController@patientRecords');
 
 Route::resource('searchResult','homeController@searchResult');
 
-Route::resource('patientProfile','homeController@patientProfile');
+Route::get('patientProfile/{id}','patientController@patientProfile');
 
 Route::resource('logout','homeController@logout');
 

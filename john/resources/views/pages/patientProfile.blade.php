@@ -26,18 +26,18 @@
               <div class="box box-primary">
                 <div class="box-body box-profile">
                   <img class="profile-user-img img-responsive img-circle" src="img/prof_pic.png" alt="User profile picture">
-                  <h3 class="profile-username text-center">John Benedict De Castro </h3>
+                  <h3 class="profile-username text-center">{{$prof->user->firstname." ".$prof->user->lastname}} </h3>
                   <p class="text-muted text-center">Software Engineer</p>
 
                   <ul class="list-group list-group-unbordered">
                     <li class="list-group-item">
-                      <b>Patient ID</b> <a class="pull-right">PT13010231</a>
+                      <b>Patient ID</b> <a class="pull-right">{{$prof->id}}</a>
                     </li>
                     <li class="list-group-item">
-                      <b>Nickname</b> <a class="pull-right">Jb</a>
+                      <b>Nickname</b> <a class="pull-right">{{$prof->user->nickname}}</a>
                     </li>
                     <li class="list-group-item">
-                      <b>Birth Date</b> <a class="pull-right">Aug. 25 , 2013</a>
+                      <b>Birth Date</b> <a class="pull-right">{{ date('F d, Y', strtotime($prof->user->birthdate)) }}</a>
                     </li>
                   </ul>
 

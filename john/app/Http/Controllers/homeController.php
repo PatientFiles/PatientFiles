@@ -68,12 +68,16 @@ class homeController extends Controller
     /**
      * patientProfile
      */
-    public function patientProfile()
+    public function patientProfile($id)
     {
         if (! \Session::has('token')) {
             return redirect('');
         }
-        return view('pages.patientProfile');
+        $profile = $this->medix->get('patient/'.$id);
+
+        
+        return view('pages.patientProfile')
+            ->with('prof', $profile->data);
     }
 
     /**

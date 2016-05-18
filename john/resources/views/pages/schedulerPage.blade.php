@@ -2,7 +2,7 @@
 
  <!-- jQuery 2.1.4 -->
    
-
+@section('title', 'Scheduler | Patient Files')
 @section('content')
 
     <!-- Content Header (Page header) -->

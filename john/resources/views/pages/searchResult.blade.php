@@ -1,6 +1,6 @@
 @extends('layouts.masterLayout')
 
-
+@section('title', 'Search Result | Patient Files')
 @section('content')
 
 <section class="content-header">
@@ -137,12 +137,6 @@
 	                    
                     </tbody>
 </table>
-
-
-
-
-
-
 
 
                 </div><!-- /.box-body -->

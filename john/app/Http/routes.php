@@ -32,10 +32,6 @@ Route::resource('patientProfile','homeController@patientProfile');
 
 Route::resource('logout','homeController@logout');
 
-Route::resource('viewProfile','homeController@viewProfile');
-
-Route::resource('dashboard','homeController@dashboard');
-
 Route::resource('register','homeController@register');
 
 Route::resource('scheduler','homeController@scheduler');

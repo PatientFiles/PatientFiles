@@ -8,7 +8,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <head>
      <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Pedics | Dashboard</title>
+    <title>@yield('title')</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -176,15 +176,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <!-- The user image in the navbar-->
                   <img src="img/prof_pic.png" class="user-image" alt="User Image">
                   <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                  <span class="hidden-xs">{{  Session::get('user') }}</span>
+                  <span class="hidden-xs">{{  Session::get('fname') ." ". Session::get('lname') }}</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- The user image in the menu -->
                   <li class="user-header">
                     <img src="img/prof_pic.png" class="img-circle" alt="User Image">
                     <p>
-                      {{  Session::get('user') }} - Web Developer
-                      <small>Member since Nov. 2012</small>
+                      <b>{{  Session::get('fname') ." ". Session::get('lname') }}</b>
+                      <small>{{  Session::get('role') }}</small>
                     </p>
                   </li>
                   <!-- Menu Body -->
@@ -230,7 +230,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <img src="img/prof_pic.png" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-              <p>{{  Session::get('user') }}</p>
+              <p>{{  Session::get('fname') ." ". Session::get('lname') }}</p>
               <!-- Status -->
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>

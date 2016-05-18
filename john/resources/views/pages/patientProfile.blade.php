@@ -1,7 +1,7 @@
 @extends('layouts.masterLayout')
 
 
-
+@section('title', 'Patient Profile | Patient Files')
 @section('content')
 
         <section class="content-header">

@@ -28,62 +28,30 @@ class homeController extends Controller
      */
     public function index()
     {
-        if (\Session::has('user')) {
-            return $this->recent();
+
+        if (! \Session::has('token')) {
+            return redirect('');
         }
         
-        return redirect('');
+        return view('pages.homePage');
     }
 
-    /**
-     * redirect to dashboard
-     */
-    public function dashboard()
-    {
-        return redirect('home');
-    }
 
     /**
      * Patient Records PAGE
      */
     public function patientRecords()
     {
+        if (! \Session::has('token')) {
+            return redirect('');
+        }
+
         $patients = $this->medix->get('patient');
-        print_r($patients);exit;
+        $mytime = Carbon::now();
 
-        $http = new Client('https://api.dev.medix.ph/v1/', 
-            array(
-                'request.options' => array(
-                    'exceptions' => false,
-            )
-        ));
-
-        $request = $http->post('auth', null, array(
-            'X-Tenant'      => 'dev',
-            'client_id'     => 'pedix',
-            'client_secret' => 'dOpOogNqpYkCbOybsflA',
-            'grant_type'    => 'client_credentials',
-        ));
-
-        // make a request to the token url
-        $request->addHeader('X-Tenant', 'dev');
-        $response = $request->send();
-        $responseBody = $response->getBody(true);
-        //dd($responseBody);
-        $responseArr = json_decode($responseBody, true);
-        $accessToken = $responseArr['access_token'];
-
-        // step2: use the token to make an API request
-        $request = $http->get('patient');
-
-        $request->addHeader('X-Tenant','dev');
-        $request->addHeader('Authorization','Bearer '.$accessToken);
-        
-        $response1 = $request->send();
-        // $response->getBody();
-        $result = $response1->json();
-
-        return view('pages.patientRecordsPage')->with('patients', $result['data']);
+        return view('pages.patientRecordsPage')
+            ->with('time', $mytime)
+            ->with('patients', $patients->data);
     }
 
     /**
@@ -91,6 +59,9 @@ class homeController extends Controller
      */
     public function searchResult()
     {
+        if (! \Session::has('token')) {
+            return redirect('');
+        }
         return view('pages.searchResult');
     }
 
@@ -99,6 +70,9 @@ class homeController extends Controller
      */
     public function patientProfile()
     {
+        if (! \Session::has('token')) {
+            return redirect('');
+        }
         return view('pages.patientProfile');
     }
 
@@ -107,6 +81,9 @@ class homeController extends Controller
      */
     public function scheduler()
     {
+        if (! \Session::has('token')) {
+            return redirect('');
+        }
         return view('pages.schedulerPage');
     }
 
@@ -118,43 +95,10 @@ class homeController extends Controller
     public function recent()
     {
         $patients = $this->medix->get('patient');
-        print_r($patients);exit;
 
-        $http = new Client('https://api.dev.medix.ph/v1/', 
-            array(
-                'request.options' => array(
-                    'exceptions' => false,
-            )
-        ));
-
-        $request = $http->post('auth', null, array(
-            'X-Tenant'      => 'dev',
-            'client_id'     => 'pedix',
-            'client_secret' => 'dOpOogNqpYkCbOybsflA',
-            'grant_type'    => 'client_credentials',
-        ));
-
-        // make a request to the token url
-        $request->addHeader('X-Tenant', 'dev');
-        $response = $request->send();
-        $responseBody = $response->getBody(true);
-        //dd($responseBody);
-        $responseArr = json_decode($responseBody, true);
-        $accessToken = $responseArr['access_token'];
-
-        // step2: use the token to make an API request
-        $request = $http->get('patient');
-
-        $request->addHeader('X-Tenant','dev');
-        $request->addHeader('Authorization','Bearer '.$accessToken);
-        
-        $response1 = $request->send();
-        // $response->getBody();
-        $result = $response1->json();
-        $mytime = Carbon::now();
         return view('pages.homePage')
             ->with('time', $mytime)
-            ->with('consults', $result['data']);
+            ->with('consults', $patients->data);
        //return dd($result);
     }
 
@@ -163,9 +107,15 @@ class homeController extends Controller
      */
     public function logout()
     {
-        \Session::forget('user');
+        \Session::forget('user_id');
+        \Session::forget('fname');
+        \Session::forget('lname');
+        \Session::forget('role');
+        \Session::forget('prc');
+        \Session::forget('ptr');
+        \Session::forget('license');
+        \Session::forget('token');
         return redirect('/');
-        
     }
 
     /**
@@ -175,6 +125,9 @@ class homeController extends Controller
      */
     public function register()
     {
+        if (! \Session::has('token')) {
+            return redirect('');
+        }
         return view('pages.patientRegister');
     }
 

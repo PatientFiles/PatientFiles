@@ -1,7 +1,7 @@
 @extends('layouts.masterLayout')
 
 
-
+@section('title', 'Register Patient | Patient Files')
 @section('content')
 <form role="form">
 <div class="panel panel-default" > <!-- Start PANEL -->

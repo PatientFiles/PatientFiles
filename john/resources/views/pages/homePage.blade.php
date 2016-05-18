@@ -2,7 +2,7 @@
 
  <!-- jQuery 2.1.4 -->
    
-
+@section('title', 'Dashboard | Patient Files')
 @section('content')
 
 <section class="content-header">
@@ -273,21 +273,8 @@
                       <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Patient ID</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Patient Name</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Time of Appointment</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Type</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Status</th></tr>
                     </thead>
                     <tbody>
-
-                      @foreach($consults as $consult)
-                        @foreach($consult['patient_appointments'] as $cons)
-                            @if ($cons['appointment_date'] == $time -> toDateString())
-                              <tr role="row" >
-                              <td >{{ $consult['id'] }}</td>
-                              <td>{{ $consult['user']['firstname'] . " " . $consult['user']['lastname'] }}</td>
-                              <td>{{ $cons['appointment_time'] }}</td>
-                              <td>{{ $cons['type'] }}</td>
-                              <td>{{ $cons['status'] }}</td>
-                              </tr>
-                            @endif
-                        @endforeach
-                      @endforeach
-                  
+                          <tr role="row" >
+                          </tr>
                       </tbody>
                   </table></div></div></div>
                 </div><!-- /.box-body -->
@@ -334,30 +321,8 @@
                       <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Consultation End</th></tr>
                     </thead>
                     <tbody>
-
-                          @foreach($consults as $consult)
-                            @foreach($consult['patient_appointments'] as $cons)
-                              @if ($cons['consultation_start'] != null)
-                                @if ( $cons['type'] == 'consultation' )
-                                  <tr role="row" >
-                                    <td>{{ $cons['patient_id'] }}</td>
-                                    <td>{{ $consult['user']['firstname'] . " " . $consult['user']['lastname'] }}</td>
-                                    <td>{{ $cons['type'] }}</td>
-                                    <td>{{ $cons['chief_complaints'] }}</td>
-                                    @if ($cons['checkedin-datetime'] != null)
-                                      <td><span style="display: none;">YYYY/mm/dd</span>{{ date('F d, Y', strtotime($cons['checkedin-datetime'])) }}</td>
-                                    <?php else:?>
-                                    <td></td>
-                                    @endif
-
-                                    <td>{{ $cons['consultation_start'] }}</td>
-                                    <td>{{ $cons['consultation_end'] }}</td>
-                                  </tr>
-                                @endif
-                              @endif
-                            @endforeach
-                          @endforeach
-
+                          <tr role="row" >
+                          </tr>
                       </tbody>
                   </table></div></div>
 

@@ -55,7 +55,9 @@ class loginController extends Controller
         $auth = $this->medix->auth($data);
 
         if (! $auth->access_token) {
-            return view('errors.503');
+             return redirect('/')->with('message',['type'=> 'danger','text' => 'Incorrect Email or Password']);
+                 
+
         }
 
         // Store Token to Session

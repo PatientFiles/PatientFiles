@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 
 class homeController extends Controller
 {
+
+    protected $medix;
+
     /**
      * Display a listing of the resource.
      *
@@ -17,6 +20,7 @@ class homeController extends Controller
     public function __construct()
     {
         $this->middleware('nocache');
+        $this->medix = new \App\Medix\Client();
     }
    
     /**
@@ -44,6 +48,9 @@ class homeController extends Controller
      */
     public function patientRecords()
     {
+        $patients = $this->medix->get('patient');
+        print_r($patients);exit;
+
         $http = new Client('https://api.dev.medix.ph/v1/', 
             array(
                 'request.options' => array(
@@ -110,6 +117,9 @@ class homeController extends Controller
      */
     public function recent()
     {
+        $patients = $this->medix->get('patient');
+        print_r($patients);exit;
+
         $http = new Client('https://api.dev.medix.ph/v1/', 
             array(
                 'request.options' => array(

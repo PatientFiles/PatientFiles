@@ -10,6 +10,9 @@ use Guzzle\Http\Client;
 
 class loginController extends Controller
 {
+
+    protected $medix;
+
     /**
      * Display a listing of the resource.
      *
@@ -18,6 +21,7 @@ class loginController extends Controller
     public function __construct()
     {
         $this->middleware('nocache');
+        $this->medix = new \App\Medix\Client();
     }
     
     public function index()
@@ -40,40 +44,28 @@ class loginController extends Controller
     {
         $req -> all();
 
-        $email = $req -> input('email');
-        $pass  = $req -> input('password');
+        $email = $req->input('email');
+        $pass  = $req->input('password');
 
-        $http = new Client ('https://api.dev.medix.ph/v1/', 
-            array(
-                'request.options' => array (
-                'exceptions' => false,
-            )
-        ));
+        $data = [
+            'username'  => $email,
+            'password'  => $pass
+        ];
 
-        $request = $http->post ('auth', null, array (
-            'X-Tenant'      => 'dev',
-            'client_id'     => 'pedix',
-            'client_secret' => 'dOpOogNqpYkCbOybsflA',
-            'grant_type'    => 'password',
-            'username'      =>  $email,
-            'password'      =>  $pass,
+        $auth = $this->medix->auth($data);
 
-        ));
-
-        // make a request to the token url
-        $request->addHeader('X-Tenant', 'dev');
-        $response = $request->send();
-        $responseBody = $response->getBody(true);
-        //dd($responseBody);
-        
-
-        if ($response->getStatusCode() == 200) {
-            $responseArr = json_decode($responseBody, true);
-            $accessToken = $responseArr['access_token'];
-            \Session::put('user', $email);
-            return redirect('home');
+        if (! $auth->access_token) {
+            return view('errors.503');
         }
-        return view('errors.503');
+
+        // Store Token to Session
+        \Session::put('token', $auth->access_token);
+
+        // GET User Information
+        $user = $this->medix->post('auth/info');
+        \Session::put('user', $user->data);
+
+        return redirect('home');
     }
 
 

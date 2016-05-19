@@ -1,6 +1,22 @@
 @extends('layouts.masterLayout')
 
+
+
+
 @section('title', 'Patient List | Patient Files')
+
+<style type="text/css">
+  
+div#patientListing:hover
+  {
+
+     background-color: #E3E3E3;
+
+  }
+
+
+</style>
+
 @section('content')
 
 
@@ -26,7 +42,7 @@
 <!-- CARD TABLE -->
 
              @foreach($patients as $patient)  
-           <div class="row container"  id="patientListing"  data-reactid=".0.0.0.2.0.1.1.1">
+           <div class="row container-fluid"    id="patientListing"  data-reactid=".0.0.0.2.0.1.1.1">
              <ul style="padding:0;" class="patient-list-style" data-reactid=".0.0.0.2.0.1.1.1.0">                 
                 <li style="list-style: none;" data-reactid=".0.0.0.2.0.1.1.1.0.$0" >
                   <div class="row" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0">
@@ -58,9 +74,9 @@
                   </div>
                 </li>
                 </ul>
-                <hr>
+              
                 </div>
-
+  <hr>
               @endforeach   
           <!-- END CARD TABLE -->    
             

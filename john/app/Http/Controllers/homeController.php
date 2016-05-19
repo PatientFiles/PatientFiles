@@ -33,7 +33,7 @@ class homeController extends Controller
             return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
         }
         
-        return view('pages.homePage');
+        return $this->recent();
     }
 
 
@@ -48,7 +48,7 @@ class homeController extends Controller
 
         $patients = $this->medix->get('patient');
         $mytime = Carbon::now();
-        
+
         return view('pages.patientRecordsPage')
             ->with('time', $mytime)
             ->with('patients', $patients->data);
@@ -57,16 +57,55 @@ class homeController extends Controller
     /**
      * SEARCH RESULT
      */
-    public function searchResult()
+    public function searchResult(Request $request)
     {
+        $request -> all();
+        $search = $request->input('q');
+
         if (! \Session::has('token')) {
             return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
         }
-        
-        $patients = $this->medix->get('patient');
 
-        return view('pages.searchResult')
-            ->with('search', $patients->data);
+        $firstname = $this->medix->get('patient?firstname='. $search);
+        $lastname = $this->medix->get('patient?lastname='. $search);
+
+        //dd($firstname);
+
+        if ($firstname->data){
+            foreach ($firstname->data as $f) { 
+                $fname1 = $f->user->firstname;
+                $lname1 = $f->user->lastname;
+            }
+        } else {
+                $fname1 = ' ';
+                $lname1 = '';
+        }
+
+        if ($lastname->data){
+            foreach ($lastname->data as $l) { 
+                $fname2 = $l->user->firstname;
+                $lname2 = $l->user->lastname;
+            }
+        } else {
+                $fname2 = ' ';
+                $lname2 = '';
+        }
+
+
+        if (strcasecmp($search, $fname1)==0) {
+            return view('pages.searchResult')
+                ->with('result', $firstname->data)
+                ->with('total', count((array)$firstname->data))
+                ->with('search', $search);
+        } elseif (strcasecmp($search, $lname2)==0) {
+            return view('pages.searchResult')
+                ->with('result', $lastname->data)
+                ->with('total', count((array)$lastname->data))
+                ->with('search', $search);
+        }
+        //dd($lastname);
+
+        
     }
 
     /**
@@ -77,7 +116,11 @@ class homeController extends Controller
         if (! \Session::has('token')) {
             return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login to view a patient profile!']);
         }
+
+        $cons = $this->medix->get('patient/' . $id .'/consultations/recent');
+        //dd($cons);
         $profile = $this->medix->get('patient/'.$id);
+        
 
 
         return view('pages.patientProfile')
@@ -103,9 +146,11 @@ class homeController extends Controller
     public function recent()
     {
         $patients = $this->medix->get('patient');
-
+        //dd($patients);
+        $mytime = Carbon::now();
         return view('pages.homePage')
             ->with('time', $mytime)
+            ->with('reg', count((array)$patients->data))
             ->with('consults', $patients->data);
        //return dd($result);
     }

@@ -175,6 +175,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <!-- hidden-xs hides the username on small devices so only the image appears. -->
                   <span class="hidden-xs">{{  Session::get('fname') ." ". Session::get('lname') }}</span>
                 </a>
+
                 <ul class="dropdown-menu">
                   <!-- The user image in the menu -->
                   <li class="user-header">
@@ -228,6 +229,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
             <div class="pull-left info">
               <p>{{  Session::get('fname') ." ". Session::get('lname') }}</p>
+              <small>{{  Session::get('role') }}</small>
               <!-- Status -->
               
             </div>

@@ -18,8 +18,8 @@
  	
  </div> <!-- End Row / -->
 	<hr >
-	<h4>Personal Information</h4>
-	<hr >
+	<h4 style="font-weight: bold;">Personal Information</h4>
+	
 
 	<br>
 
@@ -64,9 +64,9 @@
 
 
 <div >
-	<hr >
-	<h4>Contact Informations</h4>
-	<hr >
+	<hr>
+	<h4 style="font-weight: bold;">Contact Informations</h4>
+
 
 	<br>
 

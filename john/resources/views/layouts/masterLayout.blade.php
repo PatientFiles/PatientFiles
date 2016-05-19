@@ -395,8 +395,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="modal-body">
                     <center >
                     <img src="https://scontent.fmnl2-1.fna.fbcdn.net/v/t1.0-0/cp0/e15/q65/p320x320/13124665_1344124622271634_3408124297216946688_n.jpg?efg=eyJpIjoiYiJ9&oh=6d23816b38eedb0cbec9a7b3814c0a2a&oe=57E62470" name="aboutme" width="140" height="140" border="0" class="img-circle">
-                    <h3 class="media-heading">John Benedict De Castro </h3>
-                    <small>Practitioner</small>
+                    <h3 class="media-heading">{{   Session::get('fname').' '.  Session::get('lname') }}</h3>
+                    <small>{{   Session::get('role')   }}</small>
                     
                     </center>
                     
@@ -409,11 +409,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       
                </center>       
                 <div >
-                        <div>
-                          <b>BIRTHDATE</b> 
-                        </div> <div>  Jan. 25 , 2016  </div>
-                        
-              
                   
                         <div >
                           <b>GENDER </b>
@@ -424,17 +419,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
              
 
                         <div>
-                          <b>PRC</b> 
-                        </div><div>  900091  </div>
+                          <b>PRC LICENSE</b> 
+                        </div><div>{{Session::get('prc')}}</div>
                   
                         <div>
-                          <b>PTR</b> 
-                        </div><div> 100909  </div>
+                          <b>PTR </b> 
+                        </div><div>{{Session::get('ptr')}}</div>
                     
                 
                        <div>
                           <b>S2 LICENSE</b> 
-                        </div><div> <small>10000992720026</small></div>
+                        </div><div> <small>{{Session::get('license')}}</small></div>
                       
               </div>
                     <br>   

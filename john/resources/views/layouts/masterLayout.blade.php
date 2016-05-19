@@ -411,11 +411,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       
                </center>       
                 <div >
-                  
+                        <div >
+                          <b>BIRTHDATE </b>
+                       
+                        </div> <div>{{ date('F d,Y', strtotime(Session::get('bday'))) }}</div>
+
                         <div >
                           <b>GENDER </b>
                        
-                        </div> <div>  Male  </div>
+                        </div> 
+                        @if (Session::get('gender') == 0)
+                          <div>{{'Female'}}</div>
+                        @endif
+                        @if (Session::get('gender') == 1)
+                          <div>{{'Male'}}</div>
+                        @endif
                         
                      <hr >
              

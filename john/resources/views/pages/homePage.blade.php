@@ -177,7 +177,7 @@
               <!-- small box -->
               <div class="small-box bg-aqua">
                 <div class="inner">
-                  <h3>150</h3>
+                  <h3>0</h3>
                   <p>Medical Apparatus</p>
                 </div>
                 <div class="icon">
@@ -192,7 +192,7 @@
               <!-- small box -->
               <div class="small-box bg-green">
                 <div class="inner">
-                  <h3>53,000</h3>
+                  <h3>00.00</h3>
                   <p>Total Sales</p>
                 </div>
                 <div class="icon">
@@ -222,7 +222,7 @@
               <!-- small box -->
               <div class="small-box bg-red">
                 <div class="inner">
-                  <h3>65</h3>
+                  <h3>0</h3>
                   <p>Patient Visits</p>
                 </div>
                 <div class="icon">

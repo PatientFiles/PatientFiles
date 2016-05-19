@@ -48,8 +48,7 @@ class homeController extends Controller
 
         $patients = $this->medix->get('patient');
         $mytime = Carbon::now();
-        dd
-
+        
         return view('pages.patientRecordsPage')
             ->with('time', $mytime)
             ->with('patients', $patients->data);

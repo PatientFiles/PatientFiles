@@ -296,7 +296,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Get In Touch with Patient Files!</h2>
+                    <h2 class="section-heading">Get In Touch with Pedix!</h2>
                    
                     <p>Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
                 </div>
@@ -306,7 +306,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
                 <div class="col-lg-4 text-center">
                     <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
-                    <p><a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a></p>
+                    <p><a href="mailto:your-email@your-domain.com">dev.pedix.ph</a></p>
                 </div>
             </div>
         </div>

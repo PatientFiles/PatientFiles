@@ -10,25 +10,20 @@
 
 
 <!---------BOOTSTRAP STYLE SHEET------------------ -->
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/bootstrap-theme.css">
-     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-  	 <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.css">
+     <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+  	 <link rel="stylesheet" href="/css/bootstrap.min.css">
 
 
 	<link rel="stylesheet" href="css/animate.min.css">
 	<link rel="stylesheet" href="css/creative.css">
 
-    <link rel="stylesheet" href="css/walang-internet-lang.css">
-    <link rel="stylesheet" href="css/walang-internet-template.css">
-
-
-
-
+  
 </head>
 <body>
 
-<div class="offline-ui  offline-ui-down                                                                                                                                                                                                                                               offline-ui-waiting"><div class="offline-ui-content" data-retry-in-value="22" data-retry-in-unit="second"></div><a href="" class="offline-ui-retry"></a></div>
+
 
 @yield('content')
 
@@ -55,10 +50,10 @@
             });
     </script>
 
- 	<script src="js/npm.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/app.js"></script>
+ 	<script src="/js/npm.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/app.js"></script>
 </body>
 </html>

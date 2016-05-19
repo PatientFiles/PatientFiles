@@ -27,7 +27,6 @@ class Client
         $data['grant_type']     = 'password';
 
         $auth = $this->post('auth', $data);
-
         return $auth;
     }
 
@@ -60,7 +59,7 @@ class Client
 
         $request = new Request($method, $url, $headers);
         $response = $this->client->send($request, ['json' => $data]);
-
-        return json_decode($response->getBody()->getContents());
+        $result = json_decode($response->getBody()->getContents());
+        return $result;
     }
 }

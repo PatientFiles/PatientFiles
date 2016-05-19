@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Exception;
+use GuzzleHttp\Exception\RequestException;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -17,6 +18,7 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontReport = [
+        RequestException::class,
         AuthorizationException::class,
         HttpException::class,
         ModelNotFoundException::class,
@@ -45,6 +47,9 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
+         if ($e instanceof RequestException) {
+            return redirect('/')->with('message',['type'=> 'danger','text' => 'Incorrect Email or Password']);
+        }
         return parent::render($request, $e);
     }
 }

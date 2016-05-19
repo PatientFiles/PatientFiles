@@ -53,10 +53,11 @@ class loginController extends Controller
 
         $auth = $this->medix->auth($data);
 
-
         if (! $auth->access_token) {
              return redirect('/')->with('message',['type'=> 'danger','text' => 'Incorrect Email or Password']);
         }
+
+        //dd($auth);
 
         // Store Token to Session
         \Session::put('token', $auth->access_token);

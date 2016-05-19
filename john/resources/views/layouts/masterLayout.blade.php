@@ -23,6 +23,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="/css/loading.css">
      <link rel="stylesheet" href="/css/loading2.css">
+          <link rel="stylesheet" href="/css/bootstrap-table.css">
 
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
@@ -236,7 +237,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </div>
 
           <!-- search form (Optional) -->
-          <form action="searchResult" method="post" class="sidebar-form">
+          <form action="/searchResult" method="post" class="sidebar-form">
           {{csrf_field()}}
             <div class="input-group">
               <input type="text" name="q" class="form-control" placeholder="Search...">
@@ -403,18 +404,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </center>
                     
                 <div class="container-fluid" >   
-               <center>
+                   
+                <div style="padding: 10px 40px;">
+
+                   <center>
                <hr>
                       <div  >  
                         <h4 style="font-weight: bold;" style="float: left;">PERSONAL INFORMATION</h4>
                       </div>
-                      
-               </center>       
-                <div >
+                       <hr>
+               </center>  
+
+
                         <div >
                           <b>BIRTHDATE </b>
                        
-                        </div> <div>{{ date('F d,Y', strtotime(Session::get('bday'))) }}</div>
+                        </div> <div style="padding-bottom: 10px">{{ date('F d,Y', strtotime(Session::get('bday'))) }}</div>
 
                         <div >
                           <b>GENDER </b>
@@ -428,15 +433,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         @endif
                         
                      <hr >
-             
-
+                        <center>
+                           <div  >  
+                            <h4 style="font-weight: bold;" style="float: left;">LICENSE INFORMATION</h4>
+                          </div>
+                          <hr>
+                        </center>
+                       
                         <div>
                           <b>PRC LICENSE</b> 
-                        </div><div>{{Session::get('prc')}}</div>
-                  
+                        </div><div style="padding-bottom: 10px">{{Session::get('prc')}}</div>
+                       
                         <div>
                           <b>PTR </b> 
-                        </div><div>{{Session::get('ptr')}}</div>
+                        </div><div style="padding-bottom: 10px">{{Session::get('ptr')}}</div>
                     
                 
                        <div>
@@ -448,9 +458,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
                 
                 <div class="modal-footer">
-                    <center>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                    </center>
+                   
+                    <button type="button" class="btn btn-primary pull-right" data-dismiss="modal">Close</button>
+                   
                 </div>
             </div>
         </div>

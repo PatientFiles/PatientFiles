@@ -59,7 +59,7 @@ class Client
 
         $request = new Request($method, $url, $headers);
         $response = $this->client->send($request, ['json' => $data]);
-        $result = json_decode($response->getBody()->getContents());
+        $result = json_decode($response->getBody());
         return $result;
     }
 }

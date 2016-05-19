@@ -30,7 +30,7 @@ class homeController extends Controller
     {
 
         if (! \Session::has('token')) {
-            return redirect('');
+            return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
         }
         
         return view('pages.homePage');
@@ -43,11 +43,12 @@ class homeController extends Controller
     public function patientRecords()
     {
         if (! \Session::has('token')) {
-            return redirect('');
+            return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please login to access Patient Records!']);
         }
 
         $patients = $this->medix->get('patient');
         $mytime = Carbon::now();
+        dd
 
         return view('pages.patientRecordsPage')
             ->with('time', $mytime)
@@ -60,7 +61,7 @@ class homeController extends Controller
     public function searchResult()
     {
         if (! \Session::has('token')) {
-            return redirect('');
+            return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
         }
         
         $patients = $this->medix->get('patient');
@@ -75,7 +76,7 @@ class homeController extends Controller
     public function patientProfile($id)
     {
         if (! \Session::has('token')) {
-            return redirect('');
+            return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login to view a patient profile!']);
         }
         $profile = $this->medix->get('patient/'.$id);
 
@@ -90,7 +91,7 @@ class homeController extends Controller
     public function scheduler()
     {
         if (! \Session::has('token')) {
-            return redirect('');
+            return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login to access scheduler!']);
         }
         return view('pages.schedulerPage');
     }
@@ -134,7 +135,7 @@ class homeController extends Controller
     public function register()
     {
         if (! \Session::has('token')) {
-            return redirect('');
+            return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
         }
         return view('pages.patientRegister');
     }

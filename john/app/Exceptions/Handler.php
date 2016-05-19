@@ -48,7 +48,7 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $e)
     {
          if ($e instanceof RequestException) {
-            return redirect('/')->with('message',['type'=> 'danger','text' => 'Incorrect Email or Password']);
+            return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Incorrect Email or Password']);
         }
         return parent::render($request, $e);
     }

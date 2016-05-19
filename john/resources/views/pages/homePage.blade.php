@@ -207,7 +207,7 @@
               <!-- small box -->
               <div class="small-box bg-yellow">
                 <div class="inner">
-                  <h3>44</h3>
+                  <h3>{{$reg}}</h3>
                   <p>Patient Registrations</p>
                 </div>
                 <div class="icon">
@@ -239,7 +239,7 @@
 
 	<section class="content-header">
 	          <h1>
-	            What's Happening
+	            What's Happening - {{date('F d, Y',strtotime($time))}}
 	            <small></small>
 	          </h1>
 	         
@@ -310,16 +310,33 @@
        data-show-columns="true" id="table2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                     <h4 class="pull-left">Recent Consultations</h4>
                     <thead >
-                      <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Patient ID</th>
-                      <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Patient Name</th>
-                      <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Type</th>
-                      <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Chief Complaints</th>
-                      <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Checked In Date/Time</th>
-                      <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Consultation Start</th>
-                      <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Consultation End</th></tr>
+                      
+                        <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Patient ID</th>
+                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Patient Name</th>
+                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Type</th>
+                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Chief Complaints</th>
+                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Consultation Start</th>
+                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Consultation End</th>
+                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Status</th></tr>
+                      
                     </thead>
                     <tbody>
-                      </tbody>
+                      @foreach($consults as $consult)
+                      @foreach($consult->patient_appointments as $appoint)
+                      @if (strcasecmp($appoint->type, 'consultation')==0)
+                      <tr role="row">
+                        <td>{{$consult->id}}</td>
+                        <td>{{$consult->user->firstname .' '. $consult->user->lastname}}</td>
+                        <td>{{$appoint->type}}</td>
+                        <td>{{$appoint->chief_complaints}}</td>
+                        <td>{{$appoint->consultation_start}}</td>
+                        <td>{{$appoint->consultation_end}}</td>
+                        <td>{{$appoint->status}}</td>
+                      </tr>
+                      @endif
+                      @endforeach
+                      @endforeach
+                    </tbody>
                   </table></div></div>
 
                 

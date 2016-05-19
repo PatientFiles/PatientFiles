@@ -34,7 +34,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
          <script src="/js/bootstrap-datepicker.js"></script>
         
-
+<!-- VEX SCRIPT / LINK -->
+<script src="/js/vex.combined.min.js"></script>
+<script>vex.defaultOptions.className = 'vex-theme-os';</script>
+<link rel="stylesheet" href="/css/vex.css" />
+<link rel="stylesheet" href="/css/vex-theme-os.css" />
   </head>
   <!--
   BODY TAG OPTIONS:
@@ -202,7 +206,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-left">
-                      <a href="#" class="btn btn-default btn-flat">Profile</a>
+                      <a href="" onclick="myVex()" class="btn btn-default btn-flat"  data-toggle="modal" data-target="#profModal">Profile</a>
                     </div>
                     <div class="pull-right">
                       <a href="/logout" class="btn btn-default btn-flat">Sign out</a>
@@ -232,7 +236,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="pull-left info">
               <p>{{  Session::get('fname') ." ". Session::get('lname') }}</p>
               <!-- Status -->
-              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+              
             </div>
           </div>
 
@@ -384,6 +388,84 @@ scratch. This page gets rid of all links and provides the needed markup only.
      
      
    
+     
+     
+     
+     <!-- MODAL PROFILE -->
+  <div class="modal fade" id="profModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div  class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title" id="myModalLabel" style="color: white;font-weight: bolder;">Profile</h4>
+                    </div>
+                <div class="modal-body">
+                    <center >
+                    <img src="https://scontent.fmnl2-1.fna.fbcdn.net/v/t1.0-0/cp0/e15/q65/p320x320/13124665_1344124622271634_3408124297216946688_n.jpg?efg=eyJpIjoiYiJ9&oh=6d23816b38eedb0cbec9a7b3814c0a2a&oe=57E62470" name="aboutme" width="140" height="140" border="0" class="img-circle">
+                    <h3 class="media-heading">John Benedict De Castro </h3>
+                    <small>Practitioner</small>
+                    
+                    </center>
+                    
+                <div class="container-fluid" >   
+               <center>
+               <hr>
+                      <div  >  
+                        <h4 style="font-weight: bold;" style="float: left;">PERSONAL INFORMATION</h4>
+                      </div>
+                      
+               </center>       
+                <div >
+                        <div>
+                          <b>BIRTHDATE</b> 
+                        </div> <div>  Jan. 25 , 2016  </div>
+                        
+              
+                  
+                        <div >
+                          <b>GENDER </b>
+                       
+                        </div> <div>  Male  </div>
+                        
+                     <hr >
+             
+
+                        <div>
+                          <b>PRC</b> 
+                        </div><div>  900091  </div>
+                  
+                        <div>
+                          <b>PTR</b> 
+                        </div><div> 100909  </div>
+                    
+                
+                       <div>
+                          <b>S2 LICENSE</b> 
+                        </div><div> <small>10000992720026</small></div>
+                      
+              </div>
+                    <br>   
+                </div>
+                
+                <div class="modal-footer">
+                    <center>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
  <script src="/plugins/jQuery/jQuery-2.1.4.min.js"></script>
  <!-- Bootstrap 3.3.5 -->
 <script src="/js/bootstrap.min.js"></script>
@@ -766,5 +848,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
     });
   });
 </script>
+
+
+<script >
+function myVex() {
+ vex.dialog.confirm
+    message: 'Are you absolutely sure you want to destroy the alien planet?'
+    callback: (value) ->
+        console.log if value then 'Successfully destroyed the planet.' else 'Chicken.'
+      }
+
+</script>
+
+
+
   </body>
 </html>

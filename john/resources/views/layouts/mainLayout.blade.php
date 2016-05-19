@@ -19,6 +19,8 @@
 	<link rel="stylesheet" href="css/animate.min.css">
 	<link rel="stylesheet" href="css/creative.css">
 
+    <link rel="stylesheet" href="css/walang-internet-lang.css">
+    <link rel="stylesheet" href="css/walang-internet-template.css">
 
 
 
@@ -26,7 +28,7 @@
 </head>
 <body>
 
-
+<div class="offline-ui  offline-ui-down                                                                                                                                                                                                                                               offline-ui-waiting"><div class="offline-ui-content" data-retry-in-value="22" data-retry-in-unit="second"></div><a href="" class="offline-ui-retry"></a></div>
 
 @yield('content')
 

@@ -1,9 +1,21 @@
 @extends('layouts.masterLayout')
 
- <!-- jQuery 2.1.4 -->
+<style type="text/css">
+	
+html
+	{
+		font: 12px sans-serif;
+	}
+	
+</style>
+
 
 @section('title', 'Scheduler | Patient Files')
 @section('content')
 
-  
-  @stop
+
+
+<button type="button" id="scrollButton">Scroll Scheduler</button>
+<div id="scheduler"></div>
+
+@stop

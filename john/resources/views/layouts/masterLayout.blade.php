@@ -25,14 +25,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
      <link rel="stylesheet" href="/css/loading2.css">
           <link rel="stylesheet" href="/css/bootstrap-table.css">
 
+          <link rel="stylesheet" href="/css/kendo.common.min.css">
+          <link rel="stylesheet" href="/css/kendo.default.min.css">
+          <script src="/js/kendo.web.min.js"></script>
+          
+
+
+
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="/dist/css/skins/_all-skins.min.css">
   <script src='/plugins/chartjs/Chart.min.js'></script>
    <script src='/plugins/chartjs/Chart.js'></script>
         <script src="/js/pace.js"></script>
-
-
+          <script src="//fast.eager.io/CAcQLdp-HA.js"></script>
+       
   </head>
   <!--
   BODY TAG OPTIONS:
@@ -388,7 +395,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
      
      
      <!-- MODAL PROFILE -->
-  <div class="modal fade" id="profModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div style="height: 100%" class="modal fade" id="profModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div  class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -405,14 +412,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     
                 <div class="container-fluid" >   
                    
-                <div style="padding: 10px 40px;">
+                <div style="padding: 0px 40px;">
 
                    <center>
                <hr>
                       <div  >  
                         <h4 style="font-weight: bold;" style="float: left;">PERSONAL INFORMATION</h4>
                       </div>
-                       <hr>
+                     
                </center>  
 
 
@@ -437,7 +444,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                            <div  >  
                             <h4 style="font-weight: bold;" style="float: left;">LICENSE INFORMATION</h4>
                           </div>
-                          <hr>
+                    
                         </center>
                        
                         <div>
@@ -701,8 +708,153 @@ scratch. This page gets rid of all links and provides the needed markup only.
       
     </script> 
 
+      
+    
+ <script async src="//jsfiddle.net/slicedtoad/u2fL05ea/9/embed/"></script>
+ 
+ <script >
+   $("#scrollButton").click(function () {
+    scrollCalendarToCurrentTime();
+});
 
+function scrollCalendarToCurrentTime() {
+    if ($('.k-scheduler-times').length > 0) {
+        var formattedTime = '8:00 AM';
+        
+        $('th:not(.k-slot-cell), .k-scheduler-times:eq(1)').each(function () {
+            if ($(this).text() == formattedTime) {
+                var that = $(this);
+                
+                $('.k-scheduler-content').animate({
+                    scrollTop: that.position().top
+                });
+                
+                return false;
+            }
+        });
+    }
+}
 
-
-  </body>
-</html>
+$("#scheduler").kendoScheduler({
+    date: new Date("2013/6/13"),
+    startTime: new Date("2013/6/13 00:00 AM"),
+    height: 600,
+    views: [
+        "day", {
+            type: "week",
+            selected: true
+        },
+        "month",
+        "agenda"],
+    timezone: "Etc/UTC",
+    dataSource: {
+        batch: true,
+        transport: {
+            read: {
+                url: "http://demos.telerik.com/kendo-ui/service/tasks",
+                dataType: "jsonp"
+            },
+            update: {
+                url: "http://demos.telerik.com/kendo-ui/service/tasks/update",
+                dataType: "jsonp"
+            },
+            create: {
+                url: "http://demos.telerik.com/kendo-ui/service/tasks/create",
+                dataType: "jsonp"
+            },
+            destroy: {
+                url: "http://demos.telerik.com/kendo-ui/service/tasks/destroy",
+                dataType: "jsonp"
+            },
+            parameterMap: function (options, operation) {
+                if (operation !== "read" && options.models) {
+                    return {
+                        models: kendo.stringify(options.models)
+                    };
+                }
+            }
+        },
+        schema: {
+            model: {
+                id: "taskId",
+                fields: {
+                    taskId: {
+                        from: "TaskID",
+                        type: "number"
+                    },
+                    title: {
+                        from: "Title",
+                        defaultValue: "No title",
+                        validation: {
+                            required: true
+                        }
+                    },
+                    start: {
+                        type: "date",
+                        from: "Start"
+                    },
+                    end: {
+                        type: "date",
+                        from: "End"
+                    },
+                    startTimezone: {
+                        from: "StartTimezone"
+                    },
+                    endTimezone: {
+                        from: "EndTimezone"
+                    },
+                    description: {
+                        from: "Description"
+                    },
+                    recurrenceId: {
+                        from: "RecurrenceID"
+                    },
+                    recurrenceRule: {
+                        from: "RecurrenceRule"
+                    },
+                    recurrenceException: {
+                        from: "RecurrenceException"
+                    },
+                    ownerId: {
+                        from: "OwnerID",
+                        defaultValue: 1
+                    },
+                    isAllDay: {
+                        type: "boolean",
+                        from: "IsAllDay"
+                    }
+                }
+            }
+        },
+        filter: {
+            logic: "or",
+            filters: [{
+                field: "ownerId",
+                operator: "eq",
+                value: 1
+            }, {
+                field: "ownerId",
+                operator: "eq",
+                value: 2
+            }]
+        }
+    },
+    resources: [{
+        field: "ownerId",
+        title: "Owner",
+        dataSource: [{
+            text: "Alex",
+            value: 1,
+            color: "#f8a398"
+        }, {
+            text: "Bob",
+            value: 2,
+            color: "#51a0ed"
+        }, {
+            text: "Charlie",
+            value: 3,
+            color: "#56ca85"
+        }]
+    }]
+});
+ </script>

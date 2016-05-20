@@ -34,19 +34,30 @@ div#patientListing:hover
 	 
 	<hr id="p_hr1">
 
+
 	<div class="panel panel-default" >
   <div class="panel-body" >
-
+      
+       <div class="input-group pull-right" style="width: 50%" >           
+             <input  type="text" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Go!</button>
+            </span>
+      </div>
+      <br>
+      <br>
+      <hr>
 
 
 <!-- CARD TABLE -->
+    
 
              @foreach($patients as $patient)  
-           <div class="row container-fluid"    id="patientListing"  data-reactid=".0.0.0.2.0.1.1.1">
+           <div  class="row container-fluid"    id="patientListing"   data-reactid=".0.0.0.2.0.1.1.1">
              <ul style="padding:0;" class="patient-list-style" data-reactid=".0.0.0.2.0.1.1.1.0">                 
                 <li style="list-style: none;" data-reactid=".0.0.0.2.0.1.1.1.0.$0" >
                   <div class="row" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0">
-                  <div class="col-md-3" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.0"><img   class="img-circle" src="/img/generic.png" style="width: 50%" >
+                  <div class="col-md-3 " data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.0"><img   class="img-circle" src="/img/generic.png" style="width: 50%" >
                   </div>
                   <div class="col-md-9" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1">
                   <div class="col-md-8" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0">
@@ -82,6 +93,11 @@ div#patientListing:hover
             
        </div>
 </div>     
+
+
+
+
+
 
 
 @stop

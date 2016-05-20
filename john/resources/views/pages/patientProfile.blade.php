@@ -17,6 +17,7 @@
 
 
 
+
         <section class="content">
 
           <div class="row">
@@ -67,12 +68,21 @@
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
             </div><!-- /.col -->
+
+
+
+
+
+
             <div class="col-md-9">
+            
               <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
                   <li class="active"><a href="#activity" data-toggle="tab">Visit</a></li>
                   <li><a href="#timeline" data-toggle="tab">Admission</a></li>
                   <li><a href="#settings" data-toggle="tab">Vitals</a></li>
+                    <li><a href="#treatment" data-toggle="tab">Treatment Record</a></li>
+                
                 </ul>
                 <div class="tab-content">
    <!--Visit-->
@@ -112,8 +122,7 @@
                       </tr>
                     </thead>
                       
-                    </tbody>
-
+                 
                   </table></div></div></div>
                 </div><!-- /.box-body -->
             </div>
@@ -160,7 +169,7 @@
                     </thead>
 
                       
-                    </tbody>
+                  
 
                   </table></div></div></div>
                 </div><!-- /.box-body -->
@@ -196,7 +205,7 @@
                       <h3 class="box-title pull-left" >Admission History</h3> 
                       <thead>
                       <tr role="row">
-                      <th class="sorting_asc" tabindex="0" aria-controlsne: activate to sort column descending" style="width: 177px;="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engi">Height</th>
+                      <th class="sorting_asc" tabindex="0" aria-controlsne: activate to sort column descending style="width: 177px;" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engi">Height</th>
                       <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 224px;">Weight</th>
                       
                       <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 152px;">Pulserate</th>
@@ -207,8 +216,7 @@
                       
                     </thead>
 
-                     
-                    </tbody>
+                
 
                   </table></div></div></div>
                 </div><!-- /.box-body -->
@@ -216,15 +224,99 @@
        </div>
 </div> 
                   </div><!-- /.tab-pane -->
+                    
+                    <!-- TAB FOR TREATMENT -->
+                <div class="tab-pane" id="treatment">
+          
+                      <div class="panel panel-default" >
+                          <div class="panel-body" >
+                            <div class="row container-fluid" >   
+                                <div>
+                                     <input type="button" style="width: 200px" data-toggle="modal" data-target="#treatmentModal" class="btn btn-primary pull-right" value="Add New Treatment Plan" />
+                                </div>
+                                
+              
+             <!-- ADD TREATMENT MODAL -->
+                             
+                <div class="modal fade" id="treatmentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 style="color:white;" class="modal-title" id="myModalLabel">New Treatment</h4>
+                      </div>
+                       <form role="form">
+                      <div class="modal-body">
+
+                     
+                        <div class="form-group">
+                          <label for="email">Date:</label>
+                          <input type="email" class="form-control" placeholder="mm/dd/yyyy">
+                        </div>
+                        <div class="form-group">
+                          <label for="email">Procedure:</label>
+                          <input type="email" class="form-control" placeholder="Procedure">
+                        </div>
+                        <div class="form-group">
+                          <label for="email">Remarks:</label>
+                          <input type="email" class="form-control" placeholder="Remarks">
+                        </div>
+                        <div class="form-group">
+                          <label for="email">Amount Charge :</label>
+                          <input type="email" class="form-control" placeholder="00.00">
+                        </div>
+                       
+                    
+                 
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Finish</button>
+                      </div>
+                           </form>
+                      
+                    </div>
+                  </div>
+                </div>  <!-- END TREATMENT MODAL -->
+                                
+                                
+                                
+                      <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table data-toggle="table"
+                       data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+                       data-search="true"
+                       data-show-refresh="true"
+                       data-show-toggle="true"
+                       data-show-columns="true" id="table2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                      <h3 class="box-title pull-left" >Treatment Record</h3> 
+                      <thead>
+                      <tr role="row">
+                      <th class="sorting_asc" tabindex="0" aria-controlsne: activate to sort column descending style="width: 177px;" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engi">Height</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 224px;">Weight</th>
+                      
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 152px;">Pulserate</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Respiratory</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Body Temperature</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Blood Presure</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Doctor Notes</th>
+                      
+                    </thead>
+
+                
+
+                  </table></div></div></div>
+              
+                                
+                            </div>
+                          </div>          
+                      </div>    
+                    
                 </div><!-- /.tab-content -->
               </div><!-- /.nav-tabs-custom -->
             </div><!-- /.col -->
           </div><!-- /.row -->
 
         </section><!-- /.content -->
-
-
-
 
 
 @stop

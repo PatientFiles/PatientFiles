@@ -29,7 +29,7 @@ class patientController extends Controller
         $recentCons = $this->medix->get('patient/' . $id .'/consultations/recent');
         $pastCons = $this->medix->get('patient/' . $id .'/consultations/past');
         $pastVitals = $this->medix->get('vitals/patient/' . $id . '/past');
-        //dd($pastVitals);
+        //dd($pastCons);
         $profile = $this->medix->get('patient/'.$id);
         $address = current((array)$profile->data->user->user_addresses);
         //dd($profile);
@@ -40,7 +40,9 @@ class patientController extends Controller
 
         if ($height == 0) {
             $bmi = 'N/A';
-        }else {$bmi = round(($vitals->data->vitals->general_survey->weight) / pow($height,2),2);}
+        } else {
+            $bmi = round(($vitals->data->vitals->general_survey->weight) / pow($height,2),2);
+        }
         
         //dd($bmi);
         //dd($vitals);
@@ -49,7 +51,7 @@ class patientController extends Controller
             ->with('prof', $profile->data)
             ->with('recentCons', $recentCons->data)
             ->with('address', $address)
-            ->with('pastCons', $recentCons->data)
+            ->with('consult', $pastCons->data->patient_appointments)
             ->with('vitals', $pastVitals->data)
             ->with('bmi', $bmi)
             ->with('recentVitals', $vitals->data->vitals->general_survey);

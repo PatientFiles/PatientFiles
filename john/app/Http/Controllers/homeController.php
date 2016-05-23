@@ -66,43 +66,42 @@ class homeController extends Controller
             return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
         }
 
-        $firstname = $this->medix->get('patient?firstname='. $search);
         $lastname = $this->medix->get('patient?lastname='. $search);
+        $firstname = $this->medix->get('patient?firstname='. $search);
 
         //dd($firstname);
 
-        if ($firstname->data){
+        if ($firstname->data) {
             foreach ($firstname->data as $f) { 
                 $fname1 = $f->user->firstname;
                 $lname1 = $f->user->lastname;
-            }
-        } else {
-                $fname1 = ' ';
-                $lname1 = '';
-        }
-
-        if ($lastname->data){
-            foreach ($lastname->data as $l) { 
-                $fname2 = $l->user->firstname;
-                $lname2 = $l->user->lastname;
-            }
-        } else {
-                $fname2 = ' ';
-                $lname2 = '';
-        }
-
-
-        if (strcasecmp($search, $fname1)==0) {
+            } if (strcasecmp($search, $fname1)==0) {
             return view('pages.searchResult')
                 ->with('result', $firstname->data)
                 ->with('total', count((array)$firstname->data))
                 ->with('search', $search);
-        } elseif (strcasecmp($search, $lname2)==0) {
-            return view('pages.searchResult')
+            }
+        } if (empty((array)$firstname->data)) {
+            if ($lastname->data){
+                foreach ($lastname->data as $l) { 
+                    $fname2 = $l->user->firstname;
+                    $lname2 = $l->user->lastname;
+                } if (strcasecmp($search, $lname2)==0) {
+                return view('pages.searchResult')
+                    ->with('result', $lastname->data)
+                    ->with('total', count((array)$lastname->data))
+                    ->with('search', $search);
+                }
+            } if (empty((array)$lastname->data)){
+                return view('pages.searchResult')
                 ->with('result', $lastname->data)
-                ->with('total', count((array)$lastname->data))
+                ->with('total', 0 . ' Records')
                 ->with('search', $search);
+            }
         }
+
+        
+
         //dd($lastname);
 
         

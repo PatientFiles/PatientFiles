@@ -33,6 +33,10 @@
 
 
                      <tbody>
+                     	@if (! $result)
+
+                     	@endif
+                     	@if ($result)
 	                    @foreach($result as $patient) 
 		                    <tr role="row" class="even">
 		                        <td class="sorting_1">{{ $patient->id }}</td>
@@ -49,7 +53,7 @@
 		                        </td>
 		                    </tr>
 	                    @endforeach
-	                    
+	                    @endif
                     </tbody>
 </table>
 

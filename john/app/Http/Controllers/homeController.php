@@ -71,7 +71,7 @@ class homeController extends Controller
 
         //dd($firstname);
 
-        if ($firstname->data){
+        if ($firstname->data) {
             foreach ($firstname->data as $f) { 
                 $fname1 = $f->user->firstname;
                 $lname1 = $f->user->lastname;
@@ -83,21 +83,21 @@ class homeController extends Controller
             }
         } if (empty((array)$firstname->data)) {
             if ($lastname->data){
-            foreach ($lastname->data as $l) { 
-                $fname2 = $l->user->firstname;
-                $lname2 = $l->user->lastname;
-            } if (strcasecmp($search, $lname2)==0) {
-            return view('pages.searchResult')
-                ->with('result', $lastname->data)
-                ->with('total', count((array)$lastname->data))
-                ->with('search', $search);
-        }
-        } if (empty((array)$lastname->data)){
+                foreach ($lastname->data as $l) { 
+                    $fname2 = $l->user->firstname;
+                    $lname2 = $l->user->lastname;
+                } if (strcasecmp($search, $lname2)==0) {
+                return view('pages.searchResult')
+                    ->with('result', $lastname->data)
+                    ->with('total', count((array)$lastname->data))
+                    ->with('search', $search);
+                }
+            } if (empty((array)$lastname->data)){
                 return view('pages.searchResult')
                 ->with('result', $lastname->data)
-                ->with('total', 0)
+                ->with('total', 0 . ' Records')
                 ->with('search', $search);
-        }
+            }
         }
 
         

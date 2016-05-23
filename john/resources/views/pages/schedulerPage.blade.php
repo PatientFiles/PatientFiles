@@ -1,13 +1,6 @@
 @extends('layouts.masterLayout')
 
-<style type="text/css">
-	
-html
-	{
-		font: 12px sans-serif;
-	}
-	
-</style>
+
 
 
 @section('title', 'Scheduler | Patient Files')
@@ -15,7 +8,12 @@ html
 
 
 
-<button type="button" id="scrollButton">Scroll Scheduler</button>
-<div id="scheduler"></div>
+
+<div id="sandbox-container">
+    <input type="text" type="text" class="form-control" />
+</div>
+
+
+
 
 @stop

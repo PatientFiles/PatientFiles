@@ -39,9 +39,9 @@
  </div>
 
  <div class="row form-group">
- 	<div class="col-lg-6">
- 		<input type="text" class="form-control" placeholder="Birth Date" aria-describedby="basic-addon1" required>
- 	</div>
+ 	<div id="sandbox-container" class="col-lg-6">
+    	<input type="text" type="text" class="form-control" placeholder="Birth Date  :  mm/dd/yyyy"  required />
+	</div>
  	
  	<div class="col-lg-6">
  		<input type="text" class="form-control" placeholder="Civil Status" aria-describedby="basic-addon1" required>

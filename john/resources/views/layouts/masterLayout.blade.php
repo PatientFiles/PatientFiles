@@ -27,19 +27,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           <link rel="stylesheet" href="/css/kendo.common.min.css">
           <link rel="stylesheet" href="/css/kendo.default.min.css">
-          <script src="/js/kendo.web.min.js"></script>
           
-
-
+          
+            <link rel="stylesheet" href="/css/datepicker3.css">
+   
 
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="/dist/css/skins/_all-skins.min.css">
-  <script src='/plugins/chartjs/Chart.min.js'></script>
-   <script src='/plugins/chartjs/Chart.js'></script>
-        <script src="/js/pace.js"></script>
-          <script src="//fast.eager.io/CAcQLdp-HA.js"></script>
-       
+  <link rel="stylesheet" href="/css/vex.css" />
+<link rel="stylesheet" href="/css/vex-theme-os.css" />
   </head>
   <!--
   BODY TAG OPTIONS:
@@ -479,21 +476,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
      
      
      
-     
-     
-     
-     
- <script src="/plugins/jQuery/jQuery-2.1.4.min.js"></script>
- <!-- Bootstrap 3.3.5 -->
+ 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>    
 <script src="/js/bootstrap.min.js"></script>
- <script src="/js/bootstrap-table.js"></script>
-<!-- ChartJS 1.0.1 -->
+<script src="/js/bootstrap-table.js"></script>
 <script src="/plugins/chartjs/Chart.min.js"></script>
-<!-- FastClick -->
 <script src="/plugins/fastclick/fastclick.min.js"></script>
-<!-- AdminLTE App -->
 <script src="/dist/js/app.min.js"></script>
-<!-- AdminLTE for demo purposes -->
+<script src='/plugins/chartjs/Chart.min.js'></script>
+<script src='/plugins/chartjs/Chart.js'></script>
+<script src="/js/pace.js"></script>
+<script src="//fast.eager.io/CAcQLdp-HA.js"></script>
+<script src="/js/bootstrap-datepicker.js"></script>
+<script src="/js/kendo.web.min.js"></script>   
+
 <script src="/dist/js/demo.js">
 
  <script>
@@ -709,9 +705,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </script> 
 
       
-    
- <script async src="//jsfiddle.net/slicedtoad/u2fL05ea/9/embed/"></script>
- 
+
+
  <script >
    $("#scrollButton").click(function () {
     scrollCalendarToCurrentTime();
@@ -858,3 +853,40 @@ $("#scheduler").kendoScheduler({
     }]
 });
  </script>
+
+
+<script >
+  
+$('#sandbox-container input').datepicker({
+    autoclose: true
+});
+
+$('#sandbox-container input').on('show', function(e){
+    console.debug('show', e.date, $(this).data('stickyDate'));
+    
+    if ( e.date ) {
+         $(this).data('stickyDate', e.date);
+    }
+    else {
+         $(this).data('stickyDate', null);
+    }
+});
+
+$('#sandbox-container input').on('hide', function(e){
+    console.debug('hide', e.date, $(this).data('stickyDate'));
+    var stickyDate = $(this).data('stickyDate');
+    
+    if ( !e.date && stickyDate ) {
+        console.debug('restore stickyDate', stickyDate);
+        $(this).datepicker('setDate', stickyDate);
+        $(this).data('stickyDate', null);
+    }
+});
+
+</script>
+
+
+
+</div>
+</body>
+</html>

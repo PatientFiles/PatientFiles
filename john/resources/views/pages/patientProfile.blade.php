@@ -52,19 +52,25 @@
                   <h3 class="box-title">Patient Info</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                  <strong><i class="fa fa-book margin-r-5"></i>  Vitals</strong>
-                  <h5> Height : <p class="pull-right"> 172cm </p> </h5>
-                  <h5> Weight : <p class="pull-right"> 50kg </p> </h5>
+                      <strong><i class="fa fa-book margin-r-5"></i>  Vitals</strong>
+                 <h5> Height (cm): <p class="pull-right">{{$recentVitals->height}}</p> </h5>
+                 <h5> Weight (kg): <p class="pull-right">{{$recentVitals->weight}}</p> </h5>
+                 <h5> BMI : <p class="pull-right">{{$bmi}}</p> </h5>
+                 <h5> Pulse Rate : <p class="pull-right">{{$recentVitals->pulserate}}</p> </h5>
+                 <h5> Respiratory Rate : <p class="pull-right">{{$recentVitals->respiratoryrate}}</p> </h5>
+                 <h5> Body Temperature (c): <p class="pull-right">{{$recentVitals->bodytemperature}}</p> </h5>
+                 <h5> Blood Pressure : <p class="pull-right">{{$recentVitals->bloodpressure_sys.'/'.$recentVitals->bloodpressure_dia}}</p> </h5>
 
-                  <hr>
 
-                  <strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
-                  <p class="text-muted">Quezon City, Philippines</p>
+                 <hr>
 
-                  <hr>
+                 <strong><i class="fa fa-map-marker margin-r-5"></i> Address</strong>
+                 <p class="text-muted">{{$address}}</p>
 
-                  <strong><i class="fa fa-file-text-o margin-r-5"></i> Notes</strong>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+                 <hr>
+
+                 <strong><i class="fa fa-file-text-o margin-r-5"></i> Notes</strong>
+                 <p>{{$recentVitals->notes}}</p>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
             </div><!-- /.col -->
@@ -74,136 +80,128 @@
 
 
 
-            <div class="col-md-9">
+            <div class="col-md-9">  <!-- COLUMN FOR TABLES (TABS) -->
             
               <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
-                  <li class="active"><a href="#activity" data-toggle="tab">Visit</a></li>
-                  <li><a href="#timeline" data-toggle="tab">Admission</a></li>
-                  <li><a href="#settings" data-toggle="tab">Vitals</a></li>
+                  <li class="active"><a href="#visits" data-toggle="tab">Visit</a></li>
+                  <li><a href="#admission" data-toggle="tab">Admission</a></li>
+                  <li><a href="#vitals" data-toggle="tab">Vitals</a></li>
                     <li><a href="#treatment" data-toggle="tab">Treatment Record</a></li>
                 
                 </ul>
-                <div class="tab-content">
-   <!--Visit-->
-                  <div class="active tab-pane" id="activity">
-                   
-
-  <div class="panel panel-default" >
-  <div class="panel-body" >
-        <div class="row container-fluid" >
-          
-        <form class="form-inline" style="padding: 0px 10px;">
-        
-          <div class="form-group"  style="float: right;padding-top: 13px">
-            
+                  
+                  
+            <div class=" tab-content">   <!-- START TAB CONTENT -->
                
-
-          </div>
-        </form>    
-
-
-                <div class="box-body table-responsive" >
-                  <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table data-toggle="table"
-       data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
-       data-search="true"
-       data-show-refresh="true"
-       data-show-toggle="true"
-       data-show-columns="true" id="table2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
-                      <h3 class="box-title pull-left" >Visits</h3> 
-                      <thead>
-                      <tr role="row">
-                      <th class="sorting_asc" tabindex="0" aria-controlsne: activate to sort column descending" style="width: 177px;="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engi">Date</th>
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 224px;">Time</th>
-                      
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 152px;">Procedure</th>
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Observation</th>
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Tota Amount</th>
-                      </tr>
-                    </thead>
-                      
-                 
-                  </table></div></div></div>
-                </div><!-- /.box-body -->
-            </div>
-       </div>
-</div> 
-                  </div><!-- /.tab-pane -->
-    <!--Admission-->
-                  <div class="tab-pane" id="timeline">
-                  
-  <div class="panel panel-default" >
-  <div class="panel-body" >
-        <div class="row container-fluid" >
+                     <div class="active tab-pane" id="visits">  <!--  START OF VISITS TAB -->
           
-        <form class="form-inline" style="padding: 0px 10px;">
-         
-          <div class="form-group"  style="float: right;padding-top: 13px">
-            
-             
-
-          </div>
-        </form>    
-
-
-                <div class="box-body table-responsive" >
-                  <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table data-toggle="table"
-       data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
-       data-search="true"
-       data-show-refresh="true"
-       data-show-toggle="true"
-       data-show-columns="true" id="table2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
-                        
-                       <h3 class="box-title pull-left" >Admission History</h3> 
-                      <thead>
-                      <tr role="row">
-                      <th class="sorting_asc" tabindex="0" aria-controlsne: activate to sort column descending" style="width: 177px;="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engi">Date In</th>
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 224px;">Time In</th>
-                      
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 152px;">Procedure</th>
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Observation</th>
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Time Out</th>
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Date Out</th>
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Action</th>
-                      </tr>
-                    </thead>
-
-                      
-                  
-
-                  </table></div></div></div>
-                </div><!-- /.box-body -->
-            </div>
-       </div>
-</div> 
-                  </div><!-- /.tab-pane -->
-    <!--Vitals-->
-
-                  <div class="tab-pane" id="settings">
-          
-  <div class="panel panel-default" >
-  <div class="panel-body" >
-                               
-  <div>
-         <input type="button" style="width: 200px" data-toggle="modal" data-target="#vitalsModal" class="btn btn-primary pull-right" value="Update Vitals" />
-    </div>
-            
+                      <div class="panel panel-default" >
+                          <div class="panel-body" >
+                            <div class="row container-fluid" > 
+                                
            
-        <div class="row container-fluid" >
+                      <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table data-toggle="table"
+                       data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+                       data-search="true"
+                       data-show-refresh="true"
+                       data-show-toggle="true"
+                       data-show-columns="true" id="table2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                      <h3 class="box-title pull-left" >Treatment Record</h3> 
+                      <thead>
+                      <tr role="row">
+                      <th class="sorting_asc" tabindex="0" aria-controlsne: activate to sort column descending style="width: 177px;" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engi">Height</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 224px;">Weight</th>
+                      
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 152px;">Pulserate</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Respiratory</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Body Temperature</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Blood Presure</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Doctor Notes</th>
+                      
+                    </thead>
+
+                
+
+                  </table></div></div></div>
+              
+                                
+                            </div>
+                          </div>          
+                      </div>    
+                    
+                </div><!-- END VISITS TAB -->
+                    
+                  
+                <!-- START ADMISSION TAB -->
+                        
+                     <div class="tab-pane" id="admission">
           
-   
-<!-- MODAL ADD VITALS -->
-<div class="modal fade" id="vitalsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="panel panel-default" >
+                          <div class="panel-body" >
+                            <div class="row container-fluid" >  
+                                
+     
+                      <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table data-toggle="table"
+                       data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+                       data-search="true"
+                       data-show-refresh="true"
+                       data-show-toggle="true"
+                       data-show-columns="true" id="table2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                      <h3 class="box-title pull-left" >Treatment Record</h3> 
+                      <thead>
+                      <tr role="row">
+                      <th class="sorting_asc" tabindex="0" aria-controlsne: activate to sort column descending style="width: 177px;" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engi">Height</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 224px;">Weight</th>
+                      
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 152px;">Pulserate</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Respiratory</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Body Temperature</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Blood Presure</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Doctor Notes</th>
+                      
+                    </thead>
+
+                
+
+                  </table></div></div></div>
+              
+                                
+                            </div>
+                          </div>          
+                      </div>    
+                    
+                </div><!-- END ADMISSION TAB -->
+                    
+                  
+                  
+               
+                     <div class="tab-pane" id="vitals">
+          
+                      <div class="panel panel-default" >
+                          <div class="panel-body" >
+                            <div class="row container-fluid" >   
+                                <div>
+                                     <input type="button" style="width: 200px" data-toggle="modal" data-target="#vitalsModal" class="btn btn-primary pull-right" value="Update VItals" />
+                                </div>
+                        
+              
+             <!-- ADD VITALS MODAL -->
+                             
+                <div class="modal fade" id="vitalsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 style="color:white;" class="modal-title" id="myModalLabel">New Treatment</h4>
                       </div>
-                       <form role="form">
+                    
+                      
+                        
+                        <form role="form">
                       <div class="modal-body">
 
-                     
+                            
 
                         <div class="form-group" id="sandbox-container">
                           <label for="email">Date:</label>
@@ -234,29 +232,17 @@
                       
                     </div>
                   </div>
-                </div> 
-
-<!-- END ADD VITALS -->
-
-          
-        <form class="form-inline" style="padding: 0px 10px;">
-         
-          <div class="form-group"  style="float: right;padding-top: 13px">
-            
-              
-
-          </div>
-        </form>    
-
-
-                <div class="box-body table-responsive" >
-                  <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table data-toggle="table"
-       data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
-       data-search="true"
-       data-show-refresh="true"
-       data-show-toggle="true"
-       data-show-columns="true" id="table2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
-                      <h3 class="box-title pull-left" >Admission History</h3> 
+                </div>  <!-- END VITALS MODAL -->
+                                
+                                
+                                
+                      <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table data-toggle="table"
+                       data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+                       data-search="true"
+                       data-show-refresh="true"
+                       data-show-toggle="true"
+                       data-show-columns="true" id="table2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                      <h3 class="box-title pull-left" >Treatment Record</h3> 
                       <thead>
                       <tr role="row">
                       <th class="sorting_asc" tabindex="0" aria-controlsne: activate to sort column descending style="width: 177px;" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engi">Height</th>
@@ -273,14 +259,21 @@
                 
 
                   </table></div></div></div>
-                </div><!-- /.box-body -->
-            </div>
-       </div>
-</div> 
-                  </div><!-- /.tab-pane -->
+              
+                                
+                            </div>
+                          </div>          
+                      </div>    
                     
-                    <!-- TAB FOR TREATMENT -->
-                <div class="tab-pane" id="treatment">
+                </div><!-- END VITALS TAB -->
+                    
+                  
+                  
+                  
+              <!-- START TRATMENT MODAL -->
+                
+               
+                     <div class="tab-pane" id="treatment">
           
                       <div class="panel panel-default" >
                           <div class="panel-body" >
@@ -288,8 +281,7 @@
                                 <div>
                                      <input type="button" style="width: 200px" data-toggle="modal" data-target="#treatmentModal" class="btn btn-primary pull-right" value="Add New Treatment Plan" />
                                 </div>
-                                
-              
+                    
              <!-- ADD TREATMENT MODAL -->
                              
                 <div class="modal fade" id="treatmentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -320,10 +312,7 @@
                           <label for="email">Amount Charge :</label>
                           <input type="email" class="form-control" placeholder="00.00">
                         </div>
-                       
-                    
-                 
-
+   
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -366,11 +355,14 @@
                           </div>          
                       </div>    
                     
-                </div><!-- /.tab-content -->
-              </div><!-- /.nav-tabs-custom -->
-            </div><!-- /.col -->
-          </div><!-- /.row -->
-
+                </div><!-- END TREATMENT TAB --> 
+                    
+                    
+                    
+              </div><!-- END TAB CONTENT -->
+            </div><!-- End NAV TABS -->
+          </div><!-- /.row  col-lg-9  -->
+            </div> <!-- END MAIN ROW -->
         </section><!-- /.content -->
 
 

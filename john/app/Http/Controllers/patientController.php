@@ -37,7 +37,11 @@ class patientController extends Controller
         //dd($vitals_date);
         $vitals = $this->medix->get('patient/' . $id . '/vitals/' . $vitals_date->general->created_at);
         $height =$vitals->data->vitals->general_survey->height * 0.01;
-        $bmi = round(($vitals->data->vitals->general_survey->weight) / pow($height,2),2);
+
+        if ($height == 0) {
+            $bmi = 'N/A';
+        }else {$bmi = round(($vitals->data->vitals->general_survey->weight) / pow($height,2),2);}
+        
         //dd($bmi);
         //dd($vitals);
 

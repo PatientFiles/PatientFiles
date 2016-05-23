@@ -119,6 +119,8 @@ class homeController extends Controller
         $cons = $this->medix->get('patient/' . $id .'/consultations/recent');
         //dd($cons);
         $profile = $this->medix->get('patient/'.$id);
+        $vitals = $this->medix->get('patient/' . $id . '/vitals/' . Carbon::now());
+        dd($vitals);
         
 
 

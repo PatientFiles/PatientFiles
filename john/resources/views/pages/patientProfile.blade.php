@@ -163,7 +163,7 @@
                        data-show-refresh="true"
                        data-show-toggle="true"
                        data-show-columns="true" id="table2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
-                      <h3 class="box-title pull-left" >Treatment Record</h3> 
+                      <h3 class="box-title pull-left" >Admission Record</h3> 
                       <thead>
                       <tr role="row">
                       <th class="sorting_asc" tabindex="0" aria-controlsne: activate to sort column descending style="width: 177px;" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engi">Height</th>
@@ -197,7 +197,7 @@
                           <div class="panel-body" >
                             <div class="row container-fluid" >   
                                 <div>
-                                     <input type="button" style="width: 200px" data-toggle="modal" data-target="#vitalsModal" class="btn btn-primary pull-right" value="Update VItals" />
+                                     <input type="button" style="width: 200px" data-toggle="modal" data-target="#vitalsModal" class="btn btn-primary pull-right" value="Add Vitals" />
                                 </div>
                         
               
@@ -257,12 +257,11 @@
                        data-show-refresh="true"
                        data-show-toggle="true"
                        data-show-columns="true" id="table2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
-                      <h3 class="box-title pull-left" >Treatment Record</h3> 
+                      <h3 class="box-title pull-left" >Vitals Record</h3> 
                       <thead>
                       <tr role="row">
                       <th class="sorting_asc" tabindex="0" aria-controlsne: activate to sort column descending style="width: 177px;" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engi">Height</th>
                       <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 224px;">Weight</th>
-                      
                       <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 152px;">Pulserate</th>
                       <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Respiratory</th>
                       <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Body Temperature</th>
@@ -270,8 +269,20 @@
                       <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Doctor Notes</th>
                       
                     </thead>
-
-                
+                    <tbody>
+                      @foreach ($vitals as $vital)
+                        <tr>
+                           <td> {{$vital->general->height}} </td>
+                           <td> {{$vital->general->weight}} </td>
+                           <td> {{$vital->general->pulserate}} </td>
+                           <td> {{$vital->general->respiratoryrate}} </td>
+                           <td> {{$vital->general->bodytemperature}} </td>
+                           <td> {{$vital->general->bloodpressure_sys.'/'.$vital->general->bloodpressure_dia}} </td>
+                           <td> {{$vital->general->notes}} </td>
+                        </tr> 
+                      @endforeach
+                    </tbody>
+                    
 
                   </table></div></div></div>
               

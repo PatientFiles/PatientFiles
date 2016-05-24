@@ -22,7 +22,7 @@ class patientController extends Controller
      */
     public function patientProfile($id)
     {
-         if (! \Session::has('token')) {
+        if (! \Session::has('token')) {
             return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login to view a patient profile!']);
         }
 
@@ -55,5 +55,41 @@ class patientController extends Controller
             ->with('vitals', $pastVitals->data)
             ->with('bmi', $bmi)
             ->with('recentVitals', $vitals->data->vitals->general_survey);
+    }
+
+    public function saveVitals($patient_id, Request $request)
+    {
+
+        if (! \Session::has('token')) {
+            return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
+        }
+
+        $request -> all();
+
+        $height = $request->input('height');
+        $weight  = $request->input('weight');
+        $pulse  = $request->input('pulse');
+        $resp  = $request->input('respiratory');
+        $temp  = $request->input('temp');
+        $sys  = $request->input('sys');
+        $dia  = $request->input('dia');
+        $mens  = $request->input('mens');
+        $notes  = $request->input('notes');
+
+        $data = [
+            'height'  => $height,
+            'weight'  => $weight,
+            'pulserate'  => $pulse,
+            'respiratoryrate'  => $resp,
+            'bodytemperature'  => $temp,
+            'bloodpressure_sys'  => $sys,
+            'bloodpressure_dia'  => $dia,
+            'last_menstrual'  => $mens,
+            'notes'  => $notes
+        ];
+        $this->medix->post('patient/'. $patient_id .'/vitals/general_survey', $data);
+        //dd($addVitals);
+
+        return redirect()->route('patientProfile', [$patient_id])->with('success',['type'=> 'success','text' => 'Vitals successfully added']);
     }
 }

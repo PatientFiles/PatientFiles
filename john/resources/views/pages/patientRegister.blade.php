@@ -40,7 +40,7 @@
 
  <div class="row form-group">
  	<div id="sandbox-container" class="col-lg-6">
-    	<input type="text" type="text" class="form-control" placeholder="Birth Date  :  mm/dd/yyyy"  required />
+    	<input type="text" type="text" class="form-control" placeholder="Birth Date" required />
 	</div>
  	
  	<div class="col-lg-6">

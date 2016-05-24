@@ -36,4 +36,14 @@ Route::resource('register','homeController@register');
 
 Route::resource('scheduler','homeController@scheduler');
 
+Route::resource('pediatricians','homeController@pediatricians');
+
+/*
+ * ROUTE FOR Patient Profile
+ */
+
+
+Route::post('saveVitals/{id}','patientController@saveVitals');
+
+
 

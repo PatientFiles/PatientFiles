@@ -26,7 +26,7 @@ medical records accessible anytime, anywhere.</p>
                     <h2 class="section-heading" style="color: black"><span class="glyphicon glyphicon-user"></span>  Login Your Account</h2>
                     <hr class="">
                     
-                    <form role="form" method="post" action="medix">
+                    <form role="form" method="post" action="/medix">
                         {!! csrf_field() !!}
 
 

@@ -240,4 +240,18 @@ class homeController extends Controller
     {
         //
     }
+
+    /**
+     * Show Pediatricians List
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function pediatricians()
+    {
+        if (! \Session::has('token')) {
+            return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
+        }
+        return view('pages.pediatricians');
+    }
+
 }

@@ -266,8 +266,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <li class="treeview">
               <a href=""><i class="fa fa-black-tie"></i> <span>Management</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-user"></i> Pediatricians</a></li>
-                 <li><a href="register"><i class="fa fa-user"></i>Add Patient</a></li>
+                <li><a href="/pediatricians"><i class="fa fa-user"></i> Pediatricians</a></li>
+                 <li><a href="/register"><i class="fa fa-user"></i>Add Patient</a></li>
                 <li><a href="#"><i class="fa fa-medkit"></i>Procedure</a></li>
                 <li><a href="#"><i class="fa  fa-stethoscope"></i>Treatment Plan</a></li>
                 <li><a href="#"><i class="fa  fa-money"></i>Accounting</a></li>

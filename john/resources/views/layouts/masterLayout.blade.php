@@ -401,11 +401,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title" id="myModalLabel" style="color: white;font-weight: bolder;">Profile</h4>
+                    <h4 class="modal-title" id="myModalLabel" style="color: white;font-weight: bolder;">My Profile</h4>
                     </div>
                 <div class="modal-body">
                     <center >
-                    <img src="https://scontent.fmnl2-1.fna.fbcdn.net/v/t1.0-0/cp0/e15/q65/p320x320/13124665_1344124622271634_3408124297216946688_n.jpg?efg=eyJpIjoiYiJ9&oh=6d23816b38eedb0cbec9a7b3814c0a2a&oe=57E62470" name="aboutme" width="140" height="140" border="0" class="img-circle">
+                    <img src="https://scontent.fmnl2-1.fna.fbcdn.net/v/t1.0-0/cp0/e15/q65/p320x320/13124665_1344124622271634_3408124297216946688_n.jpg?efg=eyJpIjoiYiJ9&oh=6d23816b38eedb0cbec9a7b3814c0a2a&oe=57E62470" name="aboutme" width="70" height="50" border="0" class="img-circle">
                     <h3 class="media-heading">{{   Session::get('fname').' '.  Session::get('lname') }}</h3>
                     <small>{{   Session::get('role')   }}</small>
                     

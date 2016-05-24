@@ -438,7 +438,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                         
                         
-                     <hr >
+                     <hr>
                         <div>
                            <div  >  
                             <h4 style="font-weight: bold; padding-left: 17px;">LICENSE INFORMATION</h4>

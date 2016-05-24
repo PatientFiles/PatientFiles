@@ -404,62 +404,54 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <h4 class="modal-title" id="myModalLabel" style="color: white;font-weight: bolder;">My Profile</h4>
                     </div>
                 <div class="modal-body">
-                    <center >
-                    <img src="https://scontent.fmnl2-1.fna.fbcdn.net/v/t1.0-0/cp0/e15/q65/p320x320/13124665_1344124622271634_3408124297216946688_n.jpg?efg=eyJpIjoiYiJ9&oh=6d23816b38eedb0cbec9a7b3814c0a2a&oe=57E62470" name="aboutme" width="70" height="50" border="0" class="img-circle">
-                    <h3 class="media-heading">{{   Session::get('fname').' '.  Session::get('lname') }}</h3>
-                    <small>{{   Session::get('role')   }}</small>
-                    
-                    </center>
+                    <div class="row" style="padding: 0px 57px;" >
+                      <div class="col-lg-3">
+                        <img src="https://scontent.fmnl2-1.fna.fbcdn.net/v/t1.0-0/cp0/e15/q65/p320x320/13124665_1344124622271634_3408124297216946688_n.jpg?efg=eyJpIjoiYiJ9&oh=6d23816b38eedb0cbec9a7b3814c0a2a&oe=57E62470" name="aboutme" width="100" height="100" border="0" class="img-circle">
+                      </div>
+                      <div class="col-lg-9 pull-left">
+                        <h3 class="widget-user-username">{{   Session::get('fname').' '.  Session::get('lname') }}</h3>
+                        <small>{{   Session::get('role')   }}</small>
+                      </div>
+                    </div>
                     
                 <div class="container-fluid" >   
                    
                 <div style="padding: 0px 40px;">
 
-                   <center>
+                   <div>
                <hr>
                       <div  >  
-                        <h4 style="font-weight: bold;" style="float: left;">PERSONAL INFORMATION</h4>
+                        <h4 style="font-weight: bold; padding-left: 17px;" >PERSONAL INFORMATION</h4>
                       </div>
                      
-               </center>  
+               </div> 
+               <div> 
+              <ul class="nav nav-stacked">
+                <li><a href="#">Birthdate <span class="pull-right badge bg-blue">{{ date('F d,Y', strtotime(Session::get('bday'))) }}</span></a></li>
+                @if (Session::get('gender') == 0)
+                <li><a href="#">Gender <span class="pull-right badge bg-aqua">Female</span></a></li>
+                @endif
+                @if (Session::get('gender') == 1)
+                <li><a href="#">Gender <span class="pull-right badge bg-aqua">Male</span></a></li>
+                @endif
+              </ul></div>
 
-
-                        <div >
-                          <b>BIRTHDATE </b>
-                       
-                        </div> <div style="padding-bottom: 10px">{{ date('F d,Y', strtotime(Session::get('bday'))) }}</div>
-
-                        <div >
-                          <b>GENDER </b>
-                       
-                        </div> 
-                        @if (Session::get('gender') == 0)
-                          <div>{{'Female'}}</div>
-                        @endif
-                        @if (Session::get('gender') == 1)
-                          <div>{{'Male'}}</div>
-                        @endif
+                        
                         
                      <hr >
-                        <center>
+                        <div>
                            <div  >  
-                            <h4 style="font-weight: bold;" style="float: left;">LICENSE INFORMATION</h4>
+                            <h4 style="font-weight: bold; padding-left: 17px;">LICENSE INFORMATION</h4>
                           </div>
                     
-                        </center>
-                       
-                        <div>
-                          <b>PRC LICENSE</b> 
-                        </div><div style="padding-bottom: 10px">{{Session::get('prc')}}</div>
-                       
-                        <div>
-                          <b>PTR </b> 
-                        </div><div style="padding-bottom: 10px">{{Session::get('ptr')}}</div>
-                    
-                
-                       <div>
-                          <b>S2 LICENSE</b> 
-                        </div><div> <small>{{Session::get('license')}}</small></div>
+                        </div>
+                        <div> 
+              <ul class="nav nav-stacked">
+                <li><a href="#">PRC License <span class="pull-right badge bg-blue">{{Session::get('prc')}}</span></a></li>
+                <li><a href="#">PTR License <span class="pull-right badge bg-red">{{Session::get('ptr')}}</span></a></li>
+                <li><a href="#">S2 License <span class="pull-right badge bg-green">{{Session::get('ptr')}}</span></a></li>
+              </ul></div>
+                        
                       
               </div>
                     <br>   

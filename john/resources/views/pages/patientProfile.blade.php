@@ -103,6 +103,7 @@
            
                       <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table data-toggle="table"
                        data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+                    
                        data-search="true"
                        data-show-refresh="true"
                        data-show-toggle="true"
@@ -125,12 +126,13 @@
 
                           @else
                           <tr role = "row">
+                            <td><b>{{date('F d, Y', strtotime($appoint->appointment_date))}}</b></td>
                             <td>{{$appoint->chief_complaints}}</td>
                             <td>{{$appoint->consultation->subjective}}</td>
                             <td>{{$appoint->consultation->objective}}</td>
                             <td>{{$appoint->consultation->assessment}}</td>
                             <td>{{$appoint->consultation->plan}}</td>
-                            <td>{{date('F d, Y', strtotime($appoint->appointment_date))}}</td>
+                          
                           </tr>
                           @endif
                       @endforeach
@@ -269,6 +271,7 @@
                 </div>  <!-- END VITALS MODAL -->
                       <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table data-toggle="table"
                        data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+                       data-card-view="true"
                        data-search="true"
                        data-show-refresh="true"
                        data-show-toggle="true"
@@ -289,7 +292,7 @@
                     <tbody>
                       @foreach ($vitals as $vital)
                         <tr>
-                          <td> {{date('F d, Y', strtotime($vital->general->created_at))}} </td>
+                          <td> <b>{{date('F d, Y', strtotime($vital->general->created_at))}} </b></td>
                            <td> {{$vital->general->height.' cm.'}} </td>
                            <td> {{$vital->general->weight.' kg.'}} </td>
                            <td> {{$vital->general->pulserate}} </td>

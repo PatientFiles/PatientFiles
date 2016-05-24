@@ -36,4 +36,7 @@ Route::resource('register','homeController@register');
 
 Route::resource('scheduler','homeController@scheduler');
 
+Route::resource('pediatricians','homeController@pediatricians');
+
+
 

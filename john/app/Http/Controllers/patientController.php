@@ -64,32 +64,37 @@ class patientController extends Controller
             return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
         }
 
-        $request -> all();
+        $request->all();
 
         $height = $request->input('height');
-        $weight  = $request->input('weight');
+        $weight = $request->input('weight');
         $pulse  = $request->input('pulse');
-        $resp  = $request->input('respiratory');
-        $temp  = $request->input('temp');
-        $sys  = $request->input('sys');
-        $dia  = $request->input('dia');
-        $mens  = $request->input('mens');
+        $resp   = $request->input('respiratory');
+        $temp   = $request->input('temp');
+        $sys    = $request->input('sys');
+        $dia    = $request->input('dia');
+        $mens   = $request->input('mens');
         $notes  = $request->input('notes');
 
         $data = [
-            'height'  => $height,
-            'weight'  => $weight,
-            'pulserate'  => $pulse,
-            'respiratoryrate'  => $resp,
-            'bodytemperature'  => $temp,
-            'bloodpressure_sys'  => $sys,
-            'bloodpressure_dia'  => $dia,
-            'last_menstrual'  => $mens,
-            'notes'  => $notes
+            'height'            => $height,
+            'weight'            => $weight,
+            'pulserate'         => $pulse,
+            'respiratoryrate'   => $resp,
+            'bodytemperature'   => $temp,
+            'bloodpressure_sys' => $sys,
+            'bloodpressure_dia' => $dia,
+            'last_menstrual'    => $mens,
+            'notes'             => $notes
         ];
         $this->medix->post('patient/'. $patient_id .'/vitals/general_survey', $data);
         //dd($addVitals);
 
         return redirect()->route('patientProfile', [$patient_id])->with('success',['type'=> 'success','text' => 'Vitals successfully added']);
+    }
+
+    public function addPatient(Request $request)
+    {
+
     }
 }

@@ -69,7 +69,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <header class="main-header" >
 
         <!-- Logo -->
-        <a href="dashboard" class="logo">
+        <a href="/home" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>P</b>FS</span>
           <!-- logo for regular state and mobile devices -->

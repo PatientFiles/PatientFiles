@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Http\Requests;
 use Guzzle\Http\Client;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreatePatientRequest;
 
 class patientController extends Controller
 {
@@ -57,8 +58,12 @@ class patientController extends Controller
             ->with('recentVitals', $vitals->data->vitals->general_survey);
     }
 
-    public function saveVitals($patient_id, Request $request)
+    public function saveVitals($id, Request $request)
     {
+
+        if (! \Session::has('token')) {
+            return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
+        }
 
         $request->all();
 
@@ -83,15 +88,17 @@ class patientController extends Controller
             'last_menstrual'    => $mens,
             'notes'             => $notes
         ];
-        $this->medix->post('patient/'. $patient_id .'/vitals/general_survey', $data);
+        $addVitals = $this->medix->post('patient/'. $id .'/vitals/general_survey', $data);
         //dd($addVitals);
 
-        return redirect()->route('patientProfile', [$patient_id])->with('success',['type'=> 'success','text' => 'Vitals successfully added']);
+        return redirect('patientProfile/'. $id .'#vitals')->with('success',['type'=> 'success','text' => 'Vitals successfully added']);
     }
 
-    public function addPatient(Request $request)
-    {
+    public function addPatient(CreatePatientRequest $request)
+    {   
 
-        $this->medix->post('patient/'. $patient_id .'/vitals/general_survey', $data);
+        $input = $request->except(['password',  '_token']);
+
+        return redirect()->to('/register');
     }
 }

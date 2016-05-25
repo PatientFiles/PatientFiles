@@ -32,13 +32,16 @@
 
                   <ul class="list-group list-group-unbordered">
                     <li class="list-group-item">
-                      <b>Patient ID</b> <a class="pull-right">{{$prof->id}}</a>
+                      <b>Patient ID</b> <a class="pull-right badge bg-blue">{{$prof->id}}</a>
                     </li>
                     <li class="list-group-item">
-                      <b>Nickname</b> <a class="pull-right">{{$prof->user->nickname}}</a>
+                      <b>Nickname</b> <a class="pull-right badge bg-blue">{{$prof->user->nickname}}</a>
                     </li>
                     <li class="list-group-item">
-                      <b>Birth Date</b> <a class="pull-right">{{ $prof->user->birthdate }}</a>
+                      <b>Birth Date</b> <a class="pull-right badge bg-blue">{{ $prof->user->birthdate }}</a>
+                    </li>
+                    <li class="list-group-item">
+                      <strong>Address:</strong><a class="pull-right badge bg-blue">{{$address}}</a>
                     </li>
                   </ul>
 
@@ -49,7 +52,7 @@
               <!-- About Me Box -->
               <div class="box box-primary">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Patient Info</h3>
+                  <h3 class="box-title">Patient Latest Vitals</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                       <strong><i class="fa fa-book margin-r-5"></i>  Vitals</strong>
@@ -61,15 +64,9 @@
                  <h5> Body Temperature (c): <p class="pull-right">{{$recentVitals->bodytemperature}}</p> </h5>
                  <h5> Blood Pressure : <p class="pull-right">{{$recentVitals->bloodpressure_sys.'/'.$recentVitals->bloodpressure_dia}}</p> </h5>
 
-
                  <hr>
 
-                 <strong><i class="fa fa-map-marker margin-r-5"></i> Address</strong>
-                 <p class="text-muted">{{$address}}</p>
-
-                 <hr>
-
-                 <strong><i class="fa fa-file-text-o margin-r-5"></i> Notes</strong>
+                 <strong><i class="fa fa-file-text-o margin-r-5"></i> Doctor's Notes</strong>
                  <p>{{$recentVitals->notes}}</p>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->

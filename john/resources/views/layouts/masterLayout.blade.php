@@ -1039,7 +1039,20 @@ $('#sandbox-container input').on('hide', function(e){
         });
       });
     </script>
-<!-- SCHEDULER SCRIPT -->      
+<!-- SCHEDULER SCRIPT --> 
+
+<!-- DATEPICKER FOR MODAL SCRIPT --> 
+  <script type="text/javascript">
+       $('#idTourDateDetails').datepicker({
+            dateFormat: 'dd-mm-yy',
+            minDate: '+5d',
+            changeMonth: true,
+            changeYear: true,
+            altField: "#idTourDateDetailsHidden",
+            altFormat: "yy-mm-dd"
+        });
+  </script>   
+<!-- DATEPICKER FOR MODAL SCRIPT -->  
 
 </div>
 </body>

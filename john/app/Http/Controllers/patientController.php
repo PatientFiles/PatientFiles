@@ -60,10 +60,6 @@ class patientController extends Controller
     public function saveVitals($patient_id, Request $request)
     {
 
-        if (! \Session::has('token')) {
-            return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
-        }
-
         $request->all();
 
         $height = $request->input('height');
@@ -96,5 +92,6 @@ class patientController extends Controller
     public function addPatient(Request $request)
     {
 
+        $this->medix->post('patient/'. $patient_id .'/vitals/general_survey', $data);
     }
 }

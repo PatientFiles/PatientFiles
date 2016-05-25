@@ -473,7 +473,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
      
      
  
+<script src="/js/vendor/jquery.js"></script>      
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>    
+<script src="/js/bootstrap-formhelpers.js"></script>
+<script src="/js/bootstrap-formhelpers.min.js"></script>
+<script src="/js/bootstrap-formhelpers-phone.js"></script> 
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/bootstrap-table.js"></script>
 <script src="/plugins/chartjs/Chart.min.js"></script>
@@ -1053,7 +1057,5 @@ $('#sandbox-container input').on('hide', function(e){
         });
   </script>   
 <!-- DATEPICKER FOR MODAL SCRIPT -->  
-
-</div>
 </body>
 </html>

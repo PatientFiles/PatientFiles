@@ -23,7 +23,7 @@ class patientController extends Controller
      */
     public function patientProfile($id)
     {
-        if (! \Session::has('token')) {
+        if (! \Session::has('fname')) {
             return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login to view a patient profile!']);
         }
 
@@ -96,9 +96,65 @@ class patientController extends Controller
 
     public function addPatient(CreatePatientRequest $request)
     {   
+        if (! \Session::has('token')) {
+            return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
+        }
 
-        $input = $request->except(['password',  '_token']);
+        $request->all();
 
-        return redirect()->to('/register');
+        $fname        = $request->input('fname');
+        $mname        = $request->input('mname');
+        $lname        = $request->input('lname');
+        $nickname     = $request->input('nickname');
+        $bdate        = $request->input('bdate');
+        $civil_status = $request->input('civil_status');
+        $religion     = $request->input('religion');
+        $gender       = $request->input('gender');
+        $govt         = $request->input('govt');
+        $govtnum      = $request->input('govtnum');
+        $email        = $request->input('email');
+        $mobile       = $request->input('mobile');
+        $landline     = $request->input('landline');
+        $efname       = $request->input('efname');
+        $emname       = $request->input('emname');
+        $elname       = $request->input('elname');
+        $econtact     = $request->input('econtact');
+        $erelation    = $request->input('erelation');
+        $street       = $request->input('street');
+        $brgy         = $request->input('brgy');
+        $city         = $request->input('city');
+        $province     = $request->input('province');
+        $zip_code     = $request->input('zip_code');
+
+        $data = [
+            'firstname'                 => $fname,
+            'middlename'                => $mname,
+            'lastname'                  => $lname,
+            'nickname'                  => $nickname,
+            'birthdate'                 => $bdate,
+            'user_religion'             => $religion,
+            'civil_status'              => $civil_status,
+            'gender'                    => $gender,
+            "user_government_id"        => [
+                                                'government_id_type_id' => $govt,
+                                                'number'                => $govtnum,
+                                           ],
+            'user_emails'               => $email,
+            'user_phone_numbers'        => $mobile,
+            'user_emergency_contacts'   => $efname,
+            'user_emergency_contacts'   => $emname,
+            'user_emergency_contacts'   => $elname,
+            'user_emergency_contacts'   => $econtact,
+            'user_emergency_contacts'   => $erelation,
+            'user_addresses'            => $street,
+            'user_addresses'            => $brgy,
+            'user_addresses'            => $city,
+            'user_addresses'            => $province,
+            'user_addresses'            => $zip_code,
+        ];
+        $addPatient = $this->medix->post('patient', $data);
+        dd($addPatient);
+
+        //return redirect()->to('/register')->withInput();
     }
 }

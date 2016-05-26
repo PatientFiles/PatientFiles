@@ -45,7 +45,7 @@ Route::resource('pediatricians','homeController@pediatricians');
 
 Route::post('saveVitals/{id}','patientController@saveVitals');
 
-Route::post('add_patient','patientController@addPatient');
+Route::post('/add_patient','patientController@addPatient');
 
 
 

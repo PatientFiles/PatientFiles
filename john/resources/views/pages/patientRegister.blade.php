@@ -70,11 +70,11 @@
             <span class="error" style="color: red">{{ $errors->first('civil_status') }}</span>
         @endif
  		<select name="civil_status" required class="c-select" style="height: 34px; width:100%">
-            <option value="" disabled="" selected="">Civil Status</option>
-            <option value="single">Single</option>
-            <option value="married">Married</option>
-            <option value="separated">Separated</option>
-            <option value="widowed">Widowed</option>
+            <option value disabled selected>Civil Status</option>
+            <option value="1">Single</option>
+            <option value="2">Married</option>
+            <option value="3">Separated</option>
+            <option value="4">Widowed</option>
         </select>
  	</div>
  </div>
@@ -278,7 +278,7 @@
 		@if($errors->has('brgy'))
             <span class="error" style="color: red">{{ $errors->first('brgy') }}</span>
         @endif
-			<input type="text" name="brgy" class="form-control" placeholder="Barangay/District" aria-describedby="basic-addon1" required>
+			<input type="text" name="brgy" class="form-control" placeholder="Barangay/District" aria-describedby="basic-addon1" >
 		</div>
 		<div class="col-lg-4">
 		<strong>City:</strong>
@@ -296,7 +296,7 @@
 		@if($errors->has('province'))
             <span class="error" style="color: red">{{ $errors->first('province') }}</span>
         @endif
-			<input type="text" name=province"" class="form-control" placeholder="Province" aria-describedby="basic-addon1" required>
+			<input type="text" name="province" class="form-control" placeholder="Province" aria-describedby="basic-addon1" S>
 		</div>
 		<div class="col-lg-4">
 		<strong>Zip Code:</strong>

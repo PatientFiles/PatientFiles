@@ -207,12 +207,7 @@
                       <div class="panel panel-default" >
                           <div class="panel-body" >
                             <div class="row container-fluid" >   
-                                <div>@if(session('message'))
-                            <p style="padding-top: 5px;color: white;background-color: red;font-style: italic;" class="alert alert-{{session ('message.type')}} form-control" >
-                                    {{session('message.text')}}
-                            </p>
-
-                        @endif
+                                <div>
                                      <input type="button" style="width: 200px" data-toggle="modal" data-target="#vitalsModal" class="btn btn-primary pull-right" value="Add Vitals" />
                                 </div>
                         
@@ -288,11 +283,6 @@
                        data-show-toggle="true"
                        data-show-columns="true" id="table2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                       <h3 class="box-title pull-left" >Vitals Record</h3> 
-                      @if(session('success'))
-                            <small style="padding-top: 5px;color: white;background-color: red;font-style: italic;" class="box-title pull-right alert alert-{{session ('success.type')}} form-control" >
-                                    {{session('success.text')}}
-                            </small>
-                        @endif
                       <thead>
                       <tr role="row">
                       <th class="sorting_asc" tabindex="0" aria-controlsne: activate to sort column descending style="width: 177px;" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engi">Date Recorded</th>

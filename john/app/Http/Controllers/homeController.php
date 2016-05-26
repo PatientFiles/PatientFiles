@@ -46,7 +46,8 @@ class homeController extends Controller
             return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please login to access Patient Records!']);
         }
 
-        $patients = $this->medix->get('patient');
+        $patients = $this->medix->get('patient?take=1000&offset=120');
+        dd($patients);
         $mytime = Carbon::now();
 
         return view('pages.patientRecordsPage')
@@ -146,7 +147,7 @@ class homeController extends Controller
      */
     public function recent()
     {
-        $patients = $this->medix->get('patient');
+        $patients = $this->medix->get('patient?take=1000');
         //dd($patients);
         $mytime = Carbon::now();
         return view('pages.homePage')

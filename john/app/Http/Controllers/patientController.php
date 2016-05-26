@@ -11,11 +11,13 @@ use App\Http\Requests\CreatePatientRequest;
 class patientController extends Controller
 {
 	protected $medix;
+    protected $addError;
 
 	public function __construct()
     {
         $this->middleware('nocache');
         $this->medix = new \App\Medix\Client();
+        $this->addError = new CreatePatientRequest();
     }
 
     /**
@@ -152,6 +154,9 @@ class patientController extends Controller
             'user_addresses'            => $province,
             'user_addresses'            => $zip_code,
         ];
+        if ($this->addError->rules->fails()) {
+            return redirect()->to('/register')->withInput();
+        }
         $addPatient = $this->medix->post('patient', $data);
         dd($addPatient);
 

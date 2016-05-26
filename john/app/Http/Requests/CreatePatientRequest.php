@@ -24,22 +24,18 @@ class CreatePatientRequest extends Request
     public function rules()
     {
         return [
-            'fname'    => 'required|min:3',
-            'lname'     => 'required|min:3',
-            'mname'   => 'alpha|min:3',
-            'nickname'         => 'alpha|min:3',
-            'bdate'      => 'required|date|before:today|date_format:m/d/Y',
-            'civil_status'    => 'required',
-            'gender'    => 'required',
-            'email'    => 'email|min:3',
-            'efname'    => 'alpha|min:3',
-            'emname'    => 'alpha|min:3',
-            'elname'    => 'alpha|min:3',
-            'street'    => 'alpha_dash|min:3',
-            'brgy'    => 'alpha_dash|min:3',
-            'city'    => 'alpha_dash|min:3',
-            'province'    => 'alpha_dash|min:3',
-            'zip_code'    => 'digits:4',
+            'fname'         => 'required|min:1',
+            'lname'         => 'required|min:1',
+            'mname'         => 'alpha|min:1',
+            'nickname'      => 'alpha|min:1',
+            'bdate'         => 'required|date|before:today|date_format:m/d/Y',
+            'civil_status'  => 'required',
+            'gender'        => 'required',
+            'email'         => 'email|min:1',
+            'efname'        => 'alpha|min:1',
+            'emname'        => 'alpha|min:1',
+            'elname'        => 'alpha|min:1',
+            'zip_code'      => 'digits:4',
         ];
     }
 }

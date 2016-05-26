@@ -13,34 +13,37 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/dist/css/skins/_all-skins.min.css">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- jvectormap -->
     <link rel="stylesheet" href="/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+   
     <!-- Theme style -->
-    <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="/css/loading.css">
-     <link rel="stylesheet" href="/css/loading2.css">
-          <link rel="stylesheet" href="/css/bootstrap-table.css">
-
-          <link rel="stylesheet" href="/css/kendo.common.min.css">
-          <link rel="stylesheet" href="/css/kendo.default.min.css">
+      <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
+      <link rel="stylesheet" href="/css/loading.css">
+      <link rel="stylesheet" href="/css/loading2.css">
+      <link rel="stylesheet" href="/css/bootstrap-table.css">
+      <link rel="stylesheet" href="/css/datepicker3.css">
+      <link rel="stylesheet" href="/css/kendo.common.min.css">
+      <link rel="stylesheet" href="/css/kendo.default.min.css">
           
+       <script src="//fast.eager.io/CAcQLdp-HA.js"></script>
           
-            <link rel="stylesheet" href="/css/datepicker3.css">
    
  <!-- fullCalendar 2.2.5-->
-    <link rel="stylesheet" href="../plugins/fullcalendar/fullcalendar.min.css">
-    <link rel="stylesheet" href="../plugins/fullcalendar/fullcalendar.print.css" media="print">
-      <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="/dist/css/skins/_all-skins.min.css">
-  <link rel="stylesheet" href="/css/vex.css" />
-<link rel="stylesheet" href="/css/vex-theme-os.css" />
+    <link rel="stylesheet" href="/css/fullcalendar.css">
+ 
+
+  
+<script src="/js/vendor/jquery.js"></script> 
+<script src="/js/kendo.web.min.js"></script> 
+
+
+
   </head>
   <!--
   BODY TAG OPTIONS:
@@ -467,14 +470,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
      
      
-     
-     
-     
-     
-     
- 
-<script src="/js/vendor/jquery.js"></script>      
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>    
+         
 <script src="/js/bootstrap-formhelpers.js"></script>
 <script src="/js/bootstrap-formhelpers.min.js"></script>
 <script src="/js/bootstrap-formhelpers-phone.js"></script> 
@@ -486,11 +482,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src='/plugins/chartjs/Chart.min.js'></script>
 <script src='/plugins/chartjs/Chart.js'></script>
 <script src="/js/pace.js"></script>
-<script src="//fast.eager.io/CAcQLdp-HA.js"></script>
 <script src="/js/bootstrap-datepicker.js"></script>
-<script src="/js/kendo.web.min.js"></script>   
 <script src="/dist/js/demo.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"> </script>
+
+
+
    <!-- Slimscroll -->
     <script src="../plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <script>
@@ -837,20 +833,16 @@ $("#scheduler").kendoScheduler({
     },
     resources: [{
         field: "ownerId",
-        title: "Owner",
+        title: "Status",
         dataSource: [{
-            text: "Alex",
+            text: "Confirm",
             value: 1,
-            color: "#f8a398"
-        }, {
-            text: "Bob",
-            value: 2,
             color: "#51a0ed"
         }, {
-            text: "Charlie",
-            value: 3,
-            color: "#56ca85"
-        }]
+            text: "Cancel",
+            value: 2,
+            color: "#f8a398"
+        },]
     }]
 });
  </script>

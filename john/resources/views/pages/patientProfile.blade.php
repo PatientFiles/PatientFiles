@@ -79,16 +79,26 @@
 
             <div class="col-md-9">  <!-- COLUMN FOR TABLES (TABS) -->
             
+              <div >                  
+                           @if(session('success'))
+                            <small style=" padding-top: 5px;color: white;background-color: red;font-style: italic;" class="box-title alert alert-{{session ('success.type')}} form-control" >
+                                    {{session('success.text')}}
+                                  </small>
+                               
+                              @endif
+              </div>
+
+
               <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
                   <li class="active"><a href="#visits" data-toggle="tab">Visit</a></li>
                   <li><a href="#admission" data-toggle="tab">Admission</a></li>
                   <li><a href="#vitals" data-toggle="tab">Vitals</a></li>
                     <li><a href="#treatment" data-toggle="tab">Treatment Record</a></li>
-                
+                   
                 </ul>
-                  
-                  
+                   
+
             <div class=" tab-content">   <!-- START TAB CONTENT -->
                
                      <div class="active tab-pane" id="visits">  <!--  START OF VISITS TAB -->
@@ -188,6 +198,10 @@
                 </div><!-- END ADMISSION TAB -->
                     
                
+
+                <!-- START VITALS TAB -->
+
+
                      <div class="tab-pane" id="vitals">
           
                       <div class="panel panel-default" >

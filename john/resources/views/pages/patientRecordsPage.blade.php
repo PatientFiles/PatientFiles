@@ -91,7 +91,15 @@ div#patientListing:hover
               @endforeach   
           <!-- END CARD TABLE -->    
             
+
+             <div > 
+                  <a style="color: black" href="#" class="btn btn-default"> Previous </a> 
+                  <a style="color: black" href="#" class="btn btn-default pull-right"> Next </a> 
+             </div>
+
        </div>
+
+
 </div>     
 
 

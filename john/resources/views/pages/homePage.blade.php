@@ -10,7 +10,8 @@
               <small>Patient Files</small>
             </h1>
             <ol class="breadcrumb">
-              <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+             <a href="/register" style="color: white;font-weight: bold;" class="btn btn-success"> <span class="
+glyphicon glyphicon-plus-sign"></span> Add Patient</a>
            
             </ol>
   </section>
@@ -239,7 +240,7 @@
 	<section class="content-header">
 	          <h1>
 	            What's Happening - {{date('F d, Y',strtotime($time))}}
-	            <small><a href="/register" class="btn btn-primary">Add Patient</a></small>
+	      
 	          </h1>
 	         
 	</section>

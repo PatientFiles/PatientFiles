@@ -44,6 +44,11 @@ class Client
     {
         return $this->request('PUT', $resource, $data);
     }
+    public function status()
+    {
+        $result = json_decode($response->getStatus());
+        return result;
+    }
 
     public function request($method, $resource, $data = [])
     {

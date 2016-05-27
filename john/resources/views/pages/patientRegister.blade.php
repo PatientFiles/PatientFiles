@@ -184,7 +184,7 @@
 
 	<div class="col-lg-2">
 		<strong>Phonenumber Type:</strong>
-		<select  class="c-select" style="height: 34px; width:100%">
+		<select  name="mobile_type" class="c-select" style="height: 34px; width:100%">
 		  <option value="1" selected>Mobile Number</option>
 		  <option value="2">Landline Number</option>
 		</select>

@@ -30,10 +30,10 @@ class patientController extends Controller
             return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login to view a patient profile!']);
         }
 
-        $recentCons = $this->medix->get('patient/' . $id .'/consultations/recent');
+        //$recentCons = $this->medix->get('patient/' . $id .'/consultations/recent');
         $pastCons = $this->medix->get('patient/' . $id .'/consultations/past');
         $pastVitals = $this->medix->get('vitals/patient/' . $id . '/past');
-        //dd($pastVitals);
+        
         $profile = $this->medix->get('patient/'.$id);
         $address = current((array)$profile->data->user->user_addresses);
         //dd($profile);
@@ -53,7 +53,6 @@ class patientController extends Controller
 
         return view('pages.patientProfile')
             ->with('prof', $profile->data)
-            ->with('recentCons', $recentCons->data)
             ->with('address', $address)
             ->with('consult', $pastCons->data->patient_appointments)
             ->with('vitals', $pastVitals->data)
@@ -118,6 +117,7 @@ class patientController extends Controller
             'zip_code'      => 'digits:4',
         ]);
 
+        //dd($request->all());
         if ($validator->fails()) {
             return redirect()->back()
                         ->withErrors($validator)
@@ -136,6 +136,7 @@ class patientController extends Controller
         $govtnum      = $request->input('govtnum');
         $email        = $request->input('email');
         $mobile_num   = $request->input('mobile_num');
+        $mobile_type  = $request->input('mobile_type');
         $landline     = $request->input('landline');
         $efname       = $request->input('efname');
         $emname       = $request->input('emname');
@@ -154,39 +155,55 @@ class patientController extends Controller
             'lastname'                  => $lname,
             'nickname'                  => $nickname,
             'birthdate'                 => $bdate,
-            'user_religion'             => $religion,
             'civil_status'              => $civil_status,
             'gender'                    => $gender,
-            "user_government_id"        => ['government_id_type_id' => $govt,
-                                           'number'                => $govtnum,],
-            'user_emails'               => [['email' => $email,]],
-            'user_phone_numbers'        => [
-                                                [
-                                                'number' => $mobile_num
-                                                ],
-                                           ],
-            
-            'user_emergency_contacts'   => [[
-                                            'firstname'        => $efname,
-                                            'lastname'         => $emname,
-                                            'middlename'       => $elname,
-                                            'emergency_phones' => [[
-                                                                    'contact_no'             => $econtact,
-                                                                    'emergency_relationship' => $erelation,
-                                                                  ]],
-                                           ]],
-            'user_addresses'            => [[
-                                                'street'        => $street,
-                                                'barangay'      => $brgy,
-                                                'municipality'  => $city,
-                                                'province'      => $province,
-                                                'zip_code'      => $zip_code,
-                                           ]],
+            'government_id_type'        => $govt,
+            'government_id_number'      => $govtnum,
+            'email' => 
+            [
+                0 => $email,
+            ],
+            'email_type' => 
+            [
+                0 => 1,
+            ],
+
+            'phone_contact' => [
+            0 => [
+                    1 => $mobile_num,
+                ]
+
+            ],
+            'emergency' => 
+            [
+                0=>[
+                    'emergency_firstname' => $efname,
+                    'emergency_lastname' => $elname,
+                    'emergency_middlename' => $emname,
+                    'emergency_contact_no' => $econtact,
+                    'emergency_contact_relationship' => $erelation,
+                ]
+
+            ],
+            'address' => 
+            [
+                0 => [
+                    'street'            => $street,
+                    'address_district'  => $brgy,
+                    'address_city'      => $city,
+                    'province_id'       => $province,
+                    'country'           => 1,
+                    'zipcode'           => $zip_code,
+                    'address_type'      => 1,
+                    'primary'           => 1
+                ]
+
+            ]
         ];
         //dd($data);
         $addPatient = $this->medix->post('patient', $data);
-        dd($addPatient);
+        //dd($addPatient);
 
-        //return redirect()->to('/register')->withInput();
+        return redirect()->to('/home');
     }
 }

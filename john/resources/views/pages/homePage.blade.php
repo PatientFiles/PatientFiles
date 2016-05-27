@@ -18,33 +18,92 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
 
 <hr>
 
+
 <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+<div id="myModal" class="modal fade bs-example-modal-lg" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
     <div class="modal-content" >
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
+        <h4 class="modal-title" style="color: white ;font-weight: bold;">Available Medicine</h4>
       </div>
       <div class="modal-body">
-        <p>Some text in the modal.</p>
+        
+          <table data-toggle="table"
+                       data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+                    
+                       data-search="true"
+                       data-show-refresh="true"
+                       data-show-toggle="true"
+                       data-show-columns="true">
+                  <thead>
+                  <tr>
+                      <th >Item ID</th>
+                      <th >Item Name</th>
+                      <th >Amount</th>
+                       <th >Quantity</th>
+                  </tr>
+                  </thead>
 
-         <div class="box box-primary">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Area Chart</h3>
-                  <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                  </div>
-                </div>
-                <div class="box-body">
-                  <div class="chart">
-                    <canvas id="areaChart" style="height:250px"></canvas>
-                  </div>
-                </div><!-- /.box-body -->
-              </div><!-- /.box -->
+                     <tbody>
+                     
+                          <tr role = "row">
+                            <td> 1001 </td>
+                            <td> ARM 101 </td>
+                            <td> 100.00 </td>
+                            <td>
+                             <div class="progress">
+                            
+                                <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                      20%
+                                </div>
+                              </div>
+                            </td>                          
+                          </tr>
+                           <tr role = "row">
+                            <td> 1002 </td>
+                            <td> AAD 101 </td>
+                            <td> 100.00 </td>
+                            <td>
+                             <div class="progress">
+                                <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
+                                  70%
+                                </div>
+                              </div>
+                            </td>                          
+                          </tr>
+                           <tr role = "row">
+                            <td> 1003 </td>
+                            <td> DNB 101 </td>
+                            <td> 100.00 </td>
+                            <td>
+                             <div class="progress">
+                                <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                                  50%
+                                </div>
+                              </div>
+                            </td>                          
+                          </tr>
+                           <tr role = "row">
+                            <td> 1004 </td>
+                            <td> AMR 15 </td>
+                            <td> 100.00 </td>
+                            <td>
+                             <div class="progress">
+                                <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                  60%
+                                </div>
+                              </div>
+                            </td>                          
+                          </tr>
+                        
+                    </tbody>  
+
+
+        </table>
+         
 
 
       </div>
@@ -178,7 +237,7 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
               <div class="small-box bg-aqua">
                 <div class="inner">
                   <h3>0</h3>
-                  <p>Medical Apparatus</p>
+                  <p >Available Medicine</p>
                 </div>
                 <div class="icon">
                   <i class="fa fa-shopping-cart"></i>

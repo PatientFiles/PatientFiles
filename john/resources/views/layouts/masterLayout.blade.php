@@ -1044,27 +1044,12 @@ $('#sandbox-container input').on('hide', function(e){
             minDate: '+5d',
             changeMonth: true,
             changeYear: true,
-            altField: "#.",
+            altField: "#idTourDateDetailsHidden",
             altFormat: "yy-mm-dd"
         });
   </script>   
-<!-- DATEPICKER FOR MODAL SCRIPT -->  
 
-<script>
-            $(document).ready(function() 
-            {
-                
-                  $('#num_type').on('change', function() {
-                    if ($('#num_type').val() == 1) {
-                        $("#num1").attr("style", "display:absolute");
-                        $("#num2").attr("style", "display:none");
-                    }
-                    if ($('#num_type').val() == 2) {
-                        $("#num1").attr("style", "display:none");
-                        $("#num2").attr("style", "display:absolute");
-                    } // or $(this).val()
-                  });
-            });
-    </script>
+
+
 </body>
 </html>

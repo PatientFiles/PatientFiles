@@ -239,7 +239,7 @@
 	<section class="content-header">
 	          <h1>
 	            What's Happening - {{date('F d, Y',strtotime($time))}}
-	            <small></small>
+	            <small><a href="/register" class="btn btn-primary">Add Patient</a></small>
 	          </h1>
 	         
 	</section>

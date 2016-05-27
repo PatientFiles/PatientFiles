@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Validator;
 use Carbon\Carbon;
 use App\Http\Requests;
 use Guzzle\Http\Client;
@@ -96,13 +97,26 @@ class patientController extends Controller
         return redirect('patientProfile/'. $id .'#vitals')->with('success',['type'=> 'success','text' => 'Vitals successfully added']);
     }
 
-    public function addPatient(CreatePatientRequest $request)
+    public function addPatient(Request $request)
     {   
         if (! \Session::has('token')) {
             return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
         }
 
-        $request->all();
+        $validator = Validator::make($request->all(), [
+            'fname'         => 'required|min:1',
+            'lname'         => 'required|min:1',
+            'mname'         => 'alpha|min:1',
+            'nickname'      => 'alpha|min:1',
+            'bdate'         => 'required|date|before:today|date_format:m/d/Y',
+            'civil_status'  => 'required',
+            'gender'        => 'required',
+            'email'         => 'email|min:1',
+            'efname'        => 'alpha|min:1',
+            'emname'        => 'alpha|min:1',
+            'elname'        => 'alpha|min:1',
+            'zip_code'      => 'digits:4',
+        ]);
 
         $fname        = $request->input('fname');
         $mname        = $request->input('mname');
@@ -154,8 +168,10 @@ class patientController extends Controller
             'user_addresses'            => $province,
             'user_addresses'            => $zip_code,
         ];
-        if ($this->addError->rules->fails()) {
-            return redirect()->to('/register')->withInput();
+        if ($validator->fails()) {
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput($request->all());
         }
         $addPatient = $this->medix->post('patient', $data);
         dd($addPatient);

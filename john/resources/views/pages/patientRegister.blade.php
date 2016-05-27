@@ -173,7 +173,7 @@
 </div>
 <div class="row form-group container-fluid">
 	
-	<div class="col-lg-4">
+	<div class="col-lg-5">
 		<strong>Email Address: </strong>
 		@if($errors->has('email'))
             <span class="error" style="color: red">{{ $errors->first('email') }}</span>
@@ -181,16 +181,19 @@
 		<input type="text" name="email" class="form-control" placeholder="Email Address" aria-describedby="basic-addon1" value="">
 	</div>
 
-	<div class="col-lg-4">
-		<strong>Mobile Number: Eg. (0935) 123-1234</strong>
-		<input type="text" name="mobile" placeholder="Mobile Number" class="form-control input-medium bfh-phone" data-format="(dddd) ddd-dddd" aria-describedby="basic-addon1" value="">
+
+	<div class="col-lg-2">
+		<strong>Phonenumber Type:</strong>
+		<select  class="c-select" style="height: 34px; width:100%">
+		  <option value="1" selected>Mobile Number</option>
+		  <option value="2">Landline Number</option>
+		</select>
 	</div>
 
-	<div class="col-lg-4">
-		<strong>Landline Number: Eg. (02) 333-3333 </strong>
-		<input type="text" name="landline"  placeholder="Mobile Number" class="form-control input-medium bfh-phone" data-format="(dd) ddd-dddd" aria-describedby="basic-addon1" value="">
+	<div class="col-lg-5">
+		<strong>Phone Number:</strong>
+		<input type="text" name="mobile_num" placeholder="Mobile Number Eg. 0935 123-1234" class="form-control" aria-describedby="basic-addon1">
 	</div>
-	
 </div>
 	
 	<hr>
@@ -234,13 +237,13 @@
 	
 	<div class="col-lg-6">
 		<strong>Emergency Contact Number: </strong>
-		<input type="text" name="econtact"  placeholder="Mobile Number" class="form-control input-medium bfh-phone" data-format="(dddd) ddd-dddd" aria-describedby="basic-addon1" value="">
+		<input type="text" name="econtact"  placeholder="Mobile Number" class="form-control input-medium bfh-phone" data-format="dddd ddd-dddd" aria-describedby="basic-addon1" value="">
 	</div>
 
 	<div class="col-lg-6">
 		<strong>Relationship: </strong>
 		<select name="erelation" aria-invalid="false" class="c-select" style="height: 34px; width:100%">
-            <option value="" disabled="" selected="">Relationship</option>
+            <option value disabled selected>Relationship</option>
             <option value="1">Father</option>
             <option value="2">Mother</option>
             <option value="3">Sibling</option>

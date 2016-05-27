@@ -47,7 +47,7 @@ class homeController extends Controller
         }
 
         $patients = $this->medix->get('patient?take=1000&offset=120');
-        dd($patients);
+        //dd($patients);
         $mytime = Carbon::now();
 
         return view('pages.patientRecordsPage')

@@ -108,7 +108,7 @@ class patientController extends Controller
             'lname'         => 'required|min:1',
             'mname'         => 'alpha|min:1',
             'nickname'      => 'alpha|min:1',
-            'bdate'         => 'required|date|before:today|date_format:m/d/Y',
+            'bdate'         => 'required|date|before:tomorrow|date_format:m/d/Y',
             'civil_status'  => 'required',
             'gender'        => 'required',
             'email'         => 'email|min:1',
@@ -117,6 +117,12 @@ class patientController extends Controller
             'elname'        => 'alpha|min:1',
             'zip_code'      => 'digits:4',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput($request->all());
+        }
 
         $fname        = $request->input('fname');
         $mname        = $request->input('mname');
@@ -129,7 +135,7 @@ class patientController extends Controller
         $govt         = $request->input('govt');
         $govtnum      = $request->input('govtnum');
         $email        = $request->input('email');
-        $mobile       = $request->input('mobile');
+        $mobile_num   = $request->input('mobile_num');
         $landline     = $request->input('landline');
         $efname       = $request->input('efname');
         $emname       = $request->input('emname');
@@ -151,28 +157,33 @@ class patientController extends Controller
             'user_religion'             => $religion,
             'civil_status'              => $civil_status,
             'gender'                    => $gender,
-            "user_government_id"        => [
-                                                'government_id_type_id' => $govt,
-                                                'number'                => $govtnum,
+            "user_government_id"        => ['government_id_type_id' => $govt,
+                                           'number'                => $govtnum,],
+            'user_emails'               => [['email' => $email,]],
+            'user_phone_numbers'        => [
+                                                [
+                                                'number' => $mobile_num
+                                                ],
                                            ],
-            'user_emails'               => $email,
-            'user_phone_numbers'        => $mobile,
-            'user_emergency_contacts'   => $efname,
-            'user_emergency_contacts'   => $emname,
-            'user_emergency_contacts'   => $elname,
-            'user_emergency_contacts'   => $econtact,
-            'user_emergency_contacts'   => $erelation,
-            'user_addresses'            => $street,
-            'user_addresses'            => $brgy,
-            'user_addresses'            => $city,
-            'user_addresses'            => $province,
-            'user_addresses'            => $zip_code,
+            
+            'user_emergency_contacts'   => [[
+                                            'firstname'        => $efname,
+                                            'lastname'         => $emname,
+                                            'middlename'       => $elname,
+                                            'emergency_phones' => [[
+                                                                    'contact_no'             => $econtact,
+                                                                    'emergency_relationship' => $erelation,
+                                                                  ]],
+                                           ]],
+            'user_addresses'            => [[
+                                                'street'        => $street,
+                                                'barangay'      => $brgy,
+                                                'municipality'  => $city,
+                                                'province'      => $province,
+                                                'zip_code'      => $zip_code,
+                                           ]],
         ];
-        if ($validator->fails()) {
-            return redirect()->back()
-                        ->withErrors($validator)
-                        ->withInput($request->all());
-        }
+        //dd($data);
         $addPatient = $this->medix->post('patient', $data);
         dd($addPatient);
 

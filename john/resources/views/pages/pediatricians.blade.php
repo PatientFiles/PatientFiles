@@ -49,7 +49,74 @@ div#patientListing:hover
                 <h4 style="color:white;" class="modal-title" id="myModalLabel">Add New User Account</h4>
               </div>
               <div class="modal-body">
-                <p>One fine body…</p>
+                <form action="#" method="POST" role="form">
+                  {!! csrf_field() !!}
+                  <div class="form-group">
+                    <label for="text">Account Type:&nbsp<span style="color:red">*</span></label>
+                    <select type="text" class="form-control"/>
+                      <option value selected disabled>Select Account Type ...</option>
+                      <option value="1">Practitioner</option>
+                      <option value="3">Staff</option>
+                      <option value="4">Super Admin</option>
+                      <option value="5">CCS</option>
+                      <option value="6">Laboratory</option>
+                      <option value="7">Clinic Manager</option>
+                      <option value="8">Queue Accounts</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                      <label for="text">Firstname:&nbsp<span style="color:red">*</span></label>
+                      <input type="text" name="firstname" class="form-control" placeholder="Firstname">
+                  </div>
+                  <div class="form-group">
+                      <label for="text">Middlename:</label>
+                      <input type="text" name="middlename" class="form-control" placeholder="Middlename">
+                  </div>
+                  <div class="form-group">
+                      <label for="text">Lastname:&nbsp<span style="color:red">*</span></label>
+                      <input type="text" name="lastname" class="form-control" placeholder="Lastname">
+                  </div>
+                  <div class="form-group">
+                      <label for="text">Gender:&nbsp<span style="color:red">*</span></label>
+                    <select type="text" class="form-control" name="gender">
+                      <option value selected disabled>Select Gender ...</option>
+                      <option value="1">Male</option>
+                      <option value="0">Female</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                      <label for="text">Birthdate:&nbsp<span style="color:red">*</span></label>
+                      <input type="text" name="firstname" class="form-control sand-box container" placeholder="Birthdate">
+                  </div>
+                  <div class="form-group">
+                      <label for="number">License Number:</label>
+                      <input type="number" name="license" class="form-control" placeholder="License Number">
+                  </div>
+                  <div class="form-group">
+                      <label for="number">PTR:</label>
+                      <input type="number" name="ptr" class="form-control" placeholder="PTR License">
+                  </div>
+                  <div class="form-group">
+                      <label for="number">S2 License Number:</label>
+                      <input type="number" name="s2" class="form-control" placeholder="S2 License Number">
+                  </div>
+                  <div class="form-group">
+                      <label for="text">Mobile Number:&nbsp<span style="color:red">*</span></label>
+                      <input type="text" name="mobile"  placeholder="Mobile Number" class="form-control input-medium bfh-phone" data-format="dddd ddd-dddd" aria-describedby="basic-addon1" value="">
+                  </div>
+                  <div class="form-group">
+                      <label for="text">Email Address:&nbsp<span style="color:red">*</span></label>
+                      <input type="text" name="email" class="form-control" placeholder="Email Address">
+                  </div>
+                  <div class="form-group">
+                      <label for="password">Password:&nbsp<span style="color:red">*</span></label>
+                      <input type="password" name="password" class="form-control" placeholder="Password">
+                  </div>
+                  <div class="form-group">
+                      <label for="text">Specialty:&nbsp<span style="color:red">*</span></label>
+                      <input type="text" name="specialty" class="form-control" placeholder="Specialty">
+                  </div>
+                </form>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Cancel</button>&nbsp

@@ -3,7 +3,7 @@
 
 
 
-@section('title', 'Pediatricians | Doctors Files')
+@section('title', 'User Accounts | Pedix')
 
 <style type="text/css">
   
@@ -23,7 +23,7 @@ div#patientListing:hover
 <section class="content-header">
  
       <h1>
-              Pediatricians List
+              List of User Accounts
           
      </h1>
         

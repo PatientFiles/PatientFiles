@@ -9,17 +9,14 @@
                     <span class="icon-bar"></span>
                 </button>
                 
-          <a class="navbar-brand page-scroll" href="#page-top" style="color: White;text-transform: none"><b>Patient</b>Files</a>
+          <a class="navbar-brand page-scroll" href="#page-top" style="color: White;text-transform: none"><b>Ped</b>ix</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right" >
                     <li >
-                        <a style="color: white" class="page-scroll " href="#about"><span class="glyphicon glyphicon-user"></span> Sign In</a>
-                    </li>
-                    <li>
-                        <a style="color: white" class="page-scroll" href="#services"><span class="glyphicon glyphicon-plus-sign"></span> Create Account</a>
+                        <a style="color: white" class="page-scroll " href="#about">Sign In</a>
                     </li>
                    
                 </ul>

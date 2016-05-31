@@ -74,9 +74,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Logo -->
         <a href="/home" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>P</b>FS</span>
+          <span class="logo-mini"><b>P</b>DX</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>Patient</b>Files</span>
+          <span class="logo-lg"><b>Ped</b>ix</span>
         </a>
 
         <!-- Header Navbar -->
@@ -212,7 +212,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-left">
-                      <a href="" onclick="myVex()" class="btn btn-default btn-flat"  data-toggle="modal" data-target="#profModal">Profile</a>
+                      <a href="" class="btn btn-default btn-flat"  data-toggle="modal" data-target="#profModal">Profile</a>
                     </div>
                     <div class="pull-right">
                       <a href="/logout" class="btn btn-default btn-flat">Sign out</a>
@@ -264,12 +264,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <li class="header">Menu</li>
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="/home"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-            <li ><a href="/patientRecords"><i class="fa fa-book"></i> <span>Patient Records</span></a></li>
+            <li ><a href="/patientRecords"><i class="fa fa-book"></i> <span>Patient List</span></a></li>
             <li ><a href="/scheduler"><i class="fa fa-calendar-check-o"></i> <span>Scheduler</span></a></li>
             <li class="treeview">
               <a href=""><i class="fa fa-black-tie"></i> <span>Management</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="/pediatricians"><i class="fa fa-user"></i> Pediatricians</a></li>
+                <li><a href="/pediatricians"><i class="fa fa-user"></i>Accounts</a></li>
                  <li><a href="/register"><i class="fa fa-user"></i>Add Patient</a></li>
                 <li><a href="#"><i class="fa fa-medkit"></i>Procedure</a></li>
                 <li><a href="#"><i class="fa  fa-stethoscope"></i>Treatment Plan</a></li>
@@ -324,7 +324,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           Brought to you by MEDIX
         </div>
         <!-- Default to the left --> 
-        <strong>Copyright &copy; 2016 <a href="#">Patient Files</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2016 <a href="fb.com/medixph" target="_blank">Patient Files</a>.</strong> All rights reserved.
       </footer>
 
       <!-- Control Sidebar -->
@@ -484,7 +484,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="/js/pace.js"></script>
 <script src="/js/bootstrap-datepicker.js"></script>
 <script src="/dist/js/demo.js"></script>
-
 
 
    <!-- Slimscroll -->
@@ -1047,7 +1046,23 @@ $('#sandbox-container input').on('hide', function(e){
             altField: "#idTourDateDetailsHidden",
             altFormat: "yy-mm-dd"
         });
-  </script>   
+  </script> 
+
+<!-- toasterscript -->
+<script type="text/javascript">
+  $(function()
+    {
+      $('#addPatient').click(function () {
+
+            toastr.options.showEasing        = 'swing';
+            toastr.options.hideEasing        = 'linear';
+            toastr.options.closeEasing       = 'linear';
+            toastr.options.showMethod        = 'slideDown';
+            toastr.options.hideMethod        = 'slideUp';
+            toastr.options.hideMethod        = 1000;
+            toastr.options.preventDuplicates = true;
+    });
+</script>  
 
 
 

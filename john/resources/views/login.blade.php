@@ -7,11 +7,11 @@
      <header>
         <div class="header-content" >
             <div class="header-content-inner btn-group" role="group" align="left">
-                <h1>Patient Files</h1><br><br>
+                <h1>PEDIX</h1><br><br>
                 <p >Transforming the Doctor-Patient experience through cloud-based electronic
 medical records accessible anytime, anywhere.</p>
                 <div>
-                <a id="sign_in" href="#services" class="btn btn-primary btn-xl page-scroll">Get Started</a>
+                <a id="sign_in" href="#about" class="btn btn-primary btn-xl page-scroll">Get Started</a>
                 </div>
             </div>
         </div>
@@ -62,54 +62,12 @@ medical records accessible anytime, anywhere.</p>
         </div>
     </section>
 
-    <section id="services">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading"><span class="glyphicon glyphicon-plus-sign"></span>  Create Account</h2>
-                    <hr class="primary">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                      <form role="form">
-                        <div class="form-group" align="center">
-                            <input style="width: 50%" class="form-control" type="text" placeholder="Name">
-                        </div>
-                        <div class="form-group" align="center">
-                            <input style="width: 50%" class="form-control" type="text" placeholder="Surname">
-                        </div>
-                        <div class="form-group" align="center">
-                            <input style="width: 50%" class="form-control" type="text" placeholder="Email">
-                        </div>
-                        <div class="form-group" align="center">
-                            <input type="password" style="width: 50%" class="form-control" type="text" placeholder="Password">
-                        </div>
-                         <div class="form-group" align="center">
-                            <input type="password" style="width: 50%" class="form-control" type="text" placeholder="Confirm Password">
-                        </div>
-                        <div class="form-group" align="center">
-                            <button id="sign_up" style="color: white" class="btn btn-default btn-xl wow tada">Sign Up</button>
-                        </div>
-                        <div class="form-group" align="center">
-                          <span style="color: black;font-weight: bold;">or   Create a         </span>
-                          <a href="#"><img src="img/withMd.png" width="55px" > </a>
-                            <span style="color: black;font-weight: bold;">      Account</span>
-                          
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-
-
+    
     <section id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Get In Touch with Patient Files!</h2>
+                    <h2 class="section-heading">Get In Touch with Pedix!</h2>
                     <hr class="primary">
                     <p>Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
                 </div>

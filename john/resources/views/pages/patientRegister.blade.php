@@ -13,7 +13,7 @@
  	
  <div class="row "> <!-- ROW /  -->
  	<div class="col-lg-3">
- 		<img src="img/generic.png" class="img-circle" width="150px">
+ 		<a href="#" data-toggle="modal" data-target="#myModalUpload" data-reactid=".0.0.0.2.0.2.1.0.1.0.0.0.0.0"><img src="/img/generic.png" class="img-thumbnail img-circle" data-reactid=".0.0.0.2.0.2.1.0.1.0.0.0.0.0.0"></a>
  	</div>
  	
  </div> <!-- End Row / -->
@@ -63,47 +63,14 @@
         @endif
     	<input type="text" name="bdate" type="text" class="form-control" placeholder="Birth Date" required />
 	</div>
- 	
- 	<div class="col-lg-6">
-		<strong>Civil Status:<span style="color: red">*</span></strong>
-		@if($errors->has('civil_status'))
-            <span class="error" style="color: red">{{ $errors->first('civil_status') }}</span>
-        @endif
- 		<select name="civil_status" required class="c-select" style="height: 34px; width:100%">
-            <option value disabled selected>Civil Status</option>
-            <option value="1">Single</option>
-            <option value="2">Married</option>42365rdx
-            <option value="3">Separated</option>
-            <option value="4">Widowed</option>
-        </select>
- 	</div>
- </div>
 
- <div class="row form-group">
- 	
- 	<div class="col-lg-6">
-		<strong>Religion:</strong>
- 		<select class="c-select" name="religion" style="height: 34px; width:100%">
- 			<option value="" disabled="" selected="">Religion</option>
-	 		<option value="1">Roman Catholic</option>
-	  		<option value="2">Christian</option>
-	  		<option value="3">Iglesia ni Cristo</option>
-	  		<option value="4">Mormon</option>
-	  		<option value="5">Muslim</option>
-	  		<option value="6">Buddhist</option>
-	  		<option value="7">Agnostic</option>
-	  		<option value="8">Others</option>
-		</select>
-	
- 	</div>
-
- 	<div class="col-lg-6">
+	<div class="col-lg-6">
 
 		<strong>Gender:<span style="color: red">*</span></strong>
 		@if($errors->has('gender'))
             <span class="error" style="color: red">{{ $errors->first('gender') }}</span>
         @endif
- 		<select class="c-select" name="gender" style="height: 34px; width:100%" required="">
+ 		<select class="form-control" name="gender" style="height: 34px; width:100%" required="">
 		  <option value disabled selected>Gender</option>
 		  <option value="1">Male</option>
 		  <option value="0">Female</option>
@@ -111,12 +78,13 @@
 	
  	</div>
  	
- 	</div>
+ 	
+ </div>
 
- 	<div class="row form-group ">
+ <div class="row form-group ">
 	<div class="col-lg-6">
 		<strong>Government Type ID:</strong>
- 		<select class="c-select" name="govt" style="height: 34px; width:100%">
+ 		<select class="form-control" name="govt" style="height: 34px; width:100%">
 		  <option value disabled selected>Government Type ID</option>
 		  <option value="1 ">Driver's License</option>
 		  <option value="2 ">Postal ID</option>
@@ -163,6 +131,27 @@
 	
 </div>
 
+ <div class="row form-group">
+ 	
+ 	<div class="col-lg-6">
+		<strong>Religion:</strong>
+ 		<select class="form-control" name="religion" style="height: 34px; width:100%">
+ 			<option value="" disabled="" selected="">Religion</option>
+	 		<option value="1">Roman Catholic</option>
+	  		<option value="2">Christian</option>
+	  		<option value="3">Iglesia ni Cristo</option>
+	  		<option value="4">Mormon</option>
+	  		<option value="5">Muslim</option>
+	  		<option value="6">Buddhist</option>
+	  		<option value="7">Agnostic</option>
+	  		<option value="8">Others</option>
+		</select>
+	
+ 	</div>
+
+ 	
+ 	
+ 	</div>
 <div >
 	<hr>
 	<h4 style="font-weight: bold;">Contact Informations</h4>
@@ -184,7 +173,7 @@
 
 	<div class="col-lg-2">
 		<strong>Phonenumber Type:</strong>
-		<select  name="mobile_type" class="c-select" style="height: 34px; width:100%">
+		<select  name="mobile_type" class="form-control" style="height: 34px; width:100%">
 		  <option value="1" selected>Mobile Number</option>
 		  <option value="2">Landline Number</option>
 		</select>
@@ -242,7 +231,7 @@
 
 	<div class="col-lg-6">
 		<strong>Relationship: </strong>
-		<select name="erelation" aria-invalid="false" class="c-select" style="height: 34px; width:100%">
+		<select name="erelation" aria-invalid="false" class="form-control" style="height: 34px; width:100%">
             <option value disabled selected>Relationship</option>
             <option value="1">Father</option>
             <option value="2">Mother</option>
@@ -304,7 +293,7 @@
 <hr>
 <div class="row form-group container">
 	<div class="col-lg-12 pull-right" style="float: right">
-  		<input type="submit" name="addPatient" id="submit" value="Submit" class="btn btn-primary">
+  		<input type="submit" name="addPatient" id="addPatient" id="submit" value="Submit" class="btn btn-primary">
   	</div>
 </div>
 
@@ -313,6 +302,29 @@
 
 
 </form>
+
+ <div style="height: 100%" class="modal fade" id="myModalUpload" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div  class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title" id="myModalLabel" style="color: white;font-weight: bolder;">Upload Image</h4>
+                    </div>
+                <div class="modal-body">
+                <form >
+                	<input type="file" name="photo">
+                	<input type="submit" name="upload" value="Upload Image">
+                </form>
+                    
+                <div class="modal-footer">
+                   
+                    <button type="button" class="btn btn-primary pull-right" data-dismiss="modal">Close</button>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
 
 
 

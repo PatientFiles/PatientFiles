@@ -64,6 +64,7 @@ class loginController extends Controller
 
         // GET User Information
         $user = $this->medix->post('auth/info');
+        //dd($user);
         \Session::put('user_id', $user->data->user_info->id);
         \Session::put('fname', $user->data->user_info->firstname);
         \Session::put('lname', $user->data->user_info->lastname);

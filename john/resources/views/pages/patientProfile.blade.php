@@ -43,6 +43,77 @@
                     <li class="list-group-item">
                       <strong>Address:</strong><a class="pull-right badge bg-blue">{{$address}}</a>
                     </li>
+                    <br>
+                    <div>
+                          <input type="button" data-toggle="modal" data-target="#vitalsModal" class="btn btn-primary pull-left" value="New Visit" />
+                    </div>
+                    <div>
+                          <input type="button" data-toggle="modal" data-target="#vitalsModal" class="btn btn-primary pull-right" value="Add Vitals" />
+                    </div>
+                        
+              
+             <!-- ADD VITALS MODAL -->
+                             
+                <div class="modal fade" id="vitalsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 style="color:white;" class="modal-title" id="myModalLabel">Add New Vital</h4>
+                      </div>
+                    
+                      
+                        
+                      <form role="form" action="/saveVitals/{{$prof->id}}" method="POST">
+
+                      <div class="modal-body">
+                          {!! csrf_field() !!}
+                        <div class="form-group">
+                          <label for="number">Height:</label>
+                          <input type="number" name="height" class="form-control" placeholder="Height in centimeters">
+                        </div>
+                        <div class="form-group">
+                          <label for="number">Weight:</label>
+                          <input type="number" name="weight" class="form-control" placeholder="Weight in kilograms">
+                        </div>
+                        <div class="form-group">
+                          <label for="number">Pulse Rate:</label>
+                          <input type="number" name="pulse" class="form-control" placeholder="Pulse Rate (Pulse per minute)">
+                        </div>
+                        <div class="form-group">
+                          <label for="number">Respiratory Rate:</label>
+                          <input type="number" name="respiratory" class="form-control" placeholder="Respiratory Rate">
+                        </div>
+                        <div class="form-group">
+                          <label for="number">Body Temperature:</label>
+                          <input type="number" name="temp" class="form-control" placeholder="Temperature in Celsius">
+                        </div>
+                        <div class="form-group">
+                          <label for="number">Blood Pressure (Systolic):</label>
+                          <input type="number" name="sys" class="form-control" placeholder="Systolic Value">
+                        </div>
+                        <div class="form-group">
+                          <label for="number">Blood Pressure (Diastolic):</label>
+                          <input type="number" name="dia" class="form-control" placeholder="Diastolic Value">
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label" for="mens">Last Menstrual:</label>
+                            <input style="z-index: 100000;" name="mens" type="text" name="idTourDateDetails" id="idTourDateDetails" readonly="readonly" class="form-control" placeholder="Click here to pick date of last menstruation">
+                        </div>
+                        <div class="form-group">
+                          <label for="number">Doctor Notes:</label>
+                          <input type="text" name="notes" class="form-control" placeholder="Doctors vital notes">
+                        </div>
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="submit" name="saveVitals" class="btn btn-primary">Save</button>
+                      </div>
+                     </form>
+                      
+                    </div>
+                  </div>
                   </ul>
 
                   

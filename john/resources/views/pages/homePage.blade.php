@@ -236,11 +236,11 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
               <!-- small box -->
               <div class="small-box bg-aqua">
                 <div class="inner">
-                  <h3>0</h3>
-                  <p >Available Medicine</p>
+                  <h3>{{$counts->totalPatients}}</h3>
+                  <p >Registered Patients</p>
                 </div>
                 <div class="icon">
-                  <i class="fa fa-shopping-cart"></i>
+                  <i class="ion ion-person-add"></i>
                 </div>
                 <a href="#" class="small-box-footer "  data-toggle="modal" data-target="#myModal" >
                   More info <i class="fa fa-arrow-circle-right "></i>
@@ -251,8 +251,8 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
               <!-- small box -->
               <div class="small-box bg-green">
                 <div class="inner">
-                  <h3>00.00</h3>
-                  <p>Total Sales</p>
+                  <h3>{{$counts->avgPatientDaily}}</h3>
+                  <p>Average Patient per Day </p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
@@ -266,8 +266,8 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
               <!-- small box -->
               <div class="small-box bg-yellow">
                 <div class="inner">
-                  <h3>{{$reg}}</h3>
-                  <p>Patient Registrations</p>
+                  <h3>{{$counts->avgPatientAge}}</h3>
+                  <p>Average Age of Patients </p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-person-add"></i>
@@ -281,8 +281,8 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
               <!-- small box -->
               <div class="small-box bg-red">
                 <div class="inner">
-                  <h3>0</h3>
-                  <p>Patient Visits</p>
+                  <h3>{{$counts->totalCancelledAppointment}}</h3>
+                  <p>Cancelled Appointments</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-pie-graph"></i>
@@ -293,6 +293,124 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
               </div>
             </div><!-- ./col -->
           </div>
+<div class="row">
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-red">
+                <div class="inner">
+                  <h3>{{$counts->totalConsultations}}</h3>
+                  <p>Consultations</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="#" class="small-box-footer" data-toggle="modal" data-target="#myModal4">
+                  More info <i class="fa fa-arrow-circle-right"></i>
+                </a>
+              </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-aqua">
+                <div class="inner">
+                  <h3>{{$counts->totalLaboratory}}</h3>
+                  <p >Laboratory Examinations</p>
+                </div>
+                <div class="icon">
+                  <i class="fa fa-shopping-cart"></i>
+                </div>
+                <a href="#" class="small-box-footer "  data-toggle="modal" data-target="#myModal" >
+                  More info <i class="fa fa-arrow-circle-right "></i>
+                </a>
+              </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-yellow">
+                <div class="inner">
+                  <h3>{{$counts->totalImaging}}</h3>
+                  <p>Imaging Processed</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-person-add"></i>
+                </div>
+                <a href="#" class="small-box-footer" data-toggle="modal" data-target="#myModal3">
+                  More info <i class="fa fa-arrow-circle-right"></i>
+                </a>
+              </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-green">
+                <div class="inner">
+                  <h3>{{$counts->avgConsultationTime}}</h3>
+                  <p>Average Consultation Time</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-stats-bars"></i>
+                </div>
+                <a href="#" class="small-box-footer" data-toggle="modal" data-target="#myModal2">
+                  More info <i class="fa fa-arrow-circle-right"></i>
+                </a>
+              </div>
+            </div><!-- ./col -->
+            
+            
+          </div>
+          <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-aqua"><i class="fa fa-envelope-o"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Total Accounts</span>
+              <span class="info-box-number">{{$counts->totalAccounts}}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-green"><i class="fa fa-flag-o"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Practitioners</span>
+              <span class="info-box-number">{{$counts->totalPractitioner}}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-yellow"><i class="fa fa-files-o"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Nurses</span>
+              <span class="info-box-number">{{$counts->totalNurse}}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-red"><i class="fa fa-star-o"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Rad Techs</span>
+              <span class="info-box-number">{{$counts->totalRadTech}}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+      </div>
 
 
 
@@ -329,7 +447,7 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
        data-show-columns="true" id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                      <h4 class="pull-left">Reminders</h4>
                      <thead>
-                      <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Patient ID</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Patient Name</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Time of Appointment</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Type</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Status</th></tr>
+                      <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Patient ID</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Patient Name</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Time of Appointment</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Status</th></tr>
                     </thead>
                     <tbody>
                       </tbody>
@@ -367,12 +485,11 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
        data-show-refresh="true"
        data-show-toggle="true"
        data-show-columns="true" id="table2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
-                    <h4 class="pull-left">Recent Consultations</h4>
+                    <h4 class="pull-left">Recent Consultations by Patients</h4>
                     <thead >
                       
                         <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Patient ID</th>
                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Patient Name</th>
-                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Type</th>
                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Chief Complaints</th>
                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Consultation Start</th>
                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Consultation End</th>
@@ -381,19 +498,16 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
                     </thead>
                     <tbody>
                       @foreach($consults as $consult)
-                      @foreach($consult->patient_appointments as $appoint)
-                      @if (strcasecmp($appoint->type, 'consultation')==0)
-                      <tr role="row">
-                        <td>{{$consult->id}}</td>
-                        <td>{{$consult->user->firstname .' '. $consult->user->lastname}}</td>
-                        <td>{{$appoint->type}}</td>
-                        <td>{{$appoint->chief_complaints}}</td>
-                        <td>{{$appoint->consultation_start}}</td>
-                        <td>{{$appoint->consultation_end}}</td>
-                        <td>{{$appoint->status}}</td>
-                      </tr>
-                      @endif
-                      @endforeach
+                          @if (strcasecmp($consult->patient_appointments[0]->type, 'consultation') == 0)
+                            <tr role="row">
+                              <td>{{$consult->id}}</td>
+                              <td>{{$consult->user->firstname .' '. $consult->user->lastname}}</td>
+                              <td>{{$consult->patient_appointments[0]->chief_complaints}}</td>
+                              <td>{{$consult->patient_appointments[0]->consultation_start}}</td>
+                              <td>{{$consult->patient_appointments[0]->consultation_end}}</td>
+                              <td>{{$consult->patient_appointments[0]->status}}</td>
+                            </tr>
+                            @endif 
                       @endforeach
                     </tbody>
                   </table></div></div>

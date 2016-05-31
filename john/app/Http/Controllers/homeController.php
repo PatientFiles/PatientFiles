@@ -147,12 +147,15 @@ class homeController extends Controller
      */
     public function recent()
     {
-        $patients = $this->medix->get('patient?take=1000');
-        //dd($patients);
+        $patients = $this->medix->get('patient?take=10');
+        $reports = $this->medix->get('management/reports');
+        //dd($reports);
         $mytime = Carbon::now();
+
+        //dd($count);
         return view('pages.homePage')
             ->with('time', $mytime)
-            ->with('reg', count((array)$patients->data))
+            ->with('counts', $reports->data)
             ->with('consults', $patients->data);
        //return dd($result);
     }
@@ -240,19 +243,6 @@ class homeController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    /**
-     * Show Pediatricians List
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function pediatricians()
-    {
-        if (! \Session::has('token')) {
-            return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
-        }
-        return view('pages.pediatricians');
     }
 
 }

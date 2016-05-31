@@ -108,7 +108,6 @@ class patientController extends Controller
             'mname'         => 'alpha|min:1',
             'nickname'      => 'alpha|min:1',
             'bdate'         => 'required|date|before:tomorrow|date_format:m/d/Y',
-            'civil_status'  => 'required',
             'gender'        => 'required',
             'email'         => 'email|min:1',
             'efname'        => 'alpha|min:1',
@@ -120,8 +119,8 @@ class patientController extends Controller
         //dd($request->all());
         if ($validator->fails()) {
             return redirect()->back()
-                        ->withErrors($validator)
-                        ->withInput($request->all());
+                ->withErrors($validator)
+                ->withInput($request->all());
         }
 
         $fname        = $request->input('fname');
@@ -129,7 +128,6 @@ class patientController extends Controller
         $lname        = $request->input('lname');
         $nickname     = $request->input('nickname');
         $bdate        = $request->input('bdate');
-        $civil_status = $request->input('civil_status');
         $religion     = $request->input('religion');
         $gender       = $request->input('gender');
         $govt         = $request->input('govt');
@@ -155,39 +153,38 @@ class patientController extends Controller
             'lastname'                  => $lname,
             'nickname'                  => $nickname,
             'birthdate'                 => $bdate,
-            'civil_status'              => $civil_status,
+            'civil_status'              => 1,
             'gender'                    => $gender,
             'government_id_type'        => $govt,
             'government_id_number'      => $govtnum,
             'email' => 
-            [
-                0 => $email,
-            ],
+                    [
+                        0 => $email,
+                    ],
             'email_type' => 
-            [
-                0 => 1,
-            ],
-
+                    [
+                        0 => 1,
+                    ],
             'phone_contact' => [
-            0 => [
-                    1 => $mobile_num,
-                ]
+               0 => [
+                       1 => $mobile_num,
+                    ]
 
             ],
             'emergency' => 
             [
                 0=>[
-                    'emergency_firstname' => $efname,
-                    'emergency_lastname' => $elname,
-                    'emergency_middlename' => $emname,
-                    'emergency_contact_no' => $econtact,
+                    'emergency_firstname'            => $efname,
+                    'emergency_lastname'             => $elname,
+                    'emergency_middlename'           => $emname,
+                    'emergency_contact_no'           => $econtact,
                     'emergency_contact_relationship' => $erelation,
-                ]
+                   ]
 
             ],
             'address' => 
             [
-                0 => [
+                0 =>[
                     'street'            => $street,
                     'address_district'  => $brgy,
                     'address_city'      => $city,
@@ -196,7 +193,7 @@ class patientController extends Controller
                     'zipcode'           => $zip_code,
                     'address_type'      => 1,
                     'primary'           => 1
-                ]
+                    ]
 
             ]
         ];

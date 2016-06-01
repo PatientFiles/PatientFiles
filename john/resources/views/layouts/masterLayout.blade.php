@@ -504,6 +504,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           hideHover: 'auto'
         });
 </script>
+
  <script >
           var male = {{$counts->totalMaleFemalePatient[0]->MALE}};
           var female = {{$counts->totalMaleFemalePatient[0]->FEMALE}};
@@ -888,5 +889,4 @@ $('#sandbox-container input').on('hide', function(e){
             toastr.options.preventDuplicates = true;
     });
 </script>  
-
 

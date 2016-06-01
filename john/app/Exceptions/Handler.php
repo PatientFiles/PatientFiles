@@ -47,9 +47,9 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
-         if ($e instanceof RequestException) {
+        /* if ($e instanceof RequestException) {
             return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Error:404']);
-        }
+        }*/
         return parent::render($request, $e);
     }
 }

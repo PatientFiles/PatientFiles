@@ -38,11 +38,21 @@ div#patientListing:hover
                   {{session('delete.text')}}
           </small> 
     @endif
-    @if ($errors->all())
-      @foreach($errors->all as $error)
-
-      @endforeach
+    @if (session('added'))
+          <small style=" padding-top: 5px;color: white;background-color: red;font-style: italic;" class="box-title alert alert-{{session ('added.type')}} form-control" >
+                  {{session('added.text')}}
+          </small> 
     @endif
+    @if ($errors->has())
+    <ul>
+      @foreach($errors->all() as $error)
+          <ul>
+            <li style="list-style: none;">{{$error}}</li>
+          </ul>
+      @endforeach
+      </ul>
+    @endif
+
 
 	<div class="panel panel-default" >
   <div class="panel-body" >
@@ -128,12 +138,13 @@ div#patientListing:hover
                       <label for="text">Specialty:&nbsp<span style="color:red">*</span></label>
                       <input type="text" name="specialties_name" class="form-control" placeholder="Specialty">
                   </div>
-                </form>
+                
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Cancel</button>&nbsp
-                <button type="submit" class="btn btn-primary pull-right">Add User</button>
+                <input type="submit" class="btn btn-primary pull-right" value="Add User"/>
               </div>
+              </form>
             </div>
             <!-- /.modal-content -->
           </div>

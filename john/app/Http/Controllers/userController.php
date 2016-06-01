@@ -42,7 +42,7 @@ class userController extends Controller
             //->with('account', $account);
     }
 
-    public function delete($user_id)
+    public function deleteAccount($user_id)
     {
 
         $deleteAccount = $this->medix->delete('management/accounts/'.$user_id);
@@ -53,7 +53,7 @@ class userController extends Controller
             ->with('delete',['type'=> 'danger','text' => 'User '.$user_id.' deleted successfully!']);
     }
 
-    public function deleteAccount()
+    public function addAccount()
     {
         $validator = Validator::make($request->all(), [
             'user_type_id'         => 'required|min:1',
@@ -85,7 +85,7 @@ class userController extends Controller
 
         $data = 
         [   
-            'user_type_id'              => $user_type_id
+            'user_type_id'              => $user_type_id,
             'firstname'                 => $fname,
             'middlename'                => $mname,
             'lastname'                  => $lname,
@@ -95,7 +95,7 @@ class userController extends Controller
             'email'                     => $gender,
             'password'                  => $govt,
             'specialties_name'          => $govtnum,
-        ]
+        ];
         $addAccount = $this->medix->post('management/accounts/');
         //dd($deleteAccount);
 

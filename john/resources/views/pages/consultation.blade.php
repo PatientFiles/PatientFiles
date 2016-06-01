@@ -17,7 +17,7 @@
       </section>
       <hr>
 <div class="row">
-  <div class="col-xs-3">
+  <div class="col-lg-3 col-sm-12">
    <div class="box box-primary">
                 <div class="box-body box-profile">
                   <img class="profile-user-img img-responsive img-circle" src="/img/prof_pic.png" alt="User profile picture">
@@ -71,36 +71,97 @@
               </div><!-- /.box -->
 </div>
 
-<div class="col-xs-9">
+<div class="col-lg-9 col-sm-12">
     
  <div class="panel panel-default">
   <div class="panel-body">  
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Home</a>
+        <a class="nav-link active" data-toggle="tab" href="#vitals" role="tab">Vitals</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Profile</a>
+        <a class="nav-link" data-toggle="tab" href="#vaccine" role="tab">Vaccine</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#messages" role="tab">Messages</a>
+        <a class="nav-link" data-toggle="tab" href="#prescription" role="tab">Prescription</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#settings" role="tab">Settings</a>
+        <a class="nav-link" data-toggle="tab" href="#diagnosis" role="tab">Diagnosis</a>
       </li>
        <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#try" role="tab">TRY</a>
+        <a class="nav-link" data-toggle="tab" href="#labrequest" role="tab">Lab Request</a>
       </li>
     </ul>
 
     <!-- Tab panes -->
     <div class="tab-content">
-      <div class="tab-pane active" id="home" role="tabpanel">1</div>
-      <div class="tab-pane" id="profile" role="tabpanel">2</div>
-      <div class="tab-pane" id="messages" role="tabpanel">3</div>
-      <div class="tab-pane" id="settings" role="tabpanel">4</div>
-      <div class="tab-pane" id="try" role="tabpanel">5</div>
+      <div class="tab-pane active" id="vitals" role="tabpanel">
+            
+          <form role="form" action="/saveVitals/{{$prof->id}}" method="POST">
+
+          <div class="modal-body">
+              {!! csrf_field() !!}
+            <div class="form-group">
+              <label for="number">Height:</label>
+              <input type="number" name="height" class="form-control" placeholder="Height in centimeters">
+            </div>
+            <div class="form-group">
+              <label for="number">Weight:</label>
+              <input type="number" name="weight" class="form-control" placeholder="Weight in kilograms">
+            </div>
+            <div class="form-group">
+              <label for="number">Pulse Rate:</label>
+              <input type="number" name="pulse" class="form-control" placeholder="Pulse Rate (Pulse per minute)">
+            </div>
+            <div class="form-group">
+              <label for="number">Respiratory Rate:</label>
+              <input type="number" name="respiratory" class="form-control" placeholder="Respiratory Rate">
+            </div>
+            <div class="form-group">
+              <label for="number">Body Temperature:</label>
+              <input type="number" name="temp" class="form-control" placeholder="Temperature in Celsius">
+            </div>
+            <div class="form-group">
+              <label for="number">Blood Pressure (Systolic):</label>
+              <input type="number" name="sys" class="form-control" placeholder="Systolic Value">
+            </div>
+            <div class="form-group">
+              <label for="number">Blood Pressure (Diastolic):</label>
+              <input type="number" name="dia" class="form-control" placeholder="Diastolic Value">
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="mens">Last Menstrual:</label>
+                <input style="z-index: 100000;" name="mens" type="text" name="idTourDateDetails" id="idTourDateDetails" readonly="readonly" class="form-control" placeholder="Click here to pick date of last menstruation">
+            </div>
+            <div class="form-group">
+              <label for="number">Doctor Notes:</label>
+              <input type="text" name="notes" class="form-control" placeholder="Doctors vital notes">
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="submit" name="saveVitals" class="btn btn-primary">Save</button>
+          </div>
+         </form>
+      </div>
+
+      <div class="tab-pane" id="vaccine" role="tabpanel">2
+
+      </div>
+
+      <div class="tab-pane" id="prescription" role="tabpanel">3
+
+      </div>
+
+      <div class="tab-pane" id="diagnosis" role="tabpanel">4
+
+      </div>
+
+      <div class="tab-pane" id="labrequest" role="tabpanel">5
+
+      </div>
     </div>
 
   </div>

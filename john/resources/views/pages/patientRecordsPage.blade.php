@@ -88,7 +88,7 @@ div#patientListing:hover
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <button href="/consultation" type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+        <a href="/consultation" type="button" class="btn btn-default">Save</a>
       </div>
     </div>
 
@@ -129,9 +129,9 @@ div#patientListing:hover
               @endif
               @if($patient->patient_appointments)
               <div class="row container-fluid">
-                  <div  class="col-md-4" style="padding-top:4rem;" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1"><a class="btn btn-primary" href="patientProfile/{{$patient->id}}" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1.0">View Profile</a>
+                  <div  class="col-md-4" style="padding-top:4rem;" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1"><a class="btn btn-primary" href="patientProfile/{{$patient->id}}" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1.0" >View Profile</a>
                   </div>
-                  <div  class="col-md-4" style="padding-top:4rem;" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1"><a class="btn btn-default" href="#" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1.0">Patient Visit</a>
+                  <div  class="col-md-4" style="padding-top:4rem;" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1"><a class="btn btn-default" href="#" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1.0" data-toggle="modal" data-target="#Modal">Patient Visit</a>
                   </div>
               </div>
               @endif

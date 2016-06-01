@@ -44,6 +44,12 @@ class Client
     {
         return $this->request('PUT', $resource, $data);
     }
+
+    public function delete($resource, $data = [])
+    {
+        return $this->request('DELETE', $resource, $data);
+    }
+
     public function status()
     {
         $result = json_decode($response->getStatus());

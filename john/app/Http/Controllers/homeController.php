@@ -186,7 +186,7 @@ class homeController extends Controller
         if (! \Session::has('token')) {
             return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
         }
-        return view('pages.patientRegister');
+        return view('forms.patientRegister');
     }
 
     /**

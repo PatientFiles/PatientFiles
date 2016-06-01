@@ -31,7 +31,11 @@ div#patientListing:hover
         <li><a href="#"><i class="fa fa-dashboard"></i>Home -> List</a></li>
       </ol>
  </section>
-	 
+  	@if(session('delete'))
+          <small style=" padding-top: 5px;color: white;background-color: red;font-style: italic;" class="box-title alert alert-{{session ('delete.type')}} form-control" >
+                  {{session('delete.text')}}
+          </small> 
+    @endif
 	<hr id="p_hr1">
 
 
@@ -53,7 +57,7 @@ div#patientListing:hover
                   {!! csrf_field() !!}
                   <div class="form-group">
                     <label for="text">Account Type:&nbsp<span style="color:red">*</span></label>
-                    <select type="text" class="form-control"/>
+                    <select type="text" class="form-control" name="user_type_id" />
                       <option value selected disabled>Select Account Type ...</option>
                       <option value="1">Practitioner</option>
                       <option value="3">Staff</option>
@@ -86,23 +90,26 @@ div#patientListing:hover
                   </div>
                   <div class="form-group">
                       <label for="text">Birthdate:&nbsp<span style="color:red">*</span></label>
-                      <input type="text" name="firstname" class="form-control sand-box container" placeholder="Birthdate">
+                      <div class="input-group">
+                        <input type="text" name="birthdate" readonly class="form-control" id="idTourDateDetails" placeholder="Birthdate">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                      </div>
                   </div>
                   <div class="form-group">
                       <label for="number">License Number:</label>
-                      <input type="number" name="license" class="form-control" placeholder="License Number">
+                      <input type="number" name="license_number" class="form-control" placeholder="License Number">
                   </div>
                   <div class="form-group">
                       <label for="number">PTR:</label>
-                      <input type="number" name="ptr" class="form-control" placeholder="PTR License">
+                      <input type="number" name="ptr_number" class="form-control" placeholder="PTR License">
                   </div>
                   <div class="form-group">
                       <label for="number">S2 License Number:</label>
-                      <input type="number" name="s2" class="form-control" placeholder="S2 License Number">
+                      <input type="number" name="s2_license" class="form-control" placeholder="S2 License Number">
                   </div>
                   <div class="form-group">
                       <label for="text">Mobile Number:&nbsp<span style="color:red">*</span></label>
-                      <input type="text" name="mobile"  placeholder="Mobile Number" class="form-control input-medium bfh-phone" data-format="dddd ddd-dddd" aria-describedby="basic-addon1" value="">
+                      <input type="text" name="mobile_number"  placeholder="Mobile Number" class="form-control input-medium bfh-phone" data-format="dddd ddd-dddd" aria-describedby="basic-addon1" value="">
                   </div>
                   <div class="form-group">
                       <label for="text">Email Address:&nbsp<span style="color:red">*</span></label>
@@ -114,7 +121,7 @@ div#patientListing:hover
                   </div>
                   <div class="form-group">
                       <label for="text">Specialty:&nbsp<span style="color:red">*</span></label>
-                      <input type="text" name="specialty" class="form-control" placeholder="Specialty">
+                      <input type="text" name="specialties_name" class="form-control" placeholder="Specialty">
                   </div>
                 </form>
               </div>
@@ -152,14 +159,16 @@ div#patientListing:hover
                   <h3 data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.0"><strong data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.0.0">{{$user->firstname .' '. $user->middlename.' '.$user->lastname}}</strong>
                   </h3>
                   <div style="color:#848688;" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.1"><small data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.1.0"><b data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.1.0.0">User ID: &nbsp</b><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.1.0.1">{{ $user->id }}</span></small>
-                  </div> 
+                  </div> </br>
                   <div style="color:#848688;" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.2"><small data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.2.0">  <b data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.0.0">Birth Date:&nbsp</b>{{date('F d,Y',strtotime($user->birthdate))}}</small>
                   </div>
                   <div style="color:#848688;" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3"><small data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.0">
-                  <b data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.0.0">Gender:</b><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.0.1">@if ($user->gender == 0) {{'Female'}} @else {{'Male'}}@endif</span><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.0.2"></span><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.0.3"> </span></small><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.1">&nbsp;</span><small data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.2"><b data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.2.0">Date Registered:</b><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.2.1">{{date('F d,Y',strtotime($user->created_at))}} </span><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.2.2"></span><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.2.3"> </span></small>
+                  <b data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.0.0">Gender:</b><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.0.1">@if ($user->gender == 0) {{'Female'}} @else {{'Male'}}@endif</span><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.0.2"></span><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.0.3"> </span></small><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.1">&nbsp;</span><div style="color:#848688;" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3"><small data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.2"><b data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.2.0">Date Registered:&nbsp</b><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.2.1">{{date('F d,Y',strtotime($user->created_at))}} </span><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.2.2"></span><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.2.3"> </span></small></div>
                   </div>
                   </div>
-                  <div  class="col-md-4" style="padding-top:4rem;" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1"><a class="btn btn-primary" href="#" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1.0">Edit Account</a>
+                  <div  class="col-md-4" style="padding-top:4rem;" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1"><a class="btn btn-primary" href="/edit_account" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1.0">Edit Account</a>
+                  </div>
+                  <div  class="col-md-4" style="padding-top:4rem;" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1"><a class="btn btn-danger" href="/delete_account/{{$user->id}}" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1.0">Delete Account</a>
                   </div>
                   </div>
                   </div>

@@ -61,7 +61,7 @@
 		@if($errors->has('bdate'))
             <span class="error" style="color: red">{{ $errors->first('bdate') }}</span>
         @endif
-    	<input disabled type="text" name="bdate" type="text" class="form-control" placeholder="Birth Date" required />
+    	<input type="text" name="bdate" type="text" class="form-control" placeholder="Birth Date" required />
 	</div>
 
 	<div class="col-lg-6">

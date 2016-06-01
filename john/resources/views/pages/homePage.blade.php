@@ -255,7 +255,7 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
                   <p>Average Patient per Day </p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-stats-bars"></i>
+                  <i class="ion ion-android-contacts"></i>
                 </div>
                 <a href="#" class="small-box-footer" data-toggle="modal" data-target="#myModal2">
                   More info <i class="fa fa-arrow-circle-right"></i>
@@ -270,7 +270,7 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
                   <p>Average Age of Patients </p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-person-add"></i>
+                  <i class="ion ion-android-contacts"></i>
                 </div>
                 <a href="#" class="small-box-footer" data-toggle="modal" data-target="#myModal3">
                   More info <i class="fa fa-arrow-circle-right"></i>
@@ -285,7 +285,7 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
                   <p>Cancelled Appointments</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-pie-graph"></i>
+                  <i class="ion ion-close-circled"></i>
                 </div>
                 <a href="#" class="small-box-footer" data-toggle="modal" data-target="#myModal4">
                   More info <i class="fa fa-arrow-circle-right"></i>
@@ -302,25 +302,10 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
                   <p>Consultations</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-pie-graph"></i>
+                  <i class="fa fa-stethoscope"></i>
                 </div>
                 <a href="#" class="small-box-footer" data-toggle="modal" data-target="#myModal4">
                   More info <i class="fa fa-arrow-circle-right"></i>
-                </a>
-              </div>
-            </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-aqua">
-                <div class="inner">
-                  <h3>{{$counts->totalLaboratory}}</h3>
-                  <p >Laboratory Examinations</p>
-                </div>
-                <div class="icon">
-                  <i class="fa fa-shopping-cart"></i>
-                </div>
-                <a href="#" class="small-box-footer "  data-toggle="modal" data-target="#myModal" >
-                  More info <i class="fa fa-arrow-circle-right "></i>
                 </a>
               </div>
             </div><!-- ./col -->
@@ -341,13 +326,28 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
             </div><!-- ./col -->
             <div class="col-lg-3 col-xs-6">
               <!-- small box -->
+              <div class="small-box bg-aqua">
+                <div class="inner">
+                  <h3>{{$counts->totalLaboratory}}</h3>
+                  <p >Laboratory Examinations</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-arrow-graph-down-right"></i>
+                </div>
+                <a href="#" class="small-box-footer "  data-toggle="modal" data-target="#myModal" >
+                  More info <i class="fa fa-arrow-circle-right "></i>
+                </a>
+              </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
               <div class="small-box bg-green">
                 <div class="inner">
                   <h3>{{$counts->avgConsultationTime}}</h3>
                   <p>Average Consultation Time</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-stats-bars"></i>
+                  <i class="fa fa-clock-o"></i>
                 </div>
                 <a href="#" class="small-box-footer" data-toggle="modal" data-target="#myModal2">
                   More info <i class="fa fa-arrow-circle-right"></i>
@@ -360,7 +360,7 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
           <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-aqua"><i class="fa fa-envelope-o"></i></span>
+            <span class="info-box-icon bg-aqua"><i class="ion ion-ios-contact-outline"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text">Total Accounts</span>
@@ -373,7 +373,7 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-green"><i class="fa fa-flag-o"></i></span>
+            <span class="info-box-icon bg-green"><i class="fa fa-user-md"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text">Practitioners</span>
@@ -386,7 +386,7 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-yellow"><i class="fa fa-files-o"></i></span>
+            <span class="info-box-icon bg-yellow"><i class="fa fa-medkit"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text">Nurses</span>
@@ -399,7 +399,7 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-red"><i class="fa fa-star-o"></i></span>
+            <span class="info-box-icon bg-red"><i class="fa fa-heartbeat"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text">Rad Techs</span>

@@ -48,4 +48,13 @@ Route::post('saveVitals/{id}','patientController@saveVitals');
 Route::post('/add_patient','patientController@addPatient');
 
 
+/*
+ * ROUTE FOR User Accounts
+ */
+
+Route::get('/edit_account','userController@editAccount');
+
+Route::get('/delete_account/{user_id}','userController@deleteAccount');
+
+
 

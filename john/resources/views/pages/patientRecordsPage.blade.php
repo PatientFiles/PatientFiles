@@ -28,7 +28,7 @@ div#patientListing:hover
             </h1>
         
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i>Home -> List</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i>Patient List</a></li>
       </ol>
  </section>
 	 
@@ -79,8 +79,13 @@ div#patientListing:hover
                   <b data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.0.0">Date Registered:</b><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.0.1"> </span><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.0.2">{{date('F d, Y',strtotime($patient->user->created_at))}}</span><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.0.3"> </span></small><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.1">&nbsp;</span><small data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.2"><b data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.2.0">Last Visit:</b><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.2.1"> </span><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.2.2">{{$patient->user->created_at}}</span><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.2.3"> </span></small>
                   </div>
                   </div>
+              @if(! $patient->patient_appointments)
+                  <div  class="col-md-4" style="padding-top:4rem;" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1"><a class="btn btn-primary" href="#" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1.0">New Visit</a>
+              @endif
+              @if($patient->patient_appointments)
                   <div  class="col-md-4" style="padding-top:4rem;" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1"><a class="btn btn-primary" href="patientProfile/{{$patient->id}}" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1.0">View Profile</a>
                   </div>
+              @endif
                   </div>
                   </div>
                 </li>

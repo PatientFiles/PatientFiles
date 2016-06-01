@@ -43,9 +43,11 @@ Route::resource('pediatricians','userController@accounts');
  */
 
 
-Route::post('saveVitals/{id}','patientController@saveVitals');
+Route::post('/saveVitals/{id}','patientController@saveVitals');
 
 Route::post('/add_patient','patientController@addPatient');
+
+Route::get('/consultation/{id}','patientController@newConsult');
 
 
 /*

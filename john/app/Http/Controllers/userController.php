@@ -72,16 +72,16 @@ class userController extends Controller
                 ->withInput($request->all());
         }
 
-        $user_type_id = $request->input('user_type_id');
-        $firstname = $request->input('user_type_id');
-        $middlename = $request->input('user_type_id');
-        $lastname = $request->input('user_type_id');
-        $gender = $request->input('user_type_id');
-        $birthdate = $request->input('user_type_id');
-        $email = $request->input('user_type_id');
-        $password = $request->input('user_type_id');
-        $specialties_name = $request->input('user_type_id');
-        $user_type_id = $request->input('user_type_id');
+        $user_type_id   = $request->input('user_type_id');
+        $firstname      = $request->input('user_type_id');
+        $middlename     = $request->input('user_type_id');
+        $lastname       = $request->input('user_type_id');
+        $gender         = $request->input('user_type_id');
+        $birthdate      = $request->input('user_type_id');
+        $email          = $request->input('user_type_id');
+        $password       = $request->input('user_type_id');
+        $specialties_name  = $request->input('user_type_id');
+        $user_type_id      = $request->input('user_type_id');
 
         $data = 
         [   

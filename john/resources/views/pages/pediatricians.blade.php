@@ -38,13 +38,21 @@ div#patientListing:hover
                   {{session('delete.text')}}
           </small> 
     @endif
-    @if ($errors->all())
-      @foreach($errors->all as $error)
+    @if (session('added'))
+          <small style=" padding-top: 5px;color: white;background-color: red;font-style: italic;" class="box-title alert alert-{{session ('added.type')}} form-control" >
+                  {{session('added.text')}}
+          </small> 
+    @endif
+    @if ($errors->has())
+    <ul>
+      @foreach($errors->all() as $error)
           <ul>
-            <li></li>
+            <li style="list-style: none;">{{$error}}</li>
           </ul>
       @endforeach
+      </ul>
     @endif
+
 
 	<div class="panel panel-default" >
   <div class="panel-body" >

@@ -92,9 +92,6 @@ class userController extends Controller
             'lastname'                  => $lastname,
             'gender'                    => $gender,
             'birthdate'                 => $birthdate,
-            'license_number'            => $license_number,
-            'ptr_number'                => $ptr_number,
-            's2_license'                => $s2_license,
             'mobile_number'             => $mobile_number,
             'email'                     => $email,
             'password'                  => $password,
@@ -102,11 +99,11 @@ class userController extends Controller
         ];
 
         // /dd($data);
-        $addAccount = $this->medix->post('management/accounts/');
-        dd($addAccount);
+        $addAccount = $this->medix->post('management/accounts/', $data);
+        //dd($addAccount);
 
         return redirect()
             ->back()
-            ->with('delete',['type'=> 'danger','text' => 'User '.$user_id.' deleted successfully!']);
+            ->with('added',['type'=> 'success','text' => 'User '.$firstname.' '.$lastname.' created successfully!']);
     }
 }

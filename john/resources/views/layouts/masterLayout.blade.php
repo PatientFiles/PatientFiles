@@ -505,6 +505,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           hideHover: 'auto'
         });
 </script>
+
  <script >
           var donut = new Morris.Donut({
           element: 'sales-chart2',
@@ -886,5 +887,4 @@ $('#sandbox-container input').on('hide', function(e){
             toastr.options.preventDuplicates = true;
     });
 </script>  
-
 

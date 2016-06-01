@@ -23,7 +23,7 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
 <div id="myModal" class="modal fade bs-example-modal-lg" role="dialog">
   <div class="modal-dialog">
 
-    <!-- Modal content-->
+    <!-- Modal content -->
     <div class="modal-content" >
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -229,9 +229,17 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
 <!-- END MODAL -->
 
 
+<div class="box box-default container-fluid">
+   <div class="box-header with-border">
+                    <h3 class="box-title">Analytics</h3>
+                    <div class="box-tools pull-right">
+                      <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                      <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                  </div>
+           <div class="box-body chart-responsive">         
 
-
-<div class="row">
+<div class="row container-fluid">
             <div class="col-lg-3 col-xs-6">
               <!-- small box -->
               <div class="small-box bg-aqua">
@@ -293,124 +301,79 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
               </div>
             </div><!-- ./col -->
           </div>
-<div class="row">
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-red">
-                <div class="inner">
-                  <h3>{{$counts->totalConsultations}}</h3>
-                  <p>Consultations</p>
-                </div>
-                <div class="icon">
-                  <i class="fa fa-stethoscope"></i>
-                </div>
-                <a href="#" class="small-box-footer" data-toggle="modal" data-target="#myModal4">
-                  More info <i class="fa fa-arrow-circle-right"></i>
-                </a>
-              </div>
-            </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-yellow">
-                <div class="inner">
-                  <h3>{{$counts->totalImaging}}</h3>
-                  <p>Imaging Processed</p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-person-add"></i>
-                </div>
-                <a href="#" class="small-box-footer" data-toggle="modal" data-target="#myModal3">
-                  More info <i class="fa fa-arrow-circle-right"></i>
-                </a>
-              </div>
-            </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-aqua">
-                <div class="inner">
-                  <h3>{{$counts->totalLaboratory}}</h3>
-                  <p >Laboratory Examinations</p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-arrow-graph-down-right"></i>
-                </div>
-                <a href="#" class="small-box-footer "  data-toggle="modal" data-target="#myModal" >
-                  More info <i class="fa fa-arrow-circle-right "></i>
-                </a>
-              </div>
-            </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-green">
-                <div class="inner">
-                  <h3>{{$counts->avgConsultationTime}}</h3>
-                  <p>Average Consultation Time</p>
-                </div>
-                <div class="icon">
-                  <i class="fa fa-clock-o"></i>
-                </div>
-                <a href="#" class="small-box-footer" data-toggle="modal" data-target="#myModal2">
-                  More info <i class="fa fa-arrow-circle-right"></i>
-                </a>
-              </div>
-            </div><!-- ./col -->
-            
-            
-          </div>
-          <div class="row">
-        <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-aqua"><i class="ion ion-ios-contact-outline"></i></span>
 
-            <div class="info-box-content">
-              <span class="info-box-text">Total Accounts</span>
-              <span class="info-box-number">{{$counts->totalAccounts}}</span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-        </div>
-        <!-- /.col -->
-        <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-green"><i class="fa fa-user-md"></i></span>
 
-            <div class="info-box-content">
-              <span class="info-box-text">Practitioners</span>
-              <span class="info-box-number">{{$counts->totalPractitioner}}</span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-        </div>
-        <!-- /.col -->
-        <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-yellow"><i class="fa fa-medkit"></i></span>
+          <!-- DONUT CHART -->
+            <div class="row container-fluid">
+              <div class="col-xs-6">
+                <div class=" box box-default">
+                  <div class="box-header with-border">
+                    <h3 class="box-title">Donut Chart</h3>
+                    <div class="box-tools pull-right">
+                      <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                      <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                  </div>
+                  <div class="box-body chart-responsive">
+                    <div class="chart" id="sales-chart2" style="height: 300px; position: relative;"></div>
+                  </div><!-- /.box-body -->
+                </div><!-- /.box -->
+              </div> 
 
-            <div class="info-box-content">
-              <span class="info-box-text">Nurses</span>
-              <span class="info-box-number">{{$counts->totalNurse}}</span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-        </div>
-        <!-- /.col -->
-        <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-red"><i class="fa fa-heartbeat"></i></span>
+               <div class="col-xs-6">
+                <div class=" box box-default">
+                  <div class="box-header with-border">
+                    <h3 class="box-title">Donut Chart</h3>
+                    <div class="box-tools pull-right">
+                      <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                      <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                  </div>
+                  <div class="box-body chart-responsive">
+                    <div class="chart" id="sales-chart" style="height: 300px; position: relative;"></div>
+                  </div><!-- /.box-body -->
+                </div><!-- /.box -->
+              </div>  
 
-            <div class="info-box-content">
-              <span class="info-box-text">Rad Techs</span>
-              <span class="info-box-number">{{$counts->totalRadTech}}</span>
+
+            </div>  
+
+
+            <div class="row container-fluid">
+                <div class="col-xs-12">
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70"
+                      aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                        70%
+                      </div>
+                    </div>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="70"
+                      aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                        70%
+                      </div>
+                    </div>
+                    <div class="progress ">
+                      <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="70"
+                      aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                        70%
+                      </div>
+                    </div>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70"
+                      aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                        70%
+                      </div>
+                    </div>
+                   </div>
+                  </div>  
+                </div>
             </div>
-            <!-- /.info-box-content -->
-          </div>
-          <!-- /.info-box -->
-        </div>
-        <!-- /.col -->
-      </div>
+
+</div>
+</div>
 
 
 

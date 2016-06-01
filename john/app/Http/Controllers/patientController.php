@@ -203,4 +203,15 @@ class patientController extends Controller
 
         return redirect()->to('/home');
     }
+
+    public function newConsult()
+    {
+
+        if (! \Session::has('token')) {
+            return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
+        }
+
+
+        return  view('pages.consultation');
+    }
 }

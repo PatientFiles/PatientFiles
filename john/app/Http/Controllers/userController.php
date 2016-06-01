@@ -56,13 +56,13 @@ class userController extends Controller
     public function addAccount()
     {
         $validator = Validator::make($request->all(), [
-            'user_type_id'         => 'required|min:1',
+            'user_type_id'      => 'required|min:1',
             'firstname'         => 'required|min:1',
-            'lastname'         => 'required|min:1',
-            'middlename'         => 'alpha|min:1',
-            'gender'      => 'alpha|min:1',
-            'birthdate'         => 'required|date|before:tomorrow|date_format:m/d/Y',
-            'gender'        => 'required',
+            'lastname'          => 'required|min:1',
+            'middlename'        => 'alpha|min:1',
+            'gender'            => 'required',
+            'birthdate'         => 'required|date|before:today|date_format:m/d/Y',
+            'gender'            => 'required',
         ]);
 
         //dd($request->all());
@@ -72,30 +72,32 @@ class userController extends Controller
                 ->withInput($request->all());
         }
 
-        $user_type_id   = $request->input('user_type_id');
-        $firstname      = $request->input('user_type_id');
-        $middlename     = $request->input('user_type_id');
-        $lastname       = $request->input('user_type_id');
-        $gender         = $request->input('user_type_id');
-        $birthdate      = $request->input('user_type_id');
-        $email          = $request->input('user_type_id');
-        $password       = $request->input('user_type_id');
-        $specialties_name  = $request->input('user_type_id');
         $user_type_id      = $request->input('user_type_id');
+        $firstname         = $request->input('firstname');
+        $middlename        = $request->input('middlename');
+        $lastname          = $request->input('lastname');
+        $gender            = $request->input('gender');
+        $birthdate         = $request->input('birthdate');
+        $mobile_number     = $request->input('mobile_number');
+        $email             = $request->input('email');
+        $password          = $request->input('password');
+        $specialties_name  = $request->input('specialties_name');
 
         $data = 
         [   
             'user_type_id'              => $user_type_id,
-            'firstname'                 => $fname,
-            'middlename'                => $mname,
-            'lastname'                  => $lname,
-            'gender'                    => $nickname,
-            'birthdate'                 => $bdate,
-            'mobile_number'             => 1,
-            'email'                     => $gender,
-            'password'                  => $govt,
-            'specialties_name'          => $govtnum,
+            'firstname'                 => $firstname,
+            'middlename'                => $middlename,
+            'lastname'                  => $lastname,
+            'gender'                    => $gender,
+            'birthdate'                 => $birthdate,
+            'mobile_number'             => $mobile_number,
+            'email'                     => $email,
+            'password'                  => $password,
+            'specialties_name'          => $specialties_name,
         ];
+
+    dd($data);
         $addAccount = $this->medix->post('management/accounts/');
         //dd($deleteAccount);
 

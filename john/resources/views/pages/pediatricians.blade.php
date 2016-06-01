@@ -31,13 +31,18 @@ div#patientListing:hover
         <li><a href="#"><i class="fa fa-dashboard"></i>Home -> List</a></li>
       </ol>
  </section>
-  	@if(session('delete'))
+  	
+	<hr id="p_hr1">
+    @if (session('delete'))
           <small style=" padding-top: 5px;color: white;background-color: red;font-style: italic;" class="box-title alert alert-{{session ('delete.type')}} form-control" >
                   {{session('delete.text')}}
           </small> 
     @endif
-	<hr id="p_hr1">
+    @if ($errors->all())
+      @foreach($errors->all as $error)
 
+      @endforeach
+    @endif
 
 	<div class="panel panel-default" >
   <div class="panel-body" >
@@ -53,7 +58,7 @@ div#patientListing:hover
                 <h4 style="color:white;" class="modal-title" id="myModalLabel">Add New User Account</h4>
               </div>
               <div class="modal-body">
-                <form action="#" method="POST" role="form">
+                <form action="/add_account" method="POST" role="form">
                   {!! csrf_field() !!}
                   <div class="form-group">
                     <label for="text">Account Type:&nbsp<span style="color:red">*</span></label>
@@ -127,7 +132,7 @@ div#patientListing:hover
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Cancel</button>&nbsp
-                <button type="button" class="btn btn-primary pull-right">Add User</button>
+                <button type="submit" class="btn btn-primary pull-right">Add User</button>
               </div>
             </div>
             <!-- /.modal-content -->

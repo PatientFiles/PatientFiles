@@ -47,12 +47,14 @@ Route::post('/saveVitals/{id}','patientController@saveVitals');
 
 Route::post('/add_patient','patientController@addPatient');
 
-Route::get('/consultation/{id}','patientController@newConsult');
+Route::get('/consultation','patientController@newConsult');
 
 
 /*
  * ROUTE FOR User Accounts
  */
+
+Route::post('/add_account','userController@addAccount');
 
 Route::get('/edit_account','userController@editAccount');
 

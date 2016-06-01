@@ -40,7 +40,9 @@ div#patientListing:hover
     @endif
     @if ($errors->all())
       @foreach($errors->all as $error)
-
+          <ul>
+            <li></li>
+          </ul>
       @endforeach
     @endif
 
@@ -128,12 +130,13 @@ div#patientListing:hover
                       <label for="text">Specialty:&nbsp<span style="color:red">*</span></label>
                       <input type="text" name="specialties_name" class="form-control" placeholder="Specialty">
                   </div>
-                </form>
+                
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Cancel</button>&nbsp
-                <button type="submit" class="btn btn-primary pull-right">Add User</button>
+                <input type="submit" class="btn btn-primary pull-right" value="Add User"/>
               </div>
+              </form>
             </div>
             <!-- /.modal-content -->
           </div>

@@ -53,7 +53,7 @@ class userController extends Controller
             ->with('delete',['type'=> 'danger','text' => 'User '.$user_id.' deleted successfully!']);
     }
 
-    public function addAccount()
+    public function addAccount(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'user_type_id'      => 'required|min:1',
@@ -64,20 +64,21 @@ class userController extends Controller
             'birthdate'         => 'required|date|before:today|date_format:m/d/Y',
             'gender'            => 'required',
         ]);
-
-        //dd($request->all());
+        //dd($validator->fails());
         if ($validator->fails()) {
             return redirect()->back()
                 ->withErrors($validator)
                 ->withInput($request->all());
         }
-
         $user_type_id      = $request->input('user_type_id');
         $firstname         = $request->input('firstname');
         $middlename        = $request->input('middlename');
         $lastname          = $request->input('lastname');
         $gender            = $request->input('gender');
         $birthdate         = $request->input('birthdate');
+        $license_number    = $request->input('license_number');
+        $ptr_number        = $request->input('ptr_number');
+        $s2_license        = $request->input('s2_license');
         $mobile_number     = $request->input('mobile_number');
         $email             = $request->input('email');
         $password          = $request->input('password');
@@ -91,15 +92,18 @@ class userController extends Controller
             'lastname'                  => $lastname,
             'gender'                    => $gender,
             'birthdate'                 => $birthdate,
+            'license_number'            => $license_number,
+            'ptr_number'                => $ptr_number,
+            's2_license'                => $s2_license,
             'mobile_number'             => $mobile_number,
             'email'                     => $email,
             'password'                  => $password,
             'specialties_name'          => $specialties_name,
         ];
 
-    dd($data);
+        // /dd($data);
         $addAccount = $this->medix->post('management/accounts/');
-        //dd($deleteAccount);
+        dd($addAccount);
 
         return redirect()
             ->back()

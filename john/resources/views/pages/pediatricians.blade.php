@@ -182,10 +182,13 @@ div#patientListing:hover
                   <b data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.0.0">Gender:</b><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.0.1">@if ($user->gender == 0) {{'Female'}} @else {{'Male'}}@endif</span><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.0.2"></span><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.0.3"> </span></small><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.1">&nbsp;</span><div style="color:#848688;" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3"><small data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.2"><b data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.2.0">Date Registered:&nbsp</b><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.2.1">{{date('F d,Y',strtotime($user->created_at))}} </span><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.2.2"></span><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.2.3"> </span></small></div>
                   </div>
                   </div>
-                  <div  class="col-md-4" style="padding-top:4rem;" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1"><a class="btn btn-primary" href="/edit_account" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1.0">Edit Account</a>
+                  <div  class="col-md-4" style="padding-top:4rem;" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1"><a class="btn btn-primary" href="/edit_account" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1.0">Edit Account</a>&nbsp | &nbsp
+                  <a class="btn btn-danger" href="/delete_account/{{$user->id}}" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1.0">Delete Account</a>
                   </div>
-                  <div  class="col-md-4" style="padding-top:4rem;" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1"><a class="btn btn-danger" href="/delete_account/{{$user->id}}" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1.0">Delete Account</a>
+
+              <!--    <div  class="col-md-4" style="padding-top:4rem;" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1"><a class="btn btn-danger" href="/delete_account/{{$user->id}}" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1.0">Delete Account</a>
                   </div>
+                  -->
                   </div>
                   </div>
                 </li>

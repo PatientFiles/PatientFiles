@@ -47,9 +47,9 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
-        /* if ($e instanceof RequestException) {
-            return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Error:404']);
-        }*/
+         if ($e instanceof RequestException) {
+            return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access to Pedix denied.']);
+        }
         return parent::render($request, $e);
     }
 }

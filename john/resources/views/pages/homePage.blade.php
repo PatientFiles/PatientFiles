@@ -240,7 +240,7 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
            <div class="box-body chart-responsive">         
 
   <div class="row container-fluid">
-          <p><b>Patient Overview</b></p>
+          <p style="margin: 0 15px 10px;"><b>Patient Overview</b></p>
             <div class="col-lg-3 col-xs-6">
               <!-- small box -->
               <div class="small-box bg-aqua">
@@ -309,7 +309,7 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
               <div class="col-xs-6">
                 <div class=" box box-default">
                   <div class="box-header with-border">
-                    <h3 class="box-title">Services</h3>
+                    <p><b>Services</b></p>
                     <div class="box-tools pull-right">
                       <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                       <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
@@ -324,7 +324,7 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
                <div class="col-xs-6">
                 <div class=" box box-default">
                   <div class="box-header with-border">
-                    <h3 class="box-title">Male to Female Patient Comparison</h3>
+                    <p><b>Male to Female Patient Comparison</b></p>
                     <div class="box-tools pull-right">
                       <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                       <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
@@ -341,7 +341,7 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
 
 
             <div class="row container-fluid">
-            <p><b>Accounts Overview</b></p>
+            <p style="margin: 0 15px 10px;"><b>Accounts Overview</b></p>
                 <div class="col-xs-12">
                   <div class="panel panel-default">
                     <div class="panel-body">

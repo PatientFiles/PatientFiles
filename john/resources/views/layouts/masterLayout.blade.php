@@ -265,13 +265,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <li class="header">Menu</li>
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="/home"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-            <li ><a href="/patientRecords"><i class="fa fa-book"></i> <span>Patient List</span></a></li>
+             <li class="treeview">
+              <a href=""><i class="fa fa-black-tie"></i> <span>Patient</span> <i class="fa fa-angle-left pull-right"></i></a>
+                      <ul class="treeview-menu">
+                        <li><a href="/patientRecords"><i class="fa fa-users"></i>Patient List</a></li>
+                         <li><a href="/register"><i class="ion ion-person-add"></i>Add Patient</a></li>
+                      </ul>
+                      </li>
             <li ><a href="/scheduler"><i class="fa fa-calendar-check-o"></i> <span>Scheduler</span></a></li>
             <li class="treeview">
               <a href=""><i class="fa fa-black-tie"></i> <span>Management</span> <i class="fa fa-angle-left pull-right"></i></a>
               <ul class="treeview-menu">
                 <li><a href="/accounts"><i class="fa fa-users"></i>Accounts</a></li>
-                 <li><a href="/register"><i class="ion ion-person-add"></i>Add Patient</a></li>
                 <li><a href="#"><i class="fa fa-medkit"></i>Procedure</a></li>
                 <li><a href="#"><i class="fa  fa-stethoscope"></i>Treatment Plan</a></li>
                 <li><a href="#"><i class="fa  fa-money"></i>Accounting</a></li>

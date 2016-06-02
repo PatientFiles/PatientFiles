@@ -51,7 +51,7 @@ Route::post('/saveVitals/{id}','patientController@saveVitals');
 
 Route::post('/add_patient','patientController@addPatient');
 
-Route::get('/consultation','patientController@newConsult');
+Route::get('/consultation/{id}','patientController@newConsult');
 
 
 /*

@@ -3,7 +3,7 @@
 
 
 
-@section('title', 'Edit User Account | Pedix')
+@section('title', 'Add User Account | Pedix')
 
 <style type="text/css">
   
@@ -23,12 +23,12 @@ div#patientListing:hover
 <section class="content-header">
  
       <h1>
-              Edit User Account
+              Add User Account
           
      </h1>
         
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i>Management -> User Accounts -> Edit Account</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i>Management -> User Accounts -> Add Account</a></li>
       </ol>
  </section>
 	 
@@ -42,7 +42,7 @@ div#patientListing:hover
 
   <div class="panel panel-default" >
       <div class="panel-body" >
-                <form action="#" method="POST" role="form" class="form-horizontal">
+                <form action="/add_account" method="POST" role="form" class="form-horizontal">
                           {!! csrf_field() !!}
                           <div class="row form-group">
                               <div class="col-lg-6">
@@ -101,7 +101,7 @@ div#patientListing:hover
                                   </select>
                               </div>
                             <div class="col-lg-6">
-                                  <label for="text">Birthdate:&nbsp<span style="color:red">*</span></label>
+                                  <label for="text">Birthdate:&nbsp</label>
                       @if($errors->has('birthdate'))
                           <span class="error" style="color: red">{{ $errors->first('birthdate') }}</span>
                       @endif
@@ -138,7 +138,7 @@ div#patientListing:hover
 
                           <div class="row form-group">
                               <div class="col-lg-6">
-                                  <label for="text">Specialty:&nbsp<span style="color:red">*</span></label>
+                                  <label for="text">Specialty:&nbsp</label>
                       @if($errors->has('specialties_name'))
                           <span class="error" style="color: red">{{ $errors->first('specialties_name') }}</span>
                       @endif
@@ -148,7 +148,7 @@ div#patientListing:hover
 
                           <div class="row form-group">
                             <div class="col-lg-4">
-                                <label for="text">Mobile Number:&nbsp<span style="color:red">*</span></label>
+                                <label for="text">Mobile Number:&nbsp</label>
                       @if($errors->has('mobile_number'))
                           <span class="error" style="color: red">{{ $errors->first('mobile_number') }}</span>
                       @endif
@@ -173,7 +173,7 @@ div#patientListing:hover
                           <div class="form-group row">
                             <div class="col-lg-6 pull-right">
                               <div class="col-lg-4 pull-right">
-                                  <input type="submit" name="edit" class="form-control btn btn-primary" value="Save Changes">
+                                  <input type="submit" name="edit" class="form-control btn btn-primary" value="Add User">
                               </div>
                               <div class="col-lg-4 pull-right">
                                   <a href="/pediatrician" type="submit" name="cancel" class="form-control btn btn-default">Cancel</a>

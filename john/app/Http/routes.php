@@ -60,7 +60,9 @@ Route::get('/consultation/{id}','patientController@newConsult');
 
 Route::post('/add_account','userController@addAccount');
 
-Route::get('/edit_account','userController@editAccount');
+Route::get('/account/add_account','userController@addAccountPage');
+
+Route::get('/account/edit_account','userController@editAccount');
 
 Route::get('/delete_account/{user_id}','userController@deleteAccount');
 

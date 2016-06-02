@@ -26,6 +26,10 @@ Route::resource('home','homeController');
 
 Route::resource('patientRecords','homeController@patientRecords');
 
+Route::resource('/next','homeController@next');
+
+Route::resource('/prev','homeController@prev');
+
 Route::resource('searchResult','homeController@searchResult');
 
 Route::get('patientProfile/{id}','patientController@patientProfile');

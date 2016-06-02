@@ -147,8 +147,8 @@ div#patientListing:hover
             
 
              <div > 
-                  <a style="color: black" href="#" class="btn btn-default"> Previous </a> 
-                  <a style="color: black" href="#" class="btn btn-default pull-right"> Next </a> 
+                  <a style="color: black" href="/prev" class="btn btn-default"> Previous </a> 
+                  <a style="color: black" href="/next" class="btn btn-default pull-right"> Next </a> 
              </div>
 
        </div>

@@ -11,6 +11,8 @@ class homeController extends Controller
 {
 
     protected $medix;
+    protected $takes = 10;
+    protected $offsets = 0;
 
     /**
      * Display a listing of the resource.
@@ -35,7 +37,18 @@ class homeController extends Controller
         
         return $this->recent();
     }
-
+    public function next()
+    {
+        $this->takes += 10;
+        $this->offsets += 10;
+        return $this->patientRecords();
+    }
+    public function prev()
+    {
+        $this->takes -= 10;
+        $this->offsets -= 10;
+        return $this->patientRecords();
+    }
 
     /**
      * Patient Records PAGE
@@ -46,7 +59,7 @@ class homeController extends Controller
             return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please login to access Patient Records!']);
         }
 
-        $patients = $this->medix->get('patient?take=1000&offset=0');
+        $patients = $this->medix->get('patient?take='. $this->takes .'&offset='. $this->offsets);
         //dd($patients);
         $mytime = Carbon::now();
 
@@ -147,9 +160,9 @@ class homeController extends Controller
      */
     public function recent()
     {
-        $patients = $this->medix->get('patient?take=10');
+        $patients = $this->medix->get('patient?take=1000');
         $reports = $this->medix->get('management/reports');
-        //dd($reports);
+        //dd($patients);
         $mytime = Carbon::now();
 
         //dd($count);

@@ -75,6 +75,22 @@ class patientController extends Controller
         }
 
         $request->all();
+        $validator = Validator::make($request->all(), [
+            'height'        => 'max:3|min:1',
+            'weight'        => 'max:3|min:1',
+            'pulse'         => 'max:3|min:1',
+            'respiratory'   => 'max:3|min:1',
+            'temp'          => 'max:2|min:1',
+            'sys'           => 'max:2|min:1',
+            'dia'           => 'max:2|min:1',
+            'mens'          => 'date|before:tomorrow|date_format:m/d/Y',
+        ]);
+        if($validator->fails()) {
+            return redirect()
+                ->back()
+                ->withErrors($validator)
+                ->withInput($request->all());
+        }
 
         $height = $request->input('height');
         $weight = $request->input('weight');
@@ -100,7 +116,7 @@ class patientController extends Controller
         $addVitals = $this->medix->post('patient/'. $id .'/vitals/general_survey', $data);
         //dd($addVitals);
 
-        return redirect('patientProfile/'. $id .'#vitals')->with('success',['type'=> 'success','text' => 'Vitals successfully added']);
+        return redirect('consultation/'. $id .'#vitals')->with('success',['type'=> 'success','text' => 'Vitals successfully added']);
     }
 
     /***

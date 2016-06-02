@@ -13,7 +13,7 @@
  	
  <div class="row "> <!-- ROW /  -->
  	<div class="col-lg-3">
- 		<a href="#" data-toggle="modal" data-target="#myModalUpload" data-reactid=".0.0.0.2.0.2.1.0.1.0.0.0.0.0"><img src="/img/generic.png" class="img-thumbnail img-circle" data-reactid=".0.0.0.2.0.2.1.0.1.0.0.0.0.0.0"></a>
+ 		<a href="#" data-toggle="modal" data-target="#myModalUpload" ><img src="/img/generic.png" class="img-thumbnail img-circle" style="height: 220px"></a>
  	</div>
  	
  </div> <!-- End Row / -->

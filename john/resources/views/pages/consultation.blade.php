@@ -16,6 +16,12 @@
           </ol>
       </section>
       <hr>
+      @if(session('success'))
+          <small style=" padding-top: 5px;color: white;background-color: red;font-style: italic;" class="box-title alert alert-{{session ('success.type')}} form-control" >
+                                    {{session('success.text')}}
+          </small>
+             
+      @endif
 <div class="row">
   <div class="col-lg-3 col-sm-12">
    <div class="box box-primary">
@@ -45,12 +51,6 @@
                     </li>
                     </ul>
                     <br>
-                    <div>
-                          <input type="button" data-toggle="modal" data-target="#vitalsModal" class="btn btn-primary pull-left" value="New Visit" />
-                    </div>
-                    <div>
-                          <input type="button" data-toggle="modal" data-target="#vitalsModal" class="btn btn-primary pull-right" value="Add Vitals" />
-                    </div>
             </div>
             </div>
 </div>
@@ -60,21 +60,22 @@
  <div class="panel panel-default">
   <div class="panel-body">  
     <!-- Nav tabs -->
+    <div class="nav-tabs-custom">
     <ul class="nav nav-tabs" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#vitals" role="tab">Vitals</a>
+      <li class="active">
+        <a data-toggle="tab" href="#vitals" role="tab">Vitals</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#vaccine" role="tab">Vaccine</a>
+        <a data-toggle="tab" href="#vaccine" role="tab">Vaccine</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#prescription" role="tab">Prescription</a>
+        <a data-toggle="tab" href="#prescription" role="tab">Prescription</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#diagnosis" role="tab">Diagnosis</a>
+        <a data-toggle="tab" href="#diagnosis" role="tab">Diagnosis</a>
       </li>
        <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#labrequest" role="tab">Lab Request</a>
+        <a data-toggle="tab" href="#labrequest" role="tab">Lab Request</a>
       </li>
     </ul>
 
@@ -86,42 +87,86 @@
 
           <div class="modal-body">
               {!! csrf_field() !!}
-            <div class="form-group">
-              <label for="number">Height:</label>
-              <input type="number" name="height" class="form-control" placeholder="Height in centimeters">
-            </div>
-            <div class="form-group">
-              <label for="number">Weight:</label>
-              <input type="number" name="weight" class="form-control" placeholder="Weight in kilograms">
-            </div>
-            <div class="form-group">
-              <label for="number">Pulse Rate:</label>
-              <input type="number" name="pulse" class="form-control" placeholder="Pulse Rate (Pulse per minute)">
-            </div>
-            <div class="form-group">
-              <label for="number">Respiratory Rate:</label>
-              <input type="number" name="respiratory" class="form-control" placeholder="Respiratory Rate">
-            </div>
-            <div class="form-group">
-              <label for="number">Body Temperature:</label>
-              <input type="number" name="temp" class="form-control" placeholder="Temperature in Celsius">
-            </div>
-            <div class="form-group">
-              <label for="number">Blood Pressure (Systolic):</label>
-              <input type="number" name="sys" class="form-control" placeholder="Systolic Value">
-            </div>
-            <div class="form-group">
-              <label for="number">Blood Pressure (Diastolic):</label>
-              <input type="number" name="dia" class="form-control" placeholder="Diastolic Value">
-            </div>
-            <div class="form-group">
-              <label class="control-label" for="mens">Last Menstrual:</label>
-                <input style="z-index: 100000;" name="mens" type="text" name="idTourDateDetails" id="idTourDateDetails" readonly="readonly" class="form-control" placeholder="Click here to pick date of last menstruation">
-            </div>
-            <div class="form-group">
-              <label for="number">Doctor Notes:</label>
-              <input type="text" name="notes" class="form-control" placeholder="Doctors vital notes">
-            </div>
+
+              <div class="row form-group">
+                  <div class="col-lg-6">
+                      <label for="number">Height:</label>
+                      @if($errors->has('height'))
+                          <span class="error" style="color: red">{{ $errors->first('height') }}</span>
+                      @endif
+                      <input type="number" name="height" class="form-control" placeholder="Height in centimeters">
+                  </div>
+                  <div class="col-lg-6">
+                      <label for="number">Weight:</label>
+                      @if($errors->has('weight'))
+                          <span class="error" style="color: red">{{ $errors->first('weight') }}</span>
+                      @endif
+                      <input type="number" name="weight" class="form-control" placeholder="Weight in kilograms">
+                  </div>
+              </div>
+
+              <div class="row form-group">
+                  <div class="col-lg-6">
+                    <label for="number">Pulse Rate:</label>
+                      @if($errors->has('pulse'))
+                          <span class="error" style="color: red">{{ $errors->first('pulse') }}</span>
+                      @endif
+                    <input type="number" name="pulse" class="form-control" placeholder="Pulse Rate (Pulse per minute)">
+                  </div>
+                  <div class="col-lg-6">
+                    <label for="number">Respiratory Rate:</label>
+                      @if($errors->has('respiratory'))
+                          <span class="error" style="color: red">{{ $errors->first('respiratory') }}</span>
+                      @endif
+                    <input type="number" name="respiratory" class="form-control" placeholder="Respiratory Rate">
+                  </div>
+              </div>
+              
+              <div class="row form-group">
+                  <div class="col-lg-6">
+                    <label for="number">Body Temperature:</label>
+                      @if($errors->has('temp'))
+                          <span class="error" style="color: red">{{ $errors->first('temp') }}</span>
+                      @endif
+                    <input type="number" name="temp" class="form-control" placeholder="Temperature in Celsius">
+                  </div>
+                  <div class="col-lg-6">
+                    <label class="control-label" for="mens">Last Menstrual:</label>
+                      @if($errors->has('mens'))
+                          <span class="error" style="color: red">{{ $errors->first('mens') }}</span>
+                      @endif
+                      <div class="input-group">
+                          <input style="z-index: 100000;" name="mens" type="text" name="idTourDateDetails" id="idTourDateDetails" readonly="readonly" class="form-control" placeholder="Click here to pick date of last menstruation">
+                          <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="row form-group">
+                  <div class="col-lg-6">
+                    <label for="number">Blood Pressure (Systolic):</label>
+                      @if($errors->has('sys'))
+                          <span class="error" style="color: red">{{ $errors->first('sys') }}</span>
+                      @endif
+                    <input type="number" name="sys" class="form-control" placeholder="Systolic Value">
+                  </div>
+                  <div class="col-lg-6">
+                    <label for="number">Blood Pressure (Diastolic):</label>
+                      @if($errors->has('dia'))
+                          <span class="error" style="color: red">{{ $errors->first('dia') }}</span>
+                      @endif
+                    <input type="number" name="dia" class="form-control" placeholder="Diastolic Value">
+                  </div>
+              </div>
+
+              
+              <div class="form-group">
+                <label for="number">Doctor Notes:</label>
+                      @if($errors->has('notes'))
+                          <span class="error" style="color: red">{{ $errors->first('notes') }}</span>
+                      @endif
+                <textarea name="notes" class="form-control" rows="5" placeholder="Doctors vital notes"></textarea>
+              </div>
 
           </div>
           <div class="modal-footer">
@@ -150,6 +195,7 @@
 
   </div>
   </div>
+</div>
 </div>
 
 

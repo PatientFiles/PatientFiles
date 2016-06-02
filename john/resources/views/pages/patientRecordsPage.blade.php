@@ -54,51 +54,60 @@ div#patientListing:hover
     
 
              @foreach($patients as $patient)  
-           <div  class="row container-fluid"    id="patientListing"   data-reactid=".0.0.0.2.0.1.1.1">
-             <ul style="padding:0;" class="patient-list-style" data-reactid=".0.0.0.2.0.1.1.1.0">                 
-                <li style="list-style: none;" data-reactid=".0.0.0.2.0.1.1.1.0.$0" >
-                  <div class="row" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0">
-                  <div class="col-md-3 " data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.0"><img   class="img-circle" src="/img/generic.png" style="width: 50%" >
-                  </div>
-                  <div class="col-md-9" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1">
-                  <div class="col-md-8" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0">
-                  <h3 data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.0"><strong data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.0.0">{{ $patient->user->firstname." ".$patient->user->lastname}}</strong>
-                  </h3>
-                  <div style="color:#848688;" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.1"><small data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.1.0"><b data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.1.0.0">Patient ID: &nbsp</b><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.1.0.1">{{ $patient->id }}</span></small>
-                  </div>
-                   @if ($patient->user->gender == 0)  
-                  <div style="color:#848688;" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.2"><small data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.2.0">{{ "Male" }}</small>
-                  </div>
-                   @endif
-                    @if ($patient->user->gender == 1)  
-                  <div style="color:#848688;" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.2"><small data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.2.0">  <b data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.0.0">Gender: &nbsp</b>{{ "Female" }}</small>
-                  </div>
-                   @endif
-                  <div style="color:#848688;" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.2"><small data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.2.0">  <b data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.0.0">Birth Date:&nbsp</b>{{date('F d, Y',strtotime($patient->user->birthdate))}}</small>
-                  </div>
-                  <div style="color:#848688;" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3"><small data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.0">
-                  <b data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.0.0">Date Registered:</b><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.0.1"> </span><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.0.2">{{date('F d, Y',strtotime($patient->user->created_at))}}</span><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.0.3"> </span></small><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.1">&nbsp;</span><small data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.2"><b data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.2.0">Last Visit:</b><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.2.1"> </span><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.2.2">{{$patient->user->created_at}}</span><span data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.0.3.2.3"> </span></small>
-                  </div>
-                  </div>
-              @if(! $patient->patient_appointments)
-                  <div  class="col-md-4" style="padding-top:4rem;" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1"><a class="btn btn-primary" href="#" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1.0" data-toggle="modal" data-target="#Modal">New Visit</a>
-              @endif
-              @if($patient->patient_appointments)
-              <div class="row">
-                  <div  class="col-md-4" style="padding-top:4rem;" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1"><a class="btn btn-primary" href="patientProfile/{{$patient->id}}" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1.0" >View Profile</a>
-                  </div>
-                  <div  class="col-md-4" style="padding-top:4rem;" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1"><a class="btn btn-default" href="#" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1.0" data-toggle="modal" data-target="#Modal">Patient Visit</a>
-                  </div>
-                  <div  class="col-md-4" style="padding-top:4rem;" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1"><a class="btn btn-default" href="#" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1.0" data-toggle="modal" data-target="#Modal">Edit Profile</a>
-                  </div>
-              </div>
-              @endif
-                  </div>
-                  </div>
-                </li>
-                </ul>
-              
-                </div>
+           <div  class="row container-fluid"    id="patientListing" >
+             <ul style="padding:0;" class="patient-list-style">      <!-- START UL -->           
+                <li style="list-style: none;"  > <!-- START LI -->   
+                    <div class="row"> <!-- START ROW -->   
+                      <div class="col-md-3 " > <!-- START IMG -->
+                          <img   class="img-circle" src="/img/generic.png" style="width: 160px" >
+                      </div> <!-- END IMG -->
+                      
+                   
+                      <div class="col-md-9" > <!--Start 9 COLUMNS -->
+                         <div class="row"> 
+                              <div class="col-md-6" > <!-- START 8 COLUMNS -->
+                                  <h3 ><strong >{{ $patient->user->firstname." ".$patient->user->lastname}}</strong>
+                                  </h3>
+                                  <div style="color:#848688;" ><small ><b >Patient ID: &nbsp</b><span >{{ $patient->id }}</span></small>
+                                  </div>
+                                   @if ($patient->user->gender == 0)  
+                                  <div style="color:#848688;" ><small >{{ "Male" }}</small>
+                                  </div>
+                                   @endif
+                                    @if ($patient->user->gender == 1)  
+                                  <div style="color:#848688;" ><small >  <b >Gender: &nbsp</b>{{ "Female" }}</small>
+                                  </div>
+                                   @endif
+                                  <div style="color:#848688;"><small >  <b >Birth Date:&nbsp</b>{{date('F d, Y',strtotime($patient->user->birthdate))}}</small>
+                                  </div>
+                                  <div style="color:#848688;" ><small >
+                                  <b >Date Registered:</b><span > </span><span >{{date('F d, Y',strtotime($patient->user->created_at))}}</span><span > </span></small><span>&nbsp;</span><small ><b >Last Visit:</b><span > </span><span >{{$patient->user->created_at}}</span><span > </span></small>
+                                  </div>
+                              </div> <!-- END 8 COLUMNS -->
+                                
+                                     <div class="col-lg-6 container-fluid"  style="padding-top: 40px"> <!-- START cl4 -->
+                                          <div class="btn-group" role="group">      
+                                            <a class="btn btn-default" href="patientProfile/{{$patient->id}}" >View Profile</a>
+
+
+
+                                            <a class="btn btn-primary" href="#"  data-toggle="modal" data-target="#Modal">Patient Visit</a>
+
+
+                                            <a class="btn btn-default" href="#"  data-toggle="modal" data-target="#Modal">Edit Profile</a>
+
+                                          </div>        
+                                     </div>  <!-- END cl 4 -->
+                                 
+                          </div>                            
+                      </div> <!--END 9 Columns -->
+                    </div> <!-- END ROW -->
+                 </li>  <!-- END LI -->
+               </ul> <!-- END UL -->   
+           </div>  <!-- END WHOLE ROW -->
+      
+      
+      
 
 <div id="Modal" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -158,10 +167,6 @@ div#patientListing:hover
 
 
 </div>     
-
-
-
-
 
 
 

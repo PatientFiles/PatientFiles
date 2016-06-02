@@ -21,9 +21,11 @@ class patientController extends Controller
         $this->addError = new CreatePatientRequest();
     }
 
-    /**
+    /***
+     *
      * patientProfile
-     */
+     *
+     ***/
     public function patientProfile($id)
     {
         if (! \Session::has('fname')) {
@@ -60,6 +62,11 @@ class patientController extends Controller
             ->with('recentVitals', $vitals->data->vitals->general_survey);
     }
 
+    /***
+     *
+     * Save Vitals of Patient
+     *
+     ***/
     public function saveVitals($id, Request $request)
     {
 
@@ -96,6 +103,11 @@ class patientController extends Controller
         return redirect('patientProfile/'. $id .'#vitals')->with('success',['type'=> 'success','text' => 'Vitals successfully added']);
     }
 
+    /***
+     *
+     * Adding of Patient
+     *
+     ***/
     public function addPatient(Request $request)
     {   
         if (! \Session::has('token')) {
@@ -204,14 +216,24 @@ class patientController extends Controller
         return redirect()->to('/home');
     }
 
-    public function newConsult()
+    /***
+     *
+     * Consultation Page
+     *
+     ***/
+    public function newConsult($id)
     {
-
         if (! \Session::has('token')) {
             return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
         }
 
+        $profile = $this->medix->get('patient/'.$id);
+        $address = current((array)$profile->data->user->user_addresses);
+        //dd($profile);
 
-        return  view('pages.consultation');
+
+        return  view('pages.consultation')
+            ->with('prof', $profile->data)
+            ->with('address', $address);
     }
 }

@@ -50,50 +50,6 @@ div#patientListing:hover
 
 <!-- MODAL -->
 
-<div id="Modal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content" >
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Patient Visit</h4>
-      </div>
-      <div class="modal-body">
-              <strong>Purpose<span style="color: red">*</span></strong>
-              @if($errors->has('gender'))
-                      <span class="error" style="color: red">{{ $errors->first('gender') }}</span>
-                  @endif
-              <select class="form-control" name="purpose_id" style="height: 34px; width:100%" required="">
-                    <option value="" disabled="" selected="">Select...</option>
-                    <option value="1">New Patient Consult</option>
-                    <option value="2">Old Patient Consult</option>
-                    <option value="3">Follow-up Consult</option>
-                    <option value="4">Annual Physical Examination</option>
-                    <option value="5">Pre-employment Physical Examination</option>
-                    <option value="6">Laboratory (Request from FamilyDOC)</option>
-                    <option value="7">Laboratory (Request from other doctors or facilities)</option>
-                    <option value="8">Laboratory (Sponsored program)</option>
-                    <option value="9">Imaging (Request from FamilyDOC)</option>
-                    <option value="10">Imaging (Request from other doctors or facilities)</option>
-                    <option value="11">Imaging (Sponsored program)</option>
-             </select>
-      </div>
-      <div class="modal-body">
-                  <strong>Purpose<span style="color: red">*</span></strong>
-                  @if($errors->has('efname'))
-                          <span class="error" style="color: red">{{ $errors->first('efname') }}</span>
-                      @endif
-                    <input type="text" name="efname" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <a href="/consultation" type="button" class="btn btn-default">Save</a>
-      </div>
-    </div>
-
-  </div>
-</div>
 <!-- CARD TABLE -->
     
 
@@ -141,6 +97,51 @@ div#patientListing:hover
                 </ul>
               
                 </div>
+
+<div id="Modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content" >
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Patient Visit</h4>
+      </div>
+      <div class="modal-body">
+              <strong>Purpose<span style="color: red">*</span></strong>
+              @if($errors->has('gender'))
+                      <span class="error" style="color: red">{{ $errors->first('gender') }}</span>
+                  @endif
+              <select class="form-control" name="purpose_id" style="height: 34px; width:100%" required="">
+                    <option value="" disabled="" selected="">Select...</option>
+                    <option value="1">New Patient Consult</option>
+                    <option value="2">Old Patient Consult</option>
+                    <option value="3">Follow-up Consult</option>
+                    <option value="4">Annual Physical Examination</option>
+                    <option value="5">Pre-employment Physical Examination</option>
+                    <option value="6">Laboratory (Request from FamilyDOC)</option>
+                    <option value="7">Laboratory (Request from other doctors or facilities)</option>
+                    <option value="8">Laboratory (Sponsored program)</option>
+                    <option value="9">Imaging (Request from FamilyDOC)</option>
+                    <option value="10">Imaging (Request from other doctors or facilities)</option>
+                    <option value="11">Imaging (Sponsored program)</option>
+             </select>
+      </div>
+      <div class="modal-body">
+                  <strong>Purpose<span style="color: red">*</span></strong>
+                  @if($errors->has('efname'))
+                          <span class="error" style="color: red">{{ $errors->first('efname') }}</span>
+                      @endif
+                    <input type="text" name="efname" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <a href="/consultation/{{$patient->id}}" type="button" class="btn btn-default">Save</a>
+      </div>
+    </div>
+
+  </div>
+</div>
   <hr>
               @endforeach   
           <!-- END CARD TABLE -->    

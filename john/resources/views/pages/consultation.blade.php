@@ -21,18 +21,24 @@
    <div class="box box-primary">
                 <div class="box-body box-profile">
                   <img class="profile-user-img img-responsive img-circle" src="/img/prof_pic.png" alt="User profile picture">
-                  <h3 class="profile-username text-center"> </h3>
+                  <h3 class="profile-username text-center">
+                      {{$prof->user->firstname}}
+                      @if ($prof->user->nickname)
+                          {{' "'.$prof->user->nickname.'" '}}
+                      @endif
+                      {{$prof->user->lastname}}
+                  </h3>
                   <p class="text-muted text-center"></p>
 
                   <ul class="list-group list-group-unbordered">
                     <li class="list-group-item">
-                      <b>Patient ID</b> <a class="pull-right badge bg-blue"></a>
+                      <b>Patient ID</b> <a class="pull-right badge bg-blue">{{$prof->id}}</a>
                     </li>
                     <li class="list-group-item">
-                      <b>Nickname</b> <a class="pull-right badge bg-blue"></a>
+                      <b>Nickname</b> <a class="pull-right badge bg-blue">{{$prof->user->nickname}}</a>
                     </li>
                     <li class="list-group-item">
-                      <b>Birth Date</b> <a class="pull-right badge bg-blue"></a>
+                      <b>Birth Date</b> <a class="pull-right badge bg-blue">{{date('F d, Y', strtotime($prof->user->birthdate))}}</a>
                     </li>
                     <li class="list-group-item">
                       <strong>Address:</strong><a class="pull-right badge bg-blue"></a>
@@ -47,28 +53,6 @@
                     </div>
             </div>
             </div>
-
-              <!-- About Me Box -->
-              <div class="box box-primary">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Patient Latest Vitals</h3>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                      <strong><i class="fa fa-book margin-r-5"></i>  Vitals</strong>
-                 <h5> Height (cm): <p class="pull-right"></p> </h5>
-                 <h5> Weight (kg): <p class="pull-right"></p> </h5>
-                 <h5> BMI : <p class="pull-right"></p> </h5>
-                 <h5> Pulse Rate : <p class="pull-right"></p> </h5>
-                 <h5> Respiratory Rate : <p class="pull-right"></p> </h5>
-                 <h5> Body Temperature (c): <p class="pull-right"></p> </h5>
-                 <h5> Blood Pressure : <p class="pull-right"></p> </h5>
-
-                 <hr>
-
-                 <strong><i class="fa fa-file-text-o margin-r-5"></i> Doctor's Notes</strong>
-                 <p></p>
-                </div><!-- /.box-body -->
-              </div><!-- /.box -->
 </div>
 
 <div class="col-lg-9 col-sm-12">

@@ -2,6 +2,9 @@
 
 
 @section('title', 'Dashboard | Patient Files')
+
+
+
 @section('content')
 
 <section class="content-header">
@@ -31,7 +34,7 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
       </div>
       <div class="modal-body">
         
-          <table data-toggle="table"
+          <table id="table"  data-toggle="table"
                        data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
                     
                        data-search="true"
@@ -415,7 +418,7 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
 
 
                 <div class="box-body table-responsive" >
-                  <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table data-toggle="table"
+                  <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table id="table"  data-toggle="table"
        data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
        data-search="true"
        data-show-refresh="true"
@@ -453,7 +456,7 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
 
 
                 <div class="box-body table-responsive" >
-                  <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table data-toggle="table"
+                  <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table id="table" data-toggle="table"
        data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
        data-search="true"
        data-sort-name ="Checked In Date"

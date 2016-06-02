@@ -56,7 +56,7 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
                             <td>
                              <div class="progress">
                             
-                                <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
                                       20%
                                 </div>
                               </div>
@@ -68,7 +68,7 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
                             <td> 100.00 </td>
                             <td>
                              <div class="progress">
-                                <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
+                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
                                   70%
                                 </div>
                               </div>
@@ -80,7 +80,7 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
                             <td> 100.00 </td>
                             <td>
                              <div class="progress">
-                                <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
                                   50%
                                 </div>
                               </div>
@@ -92,7 +92,7 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
                             <td> 100.00 </td>
                             <td>
                              <div class="progress">
-                                <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
                                   60%
                                 </div>
                               </div>
@@ -231,7 +231,7 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
 
 <div class="box box-default container-fluid">
    <div class="box-header with-border">
-                    <h3 class="box-title">Analytics</h3>
+                    <h3 class="box-title"><b>Clinic Analytics</b></h3>
                     <div class="box-tools pull-right">
                       <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                       <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
@@ -239,7 +239,8 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
                   </div>
            <div class="box-body chart-responsive">         
 
-<div class="row container-fluid">
+  <div class="row container-fluid">
+          <p><b>Patient Overview</b></p>
             <div class="col-lg-3 col-xs-6">
               <!-- small box -->
               <div class="small-box bg-aqua">
@@ -308,7 +309,7 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
               <div class="col-xs-6">
                 <div class=" box box-default">
                   <div class="box-header with-border">
-                    <h3 class="box-title">Donut Chart</h3>
+                    <h3 class="box-title">Services</h3>
                     <div class="box-tools pull-right">
                       <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                       <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
@@ -323,7 +324,7 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
                <div class="col-xs-6">
                 <div class=" box box-default">
                   <div class="box-header with-border">
-                    <h3 class="box-title">Donut Chart</h3>
+                    <h3 class="box-title">Male to Female Patient Comparison</h3>
                     <div class="box-tools pull-right">
                       <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                       <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
@@ -340,31 +341,43 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
 
 
             <div class="row container-fluid">
+            <p><b>Accounts Overview</b></p>
                 <div class="col-xs-12">
                   <div class="panel panel-default">
                     <div class="panel-body">
+                    <small>Total Accounts:</small>
                     <div class="progress">
-                      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70"
-                      aria-valuemin="0" aria-valuemax="100" style="width:70%">
-                        70%
+                      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{$counts->totalAccounts}}"
+                      aria-valuemin="0" aria-valuemax="{{$counts->totalAccounts}}" style="width:100%">
+                        {{$counts->totalAccounts}} &nbsp (100%)
                       </div>
                     </div>
+                    <small>Practitioners:</small>
                     <div class="progress">
-                      <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="70"
-                      aria-valuemin="0" aria-valuemax="100" style="width:70%">
-                        70%
+                      <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="{{$counts->totalPractitioner}}"
+                      aria-valuemin="0" aria-valuemax="{{$counts->totalAccounts}}" style="width:{{number_format(($counts->totalPractitioner/$counts->totalAccounts) * 100, 0 )}}%">
+                        {{$counts->totalPractitioner}}&nbsp({{round(($counts->totalPractitioner/$counts->totalAccounts)*100)}}%)
                       </div>
                     </div>
+                    <small>Nurses:</small>
                     <div class="progress ">
-                      <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="70"
-                      aria-valuemin="0" aria-valuemax="100" style="width:70%">
-                        70%
+                      <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="{{$counts->totalNurse}}"
+                      aria-valuemin="0" aria-valuemax="{{$counts->totalAccounts}}" style="width:{{number_format(($counts->totalNurse/$counts->totalAccounts) * 100, 0 )}}%">
+                        {{$counts->totalNurse}}&nbsp({{round(($counts->totalNurse/$counts->totalAccounts)*100)}}%)
                       </div>
                     </div>
+                    <small>Radiology Techs:</small>
                     <div class="progress">
-                      <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70"
-                      aria-valuemin="0" aria-valuemax="100" style="width:70%">
-                        70%
+                      <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="{{$counts->totalRadTech}}"
+                      aria-valuemin="0" aria-valuemax="{{$counts->totalAccounts}}" style="width:{{number_format( ($counts->totalRadTech/$counts->totalAccounts) * 100, 0 )}}%">
+                        {{$counts->totalRadTech}}&nbsp({{round(($counts->totalRadTech/$counts->totalAccounts)*100)}}%)
+                      </div>
+                    </div>
+                    <small>Others:</small>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-default" role="progressbar" aria-valuenow="{{($counts->totalAccounts)-(($counts->totalPractitioner)+($counts->totalNurse)+($counts->totalRadTech))}}"
+                      aria-valuemin="0" aria-valuemax="{{$counts->totalAccounts}}" style="width:{{round(((($counts->totalAccounts)-(($counts->totalPractitioner)+($counts->totalNurse)+($counts->totalRadTech)))/($counts->totalAccounts))*100)}}%">
+                        {{($counts->totalAccounts)-(($counts->totalPractitioner)+($counts->totalNurse)+($counts->totalRadTech))}}&nbsp({{round(((($counts->totalAccounts)-(($counts->totalPractitioner)+($counts->totalNurse)+($counts->totalRadTech)))/($counts->totalAccounts))*100)}}%)
                       </div>
                     </div>
                    </div>
@@ -448,7 +461,7 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
        data-show-refresh="true"
        data-show-toggle="true"
        data-show-columns="true" id="table2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
-                    <h4 class="pull-left">Recent Consultations by Patients</h4>
+                    <h4 class="pull-left">Recent Visits by Each Patients</h4>
                     <thead >
                       
                         <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Patient ID</th>

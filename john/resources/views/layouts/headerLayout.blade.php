@@ -8,7 +8,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                
+                                        
           <a class="navbar-brand page-scroll" href="#page-top" style="color: White;text-transform: none"><b>Ped</b>ix</a>
             </div>
 
@@ -30,5 +30,25 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

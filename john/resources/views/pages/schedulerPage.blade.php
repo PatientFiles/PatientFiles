@@ -21,4 +21,8 @@
 
       <div  id="scheduler"></div>
 
+
+
+
+
 @stop

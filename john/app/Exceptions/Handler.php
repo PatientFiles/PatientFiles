@@ -8,6 +8,7 @@ use Illuminate\Validation\ValidationException;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -23,6 +24,7 @@ class Handler extends ExceptionHandler
         HttpException::class,
         ModelNotFoundException::class,
         ValidationException::class,
+        NotFoundHttpException::class,
     ];
 
     /**
@@ -49,6 +51,9 @@ class Handler extends ExceptionHandler
     {
          if ($e instanceof RequestException) {
             return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access to Pedix denied.']);
+        }
+        if ($e instanceof NotFoundHttpException) {
+            return redirect('/error');
         }
         return parent::render($request, $e);
     }

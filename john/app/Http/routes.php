@@ -68,5 +68,9 @@ Route::get('/account/edit_account','userController@editAccount');
 
 Route::get('/delete_account/{user_id}','userController@deleteAccount');
 
+/*
+ * ROUTEs FOR Exception Handling
+ */
+Route::get('error','homeController@error');
 
 

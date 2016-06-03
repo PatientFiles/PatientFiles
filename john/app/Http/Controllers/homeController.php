@@ -213,6 +213,11 @@ class homeController extends Controller
         return view('forms.patientRegister');
     }
 
+    public function error()
+    {
+        return view('pages.errorPage');
+    }
+
     /**
      * Store a newly created resource in storage.
      *

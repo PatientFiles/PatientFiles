@@ -7,7 +7,7 @@
 <div class="panel panel-default" > <!-- Start PANEL -->
  <div class="panel-body"> <!-- Start PANEL -->
  <div>
- 	<h2>New Patient</h2>
+ 	<h2>Add New Patient</h2>
  	<hr>
  </div>
  	

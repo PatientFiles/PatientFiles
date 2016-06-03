@@ -34,6 +34,8 @@ Route::resource('searchResult','homeController@searchResult');
 
 Route::get('patientProfile/{id}','patientController@patientProfile');
 
+Route::get('patient/edit_patient/{id}','homeController@editPatient');
+
 Route::resource('logout','homeController@logout');
 
 Route::resource('register','homeController@register');

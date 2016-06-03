@@ -142,6 +142,17 @@ class homeController extends Controller
             ->with('prof', $profile->data);
     }
 
+    public function editPatient($id)
+    {
+        if (! \Session::has('token')) {
+            return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login to view a patient profile!']);
+        }
+
+        $profile = $this->medix->get('patient/'.$id);
+        //dd($profile);
+        return view('forms.editPatient')
+            ->with('prof', $profile->data);
+    }
     /**
      * scheduler
      */

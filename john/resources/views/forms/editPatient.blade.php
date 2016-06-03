@@ -7,7 +7,7 @@
 <div class="panel panel-default" > <!-- Start PANEL -->
  <div class="panel-body"> <!-- Start PANEL -->
  <div>
- 	<h2>Edit Patient</h2>
+ 	<h2><small>Edit Patient:</small> "{{$prof->user->firstname.' '.$prof->user->middlename.' '.$prof->user->lastname}}"</h2>
  	<hr>
  </div>
  	

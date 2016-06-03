@@ -41,10 +41,10 @@
 		                    <tr role="row" class="even">
 		                        <td class="sorting_1">{{ $patient->id }}</td>
 		                        <td>{{ $patient->user->firstname." ".$patient->user->lastname}}</td>
-		                        @if ($patient->user->gender == 0)  
+		                        @if ($patient->user->gender == 1)  
 		                        	<td>Male</td>
 		                        @endif
-		                        @if ($patient->user->gender == 1)  
+		                        @if ($patient->user->gender == 0)  
 		                        	<td>Female</td>
 		                        @endif
 		                        <td>{{date('F d, Y', strtotime($patient->user->birthdate))}}</td>

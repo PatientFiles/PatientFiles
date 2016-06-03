@@ -28,7 +28,7 @@ div#patientListing:hover
      </h1>
         
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i>Management -> User Accounts -> Add Account</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i>Pediatricians -> Add Account</a></li>
       </ol>
  </section>
 	 
@@ -44,25 +44,6 @@ div#patientListing:hover
       <div class="panel-body" >
                 <form action="/add_account" method="POST" role="form" class="form-horizontal">
                           {!! csrf_field() !!}
-                          <div class="row form-group">
-                              <div class="col-lg-6">
-                                    <label for="text">Account Type:&nbsp<span style="color:red">*</span></label>
-                      @if($errors->has('user_type_id'))
-                          <span class="error" style="color: red">{{ $errors->first('user_type_id') }}</span>
-                      @endif
-                                    <select type="text" class="form-control" name="user_type_id" />
-                                      <option value selected disabled>Select Account Type ...</option>
-                                      <option value="1">Practitioner</option>
-                                      <option value="3">Staff</option>
-                                      <option value="4">Super Admin</option>
-                                      <option value="5">CCS</option>
-                                      <option value="6">Laboratory</option>
-                                      <option value="7">Clinic Manager</option>
-                                      <option value="8">Queue Accounts</option>
-                                    </select>
-                              </div>
-                          </div>
-
                           <div class="row form-group">
                             <div class="col-lg-4">
                                   <label for="text">Firstname:&nbsp<span style="color:red">*</span></label>

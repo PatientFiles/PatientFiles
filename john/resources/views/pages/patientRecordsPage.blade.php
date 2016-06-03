@@ -71,7 +71,7 @@ div#patientListing:hover
                                   <div style="color:#848688;" ><small ><b >Patient ID: &nbsp</b><span >{{ $patient->id }}</span></small>
                                   </div>
                                    @if ($patient->user->gender == 0)  
-                                  <div style="color:#848688;" ><small >{{ "Male" }}</small>
+                                  <div style="color:#848688;" ><small > <b >Gender: &nbsp</b>{{ "Male" }}</small>
                                   </div>
                                    @endif
                                     @if ($patient->user->gender == 1)  
@@ -118,7 +118,7 @@ div#patientListing:hover
     <div class="modal-content" >
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Patient Visit</h4>
+        <h4 class="modal-title" style="color: white">Patient Visit</h4>
       </div>
       <div class="modal-body">
               <strong>Purpose<span style="color: red">*</span></strong>
@@ -146,7 +146,6 @@ div#patientListing:hover
                           <span class="error" style="color: red">{{ $errors->first('efname') }}</span>
                       @endif
                     <input type="text" name="efname" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="">
-                    <input type="text" name="efname" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="{{$patient->id}}">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

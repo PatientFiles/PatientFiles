@@ -34,6 +34,8 @@ Route::resource('searchResult','homeController@searchResult');
 
 Route::get('patientProfile/{id}','patientController@patientProfile');
 
+Route::get('patient/edit_patient/{id}','homeController@editPatient');
+
 Route::resource('logout','homeController@logout');
 
 Route::resource('register','homeController@register');
@@ -60,7 +62,9 @@ Route::get('/consultation/{id}','patientController@newConsult');
 
 Route::post('/add_account','userController@addAccount');
 
-Route::get('/edit_account','userController@editAccount');
+Route::get('/account/add_account','userController@addAccountPage');
+
+Route::get('/account/edit_account','userController@editAccount');
 
 Route::get('/delete_account/{user_id}','userController@deleteAccount');
 

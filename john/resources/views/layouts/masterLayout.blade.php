@@ -407,7 +407,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="modal-body">
                     <div class="row" style="padding: 0px 57px;" >
                       <div class="col-lg-3">
-                        <img src="https://scontent.fmnl2-1.fna.fbcdn.net/v/t1.0-0/cp0/e15/q65/p320x320/13124665_1344124622271634_3408124297216946688_n.jpg?efg=eyJpIjoiYiJ9&oh=6d23816b38eedb0cbec9a7b3814c0a2a&oe=57E62470" name="aboutme" width="100" height="100" border="0" class="img-circle">
+                        <img src="/img/prof_pic.png" name="aboutme" width="100" height="100" border="0" class="img-circle">
                       </div>
                       <div class="col-lg-9 pull-left">
                         <h3 class="widget-user-username">{{   Session::get('fname').' '.  Session::get('lname') }}</h3>

@@ -94,7 +94,7 @@ div#patientListing:hover
                                             <a class="btn btn-primary" href="#"  data-toggle="modal" data-target="#Modal">Patient Visit</a>
 
 
-                                            <a class="btn btn-default" href="#"  data-toggle="modal" data-target="#Modal">Edit Profile</a>
+                                            <a class="btn btn-default" href="patient/edit_patient/{{$patient->id}}" >Edit Profile</a>
 
                                           </div>        
                                      </div>  <!-- END cl 4 -->

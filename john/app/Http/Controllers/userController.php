@@ -42,6 +42,16 @@ class userController extends Controller
             //->with('account', $account);
     }
 
+    public function addAccountPage()
+    {
+        if (! \Session::has('token')) {
+            return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
+        }
+        //$account = $this->medix->get('management/accounts/'.$id);
+        return view('forms.addAccount');
+            //->with('account', $account);
+    }
+
     public function deleteAccount($user_id)
     {
 
@@ -59,10 +69,11 @@ class userController extends Controller
             'user_type_id'      => 'required|min:1',
             'firstname'         => 'required|min:1',
             'lastname'          => 'required|min:1',
-            'middlename'        => 'alpha|min:1',
+            'middlename'        => 'min:1',
             'gender'            => 'required',
             'birthdate'         => 'required|date|before:today|date_format:m/d/Y',
             'gender'            => 'required',
+            'password'          => 'required',
         ]);
         //dd($validator->fails());
         if ($validator->fails()) {

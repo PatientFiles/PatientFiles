@@ -273,7 +273,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       </ul>
                       </li>
             <li ><a href="/scheduler"><i class="fa fa-calendar-check-o"></i> <span>Scheduler</span></a></li>
-             <li ><a href="/accounts"><i class="fa fa-stethoscope"></i> <span>Pediatricians</span></a></li>
+             <li ><a href="/accounts"><i class="fa fa-user-md"></i> <span>Pediatricians</span></a></li>
           </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->

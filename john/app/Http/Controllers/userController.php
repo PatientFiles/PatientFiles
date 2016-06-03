@@ -81,7 +81,7 @@ class userController extends Controller
                 ->withErrors($validator)
                 ->withInput($request->all());
         }
-        $user_type_id      = $request->input('user_type_id');
+        $user_type_id      = 1;
         $firstname         = $request->input('firstname');
         $middlename        = $request->input('middlename');
         $lastname          = $request->input('lastname');

@@ -44,76 +44,6 @@
                       <strong>Address:</strong><a class="pull-right badge bg-blue">{{$address}}</a>
                     </li>
                     <br>
-                    <div>
-                          <input type="button" data-toggle="modal" data-target="#vitalsModal" class="btn btn-primary pull-left" value="New Visit" />
-                    </div>
-                    <div>
-                          <input type="button" data-toggle="modal" data-target="#vitalsModal" class="btn btn-primary pull-right" value="Add Vitals" />
-                    </div>
-                        
-              
-             <!-- ADD VITALS MODAL -->
-                             
-                <div class="modal fade" id="vitalsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 style="color:white;" class="modal-title" id="myModalLabel">Add New Vital</h4>
-                      </div>
-                    
-                      
-                        
-                      <form role="form" action="/saveVitals/{{$prof->id}}" method="POST">
-
-                      <div class="modal-body">
-                          {!! csrf_field() !!}
-                        <div class="form-group">
-                          <label for="number">Height:</label>
-                          <input type="number" name="height" class="form-control" placeholder="Height in centimeters">
-                        </div>
-                        <div class="form-group">
-                          <label for="number">Weight:</label>
-                          <input type="number" name="weight" class="form-control" placeholder="Weight in kilograms">
-                        </div>
-                        <div class="form-group">
-                          <label for="number">Pulse Rate:</label>
-                          <input type="number" name="pulse" class="form-control" placeholder="Pulse Rate (Pulse per minute)">
-                        </div>
-                        <div class="form-group">
-                          <label for="number">Respiratory Rate:</label>
-                          <input type="number" name="respiratory" class="form-control" placeholder="Respiratory Rate">
-                        </div>
-                        <div class="form-group">
-                          <label for="number">Body Temperature:</label>
-                          <input type="number" name="temp" class="form-control" placeholder="Temperature in Celsius">
-                        </div>
-                        <div class="form-group">
-                          <label for="number">Blood Pressure (Systolic):</label>
-                          <input type="number" name="sys" class="form-control" placeholder="Systolic Value">
-                        </div>
-                        <div class="form-group">
-                          <label for="number">Blood Pressure (Diastolic):</label>
-                          <input type="number" name="dia" class="form-control" placeholder="Diastolic Value">
-                        </div>
-                        <div class="form-group">
-                          <label class="control-label" for="mens">Last Menstrual:</label>
-                            <input style="z-index: 100000;" name="mens" type="text" name="idTourDateDetails" id="idTourDateDetails" readonly="readonly" class="form-control" placeholder="Click here to pick date of last menstruation">
-                        </div>
-                        <div class="form-group">
-                          <label for="number">Doctor Notes:</label>
-                          <input type="text" name="notes" class="form-control" placeholder="Doctors vital notes">
-                        </div>
-
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button type="submit" name="saveVitals" class="btn btn-primary">Save</button>
-                      </div>
-                     </form>
-                      
-                    </div>
-                  </div>
                   </ul>
 
                   
@@ -126,7 +56,7 @@
                   <h3 class="box-title">Patient Latest Vitals</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                      <strong><i class="fa fa-book margin-r-5"></i>  Vitals</strong>
+                 <h5> <strong>Date Recorded:</strong> <p class="pull-right">{{date('F d, Y', strtotime($recentVitals->created_at))}}</p> </h5>
                  <h5> Height (cm): <p class="pull-right">{{$recentVitals->height}}</p> </h5>
                  <h5> Weight (kg): <p class="pull-right">{{$recentVitals->weight}}</p> </h5>
                  <h5> BMI : <p class="pull-right">{{$bmi}}</p> </h5>
@@ -162,11 +92,8 @@
 
               <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
-                  <li class="active"><a href="#visits" data-toggle="tab">Visit</a></li>
-                  <li><a href="#admission" data-toggle="tab">Admission</a></li>
-                  <li><a href="#vitals" data-toggle="tab">Vitals</a></li>
-                    <li><a href="#treatment" data-toggle="tab">Treatment Record</a></li>
-                   
+                  <li class="active"><a href="#visits" data-toggle="tab">Visit History</a></li>
+                  <li><a href="#vitals" data-toggle="tab">Vitals Records</a></li>
                 </ul>
                    
 
@@ -179,7 +106,7 @@
                             <div class="row container-fluid" > 
                                 
            
-                      <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table data-toggle="table"
+                      <div style="height: 566px;" id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table style="height: 566px;" data-toggle="table"
                        data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
                     
                        data-search="true"
@@ -226,126 +153,12 @@
                       </div>    
                     
                 </div><!-- END VISITS TAB -->
-                    
-                  
-                <!-- START ADMISSION TAB -->
-                        
-                     <div class="tab-pane" id="admission">
-          
-                      <div class="panel panel-default" >
-                          <div class="panel-body" >
-                            <div class="row container-fluid" >  
-                                
-     
-                      <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table data-toggle="table"
-                       data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
-                       data-search="true"
-                       data-show-refresh="true"
-                       data-show-toggle="true"
-                       data-show-columns="true" id="table2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
-                      <h3 class="box-title pull-left" >Admission Record</h3> 
-                      <thead>
-                      <tr role="row">
-                      <th class="sorting_asc" tabindex="0" aria-controlsne: activate to sort column descending style="width: 177px;" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engi">Height</th>
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 224px;">Weight</th>
-                      
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 152px;">Pulserate</th>
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Respiratory</th>
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Body Temperature</th>
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Blood Presure</th>
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Doctor Notes</th>
-                      
-                    </thead>
-
-                
-
-                  </table></div></div></div>
-              
-                                
-                            </div>
-                          </div>          
-                      </div>    
-                    
-                </div><!-- END ADMISSION TAB -->
-                    
-               
-
                 <!-- START VITALS TAB -->
-
-
                      <div class="tab-pane" id="vitals">
           
                       <div class="panel panel-default" >
                           <div class="panel-body" >
-                            <div class="row container-fluid" >   
-                                <div>
-                                     <input type="button" style="width: 200px" data-toggle="modal" data-target="#vitalsModal" class="btn btn-primary pull-right" value="Add Vitals" />
-                                </div>
-                        
-              
-             <!-- ADD VITALS MODAL -->
-                             
-                <div class="modal fade" id="vitalsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 style="color:white;" class="modal-title" id="myModalLabel">Add New Vital</h4>
-                      </div>
-                    
-                      
-                        
-                      <form role="form" action="/saveVitals/{{$prof->id}}" method="POST">
-
-                      <div class="modal-body">
-                          {!! csrf_field() !!}
-                        <div class="form-group">
-                          <label for="number">Height:</label>
-                          <input type="number" name="height" class="form-control" placeholder="Height in centimeters">
-                        </div>
-                        <div class="form-group">
-                          <label for="number">Weight:</label>
-                          <input type="number" name="weight" class="form-control" placeholder="Weight in kilograms">
-                        </div>
-                        <div class="form-group">
-                          <label for="number">Pulse Rate:</label>
-                          <input type="number" name="pulse" class="form-control" placeholder="Pulse Rate (Pulse per minute)">
-                        </div>
-                        <div class="form-group">
-                          <label for="number">Respiratory Rate:</label>
-                          <input type="number" name="respiratory" class="form-control" placeholder="Respiratory Rate">
-                        </div>
-                        <div class="form-group">
-                          <label for="number">Body Temperature:</label>
-                          <input type="number" name="temp" class="form-control" placeholder="Temperature in Celsius">
-                        </div>
-                        <div class="form-group">
-                          <label for="number">Blood Pressure (Systolic):</label>
-                          <input type="number" name="sys" class="form-control" placeholder="Systolic Value">
-                        </div>
-                        <div class="form-group">
-                          <label for="number">Blood Pressure (Diastolic):</label>
-                          <input type="number" name="dia" class="form-control" placeholder="Diastolic Value">
-                        </div>
-                        <div class="form-group">
-                          <label class="control-label" for="mens">Last Menstrual:</label>
-                            <input style="z-index: 100000;" name="mens" type="text" name="idTourDateDetails" id="idTourDateDetails" readonly="readonly" class="form-control" placeholder="Click here to pick date of last menstruation">
-                        </div>
-                        <div class="form-group">
-                          <label for="number">Doctor Notes:</label>
-                          <input type="text" name="notes" class="form-control" placeholder="Doctors vital notes">
-                        </div>
-
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button type="submit" name="saveVitals" class="btn btn-primary">Save</button>
-                      </div>
-                     </form>
-                      
-                    </div>
-                  </div>
-                </div>  <!-- END VITALS MODAL -->
+                            <div class="row container-fluid" >
                       <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table data-toggle="table"
                        data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
                        data-card-view="true"
@@ -390,99 +203,6 @@
                       </div>    
                     
                 </div><!-- END VITALS TAB -->
-                    
-                  
-                  
-                  
-              <!-- START TRATMENT MODAL -->
-                
-               
-                     <div class="tab-pane" id="treatment">
-          
-                      <div class="panel panel-default" >
-                          <div class="panel-body" >
-                            <div class="row container-fluid" >   
-                                <div>
-                                     <input type="button" style="width: 200px" data-toggle="modal" data-target="#treatmentModal" class="btn btn-primary pull-right" value="Add New Treatment Plan" />
-                                </div>
-                    
-             <!-- ADD TREATMENT MODAL -->
-                             
-                <div class="modal fade" id="treatmentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 style="color:white;" class="modal-title" id="myModalLabel">New Treatment</h4>
-                      </div>
-                       <form role="form">
-                      <div class="modal-body">
-
-
-
-                        <div class="form-group" id="sandbox-container">
-                          <label for="number">Date:</label>
-                          <input type="number" class="form-control" placeholder="mm/dd/yyyy">
-                        </div>
-                        <div class="form-group">
-                          <label for="number">Procedure:</label>
-                          <input type="number" class="form-control" placeholder="Procedure">
-                        </div>
-                        <div class="form-group">
-                          <label for="number">Remarks:</label>
-                          <input type="number" class="form-control" placeholder="Remarks">
-                        </div>
-                        <div class="form-group">
-                          <label for="number">Amount Charge :</label>
-                          <input type="number" class="form-control" placeholder="00.00">
-                        </div>
-   
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Finish</button>
-                      </div>
-                           </form>
-                      
-                    </div>
-                  </div>
-                </div>  <!-- END TREATMENT MODAL -->
-                                
-                                
-                                
-                      <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table data-toggle="table"
-                       data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
-                       data-search="true"
-                       data-show-refresh="true"
-                       data-show-toggle="true"
-                       data-show-columns="true" id="table2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
-                      <h3 class="box-title pull-left" >Treatment Record</h3> 
-                      <thead>
-                      <tr role="row">
-                      <th class="sorting_asc" tabindex="0" aria-controlsne: activate to sort column descending style="width: 177px;" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engi">Height</th>
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 224px;">Weight</th>
-                      
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 152px;">Pulserate</th>
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Respiratory</th>
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Body Temperature</th>
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Blood Presure</th>
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Doctor Notes</th>
-                      
-                    </thead>
-
-                
-
-                  </table></div></div></div>
-              
-                                
-                            </div>
-                          </div>          
-                      </div>    
-                    
-                </div><!-- END TREATMENT TAB --> 
-                    
-                    
-                    
               </div><!-- END TAB CONTENT -->
             </div><!-- End NAV TABS -->
           </div><!-- /.row  col-lg-9  -->

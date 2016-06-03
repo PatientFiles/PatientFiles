@@ -71,7 +71,7 @@ div#patientListing:hover
                                   <div style="color:#848688;" ><small ><b >Patient ID: &nbsp</b><span >{{ $patient->id }}</span></small>
                                   </div>
                                    @if ($patient->user->gender == 0)  
-                                  <div style="color:#848688;" ><small >{{ "Male" }}</small>
+                                  <div style="color:#848688;" ><small > <b >Gender: &nbsp</b>{{ "Male" }}</small>
                                   </div>
                                    @endif
                                     @if ($patient->user->gender == 1)  
@@ -84,20 +84,22 @@ div#patientListing:hover
                                   <b >Date Registered:</b><span > </span><span >{{date('F d, Y',strtotime($patient->user->created_at))}}</span><span > </span></small><span>&nbsp;</span><small ><b >Last Visit:</b><span > </span><span >{{$patient->user->created_at}}</span><span > </span></small>
                                   </div>
                               </div> <!-- END 8 COLUMNS -->
-                                
+                                    @if (!$patient->patient_appointments)
+                                    <div class="col-lg-6 container-fluid"  style="padding-top: 40px"> <!-- START cl4 -->
+                                          <div class="btn-group" role="group">      
+                                            <a class="btn btn-primary" href="#"  data-toggle="modal" data-target="#Modal">New Visit</a>
+                                            <a class="btn btn-default" href="patient/edit_patient/{{$patient->id}}" >Edit Profile</a>
+                                          </div>        
+                                     </div>
+                                    @else
                                      <div class="col-lg-6 container-fluid"  style="padding-top: 40px"> <!-- START cl4 -->
                                           <div class="btn-group" role="group">      
                                             <a class="btn btn-default" href="patientProfile/{{$patient->id}}" >View Profile</a>
-
-
-
                                             <a class="btn btn-primary" href="#"  data-toggle="modal" data-target="#Modal">Patient Visit</a>
-
-
                                             <a class="btn btn-default" href="patient/edit_patient/{{$patient->id}}" >Edit Profile</a>
-
                                           </div>        
-                                     </div>  <!-- END cl 4 -->
+                                     </div>
+                                     @endif  <!-- END cl 4 -->
                                  
                           </div>                            
                       </div> <!--END 9 Columns -->
@@ -116,7 +118,7 @@ div#patientListing:hover
     <div class="modal-content" >
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Patient Visit</h4>
+        <h4 class="modal-title" style="color: white">Patient Visit</h4>
       </div>
       <div class="modal-body">
               <strong>Purpose<span style="color: red">*</span></strong>

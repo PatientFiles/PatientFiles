@@ -41,15 +41,22 @@
 		                    <tr role="row" class="even">
 		                        <td class="sorting_1">{{ $patient->id }}</td>
 		                        <td>{{ $patient->user->firstname." ".$patient->user->lastname}}</td>
-		                        @if ($patient->user->gender == 0)  
+		                        @if ($patient->user->gender == 1)  
 		                        	<td>Male</td>
 		                        @endif
-		                        @if ($patient->user->gender == 1)  
+		                        @if ($patient->user->gender == 0)  
 		                        	<td>Female</td>
 		                        @endif
 		                        <td>{{date('F d, Y', strtotime($patient->user->birthdate))}}</td>
 		                        <td>
-		                        	<a type="button" class="btn btn-primary" href="patientProfile/{{$patient->id}}" >View Profile</a> 
+		                        @if (! $patient->patient_appointments)
+		                        	<a class="btn btn-primary" href="/consultation/{{$patient->id}}">New Visit</a>
+                                    <a class="btn btn-default" href="patient/edit_patient/{{$patient->id}}" >Edit Profile</a>
+                                @else
+                                    <a class="btn btn-default" href="patientProfile/{{$patient->id}}" >View Profile</a>
+                                    <a class="btn btn-primary" href="/consultation/{{$patient->id}}">Patient Visit</a>
+                                    <a class="btn btn-default" href="patient/edit_patient/{{$patient->id}}" >Edit Profile</a>
+		                        @endif
 		                        </td>
 		                    </tr>
 	                    @endforeach

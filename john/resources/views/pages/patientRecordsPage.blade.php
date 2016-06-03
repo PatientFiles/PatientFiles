@@ -84,20 +84,22 @@ div#patientListing:hover
                                   <b >Date Registered:</b><span > </span><span >{{date('F d, Y',strtotime($patient->user->created_at))}}</span><span > </span></small><span>&nbsp;</span><small ><b >Last Visit:</b><span > </span><span >{{$patient->user->created_at}}</span><span > </span></small>
                                   </div>
                               </div> <!-- END 8 COLUMNS -->
-                                
+                                    @if (!$patient->patient_appointments)
+                                    <div class="col-lg-6 container-fluid"  style="padding-top: 40px"> <!-- START cl4 -->
+                                          <div class="btn-group" role="group">      
+                                            <a class="btn btn-primary" href="#"  data-toggle="modal" data-target="#Modal">New Visit</a>
+                                            <a class="btn btn-default" href="patient/edit_patient/{{$patient->id}}" >Edit Profile</a>
+                                          </div>        
+                                     </div>
+                                    @else
                                      <div class="col-lg-6 container-fluid"  style="padding-top: 40px"> <!-- START cl4 -->
                                           <div class="btn-group" role="group">      
                                             <a class="btn btn-default" href="patientProfile/{{$patient->id}}" >View Profile</a>
-
-
-
                                             <a class="btn btn-primary" href="#"  data-toggle="modal" data-target="#Modal">Patient Visit</a>
-
-
                                             <a class="btn btn-default" href="patient/edit_patient/{{$patient->id}}" >Edit Profile</a>
-
                                           </div>        
-                                     </div>  <!-- END cl 4 -->
+                                     </div>
+                                     @endif  <!-- END cl 4 -->
                                  
                           </div>                            
                       </div> <!--END 9 Columns -->
@@ -144,6 +146,7 @@ div#patientListing:hover
                           <span class="error" style="color: red">{{ $errors->first('efname') }}</span>
                       @endif
                     <input type="text" name="efname" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="">
+                    <input type="text" name="efname" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="{{$patient->id}}">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

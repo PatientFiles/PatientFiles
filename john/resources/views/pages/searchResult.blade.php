@@ -49,7 +49,14 @@
 		                        @endif
 		                        <td>{{date('F d, Y', strtotime($patient->user->birthdate))}}</td>
 		                        <td>
-		                        	<a type="button" class="btn btn-primary" href="patientProfile/{{$patient->id}}" >View Profile</a> 
+		                        @if (! $patient->patient_appointments)
+		                        	<a class="btn btn-primary" href="/consultation/{{$patient->id}}">New Visit</a>
+                                    <a class="btn btn-default" href="patient/edit_patient/{{$patient->id}}" >Edit Profile</a>
+                                @else
+                                    <a class="btn btn-default" href="patientProfile/{{$patient->id}}" >View Profile</a>
+                                    <a class="btn btn-primary" href="/consultation/{{$patient->id}}">Patient Visit</a>
+                                    <a class="btn btn-default" href="patient/edit_patient/{{$patient->id}}" >Edit Profile</a>
+		                        @endif
 		                        </td>
 		                    </tr>
 	                    @endforeach

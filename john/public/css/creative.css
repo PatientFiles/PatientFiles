@@ -71,8 +71,8 @@ p {
 
 .bg-primary {
      background-image: url(../img/sign_wall.png);
-     height: 700px;
-     box-shadow: 0 0 20px #2F2828;
+     height: 600px;
+   
 }
 
 .bg-dark {

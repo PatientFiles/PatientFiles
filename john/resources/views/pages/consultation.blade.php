@@ -174,7 +174,13 @@
         <div class="row container-fluid">
             <div class="col-lg-4">
               <label>Generic</label>
-              <input class="form-control" type="text" placeholder="Generic" />
+
+                  <select id="selectize" multiple>
+                      <option value=0 selected>Option 0</option>
+                      <option value=1 selected>Option 1</option>
+                  </select>
+                 
+
             </div>
              <div class="col-lg-4">
                <label>Brand</label>
@@ -253,6 +259,8 @@
 
 
 </div> <!-- END ROW --> 
+
+
 
 
 @stop

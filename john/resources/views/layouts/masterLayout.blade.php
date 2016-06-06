@@ -33,20 +33,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
       <link rel="stylesheet" href="/css/offline-theme-slide.css">
       <link rel="stylesheet" href="/css/offline-language-english.css">
+      <link rel="stylesheet" href="/css/selectize.css">
+       <link rel="stylesheet" href="/css/selectize.default.css">
 
-      <script src="/js/offline.min.js"></script>     
-       <script src="//fast.eager.io/CAcQLdp-HA.js"></script>
+      
           
    
  <!-- fullCalendar 2.2.5-->
     <link rel="stylesheet" href="/css/fullcalendar.css">
  
 
-  
 <script src="/js/vendor/jquery.js"></script> 
 <script src="/js/kendo.web.min.js"></script> 
 
+  <script src="//fast.eager.io/CAcQLdp-HA.js"></script>
 
+
+  <script src="/js/offline.min.js"></script>  
 
   </head>
   <!--
@@ -388,7 +391,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
      
      
-
+<script src="/js/selectize.js"></script>   
 <script src="/js/bootstrap-formhelpers.js"></script>
 <script src="/js/bootstrap-formhelpers.min.js"></script>
 <script src="/js/bootstrap-formhelpers-phone.js"></script> 
@@ -775,3 +778,37 @@ $('#sandbox-container input').on('hide', function(e){
     });
 </script>  
 
+
+<!-- SELECTICZE JS -->
+
+<script >
+  var options=[
+    {id:0, name:"Option 0"},
+    {id:1, name:"Option 1"},
+    {id:2, name:"Option 2"},
+    {id:3, name:"Option 3"},
+];
+
+
+$('#selectize').selectize({
+    plugins: ['remove_button'],
+    valueField: 'id',
+    labelField: 'name',
+    searchField: ['name'],
+    "options": options,
+    delimiter: ',',
+    persist: false,
+    create: function (input) {
+      return {
+        id: input,
+        name: input,
+      };
+    },
+    hideSelected: true,
+    openOnFocus: false,
+});
+
+$('#selectize').change(function(){
+$('#result').html("you select value="+$(this).val());
+});
+</script>

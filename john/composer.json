@@ -10,7 +10,10 @@
         "keeguon/oauth2-php": ">=1.0.0",
         "league/oauth2-server": "^5.0",
         "guzzlehttp/guzzle": "~6.0@dev",
-        "fabpot/goutte": "^3.1"
+        "fabpot/goutte": "^3.1",
+        "h4cc/wkhtmltopdf-i386": "0.12.x",
+        "h4cc/wkhtmltoimage-i386": "0.12.x",
+        "knplabs/knp-snappy": "^0.4.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

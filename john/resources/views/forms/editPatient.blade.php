@@ -201,7 +201,7 @@
 		@if($errors->has('email'))
             <span class="error" style="color: red">{{ $errors->first('email') }}</span>
         @endif
-		<input type="text" name="email" class="form-control" placeholder="Email Address" aria-describedby="basic-addon1" value="@if($prof->user->user_emails){{$prof->user->user_emails[0]->emails}}@else{{''}}@endif">
+		<input type="text" name="email" class="form-control" placeholder="Email Address" aria-describedby="basic-addon1" value="@if($prof->user->user_emails){{$prof->user->user_emails[0]->email}}@else{{''}}@endif">
 	</div>
 
 

@@ -87,7 +87,7 @@ div#patientListing:hover
                                     @if (!$patient->patient_appointments)
                                     <div class="col-lg-6 container-fluid"  style="padding-top: 40px"> <!-- START cl4 -->
                                           <div class="btn-group" role="group">      
-                                            <a class="btn btn-primary" href="#"  data-toggle="modal" data-target="#Modal-{{$patient->id}}">New Visit</a>
+                                            <a class="btn btn-primary" href="#"  data-toggle="modal" data-target="#newVisit-{{$patient->id}}">New Visit</a>
                                             <a class="btn btn-default" href="patient/edit_patient/{{$patient->id}}" >Edit Profile</a>
                                           </div>        
                                      </div>
@@ -95,7 +95,7 @@ div#patientListing:hover
                                      <div class="col-lg-6 container-fluid"  style="padding-top: 40px"> <!-- START cl4 -->
                                           <div class="btn-group" role="group">      
                                             <a class="btn btn-default" href="patientProfile/{{$patient->id}}" >View Profile</a>
-                                            <a class="btn btn-primary" href="#"  data-toggle="modal" data-target="#Modal-{{$patient->id}}">Patient Visit</a>
+                                            <a class="btn btn-primary" href="#"  data-toggle="modal" data-target="#patientVisit-{{$patient->id}}">Patient Visit</a>
                                             <a class="btn btn-default" href="patient/edit_patient/{{$patient->id}}" >Edit Profile</a>
                                           </div>        
                                      </div>
@@ -110,8 +110,32 @@ div#patientListing:hover
       
       
       
+<div id="newVisit-{{$patient->id}}" class="modal fade" role="dialog">
+  <div class="modal-dialog">
 
-<div id="Modal-{{$patient->id}}" class="modal fade" role="dialog">
+    <!-- Modal content-->
+    <div class="modal-content" >
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title" style="color: white">Patient Visit</h4>
+      </div>
+      <div class="modal-body">
+                  <strong>Chief Complaints<span style="color: red">*</span></strong>
+                  @if($errors->has('efname'))
+                          <span class="error" style="color: red">{{ $errors->first('efname') }}</span>
+                      @endif
+                    <input type="text" name="efname" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <a href="/consultation/{{$patient->id}}" type="button" class="btn btn-default">Save</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="patientVisit-{{$patient->id}}" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -127,7 +151,6 @@ div#patientListing:hover
                   @endif
               <select class="form-control" name="purpose_id" style="height: 34px; width:100%" required="">
                     <option value="" disabled="" selected="">Select...</option>
-                    <option value="1">New Patient Consult</option>
                     <option value="2">Old Patient Consult</option>
                     <option value="3">Follow-up Consult</option>
                     <option value="4">Annual Physical Examination</option>
@@ -141,7 +164,7 @@ div#patientListing:hover
              </select>
       </div>
       <div class="modal-body">
-                  <strong>Purpose<span style="color: red">*</span></strong>
+                  <strong>Chief Complaints<span style="color: red">*</span></strong>
                   @if($errors->has('efname'))
                           <span class="error" style="color: red">{{ $errors->first('efname') }}</span>
                       @endif

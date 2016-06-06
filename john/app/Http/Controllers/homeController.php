@@ -37,12 +37,19 @@ class homeController extends Controller
         
         return $this->recent();
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function next()
     {
-        $this->takes += 10;
+        $this->takes   += 10;
         $this->offsets += 10;
         return $this->patientRecords();
     }
+
     public function prev()
     {
         $this->takes -= 10;

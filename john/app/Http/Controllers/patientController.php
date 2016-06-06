@@ -133,14 +133,14 @@ class patientController extends Controller
         $validator = Validator::make($request->all(), [
             'fname'         => 'required|min:1',
             'lname'         => 'required|min:1',
-            'mname'         => 'alpha|min:1',
-            'nickname'      => 'alpha|min:1',
+            'mname'         => 'min:1',
+            'nickname'      => 'min:1',
             'bdate'         => 'required|date|before:tomorrow|date_format:m/d/Y',
             'gender'        => 'required',
             'email'         => 'email|min:1',
-            'efname'        => 'alpha|min:1',
-            'emname'        => 'alpha|min:1',
-            'elname'        => 'alpha|min:1',
+            'efname'        => 'min:1',
+            'emname'        => 'min:1',
+            'elname'        => 'min:1',
             'zip_code'      => 'digits:4',
         ]);
 

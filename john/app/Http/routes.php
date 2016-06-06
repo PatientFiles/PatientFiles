@@ -73,4 +73,9 @@ Route::get('/delete_account/{user_id}','userController@deleteAccount');
  */
 Route::get('error','homeController@error');
 
+/*
+ * ROUTEs FOR Consultation
+ */
+Route::get('pdf','consultationController@createPrescription');
+
 

@@ -202,9 +202,7 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
-        //'PDF'       => Barryvdh\Snappy\Facades\SnappyPdf::class,
         'PDF'       => Barryvdh\DomPDF\Facade::class,
-        'Image'     => Barryvdh\Snappy\Facades\SnappyImage::class,
 
     ],
 

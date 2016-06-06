@@ -16,7 +16,7 @@ class consultationController extends Controller
         if (! \Session::has('fname')) {
             return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
         }
-
+        
    		//$pdf = \PDF::loadView('forms.patientRegister');
 		//return $pdf->stream();
 		$pdf = App::make('dompdf.wrapper');

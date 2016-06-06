@@ -57,7 +57,7 @@
 </div>
 </div>
 <hr>
-<section id="body">
+<section id="body"> 
 	
 </section>
 <footer>
@@ -67,9 +67,9 @@
 		<p>S2 License No.: {{Session::get('license')}}</p>
 	</div>
 		<br>
-	<div style="inline-block">
-		<div><u>{{'Dr. '.Session::get('fname').' '.Session::get('lname')}}</u></div>
-		<div><p>Signature Over Printed Name</p></div>
+	<div>
+		<div><u align="center">{{'Dr. '.Session::get('fname').' '.Session::get('lname')}}</u></div>
+		<div><p align="center">Signature Over Printed Name</p></div>
 	</div>
 </footer>
 </body>

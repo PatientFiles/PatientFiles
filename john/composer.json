@@ -11,12 +11,7 @@
         "league/oauth2-server": "^5.0",
         "guzzlehttp/guzzle": "~6.0@dev",
         "fabpot/goutte": "^3.1",
-        "h4cc/wkhtmltopdf-i386": "0.12.x",
-        "h4cc/wkhtmltoimage-i386": "0.12.x",
-        "knplabs/knp-snappy": "^0.4.3",
-        "barryvdh/laravel-snappy": "^0.3.0",
-        "wemersonjanuario/wkhtmltopdf-windows": "0.12.2.3",
-        "h4cc/wkhtmltopdf-amd64": "0.12.x"
+        "barryvdh/laravel-dompdf": "0.6.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

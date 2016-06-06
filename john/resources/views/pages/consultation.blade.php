@@ -23,39 +23,23 @@
              
       @endif
 <div class="row">
-  <div class="col-lg-3 col-sm-12">
+
+  <div class="col-lg-12 col-sm-12">
    <div class="box box-primary">
                 <div class="box-body box-profile">
-                  <img class="profile-user-img img-responsive img-circle" src="/img/prof_pic.png" alt="User profile picture">
-                  <h3 class="profile-username text-center">
-                      {{$prof->user->firstname}}
-                      @if ($prof->user->nickname)
-                          {{' "'.$prof->user->nickname.'" '}}
-                      @endif
-                      {{$prof->user->lastname}}
-                  </h3>
-                  <p class="text-muted text-center"></p>
-
-                  <ul class="list-group list-group-unbordered">
-                    <li class="list-group-item">
-                      <b>Patient ID</b> <a class="pull-right badge bg-blue">{{$prof->id}}</a>
-                    </li>
-                    <li class="list-group-item">
-                      <b>Nickname</b> <a class="pull-right badge bg-blue">{{$prof->user->nickname}}</a>
-                    </li>
-                    <li class="list-group-item">
-                      <b>Birth Date</b> <a class="pull-right badge bg-blue">{{date('F d, Y', strtotime($prof->user->birthdate))}}</a>
-                    </li>
-                    <li class="list-group-item">
-                      <strong>Address:</strong><a class="pull-right badge bg-blue"></a>
-                    </li>
-                    </ul>
-                    <br>
+                <div class="row">
+                  <div class="col-lg-3">
+                      <img  class="profile-user-img img-responsive img-circle" src="/img/prof_pic.png" alt="User profile picture" >
+                  </div>
+                      <div class="col-lg-9">
+                     
+                        </div>
+                   </div> 
             </div>
             </div>
 </div>
 
-<div class="col-lg-9 col-sm-12">
+<div class="col-lg-12 col-sm-12">
     
  <div class="panel panel-default">
   <div class="panel-body">  
@@ -177,7 +161,72 @@
 
       </div>
 
-      <div class="tab-pane" id="prescription" role="tabpanel">3
+      <div class="tab-pane" id="prescription" role="tabpanel">
+
+
+     <div class="row">
+
+        <div class="col-lg-6">
+      <form>
+        <div class="row">
+            <div class="col-lg-4">
+              <label>Generic</label>
+              <input class="form-control" type="text" placeholder="Generic" />
+            </div>
+             <div class="col-lg-4">
+               <label>Brand</label>
+               <input class="form-control" type="text" placeholder="Brand" />
+            </div>
+             <div class="col-lg-2">
+               <label>Dosage</label>
+               <input class="form-control" type="text" placeholder="Dosage" />
+            </div>
+             <div class="col-lg-2">
+               <label>Quantity</label>
+               <input class="form-control" type="text" placeholder="Quantity" />
+            </div>
+            <div class="col-lg-12">
+               <label>Sig</label>
+               <input class="form-control" type="text" placeholder="Sig" />
+            </div>
+             <div class="col-lg-4">
+                <br>
+               <input class="form-control btn btn-primary " value="Submit"   />
+            </div>
+        </div>
+
+      </form>
+      </div>
+
+     <div class="col-lg-6">
+      <div class="container-fluid">
+        <h2>Prescriptions</h2>        
+        <table class="table table-hover table-responsive">
+          <thead>
+            <tr>
+              <th>Generic Name</th>
+              <th>Brand</th>
+              <th>Dosage</th>
+              <th>Quantity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Bear Brand</td>
+              <td>Bonakid</td>
+              <td>500mg</td>
+              <td>10pcs</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>  
+      </div>
+      <a href="/pdf"> PDF </a>
+      <hr>
+
+
+  </div>
+
 
       </div>
 

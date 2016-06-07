@@ -82,7 +82,7 @@ div#patientListing:hover
                                   </select>
                               </div>
                             <div class="col-lg-6">
-                                  <label for="text">Birthdate:&nbsp</label>
+                                  <label for="text">Birthdate:&nbsp<span style="color:red">*</span></label>
                       @if($errors->has('birthdate'))
                           <span class="error" style="color: red">{{ $errors->first('birthdate') }}</span>
                       @endif

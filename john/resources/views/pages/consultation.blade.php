@@ -25,20 +25,45 @@
 
 <div class="row">
 
-  <div class="col-lg-6 col-sm-6">
-   <div class="box box-primary">
-                <div class="box-body box-profile">
-                <div class="row">
-                  <div class="col-lg-3">
-                      <img  class="profile-user-img img-responsive img-circle" src="/img/prof_pic.png" alt="User profile picture" >
-                  </div>
-
-                  <div class="col-lg-9">
-                     
-                 </div>
-                </div> 
-               </div>
-    </div>
+  <div class="col-lg-12">
+      <!-- Widget: user widget style 1 -->
+              <div class="box box-widget widget-user container">
+                <!-- Add the bg color to the header using any of the bg-* classes -->
+               
+                <div class="widget-user-header bg-aqua-active row">
+             <div class="col-lg-1 col-sm-12">
+                <img class="img-circle" src="/img/prof_pic.png " alt="User profile picture" style="width: 90px" />
+              </div>
+              <div class="col-lg-4 col-sm-12">  
+              <br>
+                  <h3 class="widget-user-username">&nbsp John Benedict De Castro </h3>
+                  <h5 class="widget-user-desc">&nbsp &nbsp Patient</h5>
+              </div>    
+                </div>
+                
+                <div class="box-footer">
+                  <div class="row">
+                    <div class="col-sm-4 border-right">
+                      <div class="description-block">
+                        <h5 class="description-header">2</h5>
+                        <span class="description-text">Age</span>
+                      </div><!-- /.description-block -->
+                    </div><!-- /.col -->
+                    <div class="col-sm-4 border-right">
+                      <div class="description-block">
+                        <h5 class="description-header">Brey</h5>
+                        <span class="description-text">Nickname</span>
+                      </div><!-- /.description-block -->
+                    </div><!-- /.col -->
+                    <div class="col-sm-4">
+                      <div class="description-block">
+                        <h5 class="description-header">Aug. 25 , 2013</h5>
+                        <span class="description-text">Birth Date</span>
+                      </div><!-- /.description-block -->
+                    </div><!-- /.col -->
+                  </div><!-- /.row -->
+                </div>
+              </div><!-- /.widget-user -->
 </div>
 <div class="col-lg-12 col-sm-12">
     
@@ -176,24 +201,27 @@
             <div class="col-lg-4">
               <label>Generic</label>
 
-                  <select id="selectize" multiple>
-                      <option value=0 selected>Option 0</option>
-                      <option value=1 selected>Option 1</option>
+                  <select id="select_generic"  multiple>
+                
                   </select>
                  
 
             </div>
              <div class="col-lg-4">
                <label>Brand</label>
-               <input class="form-control" type="text" placeholder="Brand" />
+
+                <select id="select_brand" multiple>
+                      
+                  </select>
+
             </div>
              <div class="col-lg-2">
                <label>Dosage</label>
-               <input class="form-control" type="text" placeholder="Dosage" />
+               <input class="form-control" type="text" placeholder="Dsg" />
             </div>
              <div class="col-lg-2">
                <label>Quantity</label>
-               <input class="form-control" type="text" placeholder="Quantity" />
+               <input class="form-control" type="text" placeholder="Qty" />
             </div>
             <div class="col-lg-12">
                <label>Sig</label>

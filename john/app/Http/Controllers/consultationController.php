@@ -18,18 +18,21 @@ class consultationController extends Controller
         $this->medix = new \App\Medix\Client();
     }
 
-	/**
-	*Create an appointment with the doctor
-	*
-	*
+	/*---------------------------------------------------------------------------------------------------------------------------------------------
+	| CREATE AN APPOINTMENT
+	|----------------------------------------------------------------------------------------------------------------------------------------------
+	|
 	*/
 	public function appointmentForNewPatient(Request $req)
 	{
 		if (! \Session::has('fname')) {
             return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login to view a patient profile!']);
         }
-        $req->only('chief_complaints', 'patient_id');
-        $
+
+        $request 			= $req->only('chief_complaints', 'patient_id');
+        $id 				= $request->input('chief_complaints');
+        $chief_complaints 	= $request->input('chief_complaints');
+
         $data =
         [
         	'patient_id' 		= $id,
@@ -39,8 +42,15 @@ class consultationController extends Controller
         	'chief_complaints'	= $chief_complaints,
         ]
 		$appointment = $this->medix->get('appointment');
+
+		return reedirect('consultation/{id}');
 	}
 
+	/*---------------------------------------------------------------------------------------------------------------------------------------------
+	| CREATE A PRESCRIPTION IN PDF
+	|----------------------------------------------------------------------------------------------------------------------------------------------
+	|
+	*/
    	public function createPrescription()
    	{
         if (! \Session::has('fname')) {

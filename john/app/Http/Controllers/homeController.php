@@ -25,9 +25,11 @@ class homeController extends Controller
         $this->medix = new \App\Medix\Client();
     }
    
-    /**
-     * HOME PAGE
-     */
+    /*---------------------------------------------------------------------------------------------------------------------------------------------
+    | DISPLAY THE HOMPAGE (DASHBOARD)
+    |----------------------------------------------------------------------------------------------------------------------------------------------
+    |
+    */
     public function index()
     {
 
@@ -57,9 +59,11 @@ class homeController extends Controller
         return $this->patientRecords();
     }
 
-    /**
-     * Patient Records PAGE
-     */
+    /*---------------------------------------------------------------------------------------------------------------------------------------------
+    | DISPLAY THIS LIST OF PATIENTS
+    |----------------------------------------------------------------------------------------------------------------------------------------------
+    |
+    */
     public function patientRecords(Request $req)
     {
         if (! \Session::has('token')) {
@@ -67,8 +71,8 @@ class homeController extends Controller
         }
 
         $patients = $this->medix->get('patient?take=10');
-        dd(date('H:i:s', strtotime(Carbon::now())));
-        dd($patients);
+        //dd(date('H:i:s', strtotime(Carbon::now())));
+        //dd($patients);
         $mytime = Carbon::now();
 
         return view('pages.patientRecordsPage')
@@ -76,9 +80,11 @@ class homeController extends Controller
             ->with('patients', $patients->data);
     }
 
-    /**
-     * SEARCH RESULT
-     */
+    /*---------------------------------------------------------------------------------------------------------------------------------------------
+    | CREATE A SEARCH QUERY (ALLOWED TERMS: FIRSTNAME, LASTNAME)
+    |----------------------------------------------------------------------------------------------------------------------------------------------
+    |
+    */
     public function searchResult(Request $request)
     {
         $request -> all();
@@ -129,9 +135,11 @@ class homeController extends Controller
         
     }
 
-    /**
-     * patientProfile
-     */
+    /*---------------------------------------------------------------------------------------------------------------------------------------------
+    | DISPLAY A PAGE FOR PATIENT'S PROFILE WITH THEIR CLINIC HISTORY (VITALS RECORD AND VISIT RECORDS)
+    |----------------------------------------------------------------------------------------------------------------------------------------------
+    |
+    */
     public function patientProfile($id)
     {
         if (! \Session::has('token')) {
@@ -150,6 +158,11 @@ class homeController extends Controller
             ->with('prof', $profile->data);
     }
 
+    /*---------------------------------------------------------------------------------------------------------------------------------------------
+    | DISPLAYS THE INFO OF PATIENT TO EDIT PATIENT FORM
+    |----------------------------------------------------------------------------------------------------------------------------------------------
+    |
+    */
     public function editPatient($id)
     {
         if (! \Session::has('token')) {
@@ -161,9 +174,12 @@ class homeController extends Controller
         return view('forms.editPatient')
             ->with('prof', $profile->data);
     }
-    /**
-     * scheduler
-     */
+    
+    /*---------------------------------------------------------------------------------------------------------------------------------------------
+    | DISPLAYS THE PAGE FOR SCHEDULER
+    |----------------------------------------------------------------------------------------------------------------------------------------------
+    |
+    */
     public function scheduler()
     {
         if (! \Session::has('token')) {
@@ -174,9 +190,11 @@ class homeController extends Controller
 
 
 
-    /**
-     * Fetch patient date
-     */
+    /*---------------------------------------------------------------------------------------------------------------------------------------------
+    | CREATES THE INFORMATION TO BE DISPLAYED TO THE HOMEPAGE (DASHBOARD)
+    |----------------------------------------------------------------------------------------------------------------------------------------------
+    |
+    */
     public function recent()
     {
         $patients = $this->medix->get('patient?take=1000');
@@ -192,9 +210,11 @@ class homeController extends Controller
        //return dd($result);
     }
 
-    /**
-     * Logout user
-     */
+    /*---------------------------------------------------------------------------------------------------------------------------------------------
+    | FUNCTIONS FOR LOGGING OUT THE USER
+    |----------------------------------------------------------------------------------------------------------------------------------------------
+    |
+    */
     public function logout()
     {
         \Session::forget('user_id');
@@ -208,11 +228,11 @@ class homeController extends Controller
         return redirect('/');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    /*---------------------------------------------------------------------------------------------------------------------------------------------
+    | DISPLAYS THE FORM FOR ADDING NEW PATIENT
+    |----------------------------------------------------------------------------------------------------------------------------------------------
+    |
+    */
     public function register()
     {
         if (! \Session::has('token')) {
@@ -221,65 +241,14 @@ class homeController extends Controller
         return view('forms.patientRegister');
     }
 
+    /*---------------------------------------------------------------------------------------------------------------------------------------------
+    | DISPLAYS AN ERROR 404 PAGE IF AN UNEXPECTED EXCEPTIONS OCCUR
+    |----------------------------------------------------------------------------------------------------------------------------------------------
+    |
+    */
     public function error()
     {
         return view('pages.errorPage');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 
 }

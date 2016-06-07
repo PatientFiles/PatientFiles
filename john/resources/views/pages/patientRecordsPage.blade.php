@@ -126,10 +126,12 @@ div#patientListing:hover
       </div>
       <div class="modal-body">
                   <strong>Chief Complaints<span style="color: red">*</span></strong>
-                  @if($errors->has('efname'))
-                          <span class="error" style="color: red">{{ $errors->first('efname') }}</span>
+                  @if($errors->has('chief_complaints'))
+                          <span class="error" style="color: red">{{ $errors->first('chief_complaints') }}</span>
                       @endif
-                    <input type="text" name="efname" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="">
+                    <input type="text" name="chief_complaints" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="">
+
+                     <input type="hidden" name="patient_id" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="{{ $patient->id }}">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -151,8 +153,8 @@ div#patientListing:hover
       </div>
       <div class="modal-body">
               <strong>Purpose<span style="color: red">*</span></strong>
-              @if($errors->has('gender'))
-                      <span class="error" style="color: red">{{ $errors->first('gender') }}</span>
+              @if($errors->has('purpose_id'))
+                      <span class="error" style="color: red">{{ $errors->first('purpose_id') }}</span>
                   @endif
               <select class="form-control" name="purpose_id" style="height: 34px; width:100%" required="">
                     <option value="" disabled="" selected="">Select...</option>
@@ -170,11 +172,13 @@ div#patientListing:hover
       </div>
       <div class="modal-body">
                   <strong>Chief Complaints<span style="color: red">*</span></strong>
-                  @if($errors->has('efname'))
-                          <span class="error" style="color: red">{{ $errors->first('efname') }}</span>
+                  @if($errors->has('chief_complaints'))
+                          <span class="error" style="color: red">{{ $errors->first('chief_complaints') }}</span>
                       @endif
-                    <input type="text" name="efname" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="">
-      </div>
+                    <input type="text" name="chief_complaints" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="">
+                    
+                    <input type="hidden" name="patient_id" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="{{ $patient->id }}">
+    </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
         <a href="/consultation/{{$patient->id}}" type="button" class="btn btn-default">Save</a>

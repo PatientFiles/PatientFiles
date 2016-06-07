@@ -267,7 +267,7 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
                   <p>Average Patient per Day </p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-android-contacts"></i>
+                  <i class="ion ion-android-contact"></i>
                 </div>
                 <a href="#" class="small-box-footer" data-toggle="modal" data-target="#myModal2">
                   More info <i class="fa fa-arrow-circle-right"></i>

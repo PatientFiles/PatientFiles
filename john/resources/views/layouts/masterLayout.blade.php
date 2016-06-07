@@ -793,6 +793,7 @@ $('#sandbox-container input').on('hide', function(e){
 </script>  
 
 
+
 <!-- SELECTICZE JS -->
 
 <script >
@@ -824,5 +825,19 @@ $('#selectize').selectize({
 
 $('#selectize').change(function(){
 $('#result').html("you select value="+$(this).val());
+});
+</script>
+
+
+<script >
+  $('.contact-name');
+$('#search').click(function(){
+    $('.contact-name').hide();
+    var txt = $('#search-criteria').val();
+    $('.contact-name').each(function(){
+       if($(this).text().toUpperCase().indexOf(txt.toUpperCase()) != -1){
+           $(this).show();
+       }
+    });
 });
 </script>

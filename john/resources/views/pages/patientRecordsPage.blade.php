@@ -39,9 +39,12 @@ div#patientListing:hover
   <div class="panel-body" >
       
        <div class="input-group pull-right" style="width: 50%" >           
-             <input  type="text" class="form-control" placeholder="Search for...">
+
+            
+             <input id="search-criteria"  type="text" class="form-control" placeholder="Search for...">
+
             <span class="input-group-btn">
-              <button class="btn btn-default" type="button">Go!</button>
+            <input type="button" id="search" class="form-control" value="search"/>
             </span>
       </div>
       <br>
@@ -52,9 +55,11 @@ div#patientListing:hover
 
 <!-- CARD TABLE -->
     
+         
+
 
              @foreach($patients as $patient)  
-           <div  class="row container-fluid"    id="patientListing" >
+           <div   class="row container-fluid contact-name"    id="patientListing" >
              <ul style="padding:0;" class="patient-list-style">      <!-- START UL -->           
                 <li style="list-style: none;"  > <!-- START LI -->   
                     <div class="row"> <!-- START ROW -->   
@@ -177,8 +182,9 @@ div#patientListing:hover
     </div>
 
   </div>
+   <hr>
 </div>
-  <hr>
+ 
               @endforeach   
           <!-- END CARD TABLE -->    
             

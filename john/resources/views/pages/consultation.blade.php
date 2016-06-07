@@ -3,7 +3,7 @@
 
 
 
-@section('title', 'Consultation | Patient Files')
+@section('title', 'Consultation | Pedix')
 @section('content')
 
 <section class="content-header">
@@ -34,30 +34,28 @@
              <div class="col-lg-1 col-sm-12">
                 <img class="img-circle" src="/img/prof_pic.png " alt="User profile picture" style="width: 90px" />
               </div>
-              <div class="col-lg-4 col-sm-12">  
+              <div class="col-lg-4 col-sm-4">  
               <br>
-                  <h3 class="widget-user-username">&nbsp John Benedict De Castro </h3>
+                  <h3 class="widget-user-username">&nbsp {{$prof->user->firstname.' '.$prof->user->lastname}} </h3>
                   <h5 class="widget-user-desc">&nbsp &nbsp Patient</h5>
               </div>    
                 </div>
                 
-                <div class="box-footer">
+                <div class="box-footer" style="padding-top: 10px;">
                   <div class="row">
-                    <div class="col-sm-4 border-right">
+                    <div class="col-sm-6 border-right">
                       <div class="description-block">
-                        <h5 class="description-header">2</h5>
-                        <span class="description-text">Age</span>
+                      @if ($prof->user->gender == 1)
+                          <h5 class="description-header">Male</h5>
+                        @else
+                          <h5 class="description-header">Female</h5>
+                      @endif
+                        <span class="description-text">Gender</span>
                       </div><!-- /.description-block -->
                     </div><!-- /.col -->
-                    <div class="col-sm-4 border-right">
+                    <div class="col-sm-6">
                       <div class="description-block">
-                        <h5 class="description-header">Brey</h5>
-                        <span class="description-text">Nickname</span>
-                      </div><!-- /.description-block -->
-                    </div><!-- /.col -->
-                    <div class="col-sm-4">
-                      <div class="description-block">
-                        <h5 class="description-header">Aug. 25 , 2013</h5>
+                        <h5 class="description-header">{{date('F d,Y',strtotime($prof->user->birthdate))}}</h5>
                         <span class="description-text">Birth Date</span>
                       </div><!-- /.description-block -->
                     </div><!-- /.col -->

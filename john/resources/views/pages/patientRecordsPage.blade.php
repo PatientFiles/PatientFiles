@@ -119,26 +119,28 @@ div#patientListing:hover
   <div class="modal-dialog">
 
     <!-- Modal content-->
-    <div class="modal-content" >
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title" style="color: white">Patient Visit</h4>
-      </div>
-      <div class="modal-body">
-                  <strong>Chief Complaints<span style="color: red">*</span></strong>
-                  @if($errors->has('chief_complaints'))
-                          <span class="error" style="color: red">{{ $errors->first('chief_complaints') }}</span>
-                      @endif
-                    <input type="text" name="chief_complaints" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="">
+    <form action="/new_appointment" method="POST">
+      <div class="modal-content" >
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" style="color: white">Patient Visit</h4>
+        </div>
+        <div class="modal-body">
+            <strong>Chief Complaints<span style="color: red">*</span></strong>
+            @if($errors->has('chief_complaints'))
+                    <span class="error" style="color: red">{{ $errors->first('chief_complaints') }}</span>
+                @endif
+                {!! csrf_field() !!}
+            <input type="text" name="chief_complaints" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="">
 
-                     <input type="hidden" name="patient_id" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="{{ $patient->id }}">
+            <input type="hidden" name="patient_id" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="{{ $patient->id }}">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <input type="submit" class="btn btn-primary" value="Start Visit" />
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <a href="/consultation/{{$patient->id}}" type="button" class="btn btn-default">Save</a>
-      </div>
-    </div>
-
+    </form>
   </div>
 </div>
 
@@ -146,6 +148,7 @@ div#patientListing:hover
   <div class="modal-dialog">
 
     <!-- Modal content-->
+    
     <div class="modal-content" >
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -161,18 +164,15 @@ div#patientListing:hover
                     <option value="2">Old Patient Consult</option>
                     <option value="3">Follow-up Consult</option>
                     <option value="4">Annual Physical Examination</option>
-                    <option value="5">Pre-employment Physical Examination</option>
-                    <option value="6">Laboratory (Request from FamilyDOC)</option>
                     <option value="7">Laboratory (Request from other doctors or facilities)</option>
                     <option value="8">Laboratory (Sponsored program)</option>
-                    <option value="9">Imaging (Request from FamilyDOC)</option>
                     <option value="10">Imaging (Request from other doctors or facilities)</option>
                     <option value="11">Imaging (Sponsored program)</option>
              </select>
       </div>
       <div class="modal-body">
                   <strong>Chief Complaints<span style="color: red">*</span></strong>
-                  @if($errors->has('chief_complaints'))
+                  @if($errors->has('chief_complaints'))\
                           <span class="error" style="color: red">{{ $errors->first('chief_complaints') }}</span>
                       @endif
                     <input type="text" name="chief_complaints" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="">
@@ -181,7 +181,7 @@ div#patientListing:hover
     </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <a href="/consultation/{{$patient->id}}" type="button" class="btn btn-default">Save</a>
+        <input type="submit" class="btn btn-primary" value="Start Visit" />
       </div>
     </div>
 

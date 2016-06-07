@@ -70,7 +70,7 @@ class homeController extends Controller
             return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please login to access Patient Records!']);
         }
 
-        $patients = $this->medix->get('patient?take=10');
+        $patients = $this->medix->get('patient?take=1000');
         //dd(date('H:i:s', strtotime(Carbon::now())));
         //dd($patients);
         $mytime = Carbon::now();

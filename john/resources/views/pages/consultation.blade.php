@@ -232,7 +232,7 @@
       
       </div>    
           <br><br>
-          <a href="/pdf" class="btn btn-primary "> Create Prescription </a>
+          <a href="/pdf" target="_blank" class="btn btn-primary "> Create Prescription </a>
       </div>
       
 

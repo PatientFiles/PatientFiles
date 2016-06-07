@@ -22,23 +22,24 @@
           </small>
              
       @endif
+
 <div class="row">
 
-  <div class="col-lg-12 col-sm-12">
+  <div class="col-lg-6 col-sm-6">
    <div class="box box-primary">
                 <div class="box-body box-profile">
                 <div class="row">
                   <div class="col-lg-3">
                       <img  class="profile-user-img img-responsive img-circle" src="/img/prof_pic.png" alt="User profile picture" >
                   </div>
-                      <div class="col-lg-9">
-                     
-                        </div>
-                   </div> 
-            </div>
-            </div>
-</div>
 
+                  <div class="col-lg-9">
+                     
+                 </div>
+                </div> 
+               </div>
+    </div>
+</div>
 <div class="col-lg-12 col-sm-12">
     
  <div class="panel panel-default">

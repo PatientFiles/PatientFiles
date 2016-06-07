@@ -31,10 +31,10 @@
                 <!-- Add the bg color to the header using any of the bg-* classes -->
                
                 <div class="widget-user-header bg-aqua-active row">
-             <div class="col-lg-1">
+             <div class="col-lg-1 col-sm-12">
                 <img class="img-circle" src="/img/prof_pic.png " alt="User profile picture" style="width: 90px" />
               </div>
-              <div class="col-lg-4">  
+              <div class="col-lg-4 col-sm-12">  
               <br>
                   <h3 class="widget-user-username">&nbsp John Benedict De Castro </h3>
                   <h5 class="widget-user-desc">&nbsp &nbsp Patient</h5>

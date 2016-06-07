@@ -182,7 +182,7 @@ div#patientListing:hover
     </div>
 
   </div>
-   <hr>
+ 
 </div>
  
               @endforeach   

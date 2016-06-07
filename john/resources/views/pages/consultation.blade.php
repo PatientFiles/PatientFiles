@@ -25,20 +25,45 @@
 
 <div class="row">
 
-  <div class="col-lg-6 col-sm-6">
-   <div class="box box-primary">
-                <div class="box-body box-profile">
-                <div class="row">
-                  <div class="col-lg-3">
-                      <img  class="profile-user-img img-responsive img-circle" src="/img/prof_pic.png" alt="User profile picture" >
-                  </div>
-
-                  <div class="col-lg-9">
-                     
-                 </div>
-                </div> 
-               </div>
-    </div>
+  <div class="col-lg-12">
+      <!-- Widget: user widget style 1 -->
+              <div class="box box-widget widget-user container">
+                <!-- Add the bg color to the header using any of the bg-* classes -->
+               
+                <div class="widget-user-header bg-aqua-active row">
+             <div class="col-lg-1">
+                <img class="img-circle" src="/img/prof_pic.png " alt="User profile picture" style="width: 90px" />
+              </div>
+              <div class="col-lg-4">  
+              <br>
+                  <h3 class="widget-user-username">&nbsp John Benedict De Castro </h3>
+                  <h5 class="widget-user-desc">&nbsp &nbsp Patient</h5>
+              </div>    
+                </div>
+                
+                <div class="box-footer">
+                  <div class="row">
+                    <div class="col-sm-4 border-right">
+                      <div class="description-block">
+                        <h5 class="description-header">2</h5>
+                        <span class="description-text">Age</span>
+                      </div><!-- /.description-block -->
+                    </div><!-- /.col -->
+                    <div class="col-sm-4 border-right">
+                      <div class="description-block">
+                        <h5 class="description-header">Brey</h5>
+                        <span class="description-text">Nickname</span>
+                      </div><!-- /.description-block -->
+                    </div><!-- /.col -->
+                    <div class="col-sm-4">
+                      <div class="description-block">
+                        <h5 class="description-header">Aug. 25 , 2013</h5>
+                        <span class="description-text">Birth Date</span>
+                      </div><!-- /.description-block -->
+                    </div><!-- /.col -->
+                  </div><!-- /.row -->
+                </div>
+              </div><!-- /.widget-user -->
 </div>
 <div class="col-lg-12 col-sm-12">
     

@@ -175,24 +175,27 @@
             <div class="col-lg-4">
               <label>Generic</label>
 
-                  <select id="selectize" multiple>
-                      <option value=0 selected>Option 0</option>
-                      <option value=1 selected>Option 1</option>
+                  <select id="select_generic"  multiple>
+                
                   </select>
                  
 
             </div>
              <div class="col-lg-4">
                <label>Brand</label>
-               <input class="form-control" type="text" placeholder="Brand" />
+
+                <select id="select_brand" multiple>
+                      
+                  </select>
+
             </div>
              <div class="col-lg-2">
                <label>Dosage</label>
-               <input class="form-control" type="text" placeholder="Dosage" />
+               <input class="form-control" type="text" placeholder="Dsg" />
             </div>
              <div class="col-lg-2">
                <label>Quantity</label>
-               <input class="form-control" type="text" placeholder="Quantity" />
+               <input class="form-control" type="text" placeholder="Qty" />
             </div>
             <div class="col-lg-12">
                <label>Sig</label>

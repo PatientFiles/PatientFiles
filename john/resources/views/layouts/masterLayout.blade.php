@@ -890,7 +890,7 @@ $('#search').click(function(){
 
 
           $('.contact-name').hide();
-    var txt = $('#search-pediatrician').val();
+    var txt = $('#search-criteria').val();
     $('.contact-name').each(function(){
        if($(this).text().toUpperCase().indexOf(txt.toUpperCase()) != -1){
            $(this).show();

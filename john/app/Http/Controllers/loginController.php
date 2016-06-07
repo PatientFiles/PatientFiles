@@ -67,6 +67,7 @@ class loginController extends Controller
         //dd($user);
         \Session::put('user_id', $user->data->user_info->id);
         \Session::put('fname', $user->data->user_info->firstname);
+        \Session::put('mname', $user->data->user_info->middlename);
         \Session::put('lname', $user->data->user_info->lastname);
         \Session::put('bday', $user->data->user_info->birthdate);
         \Session::put('gender', $user->data->user_info->gender);

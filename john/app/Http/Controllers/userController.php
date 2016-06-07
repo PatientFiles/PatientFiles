@@ -66,7 +66,6 @@ class userController extends Controller
     public function addAccount(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'user_type_id'      => 'required|min:1',
             'firstname'         => 'required|min:1',
             'lastname'          => 'required|min:1',
             'middlename'        => 'min:1',

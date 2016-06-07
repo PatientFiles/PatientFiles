@@ -165,14 +165,23 @@
       <div class="tab-pane" id="prescription" role="tabpanel">
 
 
+      <h3>Prescriptions</h3>
+      <hr>
      <div class="row">
 
         <div class="col-lg-6">
       <form>
-        <div class="row">
+
+        <div class="row container-fluid">
             <div class="col-lg-4">
               <label>Generic</label>
-              <input class="form-control" type="text" placeholder="Generic" />
+
+                  <select id="selectize" multiple>
+                      <option value=0 selected>Option 0</option>
+                      <option value=1 selected>Option 1</option>
+                  </select>
+                 
+
             </div>
              <div class="col-lg-4">
                <label>Brand</label>
@@ -193,6 +202,7 @@
              <div class="col-lg-4">
                 <br>
                <input class="form-control btn btn-primary " value="Submit"   />
+
             </div>
         </div>
 
@@ -201,7 +211,7 @@
 
      <div class="col-lg-6">
       <div class="container-fluid">
-        <h2>Prescriptions</h2>        
+            
         <table class="table table-hover table-responsive">
           <thead>
             <tr>
@@ -220,10 +230,13 @@
             </tr>
           </tbody>
         </table>
-      </div>  
+      
+      </div>    
+          <br><br>
+          <a href="/pdf" target="_blank" class="btn btn-primary "> Create Prescription </a>
       </div>
-      <a href="/pdf"> PDF </a>
-      <hr>
+      
+
 
 
   </div>
@@ -247,6 +260,8 @@
 
 
 </div> <!-- END ROW --> 
+
+
 
 
 @stop

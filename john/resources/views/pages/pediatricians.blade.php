@@ -33,6 +33,7 @@ div#patientListing:hover
  </section>
   	
 	<hr id="p_hr1">
+  
     @if (session('delete'))
           <small style=" padding-top: 5px;color: white;background-color: red;font-style: italic;" class="box-title alert alert-{{session ('delete.type')}} form-control" >
                   {{session('delete.text')}}

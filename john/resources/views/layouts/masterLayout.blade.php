@@ -33,20 +33,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
       <link rel="stylesheet" href="/css/offline-theme-slide.css">
       <link rel="stylesheet" href="/css/offline-language-english.css">
+      <link rel="stylesheet" href="/css/selectize.css">
+       <link rel="stylesheet" href="/css/selectize.default.css">
 
-      <script src="/js/offline.min.js"></script>     
-       <script src="//fast.eager.io/CAcQLdp-HA.js"></script>
+      
           
    
  <!-- fullCalendar 2.2.5-->
     <link rel="stylesheet" href="/css/fullcalendar.css">
  
 
-  
 <script src="/js/vendor/jquery.js"></script> 
 <script src="/js/kendo.web.min.js"></script> 
 
+  <script src="//fast.eager.io/CAcQLdp-HA.js"></script>
 
+
+  <script src="/js/offline.min.js"></script>  
 
   </head>
   <!--
@@ -106,7 +109,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <!-- The user image in the navbar-->
                   <img src="/img/prof_pic.png" class="user-image" alt="User Image">
                   <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                  <span class="hidden-xs">{{  Session::get('fname') ." ". Session::get('lname') }}</span>
+                  <span class="hidden-xs">
+                        @if (! Session::has('mname'))
+                          {{'Dr. '. Session::get('fname').' '.Session::get('lname').' MD.'}}
+                        @else
+                          {{'Dr. '. Session::get('fname').' '.Session::get('mname')[0].'.'.' '.Session::get('lname').' MD.'}}
+                        @endif
+                  </span>
                 </a>
 
                 <ul class="dropdown-menu">
@@ -114,22 +123,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <li class="user-header">
                     <img src="/img/prof_pic.png" class="img-circle" alt="User Image">
                     <p>
-                      <b>{{  Session::get('fname') ." ". Session::get('lname') }}</b>
+                      <b>
+                        @if (! Session::has('mname'))
+                          {{'Dr. '. Session::get('fname').' '.Session::get('lname').' MD.'}}
+                        @else
+                          {{'Dr. '. Session::get('fname').' '.Session::get('mname')[0].'.'.' '.Session::get('lname').' MD.'}}
+                        @endif
+                      </b>
                       <small>{{  Session::get('role') }}</small>
                     </p>
                   </li>
                   <!-- Menu Body -->
-                  <li class="user-body">
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Followers</a>
-                    </div>
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Sales</a>
-                    </div>
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Friends</a>
-                    </div>
-                  </li>
+                 
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-left">
@@ -161,7 +166,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <img src="/img/prof_pic.png" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-              <p>{{  Session::get('fname') ." ". Session::get('lname') }}</p>
+              <p>
+                        @if (! Session::has('mname'))
+                          {{'Dr. '. Session::get('fname').' '.Session::get('lname').' MD.'}}
+                        @else
+                          {{'Dr. '. Session::get('fname').' '.Session::get('mname')[0].'.'.' '.Session::get('lname').' MD.'}}
+                        @endif
+              </p>
               <small>{{  Session::get('role') }}</small>
               <!-- Status -->
               
@@ -242,7 +253,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           Brought to you by MEDIX
         </div>
         <!-- Default to the left --> 
-        <strong>Copyright &copy; 2016 <a href="fb.com/medixph" target="_blank">Patient Files</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2016 <a href="fb.com/medixph" target="_blank">Pedix</a>.</strong> All rights reserved.
       </footer>
 
       <!-- Control Sidebar -->
@@ -330,7 +341,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <img src="/img/prof_pic.png" name="aboutme" width="100" height="100" border="0" class="img-circle">
                       </div>
                       <div class="col-lg-9 pull-left">
-                        <h3 class="widget-user-username">{{   Session::get('fname').' '.  Session::get('lname') }}</h3>
+                        <h3 class="widget-user-username">
+                        @if (! Session::has('mname'))
+                          {{'Dr. '. Session::get('fname').' '.Session::get('lname').' MD.'}}
+                        @else
+                          {{'Dr. '. Session::get('fname').' '.Session::get('mname')[0].'.'.' '.Session::get('lname').' MD.'}}
+                        @endif
+                        </h3>
                         <small>{{   Session::get('role')   }}</small>
                       </div>
                     </div>
@@ -388,7 +405,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
      
      
-
+<script src="/js/selectize.js"></script>   
 <script src="/js/bootstrap-formhelpers.js"></script>
 <script src="/js/bootstrap-formhelpers.min.js"></script>
 <script src="/js/bootstrap-formhelpers-phone.js"></script> 
@@ -775,3 +792,52 @@ $('#sandbox-container input').on('hide', function(e){
     });
 </script>  
 
+
+
+<!-- SELECTICZE JS -->
+
+<script >
+  var options=[
+    {id:0, name:"Option 0"},
+    {id:1, name:"Option 1"},
+    {id:2, name:"Option 2"},
+    {id:3, name:"Option 3"},
+];
+
+
+$('#selectize').selectize({
+    plugins: ['remove_button'],
+    valueField: 'id',
+    labelField: 'name',
+    searchField: ['name'],
+    "options": options,
+    delimiter: ',',
+    persist: false,
+    create: function (input) {
+      return {
+        id: input,
+        name: input,
+      };
+    },
+    hideSelected: true,
+    openOnFocus: false,
+});
+
+$('#selectize').change(function(){
+$('#result').html("you select value="+$(this).val());
+});
+</script>
+
+
+<script >
+  $('.contact-name');
+$('#search').click(function(){
+    $('.contact-name').hide();
+    var txt = $('#search-criteria').val();
+    $('.contact-name').each(function(){
+       if($(this).text().toUpperCase().indexOf(txt.toUpperCase()) != -1){
+           $(this).show();
+       }
+    });
+});
+</script>

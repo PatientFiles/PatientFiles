@@ -148,7 +148,7 @@ div#patientListing:hover
   <div class="modal-dialog">
 
     <!-- Modal content-->
-    
+    <form action="/old_appointment" method="POST" role="form">
     <div class="modal-content" >
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -159,6 +159,7 @@ div#patientListing:hover
               @if($errors->has('purpose_id'))
                       <span class="error" style="color: red">{{ $errors->first('purpose_id') }}</span>
                   @endif
+                {!! csrf_field() !!}
               <select class="form-control" name="purpose_id" style="height: 34px; width:100%" required="">
                     <option value="" disabled="" selected="">Select...</option>
                     <option value="2">Old Patient Consult</option>
@@ -172,7 +173,7 @@ div#patientListing:hover
       </div>
       <div class="modal-body">
                   <strong>Chief Complaints<span style="color: red">*</span></strong>
-                  @if($errors->has('chief_complaints'))\
+                  @if($errors->has('chief_complaints'))
                           <span class="error" style="color: red">{{ $errors->first('chief_complaints') }}</span>
                       @endif
                     <input type="text" name="chief_complaints" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="">
@@ -184,7 +185,7 @@ div#patientListing:hover
         <input type="submit" class="btn btn-primary" value="Start Visit" />
       </div>
     </div>
-
+</form>
   </div>
  
 </div>

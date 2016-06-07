@@ -63,9 +63,9 @@ div#patientListing:hover
       
           
        <div class="input-group pull-right" style="width: 50%" >           
-             <input  type="text" class="form-control" placeholder="Search for...">
+             <input  type="text" id="search-pediatrician" class="form-control" placeholder="Search for...">
             <span class="input-group-btn">
-              <button class="btn btn-default" type="button">Go!</button>
+              <button id="search_ped" class="btn btn-default" type="button">Go!</button>
             </span>
       </div>
       <br>
@@ -79,7 +79,7 @@ div#patientListing:hover
             @if (! $user->user_type_id == 1)
 
             @else
-           <div  class="row container-fluid"    id="patientListing"   >
+           <div  class="row container-fluid contact-name"    id="patientListing"   >
              <ul style="padding:0;" class="patient-list-style" >                 
                 <li style="list-style: none;">
                   <div class="row">
@@ -116,7 +116,7 @@ div#patientListing:hover
                 </ul>
               
                 </div>
-  <hr> 
+
   @endif
   @endforeach
           <!-- END CARD TABLE -->    

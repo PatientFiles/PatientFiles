@@ -865,6 +865,9 @@ $('#result').html("you select value="+$(this).val());
 </script>
 
 
+
+<!-- PATIENT RECORDS SEARCH -->
+
 <script >
   $('.contact-name');
 $('#search').click(function(){
@@ -875,5 +878,62 @@ $('#search').click(function(){
            $(this).show();
        }
     });
+});
+</script>
+
+
+<script >
+  $('.contact-name');
+  $("#search-criteria").keyup(function(e){
+    if(event.keyCode == 13){
+        $("#search").click();
+
+
+          $('.contact-name').hide();
+    var txt = $('#search-pediatrician').val();
+    $('.contact-name').each(function(){
+       if($(this).text().toUpperCase().indexOf(txt.toUpperCase()) != -1){
+           $(this).show();
+       }
+    });
+
+
+
+    }
+});
+</script>
+<!-- PEDIATRICIANS SEARCH -->
+
+<script >
+  $('.contact-name');
+$('#search_ped').click(function(){
+    $('.contact-name').hide();
+    var txt = $('#search-pediatrician').val();
+    $('.contact-name').each(function(){
+       if($(this).text().toUpperCase().indexOf(txt.toUpperCase()) != -1){
+           $(this).show();
+       }
+    });
+});
+</script>
+
+<script >
+  $('.contact-name');
+  $("#search-pediatrician").keyup(function(event){
+    if(event.keyCode == 13){
+        $("#search_ped").click();
+
+
+          $('.contact-name').hide();
+    var txt = $('#search-pediatrician').val();
+    $('.contact-name').each(function(){
+       if($(this).text().toUpperCase().indexOf(txt.toUpperCase()) != -1){
+           $(this).show();
+       }
+    });
+
+
+
+    }
 });
 </script>

@@ -60,14 +60,15 @@ class homeController extends Controller
     /**
      * Patient Records PAGE
      */
-    public function patientRecords()
+    public function patientRecords(Request $req)
     {
         if (! \Session::has('token')) {
             return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please login to access Patient Records!']);
         }
 
-        $patients = $this->medix->get('patient?take=1000');
-        //dd($patients);
+        $patients = $this->medix->get('patient?take=10');
+        dd(date('H:i:s', strtotime(Carbon::now())));
+        dd($patients);
         $mytime = Carbon::now();
 
         return view('pages.patientRecordsPage')

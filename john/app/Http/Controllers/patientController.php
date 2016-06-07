@@ -81,8 +81,8 @@ class patientController extends Controller
             'pulse'         => 'max:3|min:1',
             'respiratory'   => 'max:3|min:1',
             'temp'          => 'max:2|min:1',
-            'sys'           => 'max:2|min:1',
-            'dia'           => 'max:2|min:1',
+            'sys'           => 'max:3|min:1',
+            'dia'           => 'max:3|min:1',
             'mens'          => 'date|before:tomorrow|date_format:m/d/Y',
         ]);
         if($validator->fails()) {
@@ -229,7 +229,7 @@ class patientController extends Controller
         $addPatient = $this->medix->post('patient', $data);
         //dd($addPatient);
 
-        return redirect()->to('/home');
+        return redirect()->to('/register');
     }
 
     /***
@@ -239,12 +239,15 @@ class patientController extends Controller
      ***/
     public function newConsult($id)
     {
-        if (! \Session::has('token')) {
-            return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
+        if (! \Session::get('consult') == $id) {
+            return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Consultation not yet Started!']);
+        }
+         if (! \Session::has('token')) {
+            return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Consultation not yet Started!']);
         }
 
         $profile = $this->medix->get('patient/'.$id);
-        $address = current((array)$profile->data->user->user_addresses);
+        $address = $profile->data->user->user_addresses;
         //dd($profile);
 
 

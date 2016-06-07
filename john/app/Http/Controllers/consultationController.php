@@ -27,7 +27,7 @@ class consultationController extends Controller
 	public function appointmentForNewPatient(Request $req)
 	{
 		if (! \Session::has('fname')) {
-            return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login to view a patient profile!']);
+            return redirect('/#about')->with('success',['type'=> 'danger','text' => 'Access denied, Please Login to view a patient profile!']);
         }
 
         $req->only('chief_complaints', 'patient_id');
@@ -46,9 +46,11 @@ class consultationController extends Controller
         $consult = \Session::put('consult', $id);
 		$appointment = $this->medix->post('appointment', $data);
         $profile = $this->medix->get('patient/'.$id);
+        $address = $profile->data->user->user_addresses;
 
 		return redirect('consultation/'.$id)
-                ->with('prof', $profile->data);
+                ->with('prof', $profile->data)
+                ->with('address', $address);
 	}
 
     /*---------------------------------------------------------------------------------------------------------------------------------------------
@@ -56,14 +58,15 @@ class consultationController extends Controller
     |----------------------------------------------------------------------------------------------------------------------------------------------
     |
     */
-    public function appointmentForNewPatient(Request $req)
+    public function appointmentForOldPatient(Request $req)
     {
         if (! \Session::has('fname')) {
             return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login to view a patient profile!']);
         }
 
-        $req->only('chief_complaints', 'patient_id');
+        $req->only('chief_complaints', 'patient_id','purpose_id');
         $id                 = $req->input('patient_id');
+        $purpose_id         = $req->input('purpose_id');
         $chief_complaints   = $req->input('chief_complaints');
 
         $data =
@@ -71,13 +74,14 @@ class consultationController extends Controller
             'patient_id'        => $id,
             'appointment_date'  => date('Y-m-d', strtotime(Carbon::now()->setTimezone('GMT+8'))),
             'appointment_time'  => date('H:i:s', strtotime(Carbon::now()->setTimezone('GMT+8'))),
-            'purpose_id'        => 1,
+            'purpose_id'        => $purpose_id,
             'chief_complaints'  => $chief_complaints,
         ];
         //dd($data);
         $consult = \Session::put('consult', $id);
         $appointment = $this->medix->post('appointment', $data);
         $profile = $this->medix->get('patient/'.$id);
+        //dd($appointment);
 
         return redirect('consultation/'.$id)
                 ->with('prof', $profile->data);
@@ -101,4 +105,14 @@ class consultationController extends Controller
 		$pdf->setPaper('DEFAULT_PDF_PAPER_SIZE', 'portrait');
   		return $pdf->stream();
 	}
+    /*---------------------------------------------------------------------------------------------------------------------------------------------
+    | END A VISIT SESSION
+    |----------------------------------------------------------------------------------------------------------------------------------------------
+    |
+    */
+    public function endVisit()
+    {
+       \Session::forget('consult');
+       return redirect('')->with('visit',['type'=> 'success','text' => 'Visit successfully added!']);
+    }
 }

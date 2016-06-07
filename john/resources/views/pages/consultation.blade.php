@@ -43,7 +43,7 @@
                 
                 <div class="box-footer" style="padding-top: 10px;">
                   <div class="row">
-                    <div class="col-sm-6 border-right">
+                    <div class="col-sm-4 border-right">
                       <div class="description-block">
                       @if ($prof->user->gender == 1)
                           <h5 class="description-header">Male</h5>
@@ -53,10 +53,15 @@
                         <span class="description-text">Gender</span>
                       </div><!-- /.description-block -->
                     </div><!-- /.col -->
-                    <div class="col-sm-6">
+                    <div class="col-sm-4 border-right">
                       <div class="description-block">
                         <h5 class="description-header">{{date('F d,Y',strtotime($prof->user->birthdate))}}</h5>
                         <span class="description-text">Birth Date</span>
+                      </div><!-- /.description-block -->
+                    </div><!-- /.col -->
+                    <div class="col-sm-4">
+                      <div class="description-block">
+                          <a href="/end_visit" class="btn btn-info active">End Visit</a>
                       </div><!-- /.description-block -->
                     </div><!-- /.col -->
                   </div><!-- /.row -->

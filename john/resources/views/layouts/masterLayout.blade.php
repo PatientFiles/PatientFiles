@@ -193,6 +193,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       </li>
             <li ><a href="/scheduler"><i class="fa fa-calendar-check-o"></i> <span>Scheduler</span></a></li>
              <li ><a href="/accounts"><i class="fa fa-user-md"></i> <span>Pediatricians</span></a></li>
+             <li ><a href="/items"><i class="fa fa-user-md"></i> <span>Items</span></a></li>
           </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->
@@ -784,10 +785,10 @@ $('#sandbox-container input').on('hide', function(e){
 
 <script >
   var options=[
-    {id:0, name:"Generic 0"},
-    {id:1, name:"Generic 1"},
-    {id:2, name:"Generic 2"},
-    {id:3, name:"Generic 3"},
+    {id:0, name:"Bioflu  500mg"},
+    {id:1, name:"Bioflu 250mg"},
+    {id:2, name:"Alaxan 500mg"},
+    {id:3, name:"Alaxan 250mg"},
 ];
 
 
@@ -810,40 +811,6 @@ $('#select_generic').selectize({
 });
 
 $('#select_generic').change(function(){
-$('#result').html("you select value="+$(this).val());
-});
-</script>
-
- <!-- CONSULTATION BRAND -->
-
-<script >
-  var options=[
-    {id:0, name:"Brand "},
-    {id:1, name:"Brand  1"},
-    {id:2, name:"Brand  2"},
-    {id:3, name:"Brand  3"},
-];
-
-
-$('#select_brand').selectize({
-    plugins: ['remove_button'],
-    valueField: 'id',
-    labelField: 'name',
-    searchField: ['name'],
-    "options": options,
-    delimiter: ',',
-    persist: false,
-    create: function (input) {
-      return {
-        id: input,
-        name: input,
-      };
-    },
-    hideSelected: true,
-    openOnFocus: false,
-});
-
-$('#select_brand').change(function(){
 $('#result').html("you select value="+$(this).val());
 });
 </script>

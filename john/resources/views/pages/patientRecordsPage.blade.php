@@ -96,17 +96,17 @@ div#patientListing:hover
                                     @if (!$patient->patient_appointments)
                                     <div class="col-lg-6 container-fluid"  style="padding-top: 40px"> <!-- START cl4 -->
                                           <div class="btn-group" role="group">  
-                                            <a class="btn btn-default" href="patientProfile/{{$patient->id}}" >View Profile</a>    
+                                            <a class="btn btn-default" href="patientProfile/{{$patient->id}}" >View Patient</a>    
                                             <a class="btn btn-primary" href="#"  data-toggle="modal" data-target="#newVisit-{{$patient->id}}">New Visit</a>
-                                            <a class="btn btn-default" href="patient/edit_patient/{{$patient->id}}" >Edit Profile</a>
+                                            <a class="btn btn-default" href="patient/edit_patient/{{$patient->id}}" >Edit Patient</a>
                                           </div>        
                                      </div>
                                     @else
                                      <div class="col-lg-6 container-fluid"  style="padding-top: 40px"> <!-- START cl4 -->
                                           <div class="btn-group" role="group">      
-                                            <a class="btn btn-default" href="patientProfile/{{$patient->id}}" >View Profile</a>
+                                            <a class="btn btn-default" href="patientProfile/{{$patient->id}}" >View Patient</a>
                                             <a class="btn btn-primary" href="#"  data-toggle="modal" data-target="#patientVisit-{{$patient->id}}">Patient Visit</a>
-                                            <a class="btn btn-default" href="patient/edit_patient/{{$patient->id}}" >Edit Profile</a>
+                                            <a class="btn btn-default" href="patient/edit_patient/{{$patient->id}}" >Edit Patient</a>
                                           </div>        
                                      </div>
                                      @endif  <!-- END cl 4 -->
@@ -166,14 +166,9 @@ div#patientListing:hover
                   @endif
                 {!! csrf_field() !!}
               <select class="form-control" name="purpose_id" style="height: 34px; width:100%" required="">
-                    <option value="" disabled="" selected="">Select...</option>
+                    <option value disabled selected>Select...</option>
                     <option value="2">Old Patient Consult</option>
                     <option value="3">Follow-up Consult</option>
-                    <option value="4">Annual Physical Examination</option>
-                    <option value="7">Laboratory (Request from other doctors or facilities)</option>
-                    <option value="8">Laboratory (Sponsored program)</option>
-                    <option value="10">Imaging (Request from other doctors or facilities)</option>
-                    <option value="11">Imaging (Sponsored program)</option>
              </select>
       </div>
       <div class="modal-body">
@@ -197,13 +192,6 @@ div#patientListing:hover
  
               @endforeach   
           <!-- END CARD TABLE -->    
-            
-
-             <div > 
-                  <a style="color: black" href="/prev" class="btn btn-default"> Previous </a> 
-                  <a style="color: black" href="/next" class="btn btn-default pull-right"> Next </a> 
-             </div>
-
        </div>
 
 

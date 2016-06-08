@@ -95,23 +95,6 @@ div#patientListing:hover
 
                           <div class="row form-group">
                             <div class="col-lg-6">
-                                <label for="number">S2 License Number:</label>
-                      @if($errors->has('s2_license'))
-                          <span class="error" style="color: red">{{ $errors->first('s2_license') }}</span>
-                      @endif
-                                <input type="number" name="s2_license" class="form-control" placeholder="S2 License Number" value="">
-                            </div>
-                            <div class="col-lg-6">
-                                <label for="number">PTR:</label>
-                      @if($errors->has('ptr_number'))
-                          <span class="error" style="color: red">{{ $errors->first('ptr_number') }}</span>
-                      @endif
-                                <input type="number" name="ptr_number" class="form-control" placeholder="PTR License" value="">
-                            </div>
-                          </div>
-
-                          <div class="row form-group">
-                            <div class="col-lg-6">
                                 <label for="text">Email Address:&nbsp<span style="color:red">*</span></label>
                       @if($errors->has('email'))
                           <span class="error" style="color: red">{{ $errors->first('email') }}</span>

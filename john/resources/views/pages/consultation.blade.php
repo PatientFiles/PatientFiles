@@ -201,8 +201,9 @@
       <form>
 
         <div class="row container-fluid">
-            <div class="col-lg-4">
-              <label>Generic</label>
+
+            <div class="col-lg-10">
+              <label>Medicine</label>
 
                   <select id="select_generic"  multiple>
                 
@@ -210,21 +211,11 @@
                  
 
             </div>
-             <div class="col-lg-4">
-               <label>Brand</label>
-
-                <select id="select_brand" multiple>
-                      
-                  </select>
-
-            </div>
-             <div class="col-lg-2">
-               <label>Dosage</label>
-               <input class="form-control" type="text" placeholder="Dsg" />
-            </div>
+           
+             
              <div class="col-lg-2">
                <label>Quantity</label>
-               <input class="form-control" type="text" placeholder="Qty" />
+               <input class="form-control" type="number"  />
             </div>
             <div class="col-lg-12">
                <label>Sig</label>
@@ -250,6 +241,7 @@
               <th>Brand</th>
               <th>Dosage</th>
               <th>Quantity</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -258,13 +250,14 @@
               <td>Bonakid</td>
               <td>500mg</td>
               <td>10pcs</td>
+              <td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td>
             </tr>
           </tbody>
         </table>
       
       </div>    
           <br><br>
-          <a href="/pdf" target="_blank" class="btn btn-primary "> Create Prescription </a>
+          <a href="/pdf" target="_blank" class="btn btn-primary "> Print Prescription</a>
       </div>
       
 

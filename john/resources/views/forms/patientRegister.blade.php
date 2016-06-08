@@ -280,10 +280,10 @@
 		</div>
 		<div class="col-lg-4">
 		<strong>Zip Code:</strong>
-		@if($errors->has('zip-code'))
-            <span class="error" style="color: red">{{ $errors->first('zip-code') }}</span>
+		@if($errors->has('zip_code'))
+            <span class="error" style="color: red">{{ $errors->first('zip_code') }}</span>
         @endif
-			<input type="text" name="zip_code" class="form-control" placeholder="Zip Code" aria-describedby="basic-addon1">
+			<input type="number" name="zip_code" class="form-control" placeholder="Zip Code" aria-describedby="basic-addon1">
 		</div>
 
 		

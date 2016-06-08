@@ -49,8 +49,8 @@ class userController extends Controller
             return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
         }
         $account = $this->medix->get('management/accounts/'.$id);
-
-        return view('forms.editAccount');
+        //dd($account);
+        return view('forms.editAccount')
             ->with('account', $account->data);
     }
 
@@ -98,7 +98,7 @@ class userController extends Controller
             'middlename'        => 'min:1',
             'gender'            => 'required',
             'birthdate'         => 'required|date|before:today|date_format:m/d/Y',
-            'gender'            => 'required',
+            'email'            => 'required|email',
             'password'          => 'required',
         ]);
         //dd($validator->fails());
@@ -137,6 +137,60 @@ class userController extends Controller
 
         // /dd($data);
         $addAccount = $this->medix->post('management/accounts/', $data);
+        //dd($addAccount);
+
+        return redirect()
+            ->back()
+            ->with('added',['type'=> 'success','text' => 'User '.$firstname.' '.$lastname.' created successfully!']);
+    }
+
+    /*---------------------------------------------------------------------------------------------------------------------------------------------
+    | FUNCTIONS FOR EDITING AN ACCOUNT
+    |----------------------------------------------------------------------------------------------------------------------------------------------
+    |
+    */
+    public function editPed(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'firstname'         => 'required|min:1',
+            'lastname'          => 'required|min:1',
+            'middlename'        => 'min:1',
+            'gender'            => 'required',
+            'birthdate'         => 'required|date|before:today|date_format:m/d/Y',
+            'email'             => 'required|email',
+        ]);
+        //dd($validator->fails());
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput($request->all());
+        }
+        $user_type_id      = 1;
+        $firstname         = $request->input('firstname');
+        $middlename        = $request->input('middlename');
+        $lastname          = $request->input('lastname');
+        $gender            = $request->input('gender');
+        $birthdate         = $request->input('birthdate');
+        $ptr_number        = $request->input('ptr_number');
+        $s2_license        = $request->input('s2_license');
+        $email             = $request->input('email');
+        $password          = $request->input('password');
+
+        $data = 
+        [   
+            'user_type_id'              => $user_type_id,
+            'firstname'                 => $firstname,
+            'middlename'                => $middlename,
+            'lastname'                  => $lastname,
+            'gender'                    => $gender,
+            'birthdate'                 => $birthdate,
+            'prc'                       => $s2_license,
+            'ptr'                       => $ptr_number,
+            'email'                     => $email,
+        ];
+
+        // /dd($data);
+        $addAccount = $this->medix->put('management/accounts/', $data);
         //dd($addAccount);
 
         return redirect()

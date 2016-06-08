@@ -103,7 +103,7 @@ div#patientListing:hover
                       <b>Gender:</b><span>@if ($user->gender == 0) {{'Female'}} @else {{'Male'}}@endif</span><span></span><span> </span></small><span>&nbsp;</span><div style="color:#848688;"><small><b>Date Registered:&nbsp</b><span>{{date('F d,Y',strtotime($user->created_at))}} </span><span></span><span> </span></small></div>
                       </div>
                   </div>
-                  <div  class="col-md-4" style="padding-top:4rem;"><a class="btn btn-primary" href="/account/edit_account/{{$user->user_type_id}}">Edit Account</a>&nbsp | &nbsp
+                  <div  class="col-md-4" style="padding-top:4rem;"><a class="btn btn-primary" href="/account/edit_account/{{$user->id}}">Edit Account</a>&nbsp | &nbsp
                         <a class="btn btn-danger" href="/delete_account/{{$user->id}}">Delete Account</a>
                   </div>
 

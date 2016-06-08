@@ -36,6 +36,7 @@ Route::resource('accounts','userController@accounts');
 */
 Route::post('/saveVitals/{id}','patientController@saveVitals');
 Route::post('/add_patient','patientController@addPatient');
+Route::post('/edit_patient','patientController@editPatient');
 
 
 /*--------------------------------------------------------------------------------

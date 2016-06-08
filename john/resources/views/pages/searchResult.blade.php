@@ -50,6 +50,7 @@
 		                        <td>{{date('F d, Y', strtotime($patient->user->birthdate))}}</td>
 		                        <td>
 		                        @if (! $patient->patient_appointments)
+                                    <a class="btn btn-default" href="patientProfile/{{$patient->id}}" >View Profile</a>
 		                        	<a class="btn btn-primary" data-toggle="modal" data-target="#newVisit-{{$patient->id}}">New Visit</a>
                                     <a class="btn btn-default" href="patient/edit_patient/{{$patient->id}}" >Edit Profile</a>
                                 @else

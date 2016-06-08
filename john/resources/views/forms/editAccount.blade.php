@@ -76,9 +76,9 @@ div#patientListing:hover
                           <span class="error" style="color: red">{{ $errors->first('gender') }}</span>
                       @endif
                                   <select type="text" class="form-control" name="gender">
-                                    <option @if ($accountgender == 'null') {{'selected="selected" disabled'}}@endif>Select Gender ...</option>
-                                    <option value="1">Male</option>
-                                    <option value="0">Female</option>
+                                    <option  @if ($account->gender == 'null') {{'selected="selected" disabled'}}@endif>Select Gender ...</option>
+                                    <option value="1" @if ($account->gender == '1') {{'selected="selected"'}}@endif>Male</option>
+                                    <option value="0" @if ($account->gender == '0') {{'selected="selected"'}}@endif>Female</option>
                                   </select>
                               </div>
                             <div class="col-lg-6">
@@ -87,43 +87,36 @@ div#patientListing:hover
                           <span class="error" style="color: red">{{ $errors->first('birthdate') }}</span>
                       @endif
                                   <div class="input-group">
-                                    <input type="text" name="birthdate" readonly class="form-control" id="idTourDateDetails" placeholder="Click here to pick a birthdate" value="{{$account->birthdate}}">
+                                    <input type="text" name="birthdate" readonly class="form-control" id="idTourDateDetails" placeholder="Click here to pick a birthdate" value="{{date('Y-m-d', strtotime($account->birthdate))}}">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                   </div>
                             </div>
                           </div>
 
                           <div class="row form-group">
-                            <div class="col-lg-4">
-                                <label for="number">License Number:</label>
-                      @if($errors->has('license_number'))
-                          <span class="error" style="color: red">{{ $errors->first('license_number') }}</span>
-                      @endif
-                                <input type="number" name="license_number" class="form-control" placeholder="License Number" value="">
-                            </div>
-                            <div class="col-lg-4">
-                                <label for="number">PTR:</label>
-                      @if($errors->has('ptr_number'))
-                          <span class="error" style="color: red">{{ $errors->first('ptr_number') }}</span>
-                      @endif
-                                <input type="number" name="ptr_number" class="form-control" placeholder="PTR License" value="">
-                            </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-6">
                                 <label for="number">S2 License Number:</label>
                       @if($errors->has('s2_license'))
                           <span class="error" style="color: red">{{ $errors->first('s2_license') }}</span>
                       @endif
                                 <input type="number" name="s2_license" class="form-control" placeholder="S2 License Number" value="">
                             </div>
+                            <div class="col-lg-6">
+                                <label for="number">PTR:</label>
+                      @if($errors->has('ptr_number'))
+                          <span class="error" style="color: red">{{ $errors->first('ptr_number') }}</span>
+                      @endif
+                                <input type="number" name="ptr_number" class="form-control" placeholder="PTR License" value="">
+                            </div>
                           </div>
 
                           <div class="row form-group">
-                            <div class="col-lg-4">
+                            <div class="col-lg-6">
                                 <label for="text">Email Address:&nbsp<span style="color:red">*</span></label>
                       @if($errors->has('email'))
                           <span class="error" style="color: red">{{ $errors->first('email') }}</span>
                       @endif
-                                <input type="text" name="email" class="form-control" placeholder="Email Address" value="{{$account->user_emails->email}}">
+                                <input type="text" name="email" class="form-control" placeholder="Email Address" value="{{$account->user_emails[0]->email}}">
                             </div>
                           </div>
                           <br>

@@ -62,7 +62,7 @@ class patientController extends Controller
 
         $profile = $this->medix->get('patient/'.$id);
         $address = current((array)$profile->data->user->user_addresses);
-        
+
         return view('pages.patientProfile')
             ->with('prof', $profile->data)
             ->with('address', $address)
@@ -158,7 +158,7 @@ class patientController extends Controller
             'zip_code'      => 'digits:4',
         ]);
 
-        //dd($request->all());
+        //dd($validator->fails());
         if ($validator->fails()) {
             return redirect()->back()
                 ->withErrors($validator)
@@ -243,7 +243,123 @@ class patientController extends Controller
         $addPatient = $this->medix->post('patient', $data);
         //dd($addPatient);
 
-        return redirect()->to('/register');
+        return redirect()->to('/patientRecords')
+            ->with('message',['type'=> 'danger','text' => 'Patient successfully added!']);
+
+    }//--------------------------------------------------------------------------------------------------------------------------------------------
+
+        /*---------------------------------------------------------------------------------------------------------------------------------------------
+    | FUNCTION FOR ADDING OF NEW PATIENT
+    |----------------------------------------------------------------------------------------------------------------------------------------------
+    |
+    */
+    public function editPatient(Request $request)
+    {   
+        if (! \Session::has('token')) {
+            return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
+        }
+
+        $validator = Validator::make($request->all(), [
+            'fname'         => 'required|min:1',
+            'lname'         => 'required|min:1',
+            'mname'         => 'min:1',
+            'nickname'      => 'min:1',
+            'bdate'         => 'required|date|before:tomorrow|date_format:m/d/Y',
+            'gender'        => 'required',
+            'email'         => 'email|min:1',
+            'efname'        => 'min:1',
+            'emname'        => 'min:1',
+            'elname'        => 'min:1',
+            'zip_code'      => 'digits:4',
+        ]);
+
+        //dd($request->all());
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput($request->all());
+        }
+        $id           = $request->input('patient_id');
+        $fname        = $request->input('fname');
+        $mname        = $request->input('mname');
+        $lname        = $request->input('lname');
+        $nickname     = $request->input('nickname');
+        $bdate        = $request->input('bdate');
+        $religion     = $request->input('religion');
+        $gender       = $request->input('gender');
+        $govt         = $request->input('govt');
+        $govtnum      = $request->input('govtnum');
+        $email        = $request->input('email');
+        $mobile_num   = $request->input('mobile_num');
+        $mobile_type  = $request->input('mobile_type');
+        $landline     = $request->input('landline');
+        $efname       = $request->input('efname');
+        $emname       = $request->input('emname');
+        $elname       = $request->input('elname');
+        $econtact     = $request->input('econtact');
+        $erelation    = $request->input('erelation');
+        $street       = $request->input('street');
+        $brgy         = $request->input('brgy');
+        $city         = $request->input('city');
+        $province     = $request->input('province');
+        $zip_code     = $request->input('zip_code');
+
+        $data = [
+            'firstname'                 => $fname,
+            'middlename'                => $mname,
+            'lastname'                  => $lname,
+            'nickname'                  => $nickname,
+            'birthdate'                 => $bdate,
+            'civil_status'              => 1,
+            'gender'                    => $gender,
+            'government_id_type'        => $govt,
+            'government_id_number'      => $govtnum,
+            'email' => 
+                    [
+                        0 => $email,
+                    ],
+            'email_type' => 
+                    [
+                        0 => 1,
+                    ],
+            'phone_contact' => [
+               0 => [
+                       1 => $mobile_num,
+                    ]
+
+            ],
+            'emergency' => 
+            [
+                0=>[
+                    'emergency_firstname'            => $efname,
+                    'emergency_lastname'             => $elname,
+                    'emergency_middlename'           => $emname,
+                    'emergency_contact_no'           => $econtact,
+                    'emergency_contact_relationship' => $erelation,
+                   ]
+
+            ],
+            'address' => 
+            [
+                0 =>[
+                    'street'            => $street,
+                    'address_district'  => $brgy,
+                    'address_city'      => $city,
+                    'province_id'       => $province,
+                    'country'           => 1,
+                    'zipcode'           => $zip_code,
+                    'address_type'      => 1,
+                    'primary'           => 1
+                    ]
+
+            ]
+        ];
+        //dd($data);
+        $addPatient = $this->medix->put('patient/'.$id , $data);
+        //dd($addPatient);
+
+        return redirect()->back()
+            ->with('message',['type'=> 'success','text' => 'Patient successfully edited!']);
 
     }//--------------------------------------------------------------------------------------------------------------------------------------------
 

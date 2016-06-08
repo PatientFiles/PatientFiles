@@ -33,7 +33,11 @@ div#patientListing:hover
  </section>
 	 
 	<hr id="p_hr1">
-
+                        @if(session('message'))
+                            <p style="padding-top: 5px;color: white;background-color: red;font-style: italic;" class="alert alert-{{session ('message.type')}} form-control" >
+                                    {{session('message.text')}}
+                            </p>
+                        @endif
 
 	<div class="panel panel-default" >
   <div class="panel-body" >
@@ -91,7 +95,8 @@ div#patientListing:hover
                               </div> <!-- END 8 COLUMNS -->
                                     @if (!$patient->patient_appointments)
                                     <div class="col-lg-6 container-fluid"  style="padding-top: 40px"> <!-- START cl4 -->
-                                          <div class="btn-group" role="group">      
+                                          <div class="btn-group" role="group">  
+                                            <a class="btn btn-default" href="patientProfile/{{$patient->id}}" >View Profile</a>    
                                             <a class="btn btn-primary" href="#"  data-toggle="modal" data-target="#newVisit-{{$patient->id}}">New Visit</a>
                                             <a class="btn btn-default" href="patient/edit_patient/{{$patient->id}}" >Edit Profile</a>
                                           </div>        

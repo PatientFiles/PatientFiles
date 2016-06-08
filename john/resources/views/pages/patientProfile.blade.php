@@ -40,9 +40,6 @@
                     <li class="list-group-item">
                       <b>Birth Date</b> <a class="pull-right badge bg-blue">{{ $prof->user->birthdate }}</a>
                     </li>
-                    <li class="list-group-item">
-                      <strong>Address:</strong><a class="pull-right badge bg-blue">{{$address}}</a>
-                    </li>
                     <br>
                   </ul>
 

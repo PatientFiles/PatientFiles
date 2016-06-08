@@ -3,7 +3,14 @@
 
 @section('title', 'Edit Patient | Patient Files')
 @section('content')
-<form role="form" method="POST" action="/add_patient">
+
+                        @if(session('message'))
+                            <p style="padding-top: 5px;color: white;background-color: red;font-style: italic;" class="alert alert-{{session ('message.type')}} form-control" >
+                                    {{session('message.text')}} <a href="/patientRecords" class="primary pull-right">Go to Patient List?</a>
+                            </p>
+                        @endif
+
+<form role="form" method="POST" action="/edit_patient">
 <div class="panel panel-default" > <!-- Start PANEL -->
  <div class="panel-body"> <!-- Start PANEL -->
  <div>
@@ -24,7 +31,7 @@
 	<br>
 
  <div class="row form-group">
- 	<input type="hidden" name="fname" class="form-control" placeholder="First Name" aria-describedby="basic-addon1" value="{{$prof->user->id}}" required>
+ 	<input type="hidden" name="patient_id" class="form-control" placeholder="First Name" aria-describedby="basic-addon1" value="{{$prof->id}}" required>
  	<div class="col-lg-3">
 		<strong>First Name:<span style="color: red">*</span></strong>
 		@if($errors->has('fname'))
@@ -72,7 +79,7 @@
             <span class="error" style="color: red">{{ $errors->first('gender') }}</span>
         @endif
  		<select class="form-control" name="gender" style="height: 34px; width:100%" required="">
-		  <option value="1" @if ($prof->user->gender == 'null') {{'selected="selected" disabled'}}@endif>Select Gender ...</option>
+		  <option @if ($prof->user->gender == 'null') {{'selected="selected" disabled'}}@endif>Select Gender ...</option>
 		  <option value="1" @if ($prof->user->gender == '1') {{'selected="selected"'}}@endif>Male</option>
 		  <option value="0" @if ($prof->user->gender == '0') {{'selected="selected"'}}@endif>Female</option>
 		</select>
@@ -87,37 +94,37 @@
 		<strong>Government Type ID:</strong>
  		<select class="form-control" name="govt" style="height: 34px; width:100%">
  		@if (! $prof->user->user_government_id)
- 		<option value disabled selected> Select Government Type ID</option>
- 		<option value="1 " > Driver's License</option>
-		  <option value="2 " > Postal ID</option>
-		  <option value="3 " > Social Security System (SSS ID)</option>
-		  <option value="4 " > Government Service Insurance System (GSIS ID)</option>
-          <option value="5 " > Tax Identification Number (TIN ID)</option>
-          <option value="6 " > Professional Regulation Commission (PRC ID)</option>
-          <option value="7 " > National Statistics Office (NSO) Birth Certificate</option>
-          <option value="8 " > Marriage Certificate (NSO Authenticated)</option>
-          <option value="9 " > National Bureau of Investigation (NBI) Clearance</option>
- 		  <option value="10" > Police Clearance</option>
-          <option value="11" > Barangay Clearance/Certificate</option>
-          <option value="12" > Senior Citizen's ID Card</option>
-      	  <option value="13" > PhilHealth Identification Card (PIC)</option>
-     	  <option value="14" > Alien Certificate of Registration (ACR I-Card)</option>
-     	  <option value="15" > Consular ID</option>
-     	  <option value="16" > Permit to Carry Firearms</option>
-  		  <option value="17" > Passport</option>
-  		  <option value="18" > Company/Office ID</option>
-          <option value="19" > Student's ID or School ID</option>
- 		  <option value="20" > OFW ID</option>
-    	  <option value="21" > Seaman's Book</option>
-          <option value="22" > Armed Forces of the Philippines (AFP) ID</option>
-          <option value="23" > Home Development Mutual Fund (HMDF) or PAG-IBIG ID</option>
-          <option value="24" > Philippine Overseas Employment Association (POEA) ID</option>
-          <option value="25" > Certification from the National Council for the Welfare of Disabled Persons (NCWDP)</option>
-          <option value="26" > PRA Special Resident Retiree Visa (SRRV) ID</option>
-          <option value="27" > Department of Social Welfare and Development (DSWD) ID</option>
-          <option value="28" > Overseas Worker's Welfare Administration (OWWA) ID</option>
-          <option value="29" > Unified Multi-Purpose ID (UMID)</option>
-          <option value="30" > Voter's ID</option>
+	 		<option value disabled selected> Select Government Type ID</option>
+	 		<option value="1 " > Driver's License</option>
+			  <option value="2 " > Postal ID</option>
+			  <option value="3 " > Social Security System (SSS ID)</option>
+			  <option value="4 " > Government Service Insurance System (GSIS ID)</option>
+	          <option value="5 " > Tax Identification Number (TIN ID)</option>
+	          <option value="6 " > Professional Regulation Commission (PRC ID)</option>
+	          <option value="7 " > National Statistics Office (NSO) Birth Certificate</option>
+	          <option value="8 " > Marriage Certificate (NSO Authenticated)</option>
+	          <option value="9 " > National Bureau of Investigation (NBI) Clearance</option>
+	 		  <option value="10" > Police Clearance</option>
+	          <option value="11" > Barangay Clearance/Certificate</option>
+	          <option value="12" > Senior Citizen's ID Card</option>
+	      	  <option value="13" > PhilHealth Identification Card (PIC)</option>
+	     	  <option value="14" > Alien Certificate of Registration (ACR I-Card)</option>
+	     	  <option value="15" > Consular ID</option>
+	     	  <option value="16" > Permit to Carry Firearms</option>
+	  		  <option value="17" > Passport</option>
+	  		  <option value="18" > Company/Office ID</option>
+	          <option value="19" > Student's ID or School ID</option>
+	 		  <option value="20" > OFW ID</option>
+	    	  <option value="21" > Seaman's Book</option>
+	          <option value="22" > Armed Forces of the Philippines (AFP) ID</option>
+	          <option value="23" > Home Development Mutual Fund (HMDF) or PAG-IBIG ID</option>
+	          <option value="24" > Philippine Overseas Employment Association (POEA) ID</option>
+	          <option value="25" > Certification from the National Council for the Welfare of Disabled Persons (NCWDP)</option>
+	          <option value="26" > PRA Special Resident Retiree Visa (SRRV) ID</option>
+	          <option value="27" > Department of Social Welfare and Development (DSWD) ID</option>
+	          <option value="28" > Overseas Worker's Welfare Administration (OWWA) ID</option>
+	          <option value="29" > Unified Multi-Purpose ID (UMID)</option>
+	          <option value="30" > Voter's ID</option>
  		@else
 		  <option value="1 " @if ($prof->user->user_government_id->government_id_type_id == '1') {{'selected="selected"'}}@endif> Driver's License</option>
 		  <option value="2 " @if ($prof->user->user_government_id->government_id_type_id == '2') {{'selected="selected"'}}@endif> Postal ID</option>

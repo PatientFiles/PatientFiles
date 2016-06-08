@@ -136,29 +136,6 @@ class homeController extends Controller
     }
 
     /*---------------------------------------------------------------------------------------------------------------------------------------------
-    | DISPLAY A PAGE FOR PATIENT'S PROFILE WITH THEIR CLINIC HISTORY (VITALS RECORD AND VISIT RECORDS)
-    |----------------------------------------------------------------------------------------------------------------------------------------------
-    |
-    */
-    public function patientProfile($id)
-    {
-        if (! \Session::has('token')) {
-            return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login to view a patient profile!']);
-        }
-
-        $cons = $this->medix->get('patient/' . $id .'/consultations/recent');
-        //dd($cons);
-        $profile = $this->medix->get('patient/'.$id);
-        $vitals = $this->medix->get('patient/' . $id . '/vitals/' . Carbon::now());
-        dd($vitals);
-        
-
-
-        return view('pages.patientProfile')
-            ->with('prof', $profile->data);
-    }
-
-    /*---------------------------------------------------------------------------------------------------------------------------------------------
     | DISPLAYS THE INFO OF PATIENT TO EDIT PATIENT FORM
     |----------------------------------------------------------------------------------------------------------------------------------------------
     |

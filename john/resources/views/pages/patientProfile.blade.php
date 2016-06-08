@@ -56,6 +56,7 @@
                   <h3 class="box-title">Patient Latest Vitals</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
+                  @if ($recentVitals !== null)
                  <h5> <strong>Date Recorded:</strong> <p class="pull-right">{{date('F d, Y', strtotime($recentVitals->created_at))}}</p> </h5>
                  <h5> Height (cm): <p class="pull-right">{{$recentVitals->height}}</p> </h5>
                  <h5> Weight (kg): <p class="pull-right">{{$recentVitals->weight}}</p> </h5>
@@ -69,6 +70,7 @@
 
                  <strong><i class="fa fa-file-text-o margin-r-5"></i> Doctor's Notes</strong>
                  <p>{{$recentVitals->notes}}</p>
+                 @endif
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
             </div><!-- /.col -->
@@ -126,21 +128,23 @@
                       
                     </thead>
                     <tbody>
-                      @foreach ($consult as $appoint)
-                          @if (! is_object($appoint->consultation))
+                      @if ($consult !== null)
+                        @foreach ($consult as $appoint)
+                            @if (! is_object($appoint->consultation))
 
-                          @else
-                          <tr role = "row">
-                            <td><b>{{date('F d, Y', strtotime($appoint->appointment_date))}}</b></td>
-                            <td>{{$appoint->chief_complaints}}</td>
-                            <td>{{$appoint->consultation->subjective}}</td>
-                            <td>{{$appoint->consultation->objective}}</td>
-                            <td>{{$appoint->consultation->assessment}}</td>
-                            <td>{{$appoint->consultation->plan}}</td>
-                          
-                          </tr>
-                          @endif
-                      @endforeach
+                            @else
+                            <tr role = "row">
+                              <td><b>{{date('F d, Y', strtotime($appoint->appointment_date))}}</b></td>
+                              <td>{{$appoint->chief_complaints}}</td>
+                              <td>{{$appoint->consultation->subjective}}</td>
+                              <td>{{$appoint->consultation->objective}}</td>
+                              <td>{{$appoint->consultation->assessment}}</td>
+                              <td>{{$appoint->consultation->plan}}</td>
+                            
+                            </tr>
+                            @endif
+                        @endforeach
+                      @endif
                     </tbody>    
 
                 
@@ -180,6 +184,7 @@
                       
                     </thead>
                     <tbody>
+                    @if($vitals !== null)
                       @foreach ($vitals as $vital)
                         <tr>
                           <td> <b>{{date('F d, Y', strtotime($vital->general->created_at))}} </b></td>
@@ -192,6 +197,7 @@
                            <td> {{$vital->general->notes}} </td>
                         </tr> 
                       @endforeach
+                      @endif
                     </tbody>
                     
 

@@ -11,32 +11,33 @@ class loginController extends Controller
 
     protected $medix;
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function __construct()
     {
         $this->middleware('nocache');
         $this->medix = new \App\Medix\Client();
     }
     
+    
+    /*---------------------------------------------------------------------------------------------------------------------------------------------
+    | DISPLAYS THE LOGIN PAGE
+    |----------------------------------------------------------------------------------------------------------------------------------------------
+    |
+    */
     public function index()
     {
         if (! \Session::has('token')) {
             return view('login');
         }
         return redirect('home');
-    }
+
+    }//--------------------------------------------------------------------------------------------------------------------------------------------
 
 
-
-    /**
-     * Login using Medix API
-     *
-     * 
-     */
+    /*---------------------------------------------------------------------------------------------------------------------------------------------
+    | LOGIN FUNCTIONS USING THE DEV.MEDIX.PH API USING OAUTH2 PASSWORD CREDENTIALS
+    |----------------------------------------------------------------------------------------------------------------------------------------------
+    |
+    */
     public function medixAPI(Request $req)
     {
         $req -> all();
@@ -73,75 +74,9 @@ class loginController extends Controller
         \Session::put('prc', $user->data->role_info->prc);
         \Session::put('ptr', $user->data->role_info->ptr);
         \Session::put('license', $user->data->role_info->s2_license);
+
         return redirect('home');
-    }
 
+    }//--------------------------------------------------------------------------------------------------------------------------------------------
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

@@ -21,52 +21,64 @@ class patientController extends Controller
         $this->addError = new CreatePatientRequest();
     }
 
-    /***
-     *
-     * patientProfile
-     *
-     ***/
+
+    /*---------------------------------------------------------------------------------------------------------------------------------------------
+    | DISPLAYs THE PATIENT'S PROFILE
+    |----------------------------------------------------------------------------------------------------------------------------------------------
+    |
+    */
     public function patientProfile($id)
     {
         if (! \Session::has('fname')) {
             return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login to view a patient profile!']);
         }
 
-        //$recentCons = $this->medix->get('patient/' . $id .'/consultations/recent');
-        $pastCons = $this->medix->get('patient/' . $id .'/consultations/past');
-        $pastVitals = $this->medix->get('vitals/patient/' . $id . '/past');
-        
+        try {
+
+            $pastCons    = $this->medix->get('patient/' . $id .'/consultations/past');
+            $pastVitals  = $this->medix->get('vitals/patient/' . $id . '/past');
+
+            $pastCons    = $pastCons->data->patient_appointments;
+            $pastVitals  = $pastVitals->data;
+
+            $vitals_date = current((array)$pastVitals->data);
+            $vitals      = $this->medix->get('patient/' . $id . '/vitals/' . $vitals_date->general->created_at);
+            $height      = $vitals->data->vitals->general_survey->height * 0.01;
+
+            if ($height == 0) {
+                $bmi = 'N/A';
+            } else {
+                $bmi = round(($vitals->data->vitals->general_survey->weight) / pow($height,2),2);
+            }
+
+            $vitals  = $vitals->data->vitals->general_survey;
+
+        } catch (\Exception $e) {
+            $pastCons   = null;
+            $pastVitals = null;
+            $bmi        = 'N/A';
+            $vitals     = null;
+        }
+
         $profile = $this->medix->get('patient/'.$id);
         $address = current((array)$profile->data->user->user_addresses);
-        //dd($profile);
-        $vitals_date = current((array)$pastVitals->data);
-        //dd($vitals_date);
-        $vitals = $this->medix->get('patient/' . $id . '/vitals/' . $vitals_date->general->created_at);
-        $height =$vitals->data->vitals->general_survey->height * 0.01;
-
-        if ($height == 0) {
-            $bmi = 'N/A';
-        } else {
-            $bmi = round(($vitals->data->vitals->general_survey->weight) / pow($height,2),2);
-        }
-         
-        //dd($bmi);
-        //dd($vitals);
-
+        
         return view('pages.patientProfile')
             ->with('prof', $profile->data)
             ->with('address', $address)
-            ->with('consult', $pastCons->data->patient_appointments)
-            ->with('vitals', $pastVitals->data)
+            ->with('consult', $pastCons)
+            ->with('vitals', $pastVitals)
             ->with('bmi', $bmi)
-            ->with('recentVitals', $vitals->data->vitals->general_survey);
-    }
+            ->with('recentVitals', $vitals);
 
-    /***
-     *
-     * Save Vitals of Patient
-     *
-     ***/
+    }//--------------------------------------------------------------------------------------------------------------------------------------------
+
+
+    /*---------------------------------------------------------------------------------------------------------------------------------------------
+    | FUNCTION FOR ADDING VITALS OF A PATIENT WITH CONSULTATION AND VITALS HISTORY
+    |----------------------------------------------------------------------------------------------------------------------------------------------
+    |
+    */
     public function saveVitals($id, Request $request)
     {
 
@@ -117,13 +129,15 @@ class patientController extends Controller
         //dd($addVitals);
 
         return redirect('consultation/'. $id .'#vitals')->with('success',['type'=> 'success','text' => 'Vitals successfully added']);
-    }
 
-    /***
-     *
-     * Adding of Patient
-     *
-     ***/
+    }//--------------------------------------------------------------------------------------------------------------------------------------------
+
+
+    /*---------------------------------------------------------------------------------------------------------------------------------------------
+    | FUNCTION FOR ADDING OF NEW PATIENT
+    |----------------------------------------------------------------------------------------------------------------------------------------------
+    |
+    */
     public function addPatient(Request $request)
     {   
         if (! \Session::has('token')) {
@@ -230,13 +244,15 @@ class patientController extends Controller
         //dd($addPatient);
 
         return redirect()->to('/register');
-    }
 
-    /***
-     *
-     * Consultation Page
-     *
-     ***/
+    }//--------------------------------------------------------------------------------------------------------------------------------------------
+
+
+    /*---------------------------------------------------------------------------------------------------------------------------------------------
+    | DISPLAYS THE PAGE FOR THE MAIN CONSULTATION PROCESS
+    |----------------------------------------------------------------------------------------------------------------------------------------------
+    |
+    */
     public function newConsult($id)
     {
         if (! \Session::get('consult') == $id) {
@@ -250,9 +266,10 @@ class patientController extends Controller
         $address = $profile->data->user->user_addresses;
         //dd($profile);
 
-
         return  view('pages.consultation')
             ->with('prof', $profile->data)
             ->with('address', $address);
-    }
+
+    }//--------------------------------------------------------------------------------------------------------------------------------------------
+
 }

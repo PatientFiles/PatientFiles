@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App;
 use PDF;
-use App\Http\Requests;
 use Carbon\Carbon;
+use App\Http\Requests;
 use Illuminate\Http\Request;
 
 
@@ -36,6 +36,7 @@ class consultationController extends Controller
 
         $data =
         [
+            'practitioner_id'   => \Session::get('user_id'),
         	'patient_id' 		=> $id,
         	'appointment_date'	=> date('Y-m-d', strtotime(Carbon::now()->setTimezone('GMT+8'))),
         	'appointment_time'	=> date('H:i:s', strtotime(Carbon::now()->setTimezone('GMT+8'))),
@@ -51,7 +52,9 @@ class consultationController extends Controller
 		return redirect('consultation/'.$id)
                 ->with('prof', $profile->data)
                 ->with('address', $address);
-	}
+
+	}//--------------------------------------------------------------------------------------------------------------------------------------------
+
 
     /*---------------------------------------------------------------------------------------------------------------------------------------------
     | CREATE AN APPOINTMENT FOR OLD PATIENT
@@ -71,6 +74,7 @@ class consultationController extends Controller
 
         $data =
         [
+            'practitioner_id'   => \Session::get('user_id'),
             'patient_id'        => $id,
             'appointment_date'  => date('Y-m-d', strtotime(Carbon::now()->setTimezone('GMT+8'))),
             'appointment_time'  => date('H:i:s', strtotime(Carbon::now()->setTimezone('GMT+8'))),
@@ -85,7 +89,9 @@ class consultationController extends Controller
 
         return redirect('consultation/'.$id)
                 ->with('prof', $profile->data);
-    }
+
+    }//--------------------------------------------------------------------------------------------------------------------------------------------
+
 
 	/*---------------------------------------------------------------------------------------------------------------------------------------------
 	| CREATE A PRESCRIPTION IN PDF
@@ -104,7 +110,10 @@ class consultationController extends Controller
 		$pdf->loadView('pdf.prescription');
 		$pdf->setPaper('DEFAULT_PDF_PAPER_SIZE', 'portrait');
   		return $pdf->stream();
-	}
+
+	}//--------------------------------------------------------------------------------------------------------------------------------------------
+
+
     /*---------------------------------------------------------------------------------------------------------------------------------------------
     | END A VISIT SESSION
     |----------------------------------------------------------------------------------------------------------------------------------------------
@@ -113,6 +122,9 @@ class consultationController extends Controller
     public function endVisit()
     {
        \Session::forget('consult');
+
        return redirect('')->with('visit',['type'=> 'success','text' => 'Visit successfully added!']);
-    }
+
+    }//--------------------------------------------------------------------------------------------------------------------------------------------
+    
 }

@@ -67,5 +67,8 @@ Route::get('/consultation/{id}','patientController@newConsult');
 Route::get('pdf','consultationController@createPrescription');
 Route::post('new_appointment', 'consultationController@appointmentForNewPatient');
 
+Route::get('/queue', function(){
+		return view('pages.queue');
+});
 
 

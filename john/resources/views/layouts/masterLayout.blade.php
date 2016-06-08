@@ -110,11 +110,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <img src="/img/prof_pic.png" class="user-image" alt="User Image">
                   <!-- hidden-xs hides the username on small devices so only the image appears. -->
                   <span class="hidden-xs">
-                        @if (! Session::has('mname'))
-                          {{'Dr. '. Session::get('fname').' '.Session::get('lname').' MD.'}}
-                        @else
-                          {{'Dr. '. Session::get('fname').' '.Session::get('mname')[0].'.'.' '.Session::get('lname').' MD.'}}
-                        @endif
+                          {{'Dr. '. Session::get('fname').' '.Session::get('lname').', MD.'}}
                   </span>
                 </a>
 
@@ -124,11 +120,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <img src="/img/prof_pic.png" class="img-circle" alt="User Image">
                     <p>
                       <b>
-                        @if (! Session::has('mname'))
-                          {{'Dr. '. Session::get('fname').' '.Session::get('lname').' MD.'}}
-                        @else
-                          {{'Dr. '. Session::get('fname').' '.Session::get('mname')[0].'.'.' '.Session::get('lname').' MD.'}}
-                        @endif
+                          {{'Dr. '. Session::get('fname').' '.Session::get('lname').', MD.'}}
                       </b>
                       <small>{{  Session::get('role') }}</small>
                     </p>
@@ -167,11 +159,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
             <div class="pull-left info">
               <p>
-                        @if (! Session::has('mname'))
-                          {{'Dr. '. Session::get('fname').' '.Session::get('lname').' MD.'}}
-                        @else
-                          {{'Dr. '. Session::get('fname').' '.Session::get('mname')[0].'.'.' '.Session::get('lname').' MD.'}}
-                        @endif
+                          {{'Dr. '. Session::get('fname').' '.Session::get('lname').', MD.'}}
               </p>
               <small>{{  Session::get('role') }}</small>
               <!-- Status -->
@@ -342,11 +330,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       </div>
                       <div class="col-lg-9 pull-left">
                         <h3 class="widget-user-username">
-                        @if (! Session::has('mname'))
-                          {{'Dr. '. Session::get('fname').' '.Session::get('lname').' MD.'}}
-                        @else
-                          {{'Dr. '. Session::get('fname').' '.Session::get('mname')[0].'.'.' '.Session::get('lname').' MD.'}}
-                        @endif
+                          {{'Dr. '. Session::get('fname').' '.Session::get('lname').', MD.'}}
                         </h3>
                         <small>{{   Session::get('role')   }}</small>
                       </div>

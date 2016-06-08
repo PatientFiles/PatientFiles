@@ -18,6 +18,11 @@ class userController extends Controller
         $this->medix = new \App\Medix\Client();
     }
     
+    /*---------------------------------------------------------------------------------------------------------------------------------------------
+    | DISPLAYS THE LIST OF PEDIATRICIANS PAGE
+    |----------------------------------------------------------------------------------------------------------------------------------------------
+    |
+    */
     public function accounts()
     {
         if (! \Session::has('token')) {
@@ -30,18 +35,30 @@ class userController extends Controller
         		->with('users', $users->data->accounts)
         		->with('user_types', $users->data->user_types);
 
-    }
+    }//--------------------------------------------------------------------------------------------------------------------------------------------
 
-    public function editAccount()
+
+    /*---------------------------------------------------------------------------------------------------------------------------------------------
+    | DISPLAYS THE EDIT PEDIATRICIAN INFO FORM
+    |----------------------------------------------------------------------------------------------------------------------------------------------
+    |
+    */
+    public function editAccount($id)
     {
         if (! \Session::has('token')) {
             return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
         }
-        //$account = $this->medix->get('management/accounts/'.$id);
+        $account = $this->medix->get('management/accounts/'.$id);
+
         return view('forms.editAccount');
-            //->with('account', $account);
+            ->with('account', $account->data);
     }
 
+    /*---------------------------------------------------------------------------------------------------------------------------------------------
+    | DISPLAYS THE ADD NEW PEDIATRICIANS PAGE
+    |----------------------------------------------------------------------------------------------------------------------------------------------
+    |
+    */
     public function addAccountPage()
     {
         if (! \Session::has('token')) {
@@ -52,6 +69,11 @@ class userController extends Controller
             //->with('account', $account);
     }
 
+    /*---------------------------------------------------------------------------------------------------------------------------------------------
+    | FUNCTIONS FOR DELETING A PEDIATRICIANS ACCOUNT
+    |----------------------------------------------------------------------------------------------------------------------------------------------
+    |
+    */
     public function deleteAccount($user_id)
     {
 
@@ -63,6 +85,11 @@ class userController extends Controller
             ->with('delete',['type'=> 'danger','text' => 'User '.$user_id.' deleted successfully!']);
     }
 
+    /*---------------------------------------------------------------------------------------------------------------------------------------------
+    | FUNCTIONS FOR ADDING AN ACCOUNT
+    |----------------------------------------------------------------------------------------------------------------------------------------------
+    |
+    */
     public function addAccount(Request $request)
     {
         $validator = Validator::make($request->all(), [

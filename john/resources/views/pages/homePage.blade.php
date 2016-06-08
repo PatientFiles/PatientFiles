@@ -18,10 +18,19 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
            
             </ol>
   </section>
+  @if(session('visit'))
+          <small style=" padding-top: 5px;color: white;background-color: red;font-style: italic;" class="box-title alert alert-{{session ('visit.type')}} form-control" >
+                                    {{session('visit.text')}}
+          </small>
+             
+      @endif
 
 <hr>
-
-
+        @if(session('message'))
+            <p style="padding-top: 5px;color: white;background-color: red;font-style: italic;" class="alert alert-{{session ('message.type')}} form-control" >
+                    {{session('message.text')}}
+            </p>
+        @endif
 <!-- Modal -->
 <div id="myModal" class="modal fade bs-example-modal-lg" role="dialog">
   <div class="modal-dialog">
@@ -230,7 +239,6 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
 </div>
 
 <!-- END MODAL -->
-
 
 <div class="box box-default container-fluid">
    <div class="box-header with-border">

@@ -34,11 +34,6 @@ div#patientListing:hover
 	 
 	<hr id="p_hr1"> 
 
-    @if (session('added'))
-          <small style=" padding-top: 5px;color: white;background-color: red;font-style: italic;" class="box-title alert alert-{{session ('added.type')}} form-control" >
-                  {{session('added.text')}}
-          </small> 
-    @endif
 
   <div class="panel panel-default" >
       <div class="panel-body" >

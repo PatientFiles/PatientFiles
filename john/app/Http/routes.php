@@ -45,7 +45,7 @@ Route::post('/add_patient','patientController@addPatient');
 */
 Route::post('/add_account','userController@addAccount');
 Route::get('/account/add_account','userController@addAccountPage');
-Route::get('/account/edit_account','userController@editAccount');
+Route::get('/account/edit_account/{id}','userController@editAccount');
 Route::get('/delete_account/{user_id}','userController@deleteAccount');
 
 
@@ -64,8 +64,10 @@ Route::get('error','homeController@error');
 |
 */
 Route::get('/consultation/{id}','patientController@newConsult');
+Route::get('end_visit','consultationController@endVisit');
 Route::get('pdf','consultationController@createPrescription');
 Route::post('new_appointment', 'consultationController@appointmentForNewPatient');
+Route::post('old_appointment', 'consultationController@appointmentForOldPatient');
 
 Route::get('/queue', function(){
 		return view('pages.queue');

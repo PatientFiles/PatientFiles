@@ -201,8 +201,8 @@
       <form>
 
         <div class="row container-fluid">
-            <div class="col-lg-4">
-              <label>Generic</label>
+            <div class="col-lg-10">
+              <label>Medicine</label>
 
                   <select id="select_generic"  multiple>
                 
@@ -210,18 +210,8 @@
                  
 
             </div>
-             <div class="col-lg-4">
-               <label>Brand</label>
-
-                <select id="select_brand" multiple>
-                      
-                  </select>
-
-            </div>
-             <div class="col-lg-2">
-               <label>Dosage</label>
-               <input class="form-control" type="text" placeholder="Dsg" />
-            </div>
+           
+             
              <div class="col-lg-2">
                <label>Quantity</label>
                <input class="form-control" type="text" placeholder="Qty" />

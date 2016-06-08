@@ -27,7 +27,7 @@ Route::resource('logout','homeController@logout');
 Route::resource('register','homeController@register');
 Route::resource('scheduler','homeController@scheduler');
 Route::resource('accounts','userController@accounts');
-
+Route::resource('items','homeController@items');
 
 /*--------------------------------------------------------------------------------
 | ROUTE FOR PATIENT PROFILE

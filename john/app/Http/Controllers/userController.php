@@ -52,7 +52,7 @@ class userController extends Controller
         //dd($account);
         return view('forms.editAccount')
             ->with('account', $account->data);
-    }
+    }//--------------------------------------------------------------------------------------------------------------------------------------------
 
     /*---------------------------------------------------------------------------------------------------------------------------------------------
     | DISPLAYS THE ADD NEW PEDIATRICIANS PAGE
@@ -67,7 +67,7 @@ class userController extends Controller
         //$account = $this->medix->get('management/accounts/'.$id);
         return view('forms.addAccount');
             //->with('account', $account);
-    }
+    }//--------------------------------------------------------------------------------------------------------------------------------------------
 
     /*---------------------------------------------------------------------------------------------------------------------------------------------
     | FUNCTIONS FOR DELETING A PEDIATRICIANS ACCOUNT

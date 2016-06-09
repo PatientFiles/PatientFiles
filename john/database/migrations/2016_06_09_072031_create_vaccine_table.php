@@ -18,6 +18,7 @@ class CreateVaccineTable extends Migration
             $table->string('vaccine_for');
             $table->string('schedule');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -28,6 +29,6 @@ class CreateVaccineTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('vaccine');
     }
 }

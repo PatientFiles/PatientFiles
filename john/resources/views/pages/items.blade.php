@@ -43,12 +43,12 @@
                  <div class="row">
 
                     <div class="col-lg-6">
-                  <form>
+                  <form id="medicine_form" method="POST" action>
 
                     <div class="row container-fluid">
                         <div class="col-lg-12">
                            <label>Medicine Name</label>
-                           <input class="form-control" type="text" placeholder="Medicine Name" />
+                           <input id="medicine_value" class="form-control" type="text" placeholder="Medicine Name" />
                         </div>
                          <div class="col-lg-4">
                             <br>

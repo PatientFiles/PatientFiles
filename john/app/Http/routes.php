@@ -8,7 +8,7 @@
 |
 */
 Route::resource('/','loginController');
-Route::resource('medix','loginController@medixAPI');
+Route::resource('/medix','loginController@medixAPI');
 
 
 /*--------------------------------------------------------------------------------
@@ -16,18 +16,18 @@ Route::resource('medix','loginController@medixAPI');
 |---------------------------------------------------------------------------------
 |
 */
-Route::resource('home','homeController');
+Route::resource('/home','homeController');
 Route::resource('/next','homeController@next');
 Route::resource('/prev','homeController@prev');
-Route::resource('items','homeController@items');
-Route::resource('logout','homeController@logout');
-Route::resource('accounts','userController@accounts');
-Route::resource('register','homeController@register');
-Route::resource('scheduler','homeController@scheduler');
-Route::resource('searchResult','homeController@searchResult');
-Route::resource('patientRecords','homeController@patientRecords');
-Route::get('patientProfile/{id}','patientController@patientProfile');
-Route::get('patient/edit_patient/{id}','homeController@editPatient');
+Route::resource('/items','homeController@items');
+Route::resource('/logout','homeController@logout');
+Route::resource('/accounts','userController@accounts');
+Route::resource('/register','homeController@register');
+Route::resource('/scheduler','homeController@scheduler');
+Route::resource('/searchResult','homeController@searchResult');
+Route::resource('/patientRecords','homeController@patientRecords');
+Route::get('/patientProfile/{id}','patientController@patientProfile');
+Route::get('/patient/edit_patient/{id}','homeController@editPatient');
 
 /*--------------------------------------------------------------------------------
 | ROUTE FOR PATIENT PROFILE
@@ -54,18 +54,18 @@ Route::get('/delete_account/{user_id}','userController@deleteAccount');
 |
 |
 */
-Route::get('error','homeController@error');
+Route::get('/error','homeController@error');
 
 /*---------------------------------------------------------------------------------
 |ROUTEs FOR CONSULTATON SERVICE
 |----------------------------------------------------------------------------------
 |
 */
-Route::get('end_visit','consultationController@endVisit');
-Route::get('pdf','consultationController@createPrescription');
+Route::get('/end_visit','consultationController@endVisit');
+Route::get('/pdf','consultationController@createPrescription');
 Route::get('/consultation/{id}','patientController@newConsult');
-Route::post('new_appointment', 'consultationController@appointmentForNewPatient');
-Route::post('old_appointment', 'consultationController@appointmentForOldPatient');
+Route::post('/new_appointment', 'consultationController@appointmentForNewPatient');
+Route::post('/old_appointment', 'consultationController@appointmentForOldPatient');
 
 Route::get('/queue', function(){
 		return view('pages.queue');
@@ -76,6 +76,6 @@ Route::get('/queue', function(){
 |----------------------------------------------------------------------------------
 |
 */
-Route::post('items/add_lab','itemController@addLab');
-Route::post('items/add_vaccine','itemController@addVaccine');
-Route::post('items/add_medicine','itemController@addMedicine');
+Route::post('/items/add_lab','itemController@addLab');
+Route::post('/items/add_vaccine','itemController@addVaccine');
+Route::post('/items/add_medicine','itemController@addMedicine');

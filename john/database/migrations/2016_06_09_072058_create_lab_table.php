@@ -17,6 +17,7 @@ class CreateLabTable extends Migration
             $table->string('lab_name');
             $table->string('lab_desc');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

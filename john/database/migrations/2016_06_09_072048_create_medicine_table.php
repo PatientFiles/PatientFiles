@@ -16,6 +16,7 @@ class CreateMedicineTable extends Migration
             $table->increments('id');
             $table->string('medicine_name');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

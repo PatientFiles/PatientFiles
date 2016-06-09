@@ -15,6 +15,15 @@ class itemController extends Controller
     */
     public function addMedicine() {
 
+    	$response = array(
+            'status' => 'success',
+            'msg' => 'Setting created successfully',
+        );
+        return Response::json($response);  // <<<<<<<<< see this line
+	    }else{
+	        return 'no';
+	    }
+	    
     }//--------------------------------------------------------------------------------------------------------------------------------------------
 
 

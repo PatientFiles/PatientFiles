@@ -255,8 +255,6 @@
   </div>
 </div>
       <div class="tab-pane" id="prescription" role="tabpanel">
-
-
        <h3>Prescriptions</h3>
       <hr>
      <div class="row">
@@ -276,8 +274,7 @@
                 
                   </select>
 
-                 
-
+                
             </div>
            
              
@@ -364,27 +361,22 @@
       </div>
 
      <div class="col-lg-6">
-      <div class="container-fluid">
-            
+      <div class="container-fluid">           
         <form>
-
         <div class="row container-fluid">
-
             <div class="col-lg-12">
                 <label for="number">Assessment</label>
                 <textarea name="notes" class="form-control" rows="5"></textarea>
             </div>
              </div>
-        </div>
-
+        
       </form>
         </div>
-
       </div>
     </div>
   </div>
- </div>
-      <div class="tab-pane" id="labrequest" role="tabpanel">
+        
+    <div class="tab-pane" id="labrequest" role="tabpanel">
         <h3>Lab Request</h3>
       <hr>
      <div class="row">
@@ -440,16 +432,17 @@
         </div>
         </div>
       </div>
-    </div>
+    </div>        
+        
+ </div>
+  
 
   </div>
   </div>
 </div>
 </div>
-</div>
 
-</div>
-</div>
+
 
 
 

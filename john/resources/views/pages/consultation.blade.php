@@ -186,14 +186,9 @@
          </form>
       </div>
 
-      <div class="tab-pane" id="vaccine" role="tabpanel">2
+      <div class="tab-pane" id="vaccine" role="tabpanel">
 
-      </div>
-
-      <div class="tab-pane" id="prescription" role="tabpanel">
-
-
-      <h3>Prescriptions</h3>
+         <h3>Vaccine</h3>
       <hr>
      <div class="row">
 
@@ -202,12 +197,85 @@
 
         <div class="row container-fluid">
 
-            <div class="col-lg-10">
-              <label>Medicine</label>
+            <div class="col-lg-12" >
 
-                  <select id="select_generic"  multiple>
+                  <select id="select_vaccine"  placeholder="Vaccine Name">
                 
                   </select>
+                 
+
+            </div>
+           
+             
+          
+            <div class="col-lg-12" id="sandbox-container" >
+               
+               <input class="form-control" type="text" placeholder="Vaccination Date" />
+            </div>
+             <div class="col-lg-4">
+                <br>
+                <br>
+                <br>
+
+               <input class="form-control btn btn-primary " value="Submit"   />
+
+            </div>
+        </div>
+
+      </form>
+      </div>
+
+     <div class="col-lg-6">
+      <div class="container-fluid">
+            
+        <table class="table table-hover table-responsive">
+          <thead>
+            <tr>
+              <th>Vaccine Name</th>
+              <th>Purpose</th>
+              <th>Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td>
+            </tr>
+          </tbody>
+        </table>
+      
+      </div>    
+          <br><br>
+          <a href="/#" target="_blank" class="btn btn-primary "> Save</a>
+      </div>
+
+  </div>
+</div>
+      <div class="tab-pane" id="prescription" role="tabpanel">
+
+
+       <h3>Prescriptions</h3>
+      <hr>
+     <div class="row">
+
+        <div class="col-lg-6">
+      <form>
+
+        <div class="row container-fluid">
+
+            <div class="row container-fluid">
+
+            <div class="col-lg-10" >
+
+                 <label>Medicine</label>
+                
+                     <select id="select_generic"  placeholder="Medicine Name">
+                
+                  </select>
+
                  
 
             </div>
@@ -227,6 +295,124 @@
 
             </div>
         </div>
+      </div>
+      </form>
+      </div>
+
+     <div class="col-lg-6">
+      <div class="container-fluid">
+            
+        <table class="table table-hover table-responsive">
+          <thead>
+            <tr>
+              <th>Medicine Name</th>
+              <th>Quantity</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Bear Brand</td>
+              <td>10pcs</td>
+              <td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td>
+            </tr>
+          </tbody>
+        </table>
+      
+      </div>    
+          <br>
+          <br>
+          <br>
+          <a href="/pdf" target="_blank" class="btn btn-primary "> Print Prescription</a>
+      </div>
+      
+
+
+
+  </div>
+</div>
+
+      <div class="tab-pane" id="diagnosis" role="tabpanel">
+
+         <h3>Diagnosis</h3>
+      <hr>
+     <div class="row">
+
+        <div class="col-lg-6">
+      <form>
+
+        <div class="row container-fluid">
+
+            <div class="col-lg-12">
+                <label for="number">Result</label>
+                <textarea name="notes" class="form-control" rows="5" placeholder="Result"></textarea>
+            </div>
+           
+            
+            <div class="col-lg-12">
+               <label>Remarks</label>
+               <input class="form-control" type="text" placeholder="Remarks" />
+            </div>
+            <div class="col-lg-4">
+                <br>
+               <input class="form-control btn btn-primary " value="Submit"   />
+
+            </div>
+        </div>
+
+      </form>
+      </div>
+
+     <div class="col-lg-6">
+      <div class="container-fluid">
+            
+        <form>
+
+        <div class="row container-fluid">
+
+            <div class="col-lg-12">
+                <label for="number">Assessment</label>
+                <textarea name="notes" class="form-control" rows="5"></textarea>
+            </div>
+             </div>
+        </div>
+
+      </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+ </div>
+      <div class="tab-pane" id="labrequest" role="tabpanel">
+        <h3>Lab Request</h3>
+      <hr>
+     <div class="row">
+
+        <div class="col-lg-6">
+      <form>
+
+        <div class="row container-fluid">
+
+            <div class="col-lg-12" >
+                  <label>Laboratory Type</label>
+                  <select id="select_lab"  placeholder="Laboratory Type">
+                
+                  </select>
+            </div>
+            <div class="col-lg-12" >
+               <label>Remarks</label>
+               <input class="form-control" type="text" placeholder="Remarks" />
+            </div>
+             <div class="col-lg-4">
+                <br>
+                <br>
+                <br>
+
+               <input class="form-control btn btn-primary " value="Add"   />
+
+            </div>
+        </div>
 
       </form>
       </div>
@@ -237,43 +423,22 @@
         <table class="table table-hover table-responsive">
           <thead>
             <tr>
-              <th>Generic Name</th>
-              <th>Brand</th>
-              <th>Dosage</th>
-              <th>Quantity</th>
+              <th>Type</th>
+              <th>Remarks</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Bear Brand</td>
-              <td>Bonakid</td>
-              <td>500mg</td>
-              <td>10pcs</td>
+              <td>-</td>
+              <td>-</td>
               <td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td>
             </tr>
           </tbody>
         </table>
-      
-      </div>    
-          <br><br>
-          <a href="/pdf" target="_blank" class="btn btn-primary "> Print Prescription</a>
-      </div>
-      
-
-
-
-  </div>
-
-
-      </div>
-
-      <div class="tab-pane" id="diagnosis" role="tabpanel">4
-
-      </div>
-
-      <div class="tab-pane" id="labrequest" role="tabpanel">5
-
+        
+        </div>
+        </div>
       </div>
     </div>
 
@@ -281,6 +446,11 @@
   </div>
 </div>
 </div>
+</div>
+
+</div>
+</div>
+
 
 
 </div> <!-- END ROW --> 

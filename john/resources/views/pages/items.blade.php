@@ -116,14 +116,9 @@
                                   <br>
                                     <input type="button" class="btn btn-primary" value="Add" />
                                   </div>
-                                 
-
-                              
                             </div>
-
                           </form>
                           </div>
-
                          <div class="col-lg-6">
                           <div class="container-fluid">
                                 <br>

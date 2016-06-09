@@ -34,38 +34,70 @@ class patientController extends Controller
         }
 
         try {
+            /***RETRIVES PAST CONSULTATIONS***/
+            $cons        = $this->medix->get('patient/' . $id .'/consultations/past');
+            $pastCons    = $cons->data->patient_appointments;
 
-            $pastCons    = $this->medix->get('patient/' . $id .'/consultations/past');
-            $pastVitals  = $this->medix->get('vitals/patient/' . $id . '/past');
-
-            $pastCons    = $pastCons->data->patient_appointments;
-            $pastVitals  = $pastVitals->data;
-
-            $vitals_date = current((array)$pastVitals->data);
-            $vitals      = $this->medix->get('patient/' . $id . '/vitals/' . $vitals_date->general->created_at);
-            $height      = $vitals->data->vitals->general_survey->height * 0.01;
+            /***RETRIVES PAST VITALS***/
+            $past         = $this->medix->get('vitals/patient/' . $id . '/past');
+            $vitals_date  = current((array)$past->data);
+            $rVitals      = $this->medix->get('patient/' . $id . '/vitals/' . $vitals_date->general->created_at);
+            $height       = $rVitals->data->vitals->general_survey->height * 0.01;
 
             if ($height == 0) {
                 $bmi = 'N/A';
             } else {
-                $bmi = round(($vitals->data->vitals->general_survey->weight) / pow($height,2),2);
+                $bmi = round(($rVitals->data->vitals->general_survey->weight) / pow($height,2),2);
             }
 
-            $vitals  = $vitals->data->vitals->general_survey;
+            $vitals      = $rVitals->data->vitals->general_survey;
+            $pastVitals  = $past->data;
 
         } catch (\Exception $e) {
-            $pastCons   = null;
-            $pastVitals = null;
-            $bmi        = 'N/A';
-            $vitals     = null;
+
+            try {
+
+            $pastCons    = null;
+
+            $past         = $this->medix->get('vitals/patient/' . $id . '/past');
+            $vitals_date  = current((array)$past->data);
+            $rVitals      = $this->medix->get('patient/' . $id . '/vitals/' . $vitals_date->general->created_at);
+            $height       = $rVitals->data->vitals->general_survey->height * 0.01;
+
+                if ($height == 0) {
+                    $bmi = 'N/A';
+                } else {
+                    $bmi = round(($rVitals->data->vitals->general_survey->weight) / pow($height,2),2);
+                }
+
+            $vitals      = $rVitals->data->vitals->general_survey;
+            $pastVitals  = $past->data;
+
+            } catch (\Exception $e) {
+
+                try{
+                    $cons        = $this->medix->get('patient/' . $id .'/consultations/past');
+                    $pastCons    = $cons->data->patient_appointments;
+
+                    $pastVitals = null;
+                    $bmi        = 'N/A';
+                    $vitals     = null;
+
+                } catch (\Exception $e) {
+                    //dd($e);
+                    $pastCons   = null;
+                    $pastVitals = null;
+                    $bmi        = 'N/A';
+                    $vitals     = null;
+                }
+            }
+           
         }
 
         $profile = $this->medix->get('patient/'.$id);
-        $address = current((array)$profile->data->user->user_addresses);
-
+        // dd($profile);
         return view('pages.patientProfile')
             ->with('prof', $profile->data)
-            ->with('address', $address)
             ->with('consult', $pastCons)
             ->with('vitals', $pastVitals)
             ->with('bmi', $bmi)

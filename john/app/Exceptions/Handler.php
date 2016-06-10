@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Exception;
+use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -25,6 +26,7 @@ class Handler extends ExceptionHandler
         ModelNotFoundException::class,
         ValidationException::class,
         NotFoundHttpException::class,
+        ConnectException::class,
     ];
 
     /**
@@ -49,6 +51,9 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
+        if ($e instanceof ConnectException) {
+            return redirect('/internet_lost');
+        }
         if ($e instanceof NotFoundHttpException) {
             return redirect('/error');
         }

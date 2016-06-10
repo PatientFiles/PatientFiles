@@ -55,7 +55,7 @@ Route::get('/delete_account/{user_id}','userController@deleteAccount');
 |
 */
 Route::get('/error','homeController@error');
-Route::get('/error', function(){
+Route::get('/internet_lost', function(){
 	return view('pages.noInternet');
 });
 
@@ -74,7 +74,7 @@ Route::get('/queue', function(){
 		return view('pages.queue');
 });
 
-/*---------------------------------------------------------------------------------
+/*------------------------------------------g---------------------------------------
 |ROUTEs FOR ADDING ITEMS
 |----------------------------------------------------------------------------------
 |

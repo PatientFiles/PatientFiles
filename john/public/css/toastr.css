@@ -46,10 +46,31 @@ button.toast-close-button {
   border: 0;
   -webkit-appearance: none;
 }
-.toast-top-center {
-  top: 0;
-  right: 0;
-  width: 100%;
+
+.toast-top-center {  
+    top: 28%; 
+    left: 85%; 
+    margin-left: -150px; 
+} 
+@media all and (max-width: 240px) { 
+    .toast-top-center { 
+        left: 40%; 
+        margin-left: -54px; 
+    } 
+} 
+@media all and (min-width: 241px) and (max-width: 320px) { 
+    .toast-top-center { 
+
+    left: 40%; 
+        margin-left: -64px; 
+    } 
+} 
+@media all and (min-width: 321px) and (max-width: 480px) { 
+    .toast-top-center { 
+
+    left: 40%; 
+        margin-left: -96px; 
+    } 
 }
 .toast-bottom-center {
   bottom: 0;

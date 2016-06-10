@@ -157,7 +157,7 @@
                                                   url: '/items/add_vaccine',
                                                   data: data,
                                                   success: function(msg,status) {
-                                                      toastr.options.positionClass = 'toast-bottom-center';
+                                                      toastr.options.positionClass = 'toast-top-center';
                                                       toastr.options.showMethod        = 'slideDown';
                                                       toastr.options.hideMethod        = 'slideUp';
                                                       toastr.success('Vaccine successfully added!');
@@ -238,7 +238,7 @@
                                                   url: '/items/add_lab',
                                                   data: data,
                                                   success: function(msg,status) {
-                                                      toastr.options.positionClass = 'toast-bottom-center';
+                                                      toastr.options.positionClass = 'toast-top-center';
                                                       toastr.options.showMethod        = 'slideDown';
                                                       toastr.options.hideMethod        = 'slideUp';
                                                       toastr.success('Laboratory package successfully added');

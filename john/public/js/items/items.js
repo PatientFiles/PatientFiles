@@ -9,7 +9,7 @@
                   url: '/items/add_medicine',
                   data: data,
                   success: function(msg,status) {
-                  	toastr.options.positionClass = 'toast-bottom-center';
+                  	toastr.options.positionClass = 'toast-top-center';
                   	toastr.success('Medicine successfully added!');
             		toastr.options.showMethod        = 'slideDown';
             		toastr.options.hideMethod        = 'slideUp';

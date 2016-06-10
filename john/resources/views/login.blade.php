@@ -6,7 +6,7 @@
 
      <header>
         <div class="header-content" >
-            <div class="header-content-inner btn-group" role="group" align="left">
+            <div class="header-content-inner btn-group" role="group" align="left" >
                 <h1>PEDIX</h1><br><br>
                 <p >Transforming the Doctor-Patient experience through cloud-based electronic
 medical records accessible anytime, anywhere.</p>
@@ -18,7 +18,7 @@ medical records accessible anytime, anywhere.</p>
     </header>
 
 
-    <section class="bg-primary" id="about">
+    <section class="bg-primary" id="about" style="height: 615px">
         <div class="container" >
             <div class="row" >
                 <div class="col-lg-8 col-lg-offset-2 text-center">
@@ -32,7 +32,7 @@ medical records accessible anytime, anywhere.</p>
 
                         <div class="form-group form-inline" >
                      @if(session('message'))
-                            <p style="padding-top: 5px;color: white;background-color: red;font-style: italic;" class="alert alert-{{session ('message.type')}} form-control" >
+                            <p style="padding-top: 3px;color: white;background-color: red;font-style: italic;" class="alert alert-{{session ('message.type')}} form-control" >
                                     {{session('message.text')}}
                             </p>
 

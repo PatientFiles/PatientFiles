@@ -9,22 +9,13 @@
                   url: '/items/add_medicine',
                   data: data,
                   success: function(msg,status) {
-                      alert('Medicine successfully added!');
+                  	toastr.options.positionClass = 'toast-bottom-center';
+                  	toastr.success('Medicine successfully added!');
+            		toastr.options.showMethod        = 'slideDown';
+            		toastr.options.hideMethod        = 'slideUp';
                       $("#medicine_form")[0].reset();
                       $('#medicine_body').append('<tr><td align="center">'+med_name+'</td><td align="center"> <a href="#"> <span class="glyphicon glyphicon-edit"></span> &nbsp </a>| <a href="#"> &nbsp <span class="glyphicon glyphicon-trash"> </span> </a></td></tr>');
-                      /*function fetch_med() 
-                      {
-                        var medicine_table = $('#medicine_tbody');
-                        var url            = '/items/medicine_table';
-                        $.get(url, function(res){
-                          res.each(function(key,value){
-                            medicine_table.append("<tr><td align="center">"+value.medicine_name+"</td><td align="center"> <a href="#"> <span class="glyphicon glyphicon-edit"></span> &nbsp </a>| <a href="#">&nbsp<span class="glyphicon glyphicon-trash"></span></a></td>");
-                          });
-                        });
-                      }*/
                   }
               }); 
-                      var table = document.getElementById("medicine_table");
-            		  table.refresh ();
          });
       });

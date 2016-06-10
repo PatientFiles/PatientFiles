@@ -758,22 +758,6 @@ $('#sandbox-container input').on('hide', function(e){
         });
   </script> 
 
-<!-- toasterscript -->
-<script type="text/javascript">
-  $(document).ready(function()
-    {
-      $('#lab_name').on('input', function () {
-            toastr.success('Have fun storming the castle!', 'Miracle Max Says')
-            toastr.options.showEasing        = 'swing';
-            toastr.options.hideEasing        = 'linear';
-            toastr.options.closeEasing       = 'linear';
-            toastr.options.showMethod        = 'slideDown';
-            toastr.options.hideMethod        = 'slideUp';
-            toastr.options.hideMethod        = 1000;
-            toastr.options.preventDuplicates = true;
-      });
-    });
-</script>  
 
 
 

@@ -31,7 +31,7 @@
                     <a data-toggle="tab" href="#vaccine" role="tab">Add Vaccine</a>
                   </li>
                   <li class="nav-item">
-                    <a data-toggle="tab" href="#lab" role="tab">Laboratory Types</a>
+                    <a data-toggle="tab" href="#lab" role="tab">Laboratory Packages</a>
                   </li>
                 </ul>
 
@@ -157,7 +157,10 @@
                                                   url: '/items/add_vaccine',
                                                   data: data,
                                                   success: function(msg,status) {
-                                                      alert('Vaccine successfully added!');
+                                                      toastr.options.positionClass = 'toast-bottom-center';
+                                                      toastr.options.showMethod        = 'slideDown';
+                                                      toastr.options.hideMethod        = 'slideUp';
+                                                      toastr.success('Vaccine successfully added!');
                                                       $("#vaccine_form")[0].reset();
                                                       $('#vac_body').append('<tr><td>'+name+'</td><td>'+v_for+'</td><td>'+sched+'</td><td align="center"> <a href="#"> <span class="glyphicon glyphicon-edit"></span> &nbsp </a>| <a href="#"> &nbsp <span class="glyphicon glyphicon-trash"> </span> </a></td></tr>');
                                                   }
@@ -212,8 +215,8 @@
 
                             <div class="row container-fluid">
                                 <div class="col-lg-12">
-                                   <label>Type</label>
-                                   <input class="form-control" name="lab_name" id="lab_name" type="text" placeholder="Type" />
+                                   <label>Laboratory Package</label>
+                                   <input class="form-control" name="lab_name" id="lab_name" type="text" placeholder="Lab Package" />
                                 </div>
                                 <div class="col-lg-12">
                                   <br>
@@ -235,7 +238,10 @@
                                                   url: '/items/add_lab',
                                                   data: data,
                                                   success: function(msg,status) {
-                                                      alert('Laboratory package successfully added!');
+                                                      toastr.options.positionClass = 'toast-bottom-center';
+                                                      toastr.options.showMethod        = 'slideDown';
+                                                      toastr.options.hideMethod        = 'slideUp';
+                                                      toastr.success('Laboratory package successfully added');
                                                       $("#lab_form")[0].reset();
                                                       $('#lab_body').append('<tr><td>'+lab_name+'</td><td>'+lab_desc+'</td><td align="center"> <a href="#"> <span class="glyphicon glyphicon-edit"></span> &nbsp </a>| <a href="#"> &nbsp <span class="glyphicon glyphicon-trash"> </span> </a></td></tr>');
                                                   }

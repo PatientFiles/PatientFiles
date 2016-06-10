@@ -8,4 +8,5 @@ class Vaccine extends Model
 {
     //
     protected $guarded = ['id'];
+    protected $table = 'vaccine';
 }

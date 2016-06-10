@@ -191,7 +191,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                      <li><a href="/register"><i class="ion ion-person-add"></i>Add Patient</a></li>
                   </ul>
              </li>
-            <li ><a href="/queue"><i class="fa fa-calendar-check-o"></i> <span>Queues</span></a></li>
+            <li ><a href="/queue<"><i class="fa fa-calendar-check-o"></i> <span>Queues</span></a></li>
             <li ><a href="/scheduler"><i class="fa fa-calendar-plus-o"></i> <span>Scheduler</span></a></li>
              <li ><a href="/accounts"><i class="fa fa-user-md"></i> <span>Pediatricians</span></a></li>
              <li ><a href="/items"><i class="fa fa-cart-plus"></i> <span>Items</span></a></li>
@@ -406,6 +406,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="/js/bootstrap-datepicker.js"></script>
 <script src="/dist/js/demo.js"></script>
 <script src="/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="/js/items/items.js"></script>
 
 
  <!-- CHART DONUT -->
@@ -756,20 +757,7 @@ $('#sandbox-container input').on('hide', function(e){
   </script> 
 
 <!-- toasterscript -->
-<script type="text/javascript">
-  $(function()
-    {
-      $('#addPatient').click(function () {
 
-            toastr.options.showEasing        = 'swing';
-            toastr.options.hideEasing        = 'linear';
-            toastr.options.closeEasing       = 'linear';
-            toastr.options.showMethod        = 'slideDown';
-            toastr.options.hideMethod        = 'slideUp';
-            toastr.options.hideMethod        = 1000;
-            toastr.options.preventDuplicates = true;
-    });
-</script>  
 
 
 

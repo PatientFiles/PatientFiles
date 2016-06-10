@@ -8,4 +8,5 @@ class Medicine extends Model
 {
     //
     protected $guarded = ['id'];
+    protected $table = 'medicine';
 }

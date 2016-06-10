@@ -43,17 +43,34 @@
                  <div class="row">
 
                     <div class="col-lg-6">
-                  <form id="medicine_form" method="POST" action>
+                  <form id="medicine_form" method="POST" action="/items/add_medicine">
 
                     <div class="row container-fluid">
                         <div class="col-lg-12">
                            <label>Medicine Name</label>
-                           <input id="medicine_value" class="form-control" type="text" placeholder="Medicine Name" />
+                           {!! csrf_field() !!}
+                           <input id="medicine_name" class="form-control" name="medicine_name" type="text" placeholder="Medicine Name" required/>
                         </div>
                          <div class="col-lg-4">
                             <br>
-                           <input class="form-control btn btn-primary " type="button" value="Add"   />
-
+                           <input class="form-control btn btn-primary " type="submit" value="Add"   />
+                                    <script>
+                                      jQuery( document ).ready( function() {
+                                            $( '#medicine_form' ).on( 'submit', function(e) {
+                                              e.preventDefault(); 
+                                            var data = $(this).serialize();
+                                            $.ajax({
+                                                  type: "POST",
+                                                  url: '/items/add_medicine',
+                                                  data: data,
+                                                  success: function(msg,status) {
+                                                      alert('Medicine successfully added!');
+                                                      $("#medicine_form")[0].reset();
+                                                  }
+                                              }); 
+                                         });
+                                      });
+                                    </script>
                         </div>
                     </div>
 
@@ -92,29 +109,45 @@
                          <div class="row">
 
                             <div class="col-lg-6">
-                          <form>
+                          <form id="vaccine_form" method="POST" action="/items/add_vaccine">
 
                             <div class="row container-fluid">
                                 <div class="col-lg-6">
                                    <label>Vaccine Name</label>
-                                   <input class="form-control" type="text" placeholder="Vaccine Name" />
+                                   <input class="form-control" type="text" name="vaccine_name" id="vaccine_name" placeholder="Vaccine Name" required/>
                                 </div>
 
-                                <div id="sandbox-container" class="col-lg-6">
-                                  <label>Vaccination Date</label>
-                                 
-                                    <input type="text" name="bdate" type="text" class="form-control" placeholder="Vaccination Date" required />
+                                <div  class="col-lg-6">
+                                  <label>Vaccine Purpose</label>
+                                    <input type="text" name="vaccine_for" id="vaccine_for" type="text" class="form-control" placeholder="Vaccinate Purpose" required />
                                 </div>
 
                                 <div class="col-lg-12">
                                   <br>
-                                   <label>Vaccine Purpose</label>
-                                   <input class="form-control" type="text" placeholder="Purpose" />
+                                   <label>Vaccine Schedule</label>
+                                   <input class="form-control" name="schedule" id="schedule" type="text" placeholder="Vaccine Schedule" required/>
                                 </div>
 
                                   <div class="container col-lg-12">
                                   <br>
-                                    <input type="button" class="btn btn-primary" value="Add" />
+                                    <input type="submit" class="btn btn-primary" value="Add Vaccine" />
+                                    <script>            
+                                      jQuery( document ).ready( function() {
+                                            $( '#vaccine_form' ).on( 'submit', function(e) {
+                                              e.preventDefault(); 
+                                            var data = $(this).serialize();
+                                            $.ajax({
+                                                  type: "POST",
+                                                  url: '/items/add_vaccine',
+                                                  data: data,
+                                                  success: function(msg,status) {
+                                                      alert('Vaccine successfully added!');
+                                                      $("#vaccine_form")[0].reset();
+                                                  }
+                                              }); 
+                                         });
+                                      });
+                                    </script>
                                   </div>
                             </div>
                           </form>
@@ -154,22 +187,38 @@
                                  <div class="row">
 
                             <div class="col-lg-6">
-                          <form>
+                          <form action="/items/add_lab" method="POST" id="lab_form">
 
                             <div class="row container-fluid">
                                 <div class="col-lg-12">
                                    <label>Type</label>
-                                   <input class="form-control" type="text" placeholder="Type" />
+                                   <input class="form-control" name="lab_name" id="lab_name" type="text" placeholder="Type" />
                                 </div>
                                 <div class="col-lg-12">
                                   <br>
                                    <label>Description</label>
-                                   <input class="form-control" type="text" placeholder="Description" />
+                                   <input class="form-control" name="lab_desc" id="lab_desc" type="text" placeholder="Description" />
                                 </div>
-                                 <div class="col-lg-4">
+                                 <div class="col-lg-6">
                                     <br>
-                                   <input class="form-control btn btn-primary " type="button" value="Add"   />
-
+                                   <input class="form-control btn btn-primary " type="submit" value="Add Laboratory Package"   />
+                                   <script>            
+                                      jQuery( document ).ready( function() {
+                                            $( '#lab_form' ).on( 'submit', function(e) {
+                                              e.preventDefault(); 
+                                            var data = $(this).serialize();
+                                            $.ajax({
+                                                  type: "POST",
+                                                  url: '/items/add_lab',
+                                                  data: data,
+                                                  success: function(msg,status) {
+                                                      alert('Laboratory package successfully added!');
+                                                      $("#lab_form")[0].reset();
+                                                  }
+                                              }); 
+                                         });
+                                      });
+                                    </script>
                                 </div>
                             </div>
 

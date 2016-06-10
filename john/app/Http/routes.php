@@ -55,6 +55,9 @@ Route::get('/delete_account/{user_id}','userController@deleteAccount');
 |
 */
 Route::get('/error','homeController@error');
+Route::get('/error', function(){
+	return view('pages.noInternet');
+});
 
 /*---------------------------------------------------------------------------------
 |ROUTEs FOR CONSULTATON SERVICE

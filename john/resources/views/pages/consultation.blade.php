@@ -180,8 +180,8 @@
 
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-            <button type="submit" name="saveVitals" class="btn btn-primary">Save</button>
+            <button type="submit" name="saveVitals" class="btn btn-primary pull-left">Save</button>
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
           </div>
          </form>
       </div>
@@ -197,8 +197,8 @@
 
         <div class="row container-fluid">
 
-            <div class="col-lg-12" >
-
+            <div class="col-lg-6" >
+                  <label>Vaccine Name</label>
                   <select id="select_vaccine"  placeholder="Vaccine Name">
                 
                   </select>
@@ -208,27 +208,25 @@
            
              
           
-            <div class="col-lg-12" id="sandbox-container" >
-               
+            <div class="col-lg-6" id="sandbox-container" >
+               <label>Vaccination Date </label>
                <input class="form-control" type="text" placeholder="Vaccination Date" />
-            </div>
-             <div class="col-lg-4">
-                <br>
-                <br>
-                <br>
-
-               <input class="form-control btn btn-primary " value="Submit"   />
-
             </div>
         </div>
 
+           <div class="col-lg-4">  
+           <br> 
+           <br> 
+
+             <input class="form-control btn btn-primary " value="Submit"   />
+          </div>
       </form>
       </div>
 
      <div class="col-lg-6">
       <div class="container-fluid">
-            
-        <table class="table table-hover table-responsive">
+           <br> 
+        <table class="table table-hover table-responsive table-bordered">
           <thead>
             <tr>
               <th>Vaccine Name</th>
@@ -239,17 +237,16 @@
           </thead>
           <tbody>
             <tr>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
+              <td>Vaccine 101</td>
+              <td>For H1N1 3 in 1P Plus 1</td>
+              <td>Jun 13 , 2016</td>
               <td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td>
             </tr>
           </tbody>
         </table>
       
       </div>    
-          <br><br>
-          <a href="/#" target="_blank" class="btn btn-primary "> Save</a>
+         
       </div>
 
   </div>
@@ -299,7 +296,7 @@
      <div class="col-lg-6">
       <div class="container-fluid">
             
-        <table class="table table-hover table-responsive">
+        <table class="table table-hover table-responsive table-bordered">
           <thead>
             <tr>
               <th>Medicine Name</th>
@@ -315,12 +312,13 @@
             </tr>
           </tbody>
         </table>
-      
+
+          <br>
+          <br>
+         <a href="/pdf" target="_blank" class="btn btn-primary "> Print Prescription</a>
       </div>    
-          <br>
-          <br>
-          <br>
-          <a href="/pdf" target="_blank" class="btn btn-primary "> Print Prescription</a>
+        
+         
       </div>
       
 
@@ -398,8 +396,7 @@
             </div>
              <div class="col-lg-4">
                 <br>
-                <br>
-                <br>
+               
 
                <input class="form-control btn btn-primary " value="Add"   />
 
@@ -412,7 +409,7 @@
      <div class="col-lg-6">
       <div class="container-fluid">
             
-        <table class="table table-hover table-responsive">
+        <table class="table table-hover table-responsive table-bordered">
           <thead>
             <tr>
               <th>Type</th>

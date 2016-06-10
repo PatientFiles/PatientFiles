@@ -30,7 +30,7 @@ medical records accessible anytime, anywhere.</p>
                         {!! csrf_field() !!}
 
 
-                        <div class="form-group form-inline" >
+                        <div style="height: 50px"  class="form-group form-inline" >
                      @if(session('message'))
                             <p style="padding-top: 3px;color: white;background-color: red;font-style: italic;" class="alert alert-{{session ('message.type')}} form-control" >
                                     {{session('message.text')}}
@@ -60,10 +60,10 @@ medical records accessible anytime, anywhere.</p>
                 </div>
             </div>
         </div>
-        <br><br><br><br><br><br><br><br>
-        <h4 style="color: black;float: right">Copyright © 2016 Pedix™ All 
+        <br><br><br><br><br>
+       
+         <h4  style="color: black;float: right">Copyright © 2016 Pedix™ All 
         rights reserved. </h4>
-        
     </section>
 
     

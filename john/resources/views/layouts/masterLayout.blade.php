@@ -33,6 +33,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
       <link rel="stylesheet" href="/css/offline-theme-slide.css">
       <link rel="stylesheet" href="/css/offline-language-english.css">
+       <link rel="stylesheet" href="/css/toastr.css">
       <link rel="stylesheet" href="/css/selectize.css">
        <link rel="stylesheet" href="/css/selectize.default.css">
 
@@ -407,6 +408,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="/dist/js/demo.js"></script>
 <script src="/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <script src="/js/items/items.js"></script>
+<script src="/js/toast/toastr.js"></script>
 
 
  <!-- CHART DONUT -->
@@ -757,7 +759,21 @@ $('#sandbox-container input').on('hide', function(e){
   </script> 
 
 <!-- toasterscript -->
-
+<script type="text/javascript">
+  $(document).ready(function()
+    {
+      $('#lab_name').on('input', function () {
+            toastr.success('Have fun storming the castle!', 'Miracle Max Says')
+            toastr.options.showEasing        = 'swing';
+            toastr.options.hideEasing        = 'linear';
+            toastr.options.closeEasing       = 'linear';
+            toastr.options.showMethod        = 'slideDown';
+            toastr.options.hideMethod        = 'slideUp';
+            toastr.options.hideMethod        = 1000;
+            toastr.options.preventDuplicates = true;
+      });
+    });
+</script>  
 
 
 

@@ -41,21 +41,12 @@ class itemController extends Controller
     */
     public function medicineTable(Request $request) {
 
-    	if($request->ajax()){
+	        $medicine = Medicine::all();
 
-	        $medicine = Medicine::find(all);
-
-	    	$response = array(
-	            'status' => 'success',
-	            'msg' 	 => 'Setting created successfully',
-	        );
-
-        	return \Response::json($response);  // <<<<<<<<< see this line
-
-	    }else{
-	        return false;
-	    }
-
+        	return response()->json(
+        			$medicine->toArray()
+        		); 
+        	
     }//--------------------------------------------------------------------------------------------------------------------------------------------
 
 

@@ -54,7 +54,7 @@
                          <div class="col-lg-4">
                             <br>
                            <input class="form-control btn btn-primary " type="submit" value="Add"   />
-                                    <script>
+                                   <!-- <script>
                                       jQuery( document ).ready( function() {
                                             $( '#medicine_form' ).on( 'submit', function(e) {
                                               e.preventDefault(); 
@@ -70,7 +70,18 @@
                                               }); 
                                          });
                                       });
-                                    </script>
+
+                                      $(document).ready( function() {
+                                          var medicine_table = $('#medicine_table');
+                                          var url            = '/items/medicine_table';
+
+                                          $.get(url, function(res){
+                                            $(res).each(function(key,value){
+                                              medicine_table.append("<tr><td></td></tr>");
+                                            });
+                                          };
+                                      });
+                                    </script>-->
                         </div>
                     </div>
 
@@ -79,19 +90,21 @@
 
                  <div class="col-lg-6">
                   <div class="container-fluid">
-                        <br>
-                    <table class="table table-hover table-responsive table-bordered">
+                    <label>List of Medicine</label>
+                    <table style="height: 100px" class="table table-hover table-responsive table-bordered" id="medicine_table">
                       <thead>
                         <tr>
                           <th style="text-align: center;">Medicine Name</th>
                           <th style="text-align: center;">Action</th>
                         </tr>
                       </thead>
-                      <tbody>
+                      <tbody  id="medicine_body">
+                      @foreach ($medicine as $med)
                         <tr>
-                          <td align="center">Paracetamol</td>
+                          <td align="center">{{$med['medicine_name']}}</td>
                           <td align="center"> <a href="#"> <span class="glyphicon glyphicon-edit"></span> &nbsp </a>| <a href="#"> &nbsp <span class="glyphicon glyphicon-trash"> </span> </a></td>
                         </tr>
+                      @endforeach
                       </tbody>
                     </table>
                   
@@ -136,6 +149,9 @@
                                             $( '#vaccine_form' ).on( 'submit', function(e) {
                                               e.preventDefault(); 
                                             var data = $(this).serialize();
+                                            var name = $('#vaccine_name').val();
+                                            var v_for = $('#vaccine_for').val();
+                                            var sched = $('#schedule').val();
                                             $.ajax({
                                                   type: "POST",
                                                   url: '/items/add_vaccine',
@@ -143,6 +159,7 @@
                                                   success: function(msg,status) {
                                                       alert('Vaccine successfully added!');
                                                       $("#vaccine_form")[0].reset();
+                                                      $('#vac_body').append('<tr><td>'+name+'</td><td>'+v_for+'</td><td>'+sched+'</td><td align="center"> <a href="#"> <span class="glyphicon glyphicon-edit"></span> &nbsp </a>| <a href="#"> &nbsp <span class="glyphicon glyphicon-trash"> </span> </a></td></tr>');
                                                   }
                                               }); 
                                          });
@@ -160,15 +177,19 @@
                                 <tr>
                                   <th>Vaccine Name</th>
                                   <th>Purpose</th>
+                                  <th>Schedule</th>
                                   <th>Action</th>
                                 </tr>
                               </thead>
-                              <tbody>
+                              <tbody id="vac_body">
+                              @foreach ($vaccine as $vac)
                                 <tr>
-                                  <td>AMR 1002</td>
-                                  <td>Anti H1N1 3 in 1 Plus 1</td>
+                                  <td>{{$vac['vaccine_name']}}</td>
+                                  <td>{{$vac['vaccine_for']}}</td>
+                                  <td>{{$vac['schedule']}}</td>
                                   <td align="center"> <a href="#"> <span class="glyphicon glyphicon-edit"></span> &nbsp </a>| <a href="#"> &nbsp <span class="glyphicon glyphicon-trash"> </span> </a></td>
                                 </tr>
+                              @endforeach
                               </tbody>
                             </table>
                           
@@ -207,6 +228,8 @@
                                             $( '#lab_form' ).on( 'submit', function(e) {
                                               e.preventDefault(); 
                                             var data = $(this).serialize();
+                                            var lab_name = $('#lab_name').val();
+                                            var lab_desc = $('#lab_desc').val();
                                             $.ajax({
                                                   type: "POST",
                                                   url: '/items/add_lab',
@@ -214,6 +237,7 @@
                                                   success: function(msg,status) {
                                                       alert('Laboratory package successfully added!');
                                                       $("#lab_form")[0].reset();
+                                                      $('#lab_body').append('<tr><td>'+lab_name+'</td><td>'+lab_desc+'</td><td align="center"> <a href="#"> <span class="glyphicon glyphicon-edit"></span> &nbsp </a>| <a href="#"> &nbsp <span class="glyphicon glyphicon-trash"> </span> </a></td></tr>');
                                                   }
                                               }); 
                                          });
@@ -231,18 +255,19 @@
                             <table class="table table-hover table-responsive table-bordered">
                               <thead>
                                 <tr>
-                                  <th style="text-align: center;">Type</th>
+                                  <th style="text-align: center;">Lab Package</th>
                                   <th style="text-align: center;">Description</th>
                                   <th style="text-align: center;">Action</th>
                                 </tr>
                               </thead>
-                              <tbody>
+                              <tbody id="lab_body">
+                              @foreach ($lab as $labs)
                                 <tr>
-                                  <td align="center">Type 101</td>
-                                  <td align="center">Summer Slam</td>
-
-                                  <td align="center"> <a href="#"> <span class="glyphicon glyphicon-edit"></span> &nbsp </a>| <a href="#"> &nbsp <span class="glyphicon glyphicon-trash"> </span> </a></td>
+                                  <td>{{$labs['lab_name']}}</td>
+                                  <td>{{$labs['lab_desc']}}</td>
+                                  <td  align="center"> <a href="#"> <span class="glyphicon glyphicon-edit"></span> &nbsp </a>| <a href="#"> &nbsp <span class="glyphicon glyphicon-trash"> </span> </a></td>
                                 </tr>
+                              @endforeach
                               </tbody>
                             </table>
                           

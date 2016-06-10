@@ -74,7 +74,7 @@ Route::get('/queue', function(){
 		return view('pages.queue');
 });
 
-/*------------------------------------------g---------------------------------------
+/*---------------------------------------------------------------------------------
 |ROUTEs FOR ADDING ITEMS
 |----------------------------------------------------------------------------------
 |
@@ -82,3 +82,11 @@ Route::get('/queue', function(){
 Route::post('/items/add_lab','itemController@addLab');
 Route::post('/items/add_vaccine','itemController@addVaccine');
 Route::post('/items/add_medicine','itemController@addMedicine');
+
+/*---------------------------------------------------------------------------------
+|ROUTEs FOR DISPLAYING DATA TO ITEMS TABLE
+|----------------------------------------------------------------------------------
+|
+*/
+
+Route::GET('/items/medicine_table','itemController@medicineTable');

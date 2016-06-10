@@ -6,6 +6,9 @@ use Carbon\Carbon;
 use App\Http\Requests;
 use Guzzle\Http\Client;
 use Illuminate\Http\Request;
+use App\Http\Models\Vaccine;
+use App\Http\Models\Medicine;
+use App\Http\Models\Lab;
 
 class homeController extends Controller
 {
@@ -235,7 +238,13 @@ class homeController extends Controller
     */
      public function items()
     {
-       return view('pages.items');
-        
+        $medicine = Medicine::all();
+        $vaccine  = Vaccine::all();
+        $lab      = Lab::all();
+
+       return view('pages.items')
+            ->with('medicine', $medicine)
+            ->with('vaccine', $vaccine)
+            ->with('lab', $lab);
     }
 }

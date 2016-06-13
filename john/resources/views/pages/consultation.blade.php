@@ -6,6 +6,16 @@
 @section('title', 'Consultation | Pedix')
 @section('content')
 
+<style type="text/css">
+ .fixed-table-body {
+   overflow-x: auto;
+   overflow-y: auto;
+   height: 350px;
+}
+
+
+</style>
+
 <section class="content-header">
           <h1>
            Consultation
@@ -218,7 +228,7 @@
            <br> 
            <br> 
 
-             <input class="form-control btn btn-primary " value="Submit"   />
+             <input class="form-control btn btn-primary " value="Submit" type="submit"  />
           </div>
       </form>
       </div>
@@ -226,7 +236,9 @@
      <div class="col-lg-6">
       <div class="container-fluid">
            <br> 
-        <table class="table table-hover table-responsive table-bordered">
+        <table id="table_med"  data-toggle="table"
+      data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+       id="example2" class="table table-bordered table-hover dataTable">
           <thead>
             <tr>
               <th>Vaccine Name</th>
@@ -285,7 +297,7 @@
             </div>
              <div class="col-lg-4">
                 <br>
-               <input class="form-control btn btn-primary " value="Submit"   />
+               <input class="form-control btn btn-primary " value="Submit" type="submit"  />
 
             </div>
         </div>
@@ -296,7 +308,9 @@
      <div class="col-lg-6">
       <div class="container-fluid">
             
-        <table class="table table-hover table-responsive table-bordered">
+        <table id="table_med"  data-toggle="table"
+      data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+       id="example2" class="table table-bordered table-hover dataTable">
           <thead>
             <tr>
               <th>Medicine Name</th>
@@ -350,7 +364,7 @@
             </div>
             <div class="col-lg-4">
                 <br>
-               <input class="form-control btn btn-primary " value="Submit"   />
+               <input class="form-control btn btn-primary " value="Submit"  type="submit" />
 
             </div>
         </div>
@@ -398,7 +412,7 @@
                 <br>
                
 
-               <input class="form-control btn btn-primary " value="Add"   />
+               <input class="form-control btn btn-primary " value="Add" type="submit"  />
 
             </div>
         </div>
@@ -409,7 +423,9 @@
      <div class="col-lg-6">
       <div class="container-fluid">
             
-        <table class="table table-hover table-responsive table-bordered">
+        <table id="table_med"  data-toggle="table"
+      data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+       id="example2" class="table table-bordered table-hover dataTable">
           <thead>
             <tr>
               <th>Type</th>

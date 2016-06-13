@@ -1,9 +1,5 @@
 @extends('layouts.masterLayout')
-
-
-
 @section('title', 'Items | Pedix')
-
 @section('content')
  <style type="text/css">
   .fixed-table-body {
@@ -11,8 +7,6 @@
     overflow-y: auto;
     height: 300px;
 }
-
-
 </style>
 <section class="content-header">
           <h1>
@@ -23,8 +17,6 @@
             <li><a href="#">Items</a></li>
           </ol>
       </section>
-  
-
   <div class="row">
     <div class="col-lg-12 col-sm-12">
         <div class="panel panel-default">
@@ -42,17 +34,14 @@
                     <a data-toggle="tab" href="#lab" role="tab">Laboratory Packages</a>
                   </li>
                 </ul>
-
  <!-- Tab panes -->
              <div class="tab-content">
                   <div class="tab-pane active" id="medicine" role="tabpanel">
                     <h3>Medicine</h3>
                   <hr>
                  <div class="row">
-
                     <div class="col-lg-6">
                   <form id="medicine_form" method="POST" action="/items/add_medicine">
-
                     <div class="row container-fluid">
                         <div class="col-lg-12">
                            <label>Medicine Name</label>
@@ -92,10 +81,8 @@
                                     </script>-->
                         </div>
                     </div>
-
                   </form>
                   </div>
-
                  <div class="col-lg-6">
                   <div class="container-fluid">
                     <label>List of Medicine</label>
@@ -117,40 +104,31 @@
                       @endforeach
                       </tbody>
                     </table>
-                  
                   </div>    
                       <br><br>
-                     
                   </div>
-
                      </div>
                    </div>
-
                    <div class="tab-pane" id="vaccine" role="tabpanel">
                             <h3>Vaccine</h3>
                           <hr>
                          <div class="row">
-
                             <div class="col-lg-6">
                           <form id="vaccine_form" method="POST" action="/items/add_vaccine">
-
                             <div class="row container-fluid">
                                 <div class="col-lg-6">
                                    <label>Vaccine Name</label>
                                    <input class="form-control" type="text" name="vaccine_name" id="vaccine_name" placeholder="Vaccine Name" required/>
                                 </div>
-
                                 <div  class="col-lg-6">
                                   <label>Vaccine Purpose</label>
                                     <input type="text" name="vaccine_for" id="vaccine_for" type="text" class="form-control" placeholder="Vaccinate Purpose" required />
                                 </div>
-
                                 <div class="col-lg-12">
                                   <br>
                                    <label>Vaccine Schedule</label>
                                    <input class="form-control" name="schedule" id="schedule" type="text" placeholder="Vaccine Schedule" required/>
                                 </div>
-
                                   <div class="container col-lg-12">
                                   <br>
                                     <input type="submit" class="btn btn-primary" value="Add Vaccine" />
@@ -206,25 +184,18 @@
                                 </tr>
                               @endforeach
                               </tbody>
-                            </table>
-                          
+                            </table>                      
                           </div>    
                               <br><br>
-                     
                           </div>
-
                              </div>
                      </div>
-
-
                      <div class="tab-pane" id="lab" role="tabpanel">
                             <h3>Laboratory types</h3>
                           <hr>
                                  <div class="row">
-
                             <div class="col-lg-6">
                           <form action="/items/add_lab" method="POST" id="lab_form">
-
                             <div class="row container-fluid">
                                 <div class="col-lg-12">
                                    <label>Laboratory Package</label>
@@ -263,10 +234,8 @@
                                     </script>
                                 </div>
                             </div>
-
                           </form>
                           </div>
-
                          <div class="col-lg-6">
                           <div class="container-fluid">
                                 <br>
@@ -290,24 +259,15 @@
                               @endforeach
                               </tbody>
                             </table>
-                          
                           </div>    
                               <br><br>
-                             
                           </div>
-
                              </div>
-                     </div>
-
-                          
+                     </div>                         
                      </div>
                 </div>
             </div>
         </div>
     </div>
   </div> <!-- END ROW --> 
-
-
-
-
 @stop

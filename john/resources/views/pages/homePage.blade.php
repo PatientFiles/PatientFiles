@@ -1,12 +1,6 @@
 @extends('layouts.masterLayout')
-
-
 @section('title', 'Dashboard | Patient Files')
-
-
-
 @section('content')
-
 <section class="content-header">
             <h1>
               Overview
@@ -14,8 +8,7 @@
             </h1>
             <ol class="breadcrumb">
              <a href="/register" style="color: white;font-weight: bold;" class="btn btn-success"> <span class="
-glyphicon glyphicon-plus-sign"></span> Add Patient</a>
-           
+glyphicon glyphicon-plus-sign"></span> Add Patient</a>        
             </ol>
   </section>
   @if(session('visit'))
@@ -24,7 +17,6 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
           </small>
              
       @endif
-
 <hr>
         @if(session('message'))
             <p style="padding-top: 5px;color: white;background-color: red;font-style: italic;" class="alert alert-{{session ('message.type')}} form-control" >
@@ -34,7 +26,6 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
 <!-- Modal -->
 <div id="myModal" class="modal fade bs-example-modal-lg" role="dialog">
   <div class="modal-dialog">
-
     <!-- Modal content -->
     <div class="modal-content" >
       <div class="modal-header">
@@ -42,10 +33,8 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
         <h4 class="modal-title" style="color: white ;font-weight: bold;">Available Medicine</h4>
       </div>
       <div class="modal-body">
-        
           <table id="table"  data-toggle="table"
                        data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
-                    
                        data-search="true"
                        data-show-refresh="true"
                        data-show-toggle="true"
@@ -58,16 +47,13 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
                        <th >Quantity</th>
                   </tr>
                   </thead>
-
                      <tbody>
-                     
                           <tr role = "row">
                             <td> 1001 </td>
                             <td> ARM 101 </td>
                             <td> 100.00 </td>
                             <td>
                              <div class="progress">
-                            
                                 <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
                                       20%
                                 </div>
@@ -110,26 +96,17 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
                               </div>
                             </td>                          
                           </tr>
-                        
                     </tbody>  
-
-
         </table>
-         
-
-
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
-
   </div>
 </div>
-
 <div id="myModal2" class="modal fade" role="dialog">
   <div class="modal-dialog">
-
     <!-- Modal content-->
     <div class="modal-content" >
       <div class="modal-header">
@@ -138,7 +115,6 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
       </div>
       <div class="modal-body">
         <p>Some text in the modal.</p>
-
          <div class="box box-primary">
                 <div class="box-header with-border">
                   <h3 class="box-title">Area Chart</h3>
@@ -153,8 +129,6 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
                   </div>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
-
-
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -163,10 +137,8 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
 
   </div>
 </div>
-
 <div id="myModal3" class="modal fade" role="dialog">
   <div class="modal-dialog">
-
     <!-- Modal content-->
     <div class="modal-content" >
       <div class="modal-header">
@@ -175,7 +147,6 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
       </div>
       <div class="modal-body">
         <p>Some text in the modal.</p>
-
          <div class="box box-primary">
                 <div class="box-header with-border">
                   <h3 class="box-title">Area Chart</h3>
@@ -190,20 +161,15 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
                   </div>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
-
-
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
-
   </div>
 </div>
-
 <div id="myModal4" class="modal fade" role="dialog">
   <div class="modal-dialog">
-
     <!-- Modal content-->
     <div class="modal-content" >
       <div class="modal-header">
@@ -212,7 +178,6 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
       </div>
       <div class="modal-body">
         <p>Some text in the modal.</p>
-
          <div class="box box-primary">
                 <div class="box-header with-border">
                   <h3 class="box-title">Area Chart</h3>
@@ -227,19 +192,14 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
                   </div>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
-
-
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
-
   </div>
 </div>
-
 <!-- END MODAL -->
-
 <div class="box box-default container-fluid">
    <div class="box-header with-border">
                     <h3 class="box-title"><b>Clinic Analytics</b></h3>
@@ -249,7 +209,6 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
                     </div>
                   </div>
            <div class="box-body chart-responsive">         
-
   <div class="row container-fluid">
           <p style="margin: 0 15px 10px;"><b>Patient Overview</b></p>
             <div class="col-lg-3 col-xs-6">
@@ -313,8 +272,6 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
               </div>
             </div><!-- ./col -->
           </div>
-
-
           <!-- DONUT CHART -->
             <div class="row container-fluid">
               <div class="col-xs-6">
@@ -331,7 +288,6 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
                   </div><!-- /.box-body -->
                 </div><!-- /.box -->
               </div> 
-
                <div class="col-xs-6">
                 <div class=" box box-default">
                   <div class="box-header with-border">
@@ -346,11 +302,7 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
                   </div><!-- /.box-body -->
                 </div><!-- /.box -->
               </div>  
-
-
             </div>  
-
-
             <div class="row container-fluid">
             <p style="margin: 0 15px 10px;"><b>Accounts Overview</b></p>
                 <div class="col-xs-12">
@@ -395,36 +347,21 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
                   </div>  
                 </div>
             </div>
-
 </div>
 </div>
-
-
-
 	<section class="content-header">
 	          <h1>
-	            What's Happening - {{date('F d, Y',strtotime($time))}}
-	      
-	          </h1>
-	         
+	            What's Happening - {{date('F d, Y',strtotime($time))}}      
+	          </h1>	       
 	</section>
-
 <br>
-
  <div class="panel panel-default"  >
   <div class="panel-body" >
-
         <div class="row container-fluid" >
-          
         <form class="form-inline" style="padding: 0px 10px;">
           <div class="form-group"  style="float: right;padding-top: 13px">
-            
-              
-
           </div>
         </form>    
-
-
                 <div class="box-body table-responsive" >
                   <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table id="table"  data-toggle="table"
        data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
@@ -443,26 +380,15 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
             </div>
        </div>
 </div>     
-
-
 <hr>
-
-
 <!-- SECOND Table -->
-
    <div class="panel panel-default" >
   <div class="panel-body" >
-        <div class="row container-fluid" >
-          
+        <div class="row container-fluid" >    
         <form class="form-inline" style="padding: 0px 10px;">
           <div class="form-group"  style="float: right;padding-top: 13px">
-            
-              
-
           </div>
         </form>    
-
-
                 <div class="box-body table-responsive" >
                   <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table id="table" data-toggle="table"
        data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
@@ -474,19 +400,16 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
        data-show-columns="true" id="table2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                     <h4 class="pull-left">Recent Visits by Each Patients</h4>
                     <thead >
-                      
                         <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Patient ID</th>
                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Patient Name</th>
                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Chief Complaints</th>
                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Consultation Start</th>
                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Consultation End</th>
                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Status</th></tr>
-                      
                     </thead>
                     <tbody>
                       @foreach($consults as $consult)
                           @if (! $consult->patient_appointments)
-
                           @else
                             @if (strcasecmp($consult->patient_appointments[0]->type, 'consultation') == 0)
                               <tr role="row">
@@ -502,15 +425,11 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
                       @endforeach
                     </tbody>
                   </table></div></div>
-
-                
-
                   </div>
                 </div><!-- /.box-body -->
             </div>
        </div>
 </div>     
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script src="/plugins/morris/morris.min.js"></script>
  <script >
@@ -526,7 +445,6 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
           hideHover: 'auto'
         });
 </script>
-
  <script >
           var male = {{$counts->totalMaleFemalePatient[0]->MALE}};
           var female = {{$counts->totalMaleFemalePatient[0]->FEMALE}};
@@ -544,6 +462,4 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
           hideHover: 'auto'
         });
 </script>
-
-
 @stop

@@ -2,10 +2,18 @@
 
 
 
-
 @section('title', 'Items | Pedix')
-@section('content')
 
+@section('content')
+ <style type="text/css">
+  .fixed-table-body {
+    overflow-x: auto;
+    overflow-y: auto;
+    height: 300px;
+}
+
+
+</style>
 <section class="content-header">
           <h1>
           Items
@@ -91,43 +99,21 @@
                  <div class="col-lg-6">
                   <div class="container-fluid">
                     <label>List of Medicine</label>
-                    <table style="height: 100px" class="table table-hover table-responsive table-bordered" id="medicine_table">
+                    <table id="table_med"  data-toggle="table"
+       data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+        id="example2" class="table table-bordered table-hover dataTable" >
                       <thead>
                         <tr>
                           <th style="text-align: center;">Medicine Name</th>
                           <th style="text-align: center;">Action</th>
                         </tr>
                       </thead>
-                      <tbody  id="medicine_body">
+                      <tbody id="medicine_body">
                       @foreach ($medicine as $med)
                         <tr>
                           <td align="center">{{$med['medicine_name']}}</td>
-                          <td align="center"> <a href="#"  data-toggle="modal" data-target="#med-{{$med['id']}}"> <span class="glyphicon glyphicon-edit"></span>&nbsp </a>| <a href="#">&nbsp <span class="glyphicon glyphicon-trash"> </span> </a></td>
+                          <td align="center"> <a href="#"> <span class="glyphicon glyphicon-edit"></span> &nbsp </a>| <a href="#"> &nbsp <span class="glyphicon glyphicon-trash"> </span> </a></td>
                         </tr>
-                        <div id="med-{{$med['id']}}" class="modal fade" role="dialog">
-                          <div class="modal-dialog">
-
-                            <!-- Modal content-->
-                            <form action="/new_appointment" method="POST">
-                              <div class="modal-content" >
-                                <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                  <h4 class="modal-title" style="color: white">Edit Medicine</h4>
-                                </div>
-                                <div class="modal-body">
-                                    
-                                    <input type="text" name="medicine_name" class="form-control" placeholder="Medicine Name" aria-describedby="basic-addon1" value="{{$med['medicine_name']}}">
-
-                                    <input type="hidden" name="patient_id" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="{{ $med['id'] }}">
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                  <input type="submit" class="btn btn-primary" value="Start Visit" />
-                                </div>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
                       @endforeach
                       </tbody>
                     </table>
@@ -172,25 +158,25 @@
                                       jQuery( document ).ready( function() {
                                             $( '#vaccine_form' ).on( 'submit', function(e) {
                                               e.preventDefault(); 
-                                              var data = $(this).serialize();
-                                              var name = $('#vaccine_name').val();
-                                              var v_for = $('#vaccine_for').val();
-                                              var sched = $('#schedule').val();
-                                              $.ajax({
-                                                    type: "POST",
-                                                    url: '/items/add_vaccine',
-                                                    data: data,
-                                                    success: function(msg,status) {
-                                                        toastr.options.positionClass = 'toast-top-center';
-                                                        toastr.options.showMethod        = 'slideDown';
-                                                        toastr.options.hideMethod        = 'slideUp';
-                                                        toastr.success('Vaccine successfully added!');
-                                                        $("#vaccine_form")[0].reset();
-                                                        $('#vac_body').append('<tr><td>'+name+'</td><td>'+v_for+'</td><td>'+sched+'</td><td align="center"> <a href="#"> <span class="glyphicon glyphicon-edit"></span> &nbsp </a>| <a href="#"> &nbsp <span class="glyphicon glyphicon-trash"> </span> </a></td></tr>');
-                                                    }
-                                                }); 
-                                            });
-                                          });
+                                            var data = $(this).serialize();
+                                            var name = $('#vaccine_name').val();
+                                            var v_for = $('#vaccine_for').val();
+                                            var sched = $('#schedule').val();
+                                            $.ajax({
+                                                  type: "POST",
+                                                  url: '/items/add_vaccine',
+                                                  data: data,
+                                                  success: function(msg,status) {
+                                                      toastr.options.positionClass = 'toast-bottom-center';
+                                                      toastr.options.showMethod        = 'slideDown';
+                                                      toastr.options.hideMethod        = 'slideUp';
+                                                      toastr.success('Vaccine successfully added!');
+                                                      $("#vaccine_form")[0].reset();
+                                                      $('#vac_body').append('<tr><td>'+name+'</td><td>'+v_for+'</td><td>'+sched+'</td><td align="center"> <a href="#"> <span class="glyphicon glyphicon-edit"></span> &nbsp </a>| <a href="#"> &nbsp <span class="glyphicon glyphicon-trash"> </span> </a></td></tr>');
+                                                  }
+                                              }); 
+                                         });
+                                      });
                                     </script>
                                   </div>
                             </div>
@@ -199,7 +185,9 @@
                          <div class="col-lg-6">
                           <div class="container-fluid">
                                 <br>
-                            <table class="table table-hover table-responsive table-bordered">
+                            <table id="table_med"  data-toggle="table"
+       data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+        id="example2" class="table table-bordered table-hover dataTable"  >
                               <thead>
                                 <tr>
                                   <th>Vaccine Name</th>
@@ -214,32 +202,8 @@
                                   <td>{{$vac['vaccine_name']}}</td>
                                   <td>{{$vac['vaccine_for']}}</td>
                                   <td>{{$vac['schedule']}}</td>
-                                  <td align="center"> <a href="#"  data-toggle="modal" data-target="#vac-{{$vac['id']}}"> <span class="glyphicon glyphicon-edit"></span> &nbsp </a>| <a href="#"> &nbsp <span class="glyphicon glyphicon-trash"> </span> </a></td>
+                                  <td align="center"> <a href="#"> <span class="glyphicon glyphicon-edit"></span> &nbsp </a>| <a href="#"> &nbsp <span class="glyphicon glyphicon-trash"> </span> </a></td>
                                 </tr>
-                                <div id="vac-{{$vac['id']}}" class="modal fade" role="dialog">
-                                  <div class="modal-dialog">
-
-                                    <!-- Modal content-->
-                                    <form action="/new_appointment" method="POST">
-                                      <div class="modal-content" >
-                                        <div class="modal-header">
-                                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                          <h4 class="modal-title" style="color: white">Edit Vaccine</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            
-                                            <input type="text" name="vaccine" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="">
-
-                                            <input type="hidden" name="patient_id" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="{{ $vac['id'] }}">
-                                        </div>
-                                        <div class="modal-footer">
-                                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                          <input type="submit" class="btn btn-primary" value="Start Visit" />
-                                        </div>
-                                      </div>
-                                    </form>
-                                  </div>
-                                </div>
                               @endforeach
                               </tbody>
                             </table>
@@ -286,7 +250,7 @@
                                                   url: '/items/add_lab',
                                                   data: data,
                                                   success: function(msg,status) {
-                                                      toastr.options.positionClass = 'toast-top-center';
+                                                      toastr.options.positionClass = 'toast-bottom-center';
                                                       toastr.options.showMethod        = 'slideDown';
                                                       toastr.options.hideMethod        = 'slideUp';
                                                       toastr.success('Laboratory package successfully added');
@@ -306,7 +270,9 @@
                          <div class="col-lg-6">
                           <div class="container-fluid">
                                 <br>
-                            <table class="table table-hover table-responsive table-bordered">
+                            <table id="table_med"  data-toggle="table"
+       data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+        id="example2" class="table table-bordered table-hover dataTable"   >
                               <thead>
                                 <tr>
                                   <th style="text-align: center;">Lab Package</th>
@@ -319,32 +285,8 @@
                                 <tr>
                                   <td>{{$labs['lab_name']}}</td>
                                   <td>{{$labs['lab_desc']}}</td>
-                                  <td  align="center"> <a href="#"  data-toggle="modal" data-target="#lab-{{$labs['id']}}"> <span class="glyphicon glyphicon-edit"></span> &nbsp </a>| <a href="#"> &nbsp <span class="glyphicon glyphicon-trash"> </span> </a></td>
+                                  <td  align="center"> <a href="#"> <span class="glyphicon glyphicon-edit"></span> &nbsp </a>| <a href="#"> &nbsp <span class="glyphicon glyphicon-trash"> </span> </a></td>
                                 </tr>
-                                <div id="lab-{{$labs['id']}}" class="modal fade" role="dialog">
-                                  <div class="modal-dialog">
-
-                                    <!-- Modal content-->
-                                    <form action="/new_appointment" method="POST">
-                                      <div class="modal-content" >
-                                        <div class="modal-header">
-                                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                          <h4 class="modal-title" style="color: white">Edit Laboratory Package</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            
-                                            <input type="text" name="chief_complaints" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="">
-
-                                            <input type="hidden" name="patient_id" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="{{ $labs['id'] }}">
-                                        </div>
-                                        <div class="modal-footer">
-                                          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                          <input type="submit" class="btn btn-primary" value="Start Visit" />
-                                        </div>
-                                      </div>
-                                    </form>
-                                  </div>
-                                </div>
                               @endforeach
                               </tbody>
                             </table>

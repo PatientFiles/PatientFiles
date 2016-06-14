@@ -38,7 +38,7 @@
 	}
 	#body
 	{
-		height: 500px;
+		height: 490px;
 	}
 </style>
 <body>
@@ -80,6 +80,8 @@
 				<td align="center" style="border-top :1px solid black; ">Signature Over Printed Name</td>
 			</tr>
 		</table>
+		<br>
+		<br>
 	<div>
 		<p>PTR No.: {{Session::get('ptr')}}</p>
 		<p>License No.: {{Session::get('prc')}}</p>

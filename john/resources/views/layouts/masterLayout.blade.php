@@ -706,68 +706,18 @@ $('#sandbox-container input').on('hide', function(e){
   <!-- CONSULTAION GENERIC -->
 
 <script >
-  var options=[
-    {id:0, name:"Bioflu  500mg"},
-    {id:1, name:"Bioflu 250mg"},
-    {id:2, name:"Alaxan 500mg"},
-    {id:3, name:"Alaxan 250mg"},
-];
-
-
 $('#select_generic').selectize({
-    plugins: ['remove_button'],
-    valueField: 'id',
-    labelField: 'name',
-    searchField: ['name'],
-    "options": options,
-    delimiter: ',',
-    persist: false,
-    create: function (input) {
-      return {
-        id: input,
-        name: input,
-      };
-    },
-    hideSelected: true,
-    openOnFocus: false,
-});
-
-$('#select_generic').change(function(){
-$('#result').html("you select value="+$(this).val());
+  allowEmptyOption: true,
+  create: true
 });
 </script>
 
  <!-- CONSULTAION VACCINE -->
 
 <script >
-  var options=[
-    {id:0, name:"Bioflu  500mg"},
-    {id:1, name:"Bioflu 250mg"},
-    {id:2, name:"Alaxan 500mg"},
-    {id:3, name:"Alaxan 250mg"},
-];
-
-
 $('#select_vaccine').selectize({
-    plugins: ['remove_button'],
-    valueField: 'id',
-    labelField: 'name',
-    searchField: ['name'],
-    "options": options,
-    delimiter: ',',
-    persist: false,
-    create: function (input) {
-      return {
-        id: input,
-        name: input,
-      };
-    },
-    hideSelected: true,
-    openOnFocus: false,
-});
-
-$('#select_vaccine').change(function(){
-$('#result').html("you select value="+$(this).val());
+  allowEmptyOption: true,
+  create: true
 });
 </script>
 

@@ -180,8 +180,13 @@
         <div class="row container-fluid">
             <div class="col-lg-6" >
                   <label>Vaccine Name</label>
-                  <select id="select_vaccine"  placeholder="Vaccine Name">           
-                  </select> 
+                  <select id="select_vaccine" class="demo-default" data-placeholder="Vaccine Name">
+                    <option value="">None</option>
+                    <option value="4">Thomas Edison</option>
+                    <option value="1">Nikola</option>
+                    <option value="3">Nikola Tesla</option>
+                    <option value="5">Arnold Schwarzenegger</option>
+                  </select>
             </div>
             <div class="col-lg-6" id="sandbox-container" >
                <label>Vaccination Date </label>
@@ -234,7 +239,12 @@
             <div class="col-lg-10" >
                  <label>Medicine</label>  
                      <select id="select_generic"  placeholder="Medicine Name">
-                  </select>
+                        <option value="">None</option>
+                        <option value="4">GEN 1</option>
+                        <option value="1">Nikola</option>
+                        <option value="3">Nikola Tesla</option>
+                        <option value="5">Arnold Schwarzenegger</option>
+                    </select>
             </div>
              <div class="col-lg-2">
                <label>Quantity</label>

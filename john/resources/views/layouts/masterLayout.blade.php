@@ -6,23 +6,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html>
   <head>
-     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>@yield('title')</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.5 -->
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/dist/css/skins/_all-skins.min.css">
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>@yield('title')</title>
+      <!-- Tell the browser to be responsive to screen width -->
+      <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+      <!-- Bootstrap 3.3.5 -->
+      <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+      <link rel="stylesheet" href="/dist/css/skins/_all-skins.min.css">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- jvectormap -->
-    <link rel="stylesheet" href="/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+      <!-- Font Awesome -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+      <!-- Ionicons -->
+      <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+      <!-- jvectormap -->
+      <link rel="stylesheet" href="/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
    
-    <!-- Theme style -->
+       <!-- Theme style -->
       <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
       <link rel="stylesheet" href="/css/loading.css">
       <link rel="stylesheet" href="/css/loading2.css">
@@ -33,26 +33,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
       <link rel="stylesheet" href="/css/offline-theme-slide.css">
       <link rel="stylesheet" href="/css/offline-language-english.css">
-       <link rel="stylesheet" href="/css/toastr.css">
+      <link rel="stylesheet" href="/css/toastr.css">
       <link rel="stylesheet" href="/css/selectize.css">
-       <link rel="stylesheet" href="/css/selectize.default.css">
+      <link rel="stylesheet" href="/css/selectize.default.css">
 
       
           
    
- <!-- fullCalendar 2.2.5-->
-    <link rel="stylesheet" href="/css/fullcalendar.css">
- 
+       <!-- fullCalendar 2.2.5-->
+      <link rel="stylesheet" href="/css/fullcalendar.css">
+       
 
-<script src="/js/vendor/jquery.js"></script> 
-<script src="/js/kendo.web.min.js"></script> 
-
-  <script src="//fast.eager.io/CAcQLdp-HA.js"></script>
-
-
-  <script src="/js/offline.min.js"></script>  
-
+      <script src="/js/vendor/jquery.js"></script> 
+      <script src="/js/kendo.web.min.js"></script> 
+      <script src="//fast.eager.io/CAcQLdp-HA.js"></script>
   </head>
+
   <!--
   BODY TAG OPTIONS:
   =================
@@ -96,14 +92,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- Navbar Right Menu -->
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
-              <!-- Messages: style can be found in dropdown.less-->
-             
-
-              <!-- Notifications Menu -->
-          
-              <!-- Tasks Menu -->
-            
-              <!-- User Account Menu -->
               <li class="dropdown user user-menu">
                 <!-- Menu Toggle Button -->
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -114,7 +102,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                           {{'Dr. '. Session::get('fname').' '.Session::get('lname').', MD.'}}
                   </span>
                 </a>
-
                 <ul class="dropdown-menu">
                   <!-- The user image in the menu -->
                   <li class="user-header">
@@ -163,11 +150,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                           {{'Dr. '. Session::get('fname').' '.Session::get('lname').', MD.'}}
               </p>
               <small>{{  Session::get('role') }}</small>
-              <!-- Status -->
-              
+              <!-- Status -->    
             </div>
           </div>
-
           <!-- search form (Optional) -->
           <form action="/searchResult" method="post" class="sidebar-form">
           {{csrf_field()}}
@@ -179,7 +164,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
           </form>
           <!-- /.search form -->
-
           <!-- Sidebar Menu -->
           <ul class="sidebar-menu" >
             <li class="header">Menu</li>
@@ -200,31 +184,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </section>
         <!-- /.sidebar -->
       </aside>
-
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        
-        <!-- Main content -->
-  
-      <section class="content">
-     
+        <!-- Content Header (Page header) -->      
+        <!-- Main content -->  
+      <section class="content">     
       @yield('content') 
-
-      </section>
-          
-         
-            
+      </section>                             
       </div><!-- /.content-wrapper -->
-
       <!-- Main Footer -->
       <footer class="main-footer">
        <section id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Get In Touch with Pedix!</h2>
-                   
+                    <h2 class="section-heading">Get In Touch with Pedix!</h2>                 
                     <p>Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
                 </div>
                 <div class="col-lg-4 col-lg-offset-2 text-center">
@@ -241,12 +215,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <hr class="primary">
         <!-- To the right -->
         <div class="pull-right hidden-xs">
-          Brought to you by MEDIX
+          Brought to you by MEDI8X
         </div>
         <!-- Default to the left --> 
         <strong>Copyright &copy; 2016 <a href="fb.com/medixph" target="_blank">Pedix</a>.</strong> All rights reserved.
       </footer>
-
       <!-- Control Sidebar -->
       <aside class="control-sidebar control-sidebar-dark">
         <!-- Create the tabs -->
@@ -270,7 +243,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
               </li>
             </ul><!-- /.control-sidebar-menu -->
-
             <h3 class="control-sidebar-heading">Tasks Progress</h3>
             <ul class="control-sidebar-menu">
               <li>
@@ -285,7 +257,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
               </li>
             </ul><!-- /.control-sidebar-menu -->
-
           </div><!-- /.tab-pane -->
           <!-- Stats tab content -->
           <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div><!-- /.tab-pane -->
@@ -310,14 +281,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
            immediately after the control sidebar -->
       <div class="control-sidebar-bg"></div>
     </div><!-- ./wrapper -->
-
-
-     
-     
-   
-     
-     
-     
      <!-- MODAL PROFILE -->
   <div style="height: 100%" class="modal fade" id="profModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div  class="modal-dialog">
@@ -337,18 +300,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </h3>
                         <small>{{   Session::get('role')   }}</small>
                       </div>
-                    </div>
-                    
-                <div class="container-fluid" >   
-                   
+                    </div>                  
+                <div class="container-fluid" >                      
                 <div style="padding: 0px 40px;">
-
                    <div>
                <hr>
                       <div  >  
                         <h4 style="font-weight: bold; padding-left: 17px;" >PERSONAL INFORMATION</h4>
-                      </div>
-                     
+                      </div>                  
                </div> 
                <div> 
               <ul class="nav nav-stacked">
@@ -359,39 +318,28 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 @if (Session::get('gender') == 1)
                 <li><a href="#">Gender <span class="pull-right badge bg-aqua">Male</span></a></li>
                 @endif
-              </ul></div>
-
-                        
-                        
+              </ul></div>          
                      <hr>
                         <div>
                            <div  >  
                             <h4 style="font-weight: bold; padding-left: 17px;">LICENSE INFORMATION</h4>
-                          </div>
-                    
+                          </div>                   
                         </div>
                         <div> 
               <ul class="nav nav-stacked">
                 <li><a href="#">PRC License <span class="pull-right badge bg-blue">{{Session::get('prc')}}</span></a></li>
                 <li><a href="#">PTR License <span class="pull-right badge bg-red">{{Session::get('ptr')}}</span></a></li>
                 <li><a href="#">S2 License <span class="pull-right badge bg-green">{{Session::get('ptr')}}</span></a></li>
-              </ul></div>
-                        
-                      
+              </ul></div>                                     
               </div>
                     <br>   
                 </div>
-                
                 <div class="modal-footer">
-                   
                     <button type="button" class="btn btn-primary pull-right" data-dismiss="modal">Close</button>
-                   
                 </div>
             </div>
         </div>
     </div>
-     
-     
 <script src="/js/selectize.js"></script>   
 <script src="/js/bootstrap-formhelpers.js"></script>
 <script src="/js/bootstrap-formhelpers.min.js"></script>
@@ -409,19 +357,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <script src="/js/items/items.js"></script>
 <script src="/js/toast/toastr.js"></script>
-
-
  <!-- CHART DONUT -->
-
  <script >
    $("#scrollButton").click(function () {
     scrollCalendarToCurrentTime();
 });
-
 function scrollCalendarToCurrentTime() {
     if ($('.k-scheduler-times').length > 0) {
         var formattedTime = '8:00 AM';
-        
         $('th:not(.k-slot-cell), .k-scheduler-times:eq(1)').each(function () {
             if ($(this).text() == formattedTime) {
                 var that = $(this);
@@ -429,7 +372,6 @@ function scrollCalendarToCurrentTime() {
                 $('.k-scheduler-content').animate({
                     scrollTop: that.position().top
                 });
-                
                 return false;
             }
         });
@@ -586,11 +528,9 @@ $('#sandbox-container input').on('hide', function(e){
 });
 
 </script>
-
 <!-- SCHEDULER SCRIPT -->
         <script>
       $(function () {
-
         /* initialize the external events
          -----------------------------------------------------------------*/
         function ini_events(ele) {
@@ -691,7 +631,6 @@ $('#sandbox-container input').on('hide', function(e){
 
             // we need to copy it, so that multiple events don't have a reference to the same object
             var copiedEventObject = $.extend({}, originalEventObject);
-
             // assign it the date that was reported
             copiedEventObject.start = date;
             copiedEventObject.allDay = allDay;
@@ -744,6 +683,7 @@ $('#sandbox-container input').on('hide', function(e){
         });
       });
     </script>
+    
 <!-- SCHEDULER SCRIPT --> 
 
 <!-- DATEPICKER FOR MODAL SCRIPT --> 
@@ -766,68 +706,18 @@ $('#sandbox-container input').on('hide', function(e){
   <!-- CONSULTAION GENERIC -->
 
 <script >
-  var options=[
-    {id:0, name:"Bioflu  500mg"},
-    {id:1, name:"Bioflu 250mg"},
-    {id:2, name:"Alaxan 500mg"},
-    {id:3, name:"Alaxan 250mg"},
-];
-
-
 $('#select_generic').selectize({
-    plugins: ['remove_button'],
-    valueField: 'id',
-    labelField: 'name',
-    searchField: ['name'],
-    "options": options,
-    delimiter: ',',
-    persist: false,
-    create: function (input) {
-      return {
-        id: input,
-        name: input,
-      };
-    },
-    hideSelected: true,
-    openOnFocus: false,
-});
-
-$('#select_generic').change(function(){
-$('#result').html("you select value="+$(this).val());
+  allowEmptyOption: true,
+  create: true
 });
 </script>
 
  <!-- CONSULTAION VACCINE -->
 
 <script >
-  var options=[
-    {id:0, name:"Bioflu  500mg"},
-    {id:1, name:"Bioflu 250mg"},
-    {id:2, name:"Alaxan 500mg"},
-    {id:3, name:"Alaxan 250mg"},
-];
-
-
 $('#select_vaccine').selectize({
-    plugins: ['remove_button'],
-    valueField: 'id',
-    labelField: 'name',
-    searchField: ['name'],
-    "options": options,
-    delimiter: ',',
-    persist: false,
-    create: function (input) {
-      return {
-        id: input,
-        name: input,
-      };
-    },
-    hideSelected: true,
-    openOnFocus: false,
-});
-
-$('#select_vaccine').change(function(){
-$('#result').html("you select value="+$(this).val());
+  allowEmptyOption: true,
+  create: true
 });
 </script>
 

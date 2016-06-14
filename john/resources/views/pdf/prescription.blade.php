@@ -42,34 +42,48 @@
 	}
 </style>
 <body>
-		<img src="img/rx.png">
-		<h1>Pedix Prescription</h1>
-		<p align="right">{{date('F d, Y',strtotime(Carbon\Carbon::now()))}}</p>
+
+		<div align="right"><span>{{date('F d, Y',strtotime(Carbon\Carbon::now()))}}</span></div>
+		<br>
+		<div align="center"> 
+			<div>Pedix Medical Care </div>
+			<div>3BB Building 76 Kamuning Road,
+				<br>Brgy.Kamuning,Quezon City 1103,Philippines</br>
+			</div>
+			<div>(02)414 4014 </div>
+		</div>
+<br>
+<br>
+<div><h1>Pedix Prescription</h1></div>
+		
 <hr>
 <div id="info">
 <div style="padding-bottom: 5px;">
-<p>Patient Name:</p>
-<p1>Gender      :</p1>
-<p1>Age         :</p1>
+<p>Patient Name     :</p>
 </div>
 <div>
-	<p2>Address     :</p2>
+<p2>Address     :</p2>
 </div>
 </div>
 <hr>
 <section id="body"> 
-	
+	<br>
+	<br>
+	<div><img src="img/rx.png"></div>
 </section>
 <footer>
+		<table align="right">
+			<tr>
+				<td align="center">{{'Dr. '.Session::get('fname').' '.Session::get('lname')}}</td>
+			</tr>
+			<tr>
+				<td align="center" style="border-top :1px solid black; ">Signature Over Printed Name</td>
+			</tr>
+		</table>
 	<div>
 		<p>PTR No.: {{Session::get('ptr')}}</p>
 		<p>License No.: {{Session::get('prc')}}</p>
 		<p>S2 License No.: {{Session::get('license')}}</p>
-	</div>
-		<br>
-	<div>
-		<div><u align="center">{{'Dr. '.Session::get('fname').' '.Session::get('lname')}}</u></div>
-		<div><p align="center">Signature Over Printed Name</p></div>
 	</div>
 </footer>
 </body>

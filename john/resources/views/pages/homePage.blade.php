@@ -1,4 +1,5 @@
 @extends('layouts.masterLayout')
+
 @section('title', 'Dashboard | Patient Files')
 @section('content')
 <section class="content-header">
@@ -260,8 +261,8 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
               <!-- small box -->
               <div class="small-box bg-red">
                 <div class="inner">
-                  <h3>{{$counts->totalCancelledAppointment}}</h3>
-                  <p>Cancelled Appointments</p>
+                  <h3>{{$counts->totalPractitioner}}</h3>
+                  <p>Total Practitioners</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-close-circled"></i>
@@ -303,50 +304,7 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
                 </div><!-- /.box -->
               </div>  
             </div>  
-            <div class="row container-fluid">
-            <p style="margin: 0 15px 10px;"><b>Accounts Overview</b></p>
-                <div class="col-xs-12">
-                  <div class="panel panel-default">
-                    <div class="panel-body">
-                    <small>Total Accounts:</small>
-                    <div class="progress">
-                      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{$counts->totalAccounts}}"
-                      aria-valuemin="0" aria-valuemax="{{$counts->totalAccounts}}" style="width:100%">
-                        {{$counts->totalAccounts}} &nbsp (100%)
-                      </div>
-                    </div>
-                    <small>Practitioners:</small>
-                    <div class="progress">
-                      <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="{{$counts->totalPractitioner}}"
-                      aria-valuemin="0" aria-valuemax="{{$counts->totalAccounts}}" style="width:{{number_format(($counts->totalPractitioner/$counts->totalAccounts) * 100, 0 )}}%">
-                        {{$counts->totalPractitioner}}&nbsp({{round(($counts->totalPractitioner/$counts->totalAccounts)*100)}}%)
-                      </div>
-                    </div>
-                    <small>Nurses:</small>
-                    <div class="progress ">
-                      <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="{{$counts->totalNurse}}"
-                      aria-valuemin="0" aria-valuemax="{{$counts->totalAccounts}}" style="width:{{number_format(($counts->totalNurse/$counts->totalAccounts) * 100, 0 )}}%">
-                        {{$counts->totalNurse}}&nbsp({{round(($counts->totalNurse/$counts->totalAccounts)*100)}}%)
-                      </div>
-                    </div>
-                    <small>Radiology Techs:</small>
-                    <div class="progress">
-                      <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="{{$counts->totalRadTech}}"
-                      aria-valuemin="0" aria-valuemax="{{$counts->totalAccounts}}" style="width:{{number_format( ($counts->totalRadTech/$counts->totalAccounts) * 100, 0 )}}%">
-                        {{$counts->totalRadTech}}&nbsp({{round(($counts->totalRadTech/$counts->totalAccounts)*100)}}%)
-                      </div>
-                    </div>
-                    <small>Others:</small>
-                    <div class="progress">
-                      <div class="progress-bar progress-bar-default" role="progressbar" aria-valuenow="{{($counts->totalAccounts)-(($counts->totalPractitioner)+($counts->totalNurse)+($counts->totalRadTech))}}"
-                      aria-valuemin="0" aria-valuemax="{{$counts->totalAccounts}}" style="width:{{round(((($counts->totalAccounts)-(($counts->totalPractitioner)+($counts->totalNurse)+($counts->totalRadTech)))/($counts->totalAccounts))*100)}}%">
-                        {{($counts->totalAccounts)-(($counts->totalPractitioner)+($counts->totalNurse)+($counts->totalRadTech))}}&nbsp({{round(((($counts->totalAccounts)-(($counts->totalPractitioner)+($counts->totalNurse)+($counts->totalRadTech)))/($counts->totalAccounts))*100)}}%)
-                      </div>
-                    </div>
-                   </div>
-                  </div>  
-                </div>
-            </div>
+            
 </div>
 </div>
 	<section class="content-header">

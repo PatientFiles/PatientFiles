@@ -126,5 +126,4 @@ class consultationController extends Controller
        return redirect('/home')->with('visit',['type'=> 'success','text' => 'Visit successfully ended!']);
 
     }
-    
 }

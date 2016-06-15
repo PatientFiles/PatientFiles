@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Validator;
 use Carbon\Carbon;
+use App\Http\Models\Lab;
 use App\Http\Requests;
+use App\Http\Models\Vaccine;
 use Guzzle\Http\Client;
+use App\Http\Models\Medicine;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreatePatientRequest;
 
@@ -408,16 +411,21 @@ class patientController extends Controller
         }
          if (! \Session::has('token')) {
             return redirect('/home')->with('message',['type'=> 'danger','text' => 'Consultation not yet Started!']);
-        }
+        } 
 
-        $profile = $this->medix->get('patient/'.$id);
-        $address = $profile->data->user->user_addresses;
+        $profile  = $this->medix->get('patient/'.$id);
+        $address  = $profile->data->user->user_addresses;
+        $medicine = Medicine::all()->sortBy('medicine_name');
+        $vaccine  = Vaccine::all()->sortBy('vaccine_name');
+        $lab      = Lab::all()->sortBy('lab_name');
         //dd($profile);
 
         return  view('pages.consultation')
-            ->with('prof', $profile->data)
-            ->with('address', $address);
-
+                ->with('prof', $profile->data)
+                ->with('medicine', $medicine)
+                ->with('address', $address)
+                ->with('vaccine', $vaccine)
+                ->with('lab', $lab);
     }
 
 }

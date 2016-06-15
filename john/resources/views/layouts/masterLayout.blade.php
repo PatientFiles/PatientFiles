@@ -724,34 +724,9 @@ $('#select_vaccine').selectize({
 <!-- CONSULTAION select lab -->
 
 <script >
-  var options=[
-    {id:0, name:"Bioflu  500mg"},
-    {id:1, name:"Bioflu 250mg"},
-    {id:2, name:"Alaxan 500mg"},
-    {id:3, name:"Alaxan 250mg"},
-];
-
-
-$('#select_lab').selectize({
-    plugins: ['remove_button'],
-    valueField: 'id',
-    labelField: 'name',
-    searchField: ['name'],
-    "options": options,
-    delimiter: ',',
-    persist: false,
-    create: function (input) {
-      return {
-        id: input,
-        name: input,
-      };
-    },
-    hideSelected: true,
-    openOnFocus: false,
-});
-
-$('#select_lab').change(function(){
-$('#result').html("you select value="+$(this).val());
+  $('#select_lab').selectize({
+  allowEmptyOption: true,
+  create: true
 });
 </script>
 

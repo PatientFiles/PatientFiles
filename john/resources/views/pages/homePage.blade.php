@@ -265,7 +265,7 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
                   <p>Total Practitioners</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-close-circled"></i>
+                  <i class="fa fa-user-md"></i>
                 </div>
                 <a href="#" class="small-box-footer" data-toggle="modal" data-target="#myModal4">
                   More info <i class="fa fa-arrow-circle-right"></i>

@@ -2,7 +2,7 @@
 
 
 
-@section('title', 'Items | Pedix')
+@section('title', 'Maintenance | Pedix')
 
 @section('content')
  <style type="text/css">
@@ -16,11 +16,11 @@
 </style>
 <section class="content-header">
           <h1>
-          Items
+          Maintenance
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Items</a></li>
+            <li><a href="#">Maintenance</a></li>
           </ol>
       </section>
   

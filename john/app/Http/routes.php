@@ -19,7 +19,6 @@ Route::resource('/medix','loginController@medixAPI');
 Route::resource('/home','homeController');
 Route::resource('/next','homeController@next');
 Route::resource('/prev','homeController@prev');
-Route::resource('/items','homeController@items');
 Route::resource('/logout','homeController@logout');
 Route::resource('/accounts','userController@accounts');
 Route::resource('/register','homeController@register');
@@ -89,4 +88,23 @@ Route::post('/items/add_medicine','itemController@addMedicine');
 |
 */
 
-Route::GET('/items/medicine_table','itemController@medicineTable');
+Route::resource('/items','itemController@items');
+
+/*---------------------------------------------------------------------------------
+|ROUTEs FOR editing medicine
+|----------------------------------------------------------------------------------
+|
+*/
+Route::post('/items/edit_medicine/{id}','itemController@editMedicine');
+Route::post('/items/edit_vaccine/{id}','itemController@editVaccine');
+Route::post('/items/edit_lab/{id}','itemController@editLab');
+
+/*---------------------------------------------------------------------------------
+|ROUTEs FOR SOFT DELETING DATA TO ITEMS TABLE
+|----------------------------------------------------------------------------------
+|
+*/
+
+Route::delete('/items/delete_medicine/{id}','itemController@deleteMedicine');
+Route::delete('/items/delete_vaccine/{id}','itemController@deleteVaccine');
+Route::delete('/items/delete_lab/{id}','itemController@deleteLab');

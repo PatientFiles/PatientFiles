@@ -230,21 +230,4 @@ class homeController extends Controller
     {
         return view('pages.errorPage');
     }
-
-  /*---------------------------------------------------------------------------------------------------------------------------------------------
-    | items conteoller
-    |----------------------------------------------------------------------------------------------------------------------------------------------
-    |
-    */
-     public function items()
-    {
-        $medicine = Medicine::all();
-        $vaccine  = Vaccine::all();
-        $lab      = Lab::all();
-
-       return view('pages.items')
-            ->with('medicine', $medicine)
-            ->with('vaccine', $vaccine)
-            ->with('lab', $lab);
-    }
 }

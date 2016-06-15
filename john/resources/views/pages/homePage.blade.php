@@ -371,14 +371,13 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
                           @if (! $consult->patient_appointments)
                           @else
                             @if (strcasecmp($consult->patient_appointments[0]->type, 'consultation') == 0)
-                            <?php end((array)$consult->patient_appointments); $key = key((array)$consult->patient_appointments);?>
                               <tr role="row">
                                 <td>{{$consult->id}}</td>
                                 <td>{{$consult->user->firstname .' '. $consult->user->lastname}}</td>
-                                <td>{{$key->chief_complaints}}</td>
-                                <td>{{$key->consultation_start}}</td>
-                                <td>{{$key->consultation_end}}</td>
-                                <td>{{$key->status}}</td>
+                                <td>{{$consult->patient_appointments[0]->chief_complaints}}</td>
+                                <td>{{$consult->patient_appointments[0]->consultation_start}}</td>
+                                <td>{{$consult->patient_appointments[0]->consultation_end}}</td>
+                                <td>{{$consult->patient_appointments[0]->status}}</td>
                               </tr>
                             @endif 
                           @endif

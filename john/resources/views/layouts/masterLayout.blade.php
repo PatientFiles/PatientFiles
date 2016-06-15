@@ -195,31 +195,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </div><!-- /.content-wrapper -->
       <!-- Main Footer -->
       <footer class="main-footer">
-       <section id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Get In Touch with Pedix!</h2>                 
-                    <p>Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
-                </div>
-                <div class="col-lg-4 col-lg-offset-2 text-center">
-                    <i class="fa fa-phone fa-3x wow bounceIn"></i>
-                    <p>123-456-6789</p>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
-                    <p><a href="mailto:your-email@your-domain.com">dev.pedix.ph</a></p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <hr class="primary">
         <!-- To the right -->
         <div class="pull-right hidden-xs">
-          Brought to you by MEDI8X
+          Brought to you by MEDIX
         </div>
         <!-- Default to the left --> 
-        <strong>Copyright &copy; 2016 <a href="fb.com/medixph" target="_blank">Pedix</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2016 <a href="http://fb.com/medixph" target="_blank">Pedix</a>.</strong> All rights reserved.
       </footer>
       <!-- Control Sidebar -->
       <aside class="control-sidebar control-sidebar-dark">

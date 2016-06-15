@@ -47,6 +47,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <script src="/js/vendor/jquery.js"></script> 
       <script src="/js/kendo.web.min.js"></script> 
       <script src="//fast.eager.io/CAcQLdp-HA.js"></script>
+
   </head>
 
   <!--

@@ -279,7 +279,7 @@ class patientController extends Controller
         //dd($addPatient);
 
         return redirect()->to('/patientRecords')
-            ->with('message',['type'=> 'danger','text' => 'Patient successfully added!']);
+            ->with('message',['type'=> 'success','text' => 'Patient successfully added!']);
 
     }
 

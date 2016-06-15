@@ -103,7 +103,7 @@ class patientController extends Controller
             ->with('bmi', $bmi)
             ->with('recentVitals', $vitals);
 
-    }//--------------------------------------------------------------------------------------------------------------------------------------------
+    }
 
 
     /*---------------------------------------------------------------------------------------------------------------------------------------------
@@ -162,7 +162,7 @@ class patientController extends Controller
 
         return redirect('consultation/'. $id .'#vitals')->with('success',['type'=> 'success','text' => 'Vitals successfully added']);
 
-    }//--------------------------------------------------------------------------------------------------------------------------------------------
+    }
 
 
     /*---------------------------------------------------------------------------------------------------------------------------------------------
@@ -278,7 +278,7 @@ class patientController extends Controller
         return redirect()->to('/patientRecords')
             ->with('message',['type'=> 'danger','text' => 'Patient successfully added!']);
 
-    }//--------------------------------------------------------------------------------------------------------------------------------------------
+    }
 
         /*---------------------------------------------------------------------------------------------------------------------------------------------
     | FUNCTION FOR ADDING OF NEW PATIENT
@@ -393,7 +393,7 @@ class patientController extends Controller
         return redirect()->back()
             ->with('message',['type'=> 'success','text' => 'Patient successfully edited!']);
 
-    }//--------------------------------------------------------------------------------------------------------------------------------------------
+    }
 
 
     /*---------------------------------------------------------------------------------------------------------------------------------------------
@@ -404,10 +404,10 @@ class patientController extends Controller
     public function newConsult($id)
     {
         if (! \Session::get('consult') == $id) {
-            return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Consultation not yet Started!']);
+            return redirect('/home')->with('message',['type'=> 'danger','text' => 'Consultation not yet Started!']);
         }
          if (! \Session::has('token')) {
-            return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Consultation not yet Started!']);
+            return redirect('/home')->with('message',['type'=> 'danger','text' => 'Consultation not yet Started!']);
         }
 
         $profile = $this->medix->get('patient/'.$id);
@@ -418,6 +418,6 @@ class patientController extends Controller
             ->with('prof', $profile->data)
             ->with('address', $address);
 
-    }//--------------------------------------------------------------------------------------------------------------------------------------------
+    }
 
 }

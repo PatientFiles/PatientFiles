@@ -178,7 +178,7 @@ class homeController extends Controller
     public function recent()
     {
         $patients = $this->medix->get('patient?take=1000');
-        $reports = $this->medix->get('management/reports');
+        $reports  = $this->medix->get('management/reports');
         //dd($patients);
         $mytime = Carbon::now();
 

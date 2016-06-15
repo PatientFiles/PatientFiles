@@ -139,8 +139,7 @@ class userController extends Controller
         $addAccount = $this->medix->post('management/accounts/', $data);
         //dd($addAccount);
 
-        return redirect()
-            ->back()
+        return redirect('/accounts')
             ->with('added',['type'=> 'success','text' => 'User '.$firstname.' '.$lastname.' created successfully!']);
     }
 
@@ -165,6 +164,7 @@ class userController extends Controller
                 ->withErrors($validator)
                 ->withInput($request->all());
         }
+        $ped_id            = $request->input('ped_id');
         $user_type_id      = 1;
         $firstname         = $request->input('firstname');
         $middlename        = $request->input('middlename');
@@ -174,7 +174,6 @@ class userController extends Controller
         $ptr_number        = $request->input('ptr_number');
         $s2_license        = $request->input('s2_license');
         $email             = $request->input('email');
-        $password          = $request->input('password');
 
         $data = 
         [   
@@ -190,11 +189,11 @@ class userController extends Controller
         ];
 
         // /dd($data);
-        $addAccount = $this->medix->put('management/accounts/', $data);
-        //dd($addAccount);
+        $addAccount = $this->medix->put('management/accounts/'.$ped_id, $data);
+        dd($addAccount);
 
-        return redirect()
+        return redirect('accounts')
             ->back()
-            ->with('added',['type'=> 'success','text' => 'User '.$firstname.' '.$lastname.' created successfully!']);
+            ->with('added',['type'=> 'success','text' => 'User '.$firstname.' '.$lastname.' updated successfully!']);
     }
 }

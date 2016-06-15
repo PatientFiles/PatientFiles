@@ -87,7 +87,7 @@ class homeController extends Controller
     | CREATE A SEARCH QUERY (ALLOWED TERMS: FIRSTNAME, LASTNAME)
     |----------------------------------------------------------------------------------------------------------------------------------------------
     |
-    */
+    
     public function searchResult(Request $request)
     {
         $request -> all();
@@ -101,6 +101,48 @@ class homeController extends Controller
         $firstname = $this->medix->get('patient?firstname='. $search);
 
         //dd($firstname);
+
+        if ($firstname->data) {
+            foreach ($firstname->data as $f) { 
+                $fname1 = $f->user->firstname;
+                $lname1 = $f->user->lastname;
+            } if (strcasecmp($search, $fname1)==0) {
+            return view('pages.searchResult')
+                ->with('result', $firstname->data)
+                ->with('total', count((array)$firstname->data))
+                ->with('search', $search);
+            }
+        } if (empty((array)$firstname->data)) {
+            if ($lastname->data){
+                foreach ($lastname->data as $l) { 
+                    $fname2 = $l->user->firstname;
+                    $lname2 = $l->user->lastname;
+                } if (strcasecmp($search, $lname2)==0) {
+                return view('pages.searchResult')
+                    ->with('result', $lastname->data)
+                    ->with('total', count((array)$lastname->data))
+                    ->with('search', $search);
+                }
+            } if (empty((array)$lastname->data)){
+                return view('pages.searchResult')
+                ->with('result', $lastname->data)
+                ->with('total', 0 . ' Records')
+                ->with('search', $search);
+            }
+        }*/
+
+
+    public function searchResult(Request $request)
+    {
+        $request -> all();
+        $search = $request->input('q');
+
+        if (! \Session::has('token')) {
+            return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
+        }
+
+        $searching = $this->medix->get('patient-search?q='. $search);
+        dd($searching);
 
         if ($firstname->data) {
             foreach ($firstname->data as $f) { 

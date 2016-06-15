@@ -27,15 +27,6 @@ div#patientListing:hover
                   {{session('added.text')}}
           </small> 
     @endif
-    @if ($errors->has())
-    <ul>
-      @foreach($errors->all() as $error)
-          <ul>
-            <li style="list-style: none;">{{$error}}</li>
-          </ul>
-      @endforeach
-      </ul>
-    @endif
 	<div class="panel panel-default" >
   <div class="panel-body" >
       <div class="input-group pull-left" style="width: 50%" > 

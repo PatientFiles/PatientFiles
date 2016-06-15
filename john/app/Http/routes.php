@@ -46,6 +46,7 @@ Route::post('/add_account','userController@addAccount');
 Route::get('/account/add_account','userController@addAccountPage');
 Route::get('/account/edit_account/{id}','userController@editAccount');
 Route::get('/delete_account/{user_id}','userController@deleteAccount');
+Route::post('/account/edit_account','userController@editPed');
 
 /*--------------------------------------------------------------------------------
 | ROUTEs FOR EXCEPTION HANDLING

@@ -16,8 +16,6 @@ medical records accessible anytime, anywhere.</p>
             </div>
         </div>
     </header>
-
-
     <section class="bg-primary" id="about" style="height: 615px">
         <div class="container" >
             <div class="row" >
@@ -28,14 +26,11 @@ medical records accessible anytime, anywhere.</p>
                     
                     <form role="form" method="post" action="/medix">
                         {!! csrf_field() !!}
-
-
                         <div style="height: 50px"  class="form-group form-inline" >
                      @if(session('message'))
                             <p style="padding-top: 3px;color: white;background-color: red;font-style: italic;" class="alert alert-{{session ('message.type')}} form-control" >
                                     {{session('message.text')}}
                             </p>
-
                         @endif
                     </div>   
                         <div class="form-group form-inline" align="center">
@@ -51,24 +46,14 @@ medical records accessible anytime, anywhere.</p>
                         <div class="form-group" >
                             <button  align="center" class="btn btn-default btn-xl wow tada">Sign In</button> 
                         </div>
-
-                        
-
-                    </form>
-
-                    
+                    </form>  
                 </div>
             </div>
         </div>
         <br><br><br><br><br>
-       
          <h4  style="color: black;float: right">Copyright © 2016 Pedix™ All 
         rights reserved. </h4>
     </section>
-
-    
-   
-
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
@@ -82,10 +67,4 @@ medical records accessible anytime, anywhere.</p>
 
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script>
-
-
-
-
-
-
 @endsection

@@ -1,32 +1,18 @@
 @extends('layouts.masterLayout')
-
-
-
-
 @section('title', 'Patient List | Patient Files')
-
 <style type="text/css">
-  
 div#patientListing:hover
   {
-
      background-color: #E3E3E3;
-
   }
 
-
 </style>
-
 @section('content')
-
-
 <section class="content-header">
- 
       <h1>
               Patient List
               <small>Patient Files</small>
             </h1>
-        
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i>Patient List</a></li>
       </ol>
@@ -41,12 +27,8 @@ div#patientListing:hover
 
 	<div class="panel panel-default" >
   <div class="panel-body" >
-      
-       <div class="input-group pull-right" style="width: 50%" >           
-
-            
+       <div class="input-group pull-right" style="width: 50%" >              
              <input id="search-criteria"  type="text" class="form-control" placeholder="Search for...">
-
             <span class="input-group-btn">
             <input type="button" id="search" class="form-control" value="search"/>
             </span>
@@ -54,14 +36,8 @@ div#patientListing:hover
       <br>
       <br>
       <hr>
-
 <!-- MODAL -->
-
 <!-- CARD TABLE -->
-    
-         
-
-
              @foreach($patients as $patient)  
            <div   class="row container-fluid contact-name"    id="patientListing" >
              <ul style="padding:0;" class="patient-list-style">      <!-- START UL -->           
@@ -69,9 +45,7 @@ div#patientListing:hover
                     <div class="row"> <!-- START ROW -->   
                       <div class="col-md-3 " > <!-- START IMG -->
                           <img   class="img-circle" src="/img/generic.png" style="width: 160px" >
-                      </div> <!-- END IMG -->
-                      
-                   
+                      </div> <!-- END IMG -->        
                       <div class="col-md-9" > <!--Start 9 COLUMNS -->
                          <div class="row"> 
                               <div class="col-md-6" > <!-- START 8 COLUMNS -->
@@ -110,19 +84,14 @@ div#patientListing:hover
                                           </div>        
                                      </div>
                                      @endif  <!-- END cl 4 -->
-                                 
                           </div>                            
                       </div> <!--END 9 Columns -->
                     </div> <!-- END ROW -->
                  </li>  <!-- END LI -->
                </ul> <!-- END UL -->   
-           </div>  <!-- END WHOLE ROW -->
-      
-      
-      
+           </div>  <!-- END WHOLE ROW -->   
 <div id="newVisit-{{$patient->id}}" class="modal fade" role="dialog">
   <div class="modal-dialog">
-
     <!-- Modal content-->
     <form action="/new_appointment" method="POST">
       <div class="modal-content" >
@@ -137,7 +106,6 @@ div#patientListing:hover
                 @endif
                 {!! csrf_field() !!}
             <input type="text" name="chief_complaints" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="">
-
             <input type="hidden" name="patient_id" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="{{ $patient->id }}">
         </div>
         <div class="modal-footer">
@@ -148,10 +116,8 @@ div#patientListing:hover
     </form>
   </div>
 </div>
-
 <div id="patientVisit-{{$patient->id}}" class="modal fade" role="dialog">
   <div class="modal-dialog">
-
     <!-- Modal content-->
     <form action="/old_appointment" method="POST" role="form">
     <div class="modal-content" >
@@ -176,8 +142,7 @@ div#patientListing:hover
                   @if($errors->has('chief_complaints'))
                           <span class="error" style="color: red">{{ $errors->first('chief_complaints') }}</span>
                       @endif
-                    <input type="text" name="chief_complaints" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="">
-                    
+                    <input type="text" name="chief_complaints" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="">                  
                     <input type="hidden" name="patient_id" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="{{ $patient->id }}">
     </div>
       <div class="modal-footer">
@@ -187,16 +152,9 @@ div#patientListing:hover
     </div>
 </form>
   </div>
- 
 </div>
- 
-              @endforeach   
+       @endforeach   
           <!-- END CARD TABLE -->    
        </div>
-
-
 </div>     
-
-
-
 @stop

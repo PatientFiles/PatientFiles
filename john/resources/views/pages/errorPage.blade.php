@@ -1,8 +1,5 @@
 @extends('layouts.masterLayout')
-
-
 @section('content')
-
    <!-- Main content -->
         <section class="content">
           <div class="error-page">
@@ -16,6 +13,4 @@
             </div><!-- /.error-content -->
           </div><!-- /.error-page -->
         </section><!-- /.content -->
-
-
 @stop

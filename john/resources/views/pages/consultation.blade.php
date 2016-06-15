@@ -1,21 +1,13 @@
 @extends('layouts.masterLayout')
-
-
-
-
 @section('title', 'Consultation | Pedix')
 @section('content')
-
 <style type="text/css">
  .fixed-table-body {
    overflow-x: auto;
    overflow-y: auto;
    height: 350px;
 }
-
-
 </style>
-
 <section class="content-header">
           <h1>
            Consultation
@@ -30,16 +22,12 @@
           <small style=" padding-top: 5px;color: white;background-color: red;font-style: italic;" class="box-title alert alert-{{session ('success.type')}} form-control" >
                                     {{session('success.text')}}
           </small>
-             
       @endif
-
 <div class="row">
-
   <div class="col-lg-12">
       <!-- Widget: user widget style 1 -->
               <div class="box box-widget widget-user container">
                 <!-- Add the bg color to the header using any of the bg-* classes -->
-               
                 <div class="widget-user-header bg-aqua-active row">
              <div class="col-lg-1 col-sm-12">
                 <img class="img-circle" src="/img/prof_pic.png " alt="User profile picture" style="width: 90px" />
@@ -50,7 +38,6 @@
                   <h5 class="widget-user-desc">&nbsp &nbsp Patient</h5>
               </div>    
                 </div>
-                
                 <div class="box-footer" style="padding-top: 10px;">
                   <div class="row">
                     <div class="col-sm-4 border-right">
@@ -78,8 +65,7 @@
                 </div>
               </div><!-- /.widget-user -->
 </div>
-<div class="col-lg-12 col-sm-12">
-    
+<div class="col-lg-12 col-sm-12">  
  <div class="panel panel-default">
   <div class="panel-body">  
     <!-- Nav tabs -->
@@ -101,16 +87,12 @@
         <a data-toggle="tab" href="#labrequest" role="tab">Lab Request</a>
       </li>
     </ul>
-
     <!-- Tab panes -->
     <div class="tab-content">
       <div class="tab-pane active" id="vitals" role="tabpanel">
-            
           <form role="form" action="/saveVitals/{{$prof->id}}" method="POST">
-
           <div class="modal-body">
               {!! csrf_field() !!}
-
               <div class="row form-group">
                   <div class="col-lg-6">
                       <label for="number">Height:</label>
@@ -124,7 +106,6 @@
                       <input max="999" type="number" name="weight" class="form-control" placeholder="Weight in kilograms">
                   </div>
               </div>
-
               <div class="row form-group">
                   <div class="col-lg-6">
                     <label for="number">Pulse Rate:</label>
@@ -141,7 +122,6 @@
                     <input max="999" type="number" name="respiratory" class="form-control" placeholder="Respiratory Rate">
                   </div>
               </div>
-              
               <div class="row form-group">
                   <div class="col-lg-6">
                     <label for="number">Body Temperature:</label>
@@ -161,7 +141,6 @@
                       </div>
                   </div>
               </div>
-
               <div class="row form-group">
                   <div class="col-lg-6">
                     <label for="number">Blood Pressure (Systolic):</label>
@@ -178,8 +157,6 @@
                     <input max="999" type="number" name="dia" class="form-control" placeholder="Diastolic Value">
                   </div>
               </div>
-
-              
               <div class="form-group">
                 <label for="number">Doctor Notes:</label>
                       @if($errors->has('notes'))
@@ -187,7 +164,6 @@
                       @endif
                 <textarea name="notes" class="form-control" rows="5" placeholder="Doctors vital notes"></textarea>
               </div>
-
           </div>
           <div class="modal-footer">
             <button type="submit" name="saveVitals" class="btn btn-primary pull-left">Save</button>
@@ -195,44 +171,35 @@
           </div>
          </form>
       </div>
-
       <div class="tab-pane" id="vaccine" role="tabpanel">
-
          <h3>Vaccine</h3>
       <hr>
      <div class="row">
-
         <div class="col-lg-6">
       <form>
-
         <div class="row container-fluid">
-
             <div class="col-lg-6" >
                   <label>Vaccine Name</label>
-                  <select id="select_vaccine"  placeholder="Vaccine Name">
-                
+                  <select id="select_vaccine" class="demo-default" data-placeholder="Vaccine Name">
+                    <option value="">None</option>
+                    <option value="4">Thomas Edison</option>
+                    <option value="1">Nikola</option>
+                    <option value="3">Nikola Tesla</option>
+                    <option value="5">Arnold Schwarzenegger</option>
                   </select>
-                 
-
             </div>
-           
-             
-          
             <div class="col-lg-6" id="sandbox-container" >
                <label>Vaccination Date </label>
                <input class="form-control" type="text" placeholder="Vaccination Date" />
             </div>
         </div>
-
            <div class="col-lg-4">  
            <br> 
            <br> 
-
              <input class="form-control btn btn-primary " value="Submit" type="submit"  />
           </div>
       </form>
       </div>
-
      <div class="col-lg-6">
       <div class="container-fluid">
            <br> 
@@ -256,11 +223,8 @@
             </tr>
           </tbody>
         </table>
-      
       </div>    
-         
       </div>
-
   </div>
 </div>
       <div class="tab-pane" id="prescription" role="tabpanel">
@@ -270,23 +234,18 @@
 
         <div class="col-lg-6">
       <form>
-
         <div class="row container-fluid">
-
-            <div class="row container-fluid">
-
+           <div class="row container-fluid">
             <div class="col-lg-10" >
-
-                 <label>Medicine</label>
-                
+                 <label>Medicine</label>  
                      <select id="select_generic"  placeholder="Medicine Name">
-                
-                  </select>
-
-                
+                        <option value="">None</option>
+                        <option value="4">GEN 1</option>
+                        <option value="1">Nikola</option>
+                        <option value="3">Nikola Tesla</option>
+                        <option value="5">Arnold Schwarzenegger</option>
+                    </select>
             </div>
-           
-             
              <div class="col-lg-2">
                <label>Quantity</label>
                <input class="form-control" type="number"  />
@@ -298,17 +257,14 @@
              <div class="col-lg-4">
                 <br>
                <input class="form-control btn btn-primary " value="Submit" type="submit"  />
-
             </div>
         </div>
       </div>
       </form>
       </div>
-
      <div class="col-lg-6">
       <div class="container-fluid">
-            
-        <table id="table_med"  data-toggle="table"
+     <table id="table_med"  data-toggle="table"
       data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
        id="example2" class="table table-bordered table-hover dataTable">
           <thead>
@@ -326,38 +282,24 @@
             </tr>
           </tbody>
         </table>
-
           <br>
           <br>
          <a href="/pdf" target="_blank" class="btn btn-primary "> Print Prescription</a>
       </div>    
-        
-         
       </div>
-      
-
-
-
   </div>
 </div>
-
       <div class="tab-pane" id="diagnosis" role="tabpanel">
-
          <h3>Diagnosis</h3>
       <hr>
      <div class="row">
-
         <div class="col-lg-6">
       <form>
-
         <div class="row container-fluid">
-
             <div class="col-lg-12">
                 <label for="number">Result</label>
                 <textarea name="notes" class="form-control" rows="5" placeholder="Result"></textarea>
             </div>
-           
-            
             <div class="col-lg-12">
                <label>Remarks</label>
                <input class="form-control" type="text" placeholder="Remarks" />
@@ -365,13 +307,10 @@
             <div class="col-lg-4">
                 <br>
                <input class="form-control btn btn-primary " value="Submit"  type="submit" />
-
             </div>
         </div>
-
       </form>
       </div>
-
      <div class="col-lg-6">
       <div class="container-fluid">           
         <form>
@@ -380,28 +319,22 @@
                 <label for="number">Assessment</label>
                 <textarea name="notes" class="form-control" rows="5"></textarea>
             </div>
-             </div>
-        
+             </div>    
       </form>
         </div>
       </div>
     </div>
-  </div>
-        
+  </div>     
     <div class="tab-pane" id="labrequest" role="tabpanel">
         <h3>Lab Request</h3>
       <hr>
      <div class="row">
-
         <div class="col-lg-6">
       <form>
-
         <div class="row container-fluid">
-
             <div class="col-lg-12" >
                   <label>Laboratory Type</label>
-                  <select id="select_lab"  placeholder="Laboratory Type">
-                
+                  <select id="select_lab"  placeholder="Laboratory Type"> 
                   </select>
             </div>
             <div class="col-lg-12" >
@@ -410,19 +343,13 @@
             </div>
              <div class="col-lg-4">
                 <br>
-               
-
                <input class="form-control btn btn-primary " value="Add" type="submit"  />
-
             </div>
         </div>
-
       </form>
       </div>
-
      <div class="col-lg-6">
-      <div class="container-fluid">
-            
+      <div class="container-fluid">  
         <table id="table_med"  data-toggle="table"
       data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
        id="example2" class="table table-bordered table-hover dataTable">
@@ -441,27 +368,14 @@
             </tr>
           </tbody>
         </table>
-        
         </div>
         </div>
       </div>
     </div>        
-        
  </div>
-  
-
   </div>
   </div>
 </div>
 </div>
-
-
-
-
-
 </div> <!-- END ROW --> 
-
-
-
-
 @stop

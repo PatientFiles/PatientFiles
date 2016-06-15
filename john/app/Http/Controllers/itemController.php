@@ -207,6 +207,9 @@ class itemController extends Controller
     */
      public function items()
     {
+        if (! \Session::has('token')) {
+            return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
+        }
         $medicine = Medicine::all()->sortByDesc("id");
         $vaccine  = Vaccine::all()->sortByDesc("id");
         $lab      = Lab::all()->sortByDesc("id");

@@ -1,11 +1,6 @@
 @extends('layouts.masterLayout')
-
-
-
-
 @section('title', 'Scheduler | Patient Files')
 @section('content')
-
 	<section class="content-header">
           <h1>
            Scheduler
@@ -16,13 +11,5 @@
           </ol>
       </section>
       <hr>
-
-
-
       <div  id="scheduler"></div>
-
-
-
-
-
 @stop

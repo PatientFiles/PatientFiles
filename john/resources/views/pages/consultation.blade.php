@@ -180,12 +180,13 @@
         <div class="row container-fluid">
             <div class="col-lg-6" >
                   <label>Vaccine Name</label>
-                  <select id="select_vaccine" class="demo-default" data-placeholder="Vaccine Name">
-                    <option value="">None</option>
-                    <option value="4">Thomas Edison</option>
-                    <option value="1">Nikola</option>
-                    <option value="3">Nikola Tesla</option>
-                    <option value="5">Arnold Schwarzenegger</option>
+                  <select id="select_vaccine" class="demo-default" data-placeholder="Vaccine Name" required>
+                    <option disabled selected value>None</option>
+
+                    @foreach ($vaccine as $vac)
+                    <option value="{{$vac['id']}}">{{$vac['vaccine_name']}}</option>
+                    @endforeach
+
                   </select>
             </div>
             <div class="col-lg-6" id="sandbox-container" >
@@ -236,17 +237,17 @@
       <form>
         <div class="row container-fluid">
            <div class="row container-fluid">
-            <div class="col-lg-10" >
+            <div class="col-lg-9" >
                  <label>Medicine</label>  
                      <select id="select_generic"  placeholder="Medicine Name">
-                        <option value="">None</option>
-                        <option value="4">GEN 1</option>
-                        <option value="1">Nikola</option>
-                        <option value="3">Nikola Tesla</option>
-                        <option value="5">Arnold Schwarzenegger</option>
+                        <option value disabled selected>None</option>
+                        @foreach ($medicine as $med)
+                          <option value="{{$med['id']}}">{{$med['medicine_name']}}</option>
+                        @endforeach
+
                     </select>
             </div>
-             <div class="col-lg-2">
+             <div class="col-lg-3">
                <label>Quantity</label>
                <input class="form-control" type="number"  />
             </div>
@@ -335,6 +336,10 @@
             <div class="col-lg-12" >
                   <label>Laboratory Type</label>
                   <select id="select_lab"  placeholder="Laboratory Type"> 
+                  <option value disabled selected> None </option>
+                  @foreach ($lab as $labs)
+                    <option value="{{$labs['id']}}">{{$labs['lab_name']}}</option>
+                  @endforeach
                   </select>
             </div>
             <div class="col-lg-12" >

@@ -179,7 +179,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <li ><a href="/queue<"><i class="fa fa-calendar-check-o"></i> <span>Queues</span></a></li>
             <li ><a href="/scheduler"><i class="fa fa-calendar-plus-o"></i> <span>Scheduler</span></a></li>
              <li ><a href="/accounts"><i class="fa fa-user-md"></i> <span>Pediatricians</span></a></li>
-             <li ><a href="/items"><i class="fa fa-cart-plus"></i> <span>Items</span></a></li>
+             <li ><a href="/items"><i class="fa fa-cart-plus"></i> <span>Maintenance</span></a></li>
           </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->

@@ -16,14 +16,18 @@ jQuery( document ).ready( function() {
               data: data,
               success: function(res) {
                 console.log(res);
-                var id = res.data.id;
-                var medname = res.data.medicine_name;
+                var name = res.data.vaccine.vaccine_name;
+                var vfor = res.data.vaccine.vaccine_for;
+                var date = res.data.date;
+                console.log(name);
+                console.log(vfor);
+                console.log(date);
               	toastr.options.positionClass = 'toast-top-center';
-              	toastr.success('Medicine successfully added!');
+              	toastr.success('Vaccination successfully added!');
             		toastr.options.showMethod        = 'slideDown';
             		toastr.options.hideMethod        = 'slideUp';
-                  $("#medicine_form")[0].reset();
-                  $('#medicine_body').prepend('<tr><td>'+med_name+'</td><td> <a href="#" class="editMedModal" data-toggle="modal" data-id="'+id+'" data-medname="'+medname+'" data-target="#editMedicine"> <span class="glyphicon glyphicon-edit "></span> &nbsp </a> | <a href="#" data-id="'+id+'" class="deleteModal" data-medname="'+medname+'" data-toggle="modal" data-target="#deleteMedsConfirm"> &nbsp <span class="glyphicon glyphicon-trash"> </span> </a></td></tr>');
+                  $("#vac_submit")[0].reset();
+                  $("vaccination_tbody").prepend('<tr><td>'+ name +'</td><td>'+ vfor +'</td><td>'+date+'</td><td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td></tr>');
               }
           }); 
          });

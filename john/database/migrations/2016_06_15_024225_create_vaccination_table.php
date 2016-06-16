@@ -16,6 +16,7 @@ class CreateVaccinationTable extends Migration
             $table->increments('id');
             $table->integer('patient_id');
             $table->integer('practitioner_id');
+            $table->integer('vaccine_id');
             $table->date('date');
             $table->integer('appointment_id');
             $table->timestamps();

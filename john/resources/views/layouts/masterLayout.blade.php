@@ -419,6 +419,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="/dist/js/demo.js"></script>
 <script src="/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <script src="/js/items/items.js"></script>
+<script src="/js/consultation.js"></script>
 <script src="/js/toast/toastr.js"></script>
  <!-- CHART DONUT -->
  <script >

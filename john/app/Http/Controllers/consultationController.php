@@ -92,11 +92,12 @@ class consultationController extends Controller
             'chief_complaints'  => $chief_complaints,
         ];
 
-        $consult = \Session::put('consult', $id);
-        $appointment = $this->medix->post('appointment', $data);
-        $profile = $this->medix->get('patient/'.$id);
-        $key = end($profile->data->patient_appointments);
-        $appoint = \Session::put('appoint', $key->id);
+        $consult        = \Session::put('consult', $id);
+        $appointment    = $this->medix->post('appointment', $data);
+        $profile        = $this->medix->get('patient/'.$id);
+        $key            = end($profile->data->patient_appointments);
+        \Session::put('appoint', $key->id);
+        \Session::put('patient_appoint', $profile->data->id);
         //dd(\Session::get('appoint'));
 
         if ($purpose_id = 1) {
@@ -147,16 +148,17 @@ class consultationController extends Controller
     }
 
     /*---------------------------------------------------------------------------------------------------------------------------------------------
-    | END A VISIT SESSION
+    | ADD VACCINATION
     |----------------------------------------------------------------------------------------------------------------------------------------------
     |
     */
-    public function vaccination(Request $req, $id)
+    public function vaccination(Request $req)
     {
        
         if (! \Session::has('consult')) {
            return redirect('/home')->with('message',['type'=> 'danger','text' => 'Consultation not yet Started! Please select a patient to be consulted!']);
         }
+
 
         if ($req->ajax()) {
 
@@ -168,20 +170,27 @@ class consultationController extends Controller
             $appointment_id  = $req->input('appointment_id');
             $practitioner_id = \Session::get('user_id');
 
+            
+
             $data = [
                 'vaccine_id'        => $select_vaccine,
                 'date'              => $vac_date,
-                'patient_id'        => $patient_id,
-                'appointment_id'    => $appointment_id,
+                'patient_id'        => \Session::get('patient_appoint'),
+                'appointment_id'    => \Session::get('appoint'),
                 'practitioner_id'   => $practitioner_id,
-            ]
+            ];
 
             $vaccine = Vaccination::create($data);
+            $vaccine_table = Vaccination::with('vaccine')
+                            ->where('vaccine_id', $vaccine->vaccine_id)
+                            ->orderBy('date', 'desc')
+                            ->first();
+            //dd($user);
 
            $response = array(
                 'status' => 'success',
                 'msg'    => 'Vaccination added successfully',
-                'data'   => $vaccine,
+                'data'   => $vaccine_table,
             );
             return \Response::json($response);
         }

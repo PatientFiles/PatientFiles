@@ -9,8 +9,6 @@
 }
 </style>
 <section class="content-header">
-<input class="form-control" type="text" name="patient_id" id="patient_id" placeholder="Vaccination Date" value="{{$prof->id}}" />
-<input class="form-control" type="text" name="appointment_id" id="appointment_id" value="{{Session::get('appoint')}}" />
           <h1>
            Consultation
           </h1>
@@ -77,7 +75,7 @@
         <a data-toggle="tab" href="#vitals" role="tab">Vitals</a>
       </li>
       <li class="nav-item">
-        <a data-toggle="tab" href="#vaccine" role="tab">Vaccine</a>
+        <a data-toggle="tab" href="#vaccine" role="tab">Vaccination</a>
       </li>
       <li class="nav-item">
         <a data-toggle="tab" href="#prescription" role="tab">Prescription</a>
@@ -174,11 +172,11 @@
          </form>
       </div>
       <div class="tab-pane" id="vaccine" role="tabpanel">
-         <h3>Vaccine</h3>
+         <h3>Vaccination</h3>
       <hr>
      <div class="row">
         <div class="col-lg-6">
-      <form action="#" method="POST" role="form" id="vac_submit">
+      <form action="/consultation/vaccination" method="POST" role="form" id="vac_submit">
         <div class="row container-fluid">
             <div class="col-lg-6" >
                   <label>Vaccine Name</label>
@@ -217,7 +215,7 @@
               <th>Action</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="vaccination_tbody">
             <tr>
               <td>Vaccine 101</td>
               <td>For H1N1 3 in 1P Plus 1</td>

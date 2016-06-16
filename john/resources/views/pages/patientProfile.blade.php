@@ -69,9 +69,6 @@
                   <li class="active"><a href="#visits" data-toggle="tab">Visit History</a></li>
                   <li><a href="#vitals" data-toggle="tab">Vitals Records</a></li>
                   <li><a href="#vaccine" data-toggle="tab">Vaccine Records</a></li>
-                  <li><a href="#vitals" data-toggle="tab">Prescipton Records</a></li>
-                  <li><a href="#vitals" data-toggle="tab">Diagnosis Records</a></li>
-                  <li><a href="#vitals" data-toggle="tab">Lab Request</a></li>
                 </ul>
 
             <div class=" tab-content">   <!-- START TAB CONTENT -->
@@ -166,46 +163,163 @@
 
                 <!-- START VACCINE TAB -->
                 <div class="tab-pane" id="vaccine">
-           <p>
-            <button class="col-md-3" type="button" data-toggle="collapse" data-target="#ada"  aria-expanded="false" aria-controls="collapseExample"> Vaccine </button>
-            <button class="col-md-3" type="button" data-toggle="collapse" data-target="#i"  aria-expanded="false" aria-controls="collapseExample"> Prescription </button>
-            <button class="col-md-3" type="button" data-toggle="collapse" data-target="#a"  aria-expanded="false" aria-controls="collapseExample"> Diagnosis </button>
-            <button class="col-md-3" type="button" data-toggle="collapse" data-target="#kaye" aria-expanded="false" aria-controls="collapseExample"> Lab Request </button>
-          </p>
-          <div class="panel-collapse collapse" data-parent="vaccine" id="ada">
-            <div class="card card-block">
-             illuminada 
-            </div>
-          </div>  
-          <div class="panel-collapse collapse" data-parent="vaccine" id="kaye">
-            <div class="card card-block">
-              lacanlale
-            </div>
-          </div> 
-             <div class="panel-collapse collapse" data-parent="vaccine" id="i">
-            <div class="card card-block">
-              ada
-            </div>
-          </div> 
-           <div class="panel-collapse collapse" data-parent="vaccine" id="a">
-            <div class="card card-block">
-              kaye
-            </div>
-          </div> 
-                </div>
+                <div id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Date
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="nav-tabs-custom">
+<ul class="nav nav-pills">
+  <li role="presentation" class="active"><a href="#vitals">Vitals</a></li>
+  <li role="presentation" class="active"><a href="#vaccine">Vaccine</a></li>
+  <li role="presentation" class="active"><a href="#precription">Precription</a></li>
+  <li role="presentation" class="active"><a href="#diagnosis">Diagnosis</a></li>
+  <li role="presentation" class="active"><a href="#lab">Lab Request</a></li>
+</ul>
+<div class=" tab-content">   <!-- START TAB CONTENT -->
+          <div class="active tab-pane" id="vitals">
+                <table id="table_med"  data-toggle="table"
+      data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+       id="example2" class="table table-bordered table-hover dataTable">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Remarks</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+          </div>
+           <div class="active tab-pane" id="vaccine">
+                <table id="table_med"  data-toggle="table"
+      data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+       id="example2" class="table table-bordered table-hover dataTable">
+          <thead>
+            <tr>
+              <th>Vaccine Name</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+          </div>
+           <div class="active tab-pane" id="prescription">
+                <table id="table_med"  data-toggle="table"
+      data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+       id="example2" class="table table-bordered table-hover dataTable">
+          <thead>
+            <tr>
+              <th>Medicine Name</th>
+              <th>Quantity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+          </div>
+           <div class="active tab-pane" id="diagnosis">
+                <table id="table_med"  data-toggle="table"
+      data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+       id="example2" class="table table-bordered table-hover dataTable">
+          <thead>
+            <tr>
+              <th>Result</th>
+              <th>Remarks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+          </div>
+           <div class="active tab-pane" id="lab">
+                <table id="table_med"  data-toggle="table"
+      data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+       id="example2" class="table table-bordered table-hover dataTable">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Remarks</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+          </div>
+
+</div>  <!-- END TAB CONTENT -->
+    </div>
+    </div>
+  </div>
+
+
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Date
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <ul class="nav nav-pills">
+  <li role="presentation" class="active"><a href="#">Visit</a></li>
+  <li role="presentation"><a href="#">Vassine</a></li>
+  <li role="presentation"><a href="#">Precription</a></li>
+  <li role="presentation"><a href="#">Diagnosis</a></li>
+  <li role="presentation"><a href="#">Lab Request</a></li>
+</ul>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Date
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <ul class="nav nav-pills">
+  <li role="presentation" class="active"><a href="#">Visit</a></li>
+  <li role="presentation"><a href="#">Vassine</a></li>
+  <li role="presentation"><a href="#">Precription</a></li>
+  <li role="presentation"><a href="#">Diagnosis</a></li>
+  <li role="presentation"><a href="#">Lab Request</a></li>
+</ul>
+    </div>
+  </div>
+</div>
+</div>
                 <!-- END VACCINE TAB -->
-
-
-                <!-- START PRESCRIPTION TAB -->
-                <!-- END PRESCRIPTION TAB -->
-
-                <!-- START DIAGNOSIS TAB -->
-                <!-- END DIAGNOSIS TAB -->
-
-
-                <!-- START LAB REQUEST TAB -->
-                <!-- END LAB REQUEST TAB -->
-
 
               </div><!-- END TAB CONTENT -->
             </div><!-- End NAV TABS -->

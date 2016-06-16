@@ -74,6 +74,9 @@ Route::get('/queue', function(){
 		return view('pages.queue');
 });
 
+
+Route::post('/consultation/vaccination', 'consultationController@vaccination');
+
 /*---------------------------------------------------------------------------------
 |ROUTEs FOR ADDING ITEMS
 |----------------------------------------------------------------------------------

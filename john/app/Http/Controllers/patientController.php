@@ -407,10 +407,10 @@ class patientController extends Controller
     public function newConsult($id)
     {
         if (! \Session::get('consult') == $id) {
-            return redirect('/home')->with('message',['type'=> 'danger','text' => 'Consultation not yet Started!']);
+            return redirect('/home')->with('message',['type'=> 'danger','text' => 'Consultation not yet Started! Please select a patient to be consulted!']);
         }
          if (! \Session::has('token')) {
-            return redirect('/home')->with('message',['type'=> 'danger','text' => 'Consultation not yet Started!']);
+            return redirect('/home')->with('message',['type'=> 'danger','text' => 'Consultation not yet Started! Please select a patient to be consulted!']);
         } 
 
         $profile  = $this->medix->get('patient/'.$id);

@@ -7,6 +7,10 @@ use PDF;
 use Carbon\Carbon;
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use App\Http\Models\Diagnosis;
+use App\Http\Models\Labrequest;
+use App\Http\Models\Vaccination;
+use App\Http\Models\Prescription;
 
 
 class consultationController extends Controller
@@ -125,5 +129,19 @@ class consultationController extends Controller
 
        return redirect('/home')->with('visit',['type'=> 'success','text' => 'Visit successfully ended!']);
 
+    }
+
+    /*---------------------------------------------------------------------------------------------------------------------------------------------
+    | END A VISIT SESSION
+    |----------------------------------------------------------------------------------------------------------------------------------------------
+    |
+    */
+    public function vaccination()
+    {
+       
+        if (! \Session::has('consult')) {
+           return redirect('/home')->with('message',['type'=> 'danger','text' => 'Consultation not yet Started! Please select a patient to be consulted!']);
+        }
+        
     }
 }

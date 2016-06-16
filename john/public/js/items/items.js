@@ -84,7 +84,7 @@ jQuery( document ).ready( function() {
 
         console.log(id);
         console.log(medName);
-        $('#medicine_name_edit').attr('value', medName);
+        $('#medicine_name_edit').val(medName);
         $('.submitEditMed').attr('action', '/items/edit_medicine/'+id);
 
       });
@@ -206,9 +206,9 @@ jQuery( document ).ready( function() {
         console.log(vacName);
         console.log(vacFor);
         console.log(vacSched);
-        $('#vaccine_name_edit').attr('value', vacName);
-        $('#vaccine_for_edit').attr('value', vacFor);
-        $('#schedule_edit').attr('value', vacSched);
+        $('#vaccine_name_edit').val(vacName);
+        $('#vaccine_for_edit').val(vacFor);
+        $('#schedule_edit').val(vacSched);
         $('.submitEditVac').attr('action', '/items/edit_vaccine/'+id);
 
       });
@@ -320,8 +320,8 @@ jQuery( document ).ready( function() {
         console.log(id);
         console.log(labName);
         console.log(labDesc);
-        $('#lab_name_edit').attr('value', labName);
-        $('#lab_desc_edit').attr('value', labDesc);
+        $('#lab_name_edit').val(labName);
+        $('#lab_desc_edit').val(labDesc);
         $('.submitEditLab').attr('action', '/items/edit_lab/'+id);
 
       });

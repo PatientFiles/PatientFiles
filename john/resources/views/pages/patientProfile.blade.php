@@ -68,7 +68,12 @@
                 <ul class="nav nav-tabs">
                   <li class="active"><a href="#visits" data-toggle="tab">Visit History</a></li>
                   <li><a href="#vitals" data-toggle="tab">Vitals Records</a></li>
+                  <li><a href="#vaccine" data-toggle="tab">Vaccine Records</a></li>
+                  <li><a href="#vitals" data-toggle="tab">Prescipton Records</a></li>
+                  <li><a href="#vitals" data-toggle="tab">Diagnosis Records</a></li>
+                  <li><a href="#vitals" data-toggle="tab">Lab Request</a></li>
                 </ul>
+
             <div class=" tab-content">   <!-- START TAB CONTENT -->
                      <div class="active tab-pane" id="visits">  <!--  START OF VISITS TAB -->
                       <div class="panel panel-default" >
@@ -156,7 +161,52 @@
                             </div>
                           </div>          
                       </div>    
-                </div><!-- END VITALS TAB -->
+                </div><!-- END VITALS TAB --> 
+
+
+                <!-- START VACCINE TAB -->
+                <div class="tab-pane" id="vaccine">
+           <p>
+            <button class="col-md-3" type="button" data-toggle="collapse" data-target="#ada"  aria-expanded="false" aria-controls="collapseExample"> Vaccine </button>
+            <button class="col-md-3" type="button" data-toggle="collapse" data-target="#i"  aria-expanded="false" aria-controls="collapseExample"> Prescription </button>
+            <button class="col-md-3" type="button" data-toggle="collapse" data-target="#a"  aria-expanded="false" aria-controls="collapseExample"> Diagnosis </button>
+            <button class="col-md-3" type="button" data-toggle="collapse" data-target="#kaye" aria-expanded="false" aria-controls="collapseExample"> Lab Request </button>
+          </p>
+          <div class="panel-collapse collapse" data-parent="vaccine" id="ada">
+            <div class="card card-block">
+             illuminada 
+            </div>
+          </div>  
+          <div class="panel-collapse collapse" data-parent="vaccine" id="kaye">
+            <div class="card card-block">
+              lacanlale
+            </div>
+          </div> 
+             <div class="panel-collapse collapse" data-parent="vaccine" id="i">
+            <div class="card card-block">
+              ada
+            </div>
+          </div> 
+           <div class="panel-collapse collapse" data-parent="vaccine" id="a">
+            <div class="card card-block">
+              kaye
+            </div>
+          </div> 
+                </div>
+                <!-- END VACCINE TAB -->
+
+
+                <!-- START PRESCRIPTION TAB -->
+                <!-- END PRESCRIPTION TAB -->
+
+                <!-- START DIAGNOSIS TAB -->
+                <!-- END DIAGNOSIS TAB -->
+
+
+                <!-- START LAB REQUEST TAB -->
+                <!-- END LAB REQUEST TAB -->
+
+
               </div><!-- END TAB CONTENT -->
             </div><!-- End NAV TABS -->
           </div><!-- /.row  col-lg-9  -->

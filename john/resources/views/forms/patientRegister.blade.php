@@ -29,7 +29,7 @@
 		@if($errors->has('fname'))
             <span class="error" style="color: red">{{ $errors->first('fname') }}</span>
         @endif
- 		<input type="text" name="fname" class="form-control" placeholder="First Name" aria-describedby="basic-addon1" required>
+ 		<input type="text" name="fname" class="form-control" placeholder="First Name" aria-describedby="basic-addon1" value="{{old('fname')}}" required>
  		{{ csrf_field() }}
  	</div>
  	<div class="col-lg-3">
@@ -37,21 +37,21 @@
 		@if($errors->has('mname'))
             <span class="error" style="color: red">{{ $errors->first('mname') }}</span>
         @endif
- 		<input type="text" name="mname" class="form-control" placeholder="Middle Name" aria-describedby="basic-addon1">
+ 		<input type="text" name="mname" class="form-control" placeholder="Middle Name" value="{{old('mname')}}" aria-describedby="basic-addon1">
  	</div>
  	<div class="col-lg-3">
 		<strong>Last Name:<span style="color: red">*</span></strong>
 		@if($errors->has('lname'))
             <span class="error" style="color: red">{{ $errors->first('lname') }}</span>
         @endif
- 		<input type="text" name="lname" class="form-control" placeholder="Last Name" aria-describedby="basic-addon1" required>
+ 		<input type="text" name="lname" class="form-control" placeholder="Last Name" value="{{old('lname')}}" aria-describedby="basic-addon1" required>
  	</div>
  	<div class="col-lg-3">
 		<strong>NickName:</strong>
 		@if($errors->has('nickname'))
             <span class="error" style="color: red">{{ $errors->first('nickname') }}</span>
         @endif
- 		<input type="text" name="nickname" class="form-control" placeholder="Nickname" aria-describedby="basic-addon1">
+ 		<input type="text" name="nickname" class="form-control" placeholder="Nickname" value="{{old('nickname')}}" aria-describedby="basic-addon1">
  	</div>
  </div>
 
@@ -61,7 +61,7 @@
 		@if($errors->has('bdate'))
             <span class="error" style="color: red">{{ $errors->first('bdate') }}</span>
         @endif
-    	<input type="text" name="bdate" type="text" class="form-control" placeholder="Birth Date" required />
+    	<input type="text" name="bdate" type="text" class="form-control" value="{{old('bdate')}}" placeholder="Birth Date" required />
 	</div>
 
 	<div class="col-lg-6">
@@ -126,7 +126,7 @@
 		@if($errors->has('govtnum'))
             <span class="error" style="color: red">{{ $errors->first('govtnum') }}</span>
         @endif
-		<input type="text" name="govtnum" class="form-control" placeholder="Government ID Number" aria-describedby="basic-addon1" value="">
+		<input type="text" name="govtnum" class="form-control" placeholder="Government ID Number" aria-describedby="basic-addon1" value="{{old('govtnum')}}">
 	</div>
 	
 </div>
@@ -167,7 +167,7 @@
 		@if($errors->has('email'))
             <span class="error" style="color: red">{{ $errors->first('email') }}</span>
         @endif
-		<input type="text" name="email" class="form-control" placeholder="Email Address" aria-describedby="basic-addon1" value="">
+		<input type="text" name="email" class="form-control" placeholder="Email Address" aria-describedby="basic-addon1" value="{{old('email')}}">
 	</div>
 
 
@@ -181,7 +181,7 @@
 
 	<div class="col-lg-5">
 		<strong>Phone Number:</strong>
-		<input type="text" name="mobile_num" placeholder="Mobile Number Eg. 0935 123-1234" class="form-control" aria-describedby="basic-addon1">
+		<input type="text" name="mobile_num" placeholder="Mobile Number Eg. 0935 123-1234" class="form-control" aria-describedby="basic-addon1" value="{{old('mobile_num')}}">
 	</div>
 </div>
 	
@@ -200,7 +200,7 @@
 		@if($errors->has('efname'))
             <span class="error" style="color: red">{{ $errors->first('efname') }}</span>
         @endif
-		<input type="text" name="efname" class="form-control" placeholder="First Name" aria-describedby="basic-addon1" value="">
+		<input type="text" name="efname" class="form-control" placeholder="First Name" aria-describedby="basic-addon1" value="{{old('efname')}}">
 	</div>
 
 	<div class="col-lg-4">
@@ -208,7 +208,7 @@
 		@if($errors->has('emname'))
             <span class="error" style="color: red">{{ $errors->first('emname') }}</span>
         @endif
-		<input type="text" name="emname" class="form-control" placeholder="Middle Name" aria-describedby="basic-addon1" value="">
+		<input type="text" name="emname" class="form-control" placeholder="Middle Name" aria-describedby="basic-addon1" value="{{old('emname')}}">
 	</div>
 
 	<div class="col-lg-4">
@@ -216,7 +216,7 @@
 		@if($errors->has('elname'))
             <span class="error" style="color: red">{{ $errors->first('elname') }}</span>
         @endif
-		<input type="text" name="elname" class="form-control" placeholder="Surname" aria-describedby="basic-addon1" value="">
+		<input type="text" name="elname" class="form-control" placeholder="Surname" aria-describedby="basic-addon1" value="{{old('elname')}}">
 	</div>
 	
 </div>
@@ -226,7 +226,7 @@
 	
 	<div class="col-lg-6">
 		<strong>Emergency Contact Number: </strong>
-		<input type="text" name="econtact"  placeholder="Mobile Number" class="form-control input-medium bfh-phone" data-format="dddd ddd-dddd" aria-describedby="basic-addon1" value="">
+		<input type="text" name="econtact"  placeholder="Mobile Number" class="form-control input-medium bfh-phone" data-format="dddd ddd-dddd" aria-describedby="basic-addon1" value="{{old('econtact')}}">
 	</div>
 
 	<div class="col-lg-6">
@@ -256,7 +256,7 @@
 		<div class="col-lg-8">
 
 		<strong>Street:</strong>
-			<input type="text" name="street" class="form-control" placeholder="Street" aria-describedby="basic-addon1">
+			<input type="text" name="street" class="form-control" placeholder="Street" aria-describedby="basic-addon1" value="{{old('street')}}">
 		</div>	
 </div>
 
@@ -264,11 +264,11 @@
 		
 		<div class="col-lg-4">
 		<strong>Barangay/District:</strong>
-			<input type="text" name="brgy" class="form-control" placeholder="Barangay/District" aria-describedby="basic-addon1" >
+			<input type="text" name="brgy" class="form-control" placeholder="Barangay/District" aria-describedby="basic-addon1" value="{{old('brgy')}}">
 		</div>
 		<div class="col-lg-4">
 		<strong>City:</strong>
-			<input type="text" name="city" class="form-control" placeholder="City" aria-describedby="basic-addon1">
+			<input type="text" name="city" class="form-control" placeholder="City" aria-describedby="basic-addon1" value="{{old('city')}}">
 		</div>
 </div>
 
@@ -276,14 +276,14 @@
 		
 		<div class="col-lg-4">
 		<strong>Province:</strong>
-			<input type="text" name="province" class="form-control" placeholder="Province" aria-describedby="basic-addon1" S>
+			<input type="text" name="province" class="form-control" placeholder="Province" aria-describedby="basic-addon1" value="{{old('province')}}">
 		</div>
 		<div class="col-lg-4">
 		<strong>Zip Code:</strong>
 		@if($errors->has('zip_code'))
             <span class="error" style="color: red">{{ $errors->first('zip_code') }}</span>
         @endif
-			<input type="number" name="zip_code" class="form-control" placeholder="Zip Code" aria-describedby="basic-addon1">
+			<input type="number" name="zip_code" class="form-control" placeholder="Zip Code" aria-describedby="basic-addon1" value="{{old('zip_code')}}">
 		</div>
 
 		

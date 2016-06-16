@@ -42,7 +42,7 @@ div#patientListing:hover
 
   <div class="panel panel-default" >
       <div class="panel-body" >
-                <form action="#" method="POST" role="form" class="form-horizontal">
+                <form action="/account/edit_account" method="POST" role="form" class="form-horizontal">
                           {!! csrf_field() !!}
                           <div class="row form-group">
                             <div class="col-lg-4">
@@ -99,7 +99,7 @@ div#patientListing:hover
                       @if($errors->has('email'))
                           <span class="error" style="color: red">{{ $errors->first('email') }}</span>
                       @endif
-                                <input type="text" name="email" class="form-control" placeholder="Email Address" value="{{$account->user_emails[0]->email}}">
+                                <input type="text" name="email" class="form-control" placeholder="Email Address" value="{{$account->user_emails[0]->email}}"><input type="hidden" name="ped_id" class="form-control" placeholder="Email Address" value="{{$account->id}}">
                             </div>
                           </div>
                           <br>

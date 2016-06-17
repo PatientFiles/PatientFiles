@@ -12,13 +12,14 @@
 glyphicon glyphicon-plus-sign"></span> Add Patient</a>        
             </ol>
   </section>
+
+<hr>
   @if(session('visit'))
           <small style=" padding-top: 5px;color: white;background-color: red;font-style: italic;" class="box-title alert alert-{{session ('visit.type')}} form-control" >
                                     {{session('visit.text')}}
           </small>
              
       @endif
-<hr>
         @if(session('message'))
             <p style="padding-top: 5px;color: white;background-color: red;font-style: italic;" class="alert alert-{{session ('message.type')}} form-control" >
                     {{session('message.text')}}

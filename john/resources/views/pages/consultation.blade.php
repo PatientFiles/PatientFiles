@@ -35,7 +35,8 @@
               <div class="col-lg-4 col-sm-4">  
               <br>
                   <h3 class="widget-user-username">&nbsp {{$prof->user->firstname.' '.$prof->user->lastname}} </h3>
-                  <h5 class="widget-user-desc">&nbsp &nbsp</h5>
+                  <h5 class="widget-user-desc">&nbsp &nbsp{{Session::get('type')}}</h5>
+                  <h5 class="widget-user-desc">&nbsp &nbsp Chief Complaints:&nbsp{{Session::get('complaint')}}</h5>
               </div>    
                 </div>
                 <div class="box-footer" style="padding-top: 10px;">
@@ -191,7 +192,7 @@
             </div>
             <div class="col-lg-6" id="sandbox-container" >
                <label>Vaccination Date </label>
-               <input class="form-control" type="text" name="vac_date" id="vac_date" placeholder="Vaccination Date" />
+               <input class="form-control" type="text" name="vac_date" id="vac_date" placeholder="Vaccination Date" required />
             </div>
         </div>
            <div class="col-lg-4">  

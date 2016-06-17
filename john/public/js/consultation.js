@@ -18,7 +18,7 @@ jQuery( document ).ready( function() {
                 console.log(res);
                 var name = res.data.vaccine.vaccine_name;
                 var vfor = res.data.vaccine.vaccine_for;
-                var date = res.data.date;
+                var date = res.date;
                 console.log(name);
                 console.log(vfor);
                 console.log(date);
@@ -27,7 +27,10 @@ jQuery( document ).ready( function() {
             		toastr.options.showMethod        = 'slideDown';
             		toastr.options.hideMethod        = 'slideUp';
                   $("#vac_submit")[0].reset();
-                  $("vaccination_tbody").prepend('<tr><td>'+ name +'</td><td>'+ vfor +'</td><td>'+date+'</td><td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td></tr>');
+                  $('#vaccination_body').prepend('<tr><td>'+name+'</td><td> <a href="#" class="editMedModal" data-toggle="modal" data-id="'+vfor+'" data-medname="'+date+'" data-target="#editMedicine"> <span class="glyphicon glyphicon-edit "></span> &nbsp </a> |  </span> </a></td></tr>');
+              }
+              error: function(err){
+                console.log(err);
               }
           }); 
          });

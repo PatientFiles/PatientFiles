@@ -7,6 +7,10 @@ use Carbon\Carbon;
 use App\Http\Models\Lab;
 use App\Http\Requests;
 use App\Http\Models\Vaccine;
+use App\Http\Models\Vaccination;
+use App\Http\Models\Labrequest;
+use App\Http\Models\Diagnosis;
+use App\Http\Models\Prescription;
 use Guzzle\Http\Client;
 use App\Http\Models\Medicine;
 use Illuminate\Http\Request;
@@ -413,12 +417,13 @@ class patientController extends Controller
             return redirect('/home')->with('message',['type'=> 'danger','text' => 'Consultation not yet Started! Please select a patient to be consulted!']);
         } 
 
-        $profile  = $this->medix->get('patient/'.$id);
-        $address  = $profile->data->user->user_addresses;
-        $medicine = Medicine::all()->sortBy('medicine_name');
-        $vaccine  = Vaccine::all()->sortBy('vaccine_name');
-        $lab      = Lab::all()->sortBy('lab_name');
-        //dd($profile);
+        $profile        = $this->medix->get('patient/'.$id);
+        $address        = $profile->data->user->user_addresses;
+        $medicine       = Medicine::all()->sortBy('medicine_name');
+        $vaccine        = Vaccine::all()->sortBy('vaccine_name');
+        $lab            = Lab::all()->sortBy('lab_name');
+        $vaccination    = Vaccination::with('vaccine')
+                            ->where('appointment_id', \Session::get('appoint'));
 
         return  view('pages.consultation')
                 ->with('prof', $profile->data)

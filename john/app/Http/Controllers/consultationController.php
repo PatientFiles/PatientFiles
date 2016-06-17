@@ -54,11 +54,12 @@ class consultationController extends Controller
         $consult = \Session::put('consult', $id);
 		$appointment = $this->medix->post('appointment', $data);
         $profile = $this->medix->get('patient/'.$id);
+        \Session::put('type', 'New Patient Consultation');
+        \Session::put('complaint', $chief_complaints);
 
 		return redirect('consultation/'.$id)
                 ->with('prof', $profile->data)
-                ->with('appoint', $appointment->data)
-                ->with('type', 'New Patient Consultation');
+                ->with('appoint', $appointment->data);
 
 	}
 
@@ -98,17 +99,18 @@ class consultationController extends Controller
         $key            = end($profile->data->patient_appointments);
         \Session::put('appoint', $key->id);
         \Session::put('patient_appoint', $profile->data->id);
+        \Session::put('complaint', $chief_complaints);
+        //dd($profile);
         //dd(\Session::get('appoint'));
 
         if ($purpose_id = 1) {
-            $type = 'Old Patient Consultation';
-        } else {
-            $type = 'Follow-up Consultation';
+            \Session::put('type', 'Old Patient Consultation');
+        } if ($purpose_id = 2) {
+            \Session::put('type', 'Follow-up Consultation');
         }
 
         return redirect('consultation/'.$id)
-                ->with('prof', $profile->data)
-                ->with('type', $type);
+                ->with('prof', $profile->data);
 
     }
 
@@ -142,6 +144,9 @@ class consultationController extends Controller
     public function endVisit()
     {
        \Session::forget('consult');
+       \Session::forget('type');
+       \Session::forget('appoint');
+       \Session::forget('patient_appoint');
 
        return redirect('/home')->with('visit',['type'=> 'success','text' => 'Visit successfully ended!']);
 
@@ -183,7 +188,6 @@ class consultationController extends Controller
             $vaccine = Vaccination::create($data);
             $vaccine_table = Vaccination::with('vaccine')
                             ->where('vaccine_id', $vaccine->vaccine_id)
-                            ->orderBy('date', 'desc')
                             ->first();
             //dd($user);
 
@@ -191,6 +195,7 @@ class consultationController extends Controller
                 'status' => 'success',
                 'msg'    => 'Vaccination added successfully',
                 'data'   => $vaccine_table,
+                'date'   => $vaccine->date,
             );
             return \Response::json($response);
         }

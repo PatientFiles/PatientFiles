@@ -5,7 +5,6 @@
 <section class="content-header">
             <h1>
               Overview
-              <small>Patient Files</small>
             </h1>
             <ol class="breadcrumb">
              <a href="/register" style="color: white;font-weight: bold;" class="btn btn-success"> <span class="

@@ -6,9 +6,6 @@
 
 <section class="content-header">
       <h1>Consultation Queue</h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i></a>Consultation Queue</li>
-      </ol>
  </section>
 	 
 <hr id="p_hr1">

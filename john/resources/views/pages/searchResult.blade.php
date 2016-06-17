@@ -5,10 +5,6 @@
 
 <section class="content-header">
 		<h1>Search Results : {{$total}} Found</h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Search</a></li>
-        <li class="active">Search Results</li>
-      </ol>
  </section>
 	 
 <hr id="p_hr1">

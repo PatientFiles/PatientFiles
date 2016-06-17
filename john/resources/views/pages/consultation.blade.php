@@ -13,8 +13,7 @@
            Consultation
           </h1>
           <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">consultation</a></li>
+            <a class="btn btn-primary" href="patientProfile/{{Session::get('patient_appoint')}}" >View Patient Profile</a>
           </ol>
       </section>
       <hr>
@@ -32,9 +31,8 @@
              <div class="col-lg-1 col-sm-12">
                 <img class="img-circle" src="/img/prof_pic.png " alt="User profile picture" style="width: 90px" />
               </div>
-              <div class="col-lg-4 col-sm-4">  
-              <br>
-                  <h3 class="widget-user-username">&nbsp {{$prof->user->firstname.' '.$prof->user->lastname}} </h3>
+              <div class="col-lg-4 col-sm-4"> 
+                  <h3 class="widget-user-username"><b>&nbsp {{$prof->user->firstname.' '.$prof->user->lastname}}</b></h3>
                   <h5 class="widget-user-desc">&nbsp &nbsp{{Session::get('type')}}</h5>
                   <h5 class="widget-user-desc">&nbsp &nbsp Chief Complaints:&nbsp{{Session::get('complaint')}}</h5>
               </div>    

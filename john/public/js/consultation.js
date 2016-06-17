@@ -32,4 +32,24 @@ jQuery( document ).ready( function() {
           }); 
          });
 
+      $( '#diagnosis_submit' ).on( 'submit', function(e) {
+          e.preventDefault(); 
+        var data = $(this).serialize();
+        $.ajax({
+              type: "POST",
+              url: '/consultation/diagnosis',
+              data: data,
+              success: function(res) {
+                console.log(res);
+                var result = res.data.diagnosis_result;
+                var remarks = res.data.diagnosis_remarks;
+                toastr.options.positionClass = 'toast-top-center';
+                toastr.success('Diagnosis successfully added!');
+                toastr.options.showMethod        = 'slideDown';
+                toastr.options.hideMethod        = 'slideUp';
+                  $("#diagnosis_submit")[0].reset();
+                  $('#assessment').text('Diagnosis result:\n          '+result+'\nRemarks:\n          '+remarks);
+              }
+          }); 
+         });
 });

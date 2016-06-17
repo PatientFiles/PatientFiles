@@ -80,11 +80,12 @@
         <a data-toggle="tab" href="#prescription" role="tab">Prescription</a>
       </li>
       <li class="nav-item">
-        <a data-toggle="tab" href="#diagnosis" role="tab">Diagnosis</a>
-      </li>
-       <li class="nav-item">
         <a data-toggle="tab" href="#labrequest" role="tab">Lab Request</a>
       </li>
+      <li class="nav-item">
+        <a data-toggle="tab" href="#diagnosis" role="tab">Diagnosis</a>
+      </li>
+
     </ul>
     <!-- Tab panes -->
     <div class="tab-content">
@@ -289,42 +290,7 @@
       </div>
   </div>
 </div>
-      <div class="tab-pane" id="diagnosis" role="tabpanel">
-         <h3>Diagnosis</h3>
-      <hr>
-     <div class="row">
-        <div class="col-lg-6">
-      <form>
-        <div class="row container-fluid">
-            <div class="col-lg-12">
-                <label for="number">Result</label>
-                <textarea name="notes" class="form-control" rows="5" placeholder="Result"></textarea>
-            </div>
-            <div class="col-lg-12">
-               <label>Remarks</label>
-               <input class="form-control" type="text" placeholder="Remarks" />
-            </div>
-            <div class="col-lg-4">
-                <br>
-               <input class="form-control btn btn-primary " value="Submit"  type="submit" />
-            </div>
-        </div>
-      </form>
-      </div>
-     <div class="col-lg-6">
-      <div class="container-fluid">           
-        <form>
-        <div class="row container-fluid">
-            <div class="col-lg-12">
-                <label for="number">Assessment</label>
-                <textarea name="notes" class="form-control" rows="5"></textarea>
-            </div>
-             </div>    
-      </form>
-        </div>
-      </div>
-    </div>
-  </div>     
+      
     <div class="tab-pane" id="labrequest" role="tabpanel">
         <h3>Lab Request</h3>
       <hr>
@@ -375,7 +341,43 @@
         </div>
         </div>
       </div>
-    </div>        
+    </div>  
+
+<div class="tab-pane" id="diagnosis" role="tabpanel">
+         <h3>Diagnosis</h3>
+      <hr>
+     <div class="row">
+        <div class="col-lg-6">
+      <form action="/consultation/diagnosis" method="POST" role="form" id="diagnosis_submit">
+        <div class="row container-fluid">
+            <div class="col-lg-12">
+                <label for="number">Result</label>
+                <textarea name="result" class="form-control" rows="5" placeholder="Result" type="text" required></textarea>
+            </div>
+            <div class="col-lg-12">
+               <label>Remarks</label>
+               <input class="form-control" type="text" name="remarks" placeholder="Remarks" />
+            </div>
+            <div class="col-lg-4">
+                <br>
+               <input class="form-control btn btn-primary " value="Submit"  type="submit" />
+      
+            </div>
+        </div>
+      </div>
+     <div class="col-lg-6">
+      <div class="container-fluid"> 
+        <div class="row container-fluid">
+            <div class="col-lg-12">
+                <label for="number">Assessment</label>
+                <textarea disabled id="assessment" name="assessment" class="form-control" rows="5"></textarea>
+            </div>
+             </div>    
+        </div>
+      </div>
+    </div>
+  </div>    </form> 
+
  </div>
   </div>
   </div>

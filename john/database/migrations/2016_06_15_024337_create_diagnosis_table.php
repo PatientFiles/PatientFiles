@@ -17,6 +17,7 @@ class CreateDiagnosisTable extends Migration
             $table->integer('patient_id');
             $table->integer('practitioner_id');
             $table->string('diagnosis_result');
+            $table->string('diagnosis_remarks');
             $table->integer('appointment_id');
             $table->timestamps();
             $table->softDeletes();

@@ -134,7 +134,7 @@ class patientController extends Controller
             'temp'          => 'max:2|min:1',
             'sys'           => 'max:3|min:1',
             'dia'           => 'max:3|min:1',
-            'mens'          => 'date|before:tomorrow|date_format:m/d/Y',
+            'mens'          => 'date|before:tomorrow|date_format:Y-m-d',
         ]);
         if($validator->fails()) {
             return redirect()
@@ -188,7 +188,7 @@ class patientController extends Controller
             'lname'         => 'required|min:1',
             'mname'         => 'min:1',
             'nickname'      => 'min:1',
-            'bdate'         => 'required|date|before:tomorrow|date_format:m/d/Y',
+            'bdate'         => 'required|date|before:tomorrow|date_format:Y-m-d',
             'gender'        => 'required',
             'email'         => 'email|min:1',
             'efname'        => 'min:1',

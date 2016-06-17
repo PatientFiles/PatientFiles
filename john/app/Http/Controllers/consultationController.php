@@ -56,6 +56,7 @@ class consultationController extends Controller
         $profile = $this->medix->get('patient/'.$id);
         \Session::put('type', 'New Patient Consultation');
         \Session::put('complaint', $chief_complaints);
+        \Session::put('url', '/consultation/'.$id);
 
 		return redirect('consultation/'.$id)
                 ->with('prof', $profile->data)
@@ -100,6 +101,8 @@ class consultationController extends Controller
         \Session::put('appoint', $key->id);
         \Session::put('patient_appoint', $profile->data->id);
         \Session::put('complaint', $chief_complaints);
+        \Session::put('url', '/consultation/'.$id);
+        \Session::put('visit_patient', $profile->data->user->firstname.' '.$profile->data->user->lastname);
         //dd($profile);
         //dd(\Session::get('appoint'));
 
@@ -147,6 +150,8 @@ class consultationController extends Controller
        \Session::forget('type');
        \Session::forget('appoint');
        \Session::forget('patient_appoint');
+       \Session::forget('complaint');
+       \Session::forget('url');
 
        return redirect('/home')->with('visit',['type'=> 'success','text' => 'Visit successfully ended!']);
 
@@ -196,6 +201,52 @@ class consultationController extends Controller
                 'msg'    => 'Vaccination added successfully',
                 'data'   => $vaccine_table,
                 'date'   => $vaccine->date,
+            );
+            return \Response::json($response);
+        }
+        return false;
+    }
+
+    /*---------------------------------------------------------------------------------------------------------------------------------------------
+    | ADD DIAGNOSIS
+    |----------------------------------------------------------------------------------------------------------------------------------------------
+    |
+    */
+    public function diagnosis(Request $req)
+    {
+       
+        if (! \Session::has('consult')) {
+           return redirect('/home')->with('message',['type'=> 'danger','text' => 'Consultation not yet Started! Please select a patient to be consulted!']);
+        }
+
+
+        if ($req->ajax()) {
+
+            $req->only('remarks','result');
+
+            $remarks         = $req->input('remarks');
+            $result          = $req->input('result');
+            $patient_id      = $req->input('patient_id');
+            $appointment_id  = $req->input('appointment_id');
+            $practitioner_id = \Session::get('user_id');
+
+            
+
+            $data = [
+                'diagnosis_remarks' => $remarks,
+                'diagnosis_result'  => $result,
+                'patient_id'        => \Session::get('patient_appoint'),
+                'appointment_id'    => \Session::get('appoint'),
+                'practitioner_id'   => $practitioner_id,
+            ];
+
+            $diagnosis = Diagnosis::create($data);
+            //dd($user);
+
+           $response = array(
+                'status' => 'success',
+                'msg'    => 'Vaccination added successfully',
+                'data'   => $diagnosis,
             );
             return \Response::json($response);
         }

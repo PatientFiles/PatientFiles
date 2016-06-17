@@ -13,7 +13,7 @@
            Consultation
           </h1>
           <ol class="breadcrumb">
-            <a class="btn btn-primary" href="patientProfile/{{Session::get('patient_appoint')}}" >View Patient Profile</a>
+            <a class="btn btn-primary" href="/patientProfile/{{Session::get('patient_appoint')}}" target="_blank">View Patient Profile</a>
           </ol>
       </section>
       <hr>

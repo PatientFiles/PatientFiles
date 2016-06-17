@@ -9,6 +9,8 @@
 }
 </style>
 <section class="content-header">
+<input class="form-control" type="text" name="patient_id" id="patient_id" placeholder="Vaccination Date" value="{{$prof->id}}" />
+<input class="form-control" type="text" name="appointment_id" id="appointment_id" value="{{Session::get('appoint')}}" />
           <h1>
            Consultation
           </h1>
@@ -35,7 +37,7 @@
               <div class="col-lg-4 col-sm-4">  
               <br>
                   <h3 class="widget-user-username">&nbsp {{$prof->user->firstname.' '.$prof->user->lastname}} </h3>
-                  <h5 class="widget-user-desc">&nbsp &nbsp Patient</h5>
+                  <h5 class="widget-user-desc">&nbsp &nbsp</h5>
               </div>    
                 </div>
                 <div class="box-footer" style="padding-top: 10px;">
@@ -176,11 +178,11 @@
       <hr>
      <div class="row">
         <div class="col-lg-6">
-      <form>
+      <form action="#" method="POST" role="form" id="vac_submit">
         <div class="row container-fluid">
             <div class="col-lg-6" >
                   <label>Vaccine Name</label>
-                  <select id="select_vaccine" class="demo-default" data-placeholder="Vaccine Name" required>
+                  <select id="select_vaccine" name="select_vaccine" class="demo-default" data-placeholder="Vaccine Name" required>
                     <option disabled selected value>None</option>
 
                     @foreach ($vaccine as $vac)
@@ -191,7 +193,7 @@
             </div>
             <div class="col-lg-6" id="sandbox-container" >
                <label>Vaccination Date </label>
-               <input class="form-control" type="text" placeholder="Vaccination Date" />
+               <input class="form-control" type="text" name="vac_date" id="vac_date" placeholder="Vaccination Date" />
             </div>
         </div>
            <div class="col-lg-4">  

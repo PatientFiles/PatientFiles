@@ -27,10 +27,7 @@ jQuery( document ).ready( function() {
             		toastr.options.showMethod        = 'slideDown';
             		toastr.options.hideMethod        = 'slideUp';
                   $("#vac_submit")[0].reset();
-                  $('#vaccination_body').prepend('<tr><td>'+name+'</td><td> <a href="#" class="editMedModal" data-toggle="modal" data-id="'+vfor+'" data-medname="'+date+'" data-target="#editMedicine"> <span class="glyphicon glyphicon-edit "></span> &nbsp </a> |  </span> </a></td></tr>');
-              }
-              error: function(err){
-                console.log(err);
+                  $('#vaccination_body').append('<tr><td>'+name+'</td><td> <a href="#" class="editMedModal" data-toggle="modal" data-id="'+vfor+'" data-medname="'+date+'" data-target="#editMedicine"> <span class="glyphicon glyphicon-edit "></span> &nbsp </a> |  </span> </a></td></tr>');
               }
           }); 
          });

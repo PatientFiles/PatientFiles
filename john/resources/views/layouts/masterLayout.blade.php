@@ -189,16 +189,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="/home"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
             <li class="treeview">
-              <a href=""><i class="fa fa-black-tie"></i> <span>Patient</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <a href=""><i class="ion ion-ios-contact-outline"></i> <span>Patient</span> <i class="fa fa-angle-left pull-right"></i></a>
                   <ul class="treeview-menu">
                     <li><a href="/patientRecords"><i class="fa fa-users"></i>Patient List</a></li>
                      <li><a href="/register"><i class="ion ion-person-add"></i>Add Patient</a></li>
                   </ul>
              </li>
             <li ><a href="/queue"><i class="fa fa-calendar-check-o"></i> <span>Queues</span></a></li>
-            <li ><a href="/scheduler"><i class="fa fa-calendar-plus-o"></i> <span>Scheduler</span></a></li>
-             <li ><a href="/accounts"><i class="fa fa-user-md"></i> <span>Pediatricians</span></a></li>
-             <li ><a href="/items"><i class="fa fa-cart-plus"></i> <span>Maintenance</span></a></li>
+             <li class="treeview">
+              <a href=""><i class="fa fa-black-tie"></i> <span>Management</span> <i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                    <li ><a href="/accounts"><i class="fa fa-user-md"></i> <span>Pediatricians</span></a></li>
+                    <li><a href="/analytics"><i class="fa fa-bar-chart-o"></i>Clinic Analytics</a></li>
+                    <li ><a href="/items"><i class="fa fa-cart-plus"></i> <span>Maintenance</span></a></li>
+                  </ul>
+             </li>
           </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->

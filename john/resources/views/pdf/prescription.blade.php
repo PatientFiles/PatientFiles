@@ -71,6 +71,8 @@
 	<div>
 		<img src="img/rx.png">
 		@foreach ($presc_table as $pre)
+
+		<div style="margin-left: 200px">
 			<table>
 					<tr>
 						<td><b>{{$pre['prescription']['medicine_name']}}</b></td>
@@ -83,11 +85,12 @@
 					</tr>
 				
 			</table>
+		</div>
 			<br>
 		@endforeach
 	</div>
 </section>
-<footer>
+<footer style="position: absolute; bottom: 20px">
 		<table align="right">
 			<tr>
 				<td align="center">{{'Dr. '.Session::get('fname').' '.Session::get('lname')}}</td>

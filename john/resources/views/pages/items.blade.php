@@ -24,10 +24,7 @@
           <h1>
           Maintenance
           </h1>
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Maintenance</a></li>
-          </ol>
+        
 </section>
 <hr>
 
@@ -52,8 +49,8 @@
  <!-- Tab panes -->
              <div class="tab-content">
                   <div class="tab-pane active" id="medicine" role="tabpanel">
-                    <h3>Medicine</h3>
-                  <hr>
+                  
+             
                  <div class="row">
 
                     <div class="col-lg-6">
@@ -154,8 +151,8 @@
                    </div>
 
                    <div class="tab-pane" id="vaccine" role="tabpanel">
-                            <h3>Vaccine</h3>
-                          <hr>
+                          
+                          
                          <div class="row">
 
                             <div class="col-lg-6">
@@ -285,9 +282,8 @@
 
 
                      <div class="tab-pane" id="lab" role="tabpanel">
-                            <h3>Laboratory types</h3>
-                          <hr>
-                                 <div class="row">
+                       
+                                                           <div class="row">
 
                             <div class="col-lg-6">
                           <form action="/items/add_lab" method="POST" id="lab_form">

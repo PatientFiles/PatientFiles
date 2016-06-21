@@ -8,7 +8,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>@yield('title')</title>
+      <title>Visit Process | Pedix</title>
       <!-- Tell the browser to be responsive to screen width -->
       <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
       <!-- Bootstrap 3.3.5 -->
@@ -251,7 +251,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <section class="content-header">
           <h1>
-           Consultation
+           Visit Process
           </h1>
           <ol class="breadcrumb">
             <a class="btn btn-primary" href="/patientProfile/{{Session::get('patient_appoint')}}" target="_blank">View Patient Profile</a>

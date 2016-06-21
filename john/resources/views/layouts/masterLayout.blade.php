@@ -189,16 +189,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="/home"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
             <li class="treeview">
-              <a href=""><i class="fa fa-black-tie"></i> <span>Patient</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <a href=""><i class="ion ion-ios-contact-outline"></i> <span>Patient</span> <i class="fa fa-angle-left pull-right"></i></a>
                   <ul class="treeview-menu">
                     <li><a href="/patientRecords"><i class="fa fa-users"></i>Patient List</a></li>
                      <li><a href="/register"><i class="ion ion-person-add"></i>Add Patient</a></li>
                   </ul>
              </li>
-            <li ><a href="/queue<"><i class="fa fa-calendar-check-o"></i> <span>Queues</span></a></li>
-            <li ><a href="/scheduler"><i class="fa fa-calendar-plus-o"></i> <span>Scheduler</span></a></li>
-             <li ><a href="/accounts"><i class="fa fa-user-md"></i> <span>Pediatricians</span></a></li>
-             <li ><a href="/items"><i class="fa fa-cart-plus"></i> <span>Maintenance</span></a></li>
+            <li ><a href="/queue"><i class="fa fa-calendar-check-o"></i> <span>Queues</span></a></li>
+             <li class="treeview">
+              <a href=""><i class="fa fa-black-tie"></i> <span>Management</span> <i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                    <li ><a href="/accounts"><i class="fa fa-user-md"></i> <span>Pediatricians</span></a></li>
+                    <li><a href="/analytics"><i class="fa fa-bar-chart-o"></i>Clinic Analytics</a></li>
+                    <li ><a href="/items"><i class="fa fa-cart-plus"></i> <span>Maintenance</span></a></li>
+                  </ul>
+             </li>
           </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->
@@ -222,59 +227,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </footer>
       <!-- Control Sidebar -->
       <aside class="control-sidebar control-sidebar-dark">
-        <!-- Create the tabs -->
-        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-          <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-          <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-        </ul>
-        <!-- Tab panes -->
         <div class="tab-content">
           <!-- Home tab content -->
           <div class="tab-pane active" id="control-sidebar-home-tab">
-            <h3 class="control-sidebar-heading">Recent Activity</h3>
-            <ul class="control-sidebar-menu">
-              <li>
-                <a href="javascript::;">
-                  <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-                  <div class="menu-info">
-                    <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-                    <p>Will be 23 on April 24th</p>
-                  </div>
-                </a>
-              </li>
-            </ul><!-- /.control-sidebar-menu -->
-            <h3 class="control-sidebar-heading">Tasks Progress</h3>
-            <ul class="control-sidebar-menu">
-              <li>
-                <a href="javascript::;">
-                  <h4 class="control-sidebar-subheading">
-                    Custom Template Design
-                    <span class="label label-danger pull-right">70%</span>
-                  </h4>
-                  <div class="progress progress-xxs">
-                    <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-                  </div>
-                </a>
-              </li>
-            </ul><!-- /.control-sidebar-menu -->
           </div><!-- /.tab-pane -->
           <!-- Stats tab content -->
           <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div><!-- /.tab-pane -->
           <!-- Settings tab content -->
-          <div class="tab-pane" id="control-sidebar-settings-tab">
-            <form method="post">
-              <h3 class="control-sidebar-heading">General Settings</h3>
-              <div class="form-group">
-                <label class="control-sidebar-subheading">
-                  Report panel usage
-                  <input type="checkbox" class="pull-right" checked>
-                </label>
-                <p>
-                  Some information about this general settings option
-                </p>
-              </div><!-- /.form-group -->
-            </form>
-          </div><!-- /.tab-pane -->
         </div>
       </aside><!-- /.control-sidebar -->
       <!-- Add the sidebar's background. This div must be placed

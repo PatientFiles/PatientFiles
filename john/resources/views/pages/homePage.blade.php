@@ -139,12 +139,20 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
        data-show-refresh="true"
        data-show-toggle="true"
        data-show-columns="true" id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
-                     <h4 class="pull-left">Reminders</h4>
+                     <h4 class="pull-left">Reminders (Vaccination)</h4>
                      <thead>
-                      <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Patient ID</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Patient Name</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Time of Appointment</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Status</th></tr>
+                      <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Patient ID</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Patient Name</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Vaccine</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Date</th></tr>
                     </thead>
                     <tbody>
-                      </tbody>
+                      @foreach ($reminder as $remind)
+                        <tr>
+                              <td>{{$remind['patient_id']}}</td>
+                              <td>{{$remind['patient_id']}}</td>
+                              <td>{{$remind['vaccine']['vaccine_name']}}</td>
+                              <td>{{date('F d,Y',strtotime($remind['date']))}}</td>
+                        </tr>
+                      @endforeach
+                    </tbody>
                   </table></div></div></div>
                 </div><!-- /.box-body -->
             </div>

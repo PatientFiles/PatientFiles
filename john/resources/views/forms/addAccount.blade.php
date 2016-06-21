@@ -45,7 +45,7 @@ div#patientListing:hover
                       @if($errors->has('firstname'))
                           <span class="error" style="color: red">{{ $errors->first('firstname') }}</span>
                       @endif
-                                  <input type="text" name="firstname" class="form-control" placeholder="Firstname">
+                                  <input value="{{old('firstname')}}" type="text" name="firstname" class="form-control" placeholder="Firstname">
                             </div>
 
                             <div class="col-lg-4">
@@ -53,14 +53,14 @@ div#patientListing:hover
                       @if($errors->has('middlename'))
                           <span class="error" style="color: red">{{ $errors->first('middlename') }}</span>
                       @endif
-                                  <input type="text" name="middlename" class="form-control" placeholder="Middlename">
+                                  <input value="{{old('middlename')}}" type="text" name="middlename" class="form-control" placeholder="Middlename">
                             </div>
                             <div class="col-lg-4">
                                   <label for="text">Lastname:&nbsp<span style="color:red">*</span></label>
                       @if($errors->has('lastname'))
                           <span class="error" style="color: red">{{ $errors->first('lastname') }}</span>
                       @endif
-                                  <input type="text" name="lastname" class="form-control" placeholder="Lastname">
+                                  <input value="{{old('lastname')}}" type="text" name="lastname" class="form-control" placeholder="Lastname">
                             </div>
                           </div>   
 
@@ -82,7 +82,7 @@ div#patientListing:hover
                           <span class="error" style="color: red">{{ $errors->first('birthdate') }}</span>
                       @endif
                                   <div class="input-group">
-                                    <input type="text" name="birthdate" readonly class="form-control" id="idTourDateDetails" placeholder="Click here to pick a birthdate">
+                                    <input value="{{old('birthdate')}}" type="text" name="birthdate" readonly class="form-control" id="idTourDateDetails" placeholder="Click here to pick a birthdate">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                   </div>
                             </div>
@@ -94,21 +94,21 @@ div#patientListing:hover
                       @if($errors->has('license_number'))
                           <span class="error" style="color: red">{{ $errors->first('license_number') }}</span>
                       @endif
-                                <input type="number" name="license_number" class="form-control" placeholder="License Number">
+                                <input value="{{old('licence_number')}}" type="number" name="license_number" class="form-control" placeholder="License Number">
                             </div>
                             <div class="col-lg-4">
                                 <label for="number">PTR:</label>
                       @if($errors->has('ptr_number'))
                           <span class="error" style="color: red">{{ $errors->first('ptr_number') }}</span>
                       @endif
-                                <input type="number" name="ptr_number" class="form-control" placeholder="PTR License">
+                                <input value="{{old('ptr_number')}}" type="number" name="ptr_number" class="form-control" placeholder="PTR License">
                             </div>
                             <div class="col-lg-4">
                                 <label for="number">S2 License Number:</label>
                       @if($errors->has('s2_license'))
                           <span class="error" style="color: red">{{ $errors->first('s2_license') }}</span>
                       @endif
-                                <input type="number" name="s2_license" class="form-control" placeholder="S2 License Number">
+                                <input value="{{old('s2_license')}}" type="number" name="s2_license" class="form-control" placeholder="S2 License Number">
                             </div>
                           </div>
 
@@ -118,7 +118,7 @@ div#patientListing:hover
                       @if($errors->has('specialties_name'))
                           <span class="error" style="color: red">{{ $errors->first('specialties_name') }}</span>
                       @endif
-                                  <input type="text" name="specialties_name" class="form-control" placeholder="Specialty">
+                                  <input value="{{old('specialties_name')}}" type="text" name="specialties_name" class="form-control" placeholder="Specialty">
                               </div>
                           </div>
 
@@ -128,21 +128,21 @@ div#patientListing:hover
                       @if($errors->has('mobile_number'))
                           <span class="error" style="color: red">{{ $errors->first('mobile_number') }}</span>
                       @endif
-                                <input type="text" name="mobile_number"  placeholder="Mobile Number" class="form-control input-medium bfh-phone" data-format="dddd ddd-dddd" aria-describedby="basic-addon1" value="">
+                                <input value="{{old('mobile_number')}}" type="text" name="mobile_number"  placeholder="Mobile Number" class="form-control input-medium bfh-phone" data-format="dddd ddd-dddd" aria-describedby="basic-addon1" value="">
                             </div>
                             <div class="col-lg-4">
                                 <label for="text">Email Address:&nbsp<span style="color:red">*</span></label>
                       @if($errors->has('email'))
                           <span class="error" style="color: red">{{ $errors->first('email') }}</span>
                       @endif
-                                <input type="text" name="email" class="form-control" placeholder="Email Address">
+                                <input value="{{old('email')}}" type="text" name="email" class="form-control" placeholder="Email Address">
                             </div>
                             <div class="col-lg-4">
                                 <label for="password">Password:&nbsp<span style="color:red">*</span></label>
                       @if($errors->has('password'))
                           <span class="error" style="color: red">{{ $errors->first('password') }}</span>
                       @endif
-                                <input type="password" name="password" class="form-control" placeholder="Password">
+                                <input value="{{old('password')}}" type="password" name="password" class="form-control" placeholder="Password">
                             </div>
                           </div>
                           <br>

@@ -50,7 +50,7 @@ div#patientListing:hover
                       @if($errors->has('firstname'))
                           <span class="error" style="color: red">{{ $errors->first('firstname') }}</span>
                       @endif
-                                  <input type="text" name="firstname" class="form-control" placeholder="Firstname" value="{{$account->firstname}}">
+                                  <input value="{{old('firstname')}}" type="text" name="firstname" class="form-control" placeholder="Firstname" value="{{$account->firstname}}">
                             </div>
 
                             <div class="col-lg-4">
@@ -58,14 +58,14 @@ div#patientListing:hover
                       @if($errors->has('middlename'))
                           <span class="error" style="color: red">{{ $errors->first('middlename') }}</span>
                       @endif
-                                  <input type="text" name="middlename" class="form-control" placeholder="Middlename" value="{{$account->middlename}}">
+                                  <input value="{{old('middlename')}}" type="text" name="middlename" class="form-control" placeholder="Middlename" value="{{$account->middlename}}">
                             </div>
                             <div class="col-lg-4">
                                   <label for="text">Lastname:&nbsp<span style="color:red">*</span></label>
                       @if($errors->has('lastname'))
                           <span class="error" style="color: red">{{ $errors->first('lastname') }}</span>
                       @endif
-                                  <input type="text" name="lastname" class="form-control" placeholder="Lastname" value="{{$account->lastname}}">
+                                  <input value="{{old('lastname')}}"type="text" name="lastname" class="form-control" placeholder="Lastname" value="{{$account->lastname}}">
                             </div>
                           </div>   
 
@@ -87,7 +87,7 @@ div#patientListing:hover
                           <span class="error" style="color: red">{{ $errors->first('birthdate') }}</span>
                       @endif
                                   <div class="input-group">
-                                    <input type="text" name="birthdate" readonly class="form-control" id="idTourDateDetails" placeholder="Click here to pick a birthdate" value="{{date('Y-m-d', strtotime($account->birthdate))}}">
+                                    <input value="{{old('birthdate')}}" type="text" name="birthdate" readonly class="form-control" id="idTourDateDetails" placeholder="Click here to pick a birthdate" value="{{date('Y-m-d', strtotime($account->birthdate))}}">
                                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                   </div>
                             </div>
@@ -99,7 +99,7 @@ div#patientListing:hover
                       @if($errors->has('email'))
                           <span class="error" style="color: red">{{ $errors->first('email') }}</span>
                       @endif
-                                <input type="text" name="email" class="form-control" placeholder="Email Address" value="{{$account->user_emails[0]->email}}"><input type="hidden" name="ped_id" class="form-control" placeholder="Email Address" value="{{$account->id}}">
+                                <input value="{{old('email')}}" type="text" name="email" class="form-control" placeholder="Email Address" value="{{$account->user_emails[0]->email}}"><input type="hidden" name="ped_id" class="form-control" placeholder="Email Address" value="{{$account->id}}">
                             </div>
                           </div>
                           <br>

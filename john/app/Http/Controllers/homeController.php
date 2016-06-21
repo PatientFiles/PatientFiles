@@ -237,6 +237,12 @@ class homeController extends Controller
     */
     public function analytics()
     {
-        return view('pages.analytics');
+        if (! \Session::has('token')) {
+            return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
+        }
+        
+        $reports  = $this->medix->get('management/reports');
+        return view('pages.analytics')
+            ->with('counts', $reports->data);
     }
 }

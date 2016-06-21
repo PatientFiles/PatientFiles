@@ -97,7 +97,7 @@ class userController extends Controller
             'lastname'          => 'required|min:1',
             'middlename'        => 'min:1',
             'gender'            => 'required',
-            'birthdate'         => 'required|date|before:today|date_format:m/d/Y',
+            'birthdate'         => 'required|date|before:today|date_format:Y-m-d',
             'email'            => 'required|email',
             'password'          => 'required',
         ]);
@@ -155,7 +155,7 @@ class userController extends Controller
             'lastname'          => 'required|min:1',
             'middlename'        => 'min:1',
             'gender'            => 'required',
-            'birthdate'         => 'required|date|before:today|date_format:m/d/Y',
+            'birthdate'         => 'required|date|before:today|date_format:Y-m-d',
             'email'             => 'required|email',
         ]);
         //dd($validator->fails());

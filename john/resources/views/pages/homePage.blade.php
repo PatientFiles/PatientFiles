@@ -25,7 +25,6 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
                 <div class="box-body">
                     <table  data-toggle="table"
        data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
-       data-search="true"
        data-show-refresh="true"
        data-show-toggle="true"
        data-show-columns="true">

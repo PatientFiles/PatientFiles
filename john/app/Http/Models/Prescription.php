@@ -8,5 +8,12 @@ class Prescription extends Model
 {
     //
     protected $guarded = ['id'];
-    protected $table = 'prescription';
+    protected $table   = 'prescription';
+
+
+    public function prescription()
+    {
+        return $this->belongsTo('App\Http\Models\Medicine', 'medicine_id');
+    }
+
 }

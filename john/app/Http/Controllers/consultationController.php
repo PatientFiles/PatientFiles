@@ -335,12 +335,16 @@ class consultationController extends Controller
             ];
 
             $prescription           = Prescription::create($data);
+            $presc_table            = Prescription::with('prescription')
+                                            ->where('medicine_id', $prescription->medicine_id)
+                                            ->first();
             //dd($user);
 
            $response = array(
                 'status' => 'success',
                 'msg'    => 'Lab Request added successfully',
                 'data'   => $prescription,
+                'presc'  => $presc_table,
             );
             return \Response::json($response);
         }

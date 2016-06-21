@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Models\Vaccine;
 use App\Http\Models\Medicine;
 use App\Http\Models\Lab;
+use App\Http\Models\Vaccination;
 
 class homeController extends Controller
 {
@@ -175,12 +176,16 @@ class homeController extends Controller
         $reports  = $this->medix->get('management/reports');
         //dd($patients);
         $mytime = Carbon::now();
+        $reminders = Vaccination::with('vaccine')
+                        ->where('date', date('Y-m-d',strtotime($mytime)))
+                        ->get();
 
-        //dd($count);
+        //dd($reminders);
         return view('pages.homePage')
             ->with('time', $mytime)
             ->with('counts', $reports->data)
-            ->with('consults', $patients->data);
+            ->with('consults', $patients->data)
+            ->with('remind', $reminders);
        //return dd($result);
     }
 
@@ -223,5 +228,15 @@ class homeController extends Controller
     public function error()
     {
         return view('pages.errorPage');
+    }
+
+    /*---------------------------------------------------------------------------------------------------------------------------------------------
+    | ANALYTICS PAGE
+    |----------------------------------------------------------------------------------------------------------------------------------------------
+    |
+    */
+    public function analytics()
+    {
+        return view('pages.analytics');
     }
 }

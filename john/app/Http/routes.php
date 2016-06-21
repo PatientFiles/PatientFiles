@@ -27,6 +27,7 @@ Route::resource('/searchResult','homeController@searchResult');
 Route::resource('/patientRecords','homeController@patientRecords');
 Route::get('/patientProfile/{id}','patientController@patientProfile');
 Route::get('/patient/edit_patient/{id}','homeController@editPatient');
+Route::get('/analytics','homeController@analytics');
 
 /*--------------------------------------------------------------------------------
 | ROUTE FOR PATIENT PROFILE

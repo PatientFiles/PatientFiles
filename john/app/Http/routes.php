@@ -27,6 +27,7 @@ Route::resource('/searchResult','homeController@searchResult');
 Route::resource('/patientRecords','homeController@patientRecords');
 Route::get('/patientProfile/{id}','patientController@patientProfile');
 Route::get('/patient/edit_patient/{id}','homeController@editPatient');
+Route::get('/analytics','homeController@analytics');
 
 /*--------------------------------------------------------------------------------
 | ROUTE FOR PATIENT PROFILE
@@ -43,10 +44,10 @@ Route::post('/saveVitals/{id}','patientController@saveVitals');
 |
 */
 Route::post('/add_account','userController@addAccount');
+Route::post('/account/edit_account','userController@editPed');
 Route::get('/account/add_account','userController@addAccountPage');
 Route::get('/account/edit_account/{id}','userController@editAccount');
 Route::get('/delete_account/{user_id}','userController@deleteAccount');
-Route::post('/account/edit_account','userController@editPed');
 
 /*--------------------------------------------------------------------------------
 | ROUTEs FOR EXCEPTION HANDLING
@@ -54,10 +55,10 @@ Route::post('/account/edit_account','userController@editPed');
 |
 |
 */
-Route::get('/error','homeController@error');
 Route::get('/internet_lost', function(){
 	return view('pages.noInternet');
 });
+Route::get('/error','homeController@error');
 
 /*---------------------------------------------------------------------------------
 |ROUTEs FOR CONSULTATON SERVICE
@@ -74,9 +75,10 @@ Route::get('/queue', function(){
 		return view('pages.queue');
 });
 
-
-Route::post('/consultation/vaccination', 'consultationController@vaccination');
 Route::post('/consultation/diagnosis', 'consultationController@diagnosis');
+Route::post('/consultation/labrequest', 'consultationController@labrequest');
+Route::post('/consultation/vaccination', 'consultationController@vaccination');
+Route::post('/consultation/prescription', 'consultationController@prescription');
 
 /*---------------------------------------------------------------------------------
 |ROUTEs FOR ADDING ITEMS
@@ -100,9 +102,9 @@ Route::resource('/items','itemController@items');
 |----------------------------------------------------------------------------------
 |
 */
-Route::post('/items/edit_medicine/{id}','itemController@editMedicine');
-Route::post('/items/edit_vaccine/{id}','itemController@editVaccine');
 Route::post('/items/edit_lab/{id}','itemController@editLab');
+Route::post('/items/edit_vaccine/{id}','itemController@editVaccine');
+Route::post('/items/edit_medicine/{id}','itemController@editMedicine');
 
 /*---------------------------------------------------------------------------------
 |ROUTEs FOR SOFT DELETING DATA TO ITEMS TABLE
@@ -110,6 +112,6 @@ Route::post('/items/edit_lab/{id}','itemController@editLab');
 |
 */
 
-Route::delete('/items/delete_medicine/{id}','itemController@deleteMedicine');
-Route::delete('/items/delete_vaccine/{id}','itemController@deleteVaccine');
 Route::delete('/items/delete_lab/{id}','itemController@deleteLab');
+Route::delete('/items/delete_vaccine/{id}','itemController@deleteVaccine');
+Route::delete('/items/delete_medicine/{id}','itemController@deleteMedicine');

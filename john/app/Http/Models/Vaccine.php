@@ -14,5 +14,4 @@ class Vaccine extends Model
     {
         return $this->hasMany('App\Http\Models\Vaccination', 'vaccine_id');
     }
-
 }

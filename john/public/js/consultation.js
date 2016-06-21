@@ -32,6 +32,12 @@ jQuery( document ).ready( function() {
           }); 
          });
 
+      /*--------------------------------
+      |
+      |add a medicine
+      |
+      |--------------------------------
+      */
       $( '#diagnosis_submit' ).on( 'submit', function(e) {
           e.preventDefault(); 
         var data = $(this).serialize();
@@ -49,6 +55,58 @@ jQuery( document ).ready( function() {
                 toastr.options.hideMethod        = 'slideUp';
                   $("#diagnosis_submit")[0].reset();
                   $('#assessment').text('Diagnosis result:\n          '+result+'\nRemarks:\n          '+remarks);
+              }
+          }); 
+         });
+
+      /*--------------------------------
+      |
+      |add a lab request
+      |
+      |--------------------------------
+      */
+      $( '#lab_submit' ).on( 'submit', function(e) {
+          e.preventDefault(); 
+        var data = $(this).serialize();
+        $.ajax({
+              type: "POST",
+              url: '/consultation/labrequest',
+              data: data,
+              success: function(res) {
+                console.log(res);
+                var result = res.data.diagnosis_result;
+                var remarks = res.data.diagnosis_remarks;
+                toastr.options.positionClass = 'toast-top-center';
+                toastr.success('Lab Request successfully added!');
+                toastr.options.showMethod        = 'slideDown';
+                toastr.options.hideMethod        = 'slideUp';
+                  $("#lab_submit")[0].reset();
+              }
+          }); 
+         });
+
+      /*--------------------------------
+      |
+      |add a prescription
+      |
+      |--------------------------------
+      */
+      $( '#prescription_submit' ).on( 'submit', function(e) {
+          e.preventDefault(); 
+        var data = $(this).serialize();
+        $.ajax({
+              type: "POST",
+              url: '/consultation/prescription',
+              data: data,
+              success: function(res) {
+                console.log(res);
+                var result = res.data.diagnosis_result;
+                var remarks = res.data.diagnosis_remarks;
+                toastr.options.positionClass = 'toast-top-center';
+                toastr.success('Prescription successfully added!');
+                toastr.options.showMethod        = 'slideDown';
+                toastr.options.hideMethod        = 'slideUp';
+                  $("#prescription_submit")[0].reset();
               }
           }); 
          });

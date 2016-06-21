@@ -96,46 +96,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <ul class="nav navbar-nav">
           <!-- Messages: style can be found in dropdown.less-->
           <li class="dropdown messages-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-stethoscope"></i>
-              @if(! Session::has('url'))
-              
-              @else
-                <span class="label label-success">1</span>
-              @endif
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">Ongoing Visit</li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                @if (! Session::has('url'))
-                <li><!-- start message -->
-                    <a href="#">
-                      <p>
-                          No ongoing visit. Please select a patient.
-                      </p>
-                    </a>
-                  </li>
-                @else
-                  <li><!-- start message -->
-                    <a href="{{Session::get('url')}}">
-                      <div class="pull-left">
-                        <img src="/img/prof_pic.png" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        {{Session::get('visit_patient')}}<small>{{Session::get('patient_appoint')}}</small>
-                      </h4>
-                      <p>{{Session::get('complaint')}}</p>
-                    </a>
-                  </li>
-                @endif
-                  <!-- end message -->
-                  </li>
-                </ul>
-              </li>
-            </ul>
+            @if (! Session::has('url'))
+              <a href="#" class="bottom" title="No ongoing session" data-placement="bottom" data-toggle="tooltip">
+                <i class="fa fa-stethoscope"></i>
+              </a>
+            @else
+              <a href="{{Session::get('url')}}" class="bottom" title="Ongoing visit: {{Session::get('visit_patient')}}" data-placement="bottom" data-toggle="tooltip">
+                <i class="fa fa-stethoscope"></i>
+                  <span class="label label-success">1</span>
+              </a>
+            @endif
           </li>
+            </ul>
           
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">

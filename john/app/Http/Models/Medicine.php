@@ -12,4 +12,10 @@ class Medicine extends Model
     protected $guarded = ['id'];
     protected $table   = 'medicine';
     protected $dates   = ['deleted_at'];
+
+
+    public function medicine()
+    {
+        return $this->hasOne('App\Http\Models\Prescription', 'medicine_id');
+    }
 }

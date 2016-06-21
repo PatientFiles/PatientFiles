@@ -18,6 +18,7 @@ class CreatePrescriptionTable extends Migration
             $table->integer('medicine_id');
             $table->integer('practitioner_id');
             $table->integer('quantity');
+            $table->integer('appointment_id');
             $table->string('sig');
             $table->timestamps();
             $table->softDeletes();

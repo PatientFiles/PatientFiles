@@ -185,7 +185,7 @@ class homeController extends Controller
             ->with('time', $mytime)
             ->with('counts', $reports->data)
             ->with('consults', $patients->data)
-            ->with('remind', $reminders);
+            ->with('reminder', $reminders);
        //return dd($result);
     }
 

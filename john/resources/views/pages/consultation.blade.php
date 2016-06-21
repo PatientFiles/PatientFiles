@@ -533,7 +533,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </table>
           <br>
           <br>
-         <a href="/pdf" target="_blank" class="btn btn-primary "> Print Prescription</a>
+         <a href="/printPrescription/{{Session::get('patient_appoint')}}" target="_blank" class="btn btn-primary "> Print Prescription</a>
       </div>    
       </div>
   </div>

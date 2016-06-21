@@ -123,16 +123,21 @@ class consultationController extends Controller
 	|----------------------------------------------------------------------------------------------------------------------------------------------
 	|
 	*/
-   	public function createPrescription()
+   	public function createPrescription($id)
    	{
         if (! \Session::has('fname')) {
             return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
         }
 
-   		//$pdf = \PDF::loadView('forms.patientRegister');
-		//return $pdf->stream();
+        $profile     = $this->medix->get('patient/'.$id);
+        $prof        = $profile->data;
+        $presc       = Prescription::all();
+        $presc_table = Prescription::where('appointment_id', \Session::get('appoint'))
+                        ->with('prescription')
+                        ->get();
+        //dd($presc_table);
 		$pdf = App::make('dompdf.wrapper');
-		$pdf->loadView('pdf.prescription');
+		$pdf->loadView('pdf.prescription', compact('prof', 'presc_table'));
 		$pdf->setPaper('DEFAULT_PDF_PAPER_SIZE', 'portrait');
   		return $pdf->stream();
 

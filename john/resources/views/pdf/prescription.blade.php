@@ -43,33 +43,49 @@
 </style>
 <body>
 
-		<div align="right"><span>{{date('F d, Y',strtotime(Carbon\Carbon::now()))}}</span></div>
-		<br>
 		<div align="center"> 
 			<div>Pedix Medical Care </div>
 			<div>3BB Building 76 Kamuning Road,
 				<br>Brgy.Kamuning,Quezon City 1103,Philippines</br>
 			</div>
-			<div>(02)414 4014 </div>
 		</div>
 <br>
 <br>
-<div><h1>Pedix Prescription</h1></div>
-		
 <hr>
 <div id="info">
-<div style="padding-bottom: 5px;">
-<p>Patient Name     :</p>
-</div>
-<div>
-<p2>Address     :</p2>
-</div>
+<table width="100%">
+	<tr>
+		<td>
+			<b> Patient Name:</b>{{$prof->user->firstname.' '.$prof->user->lastname}}
+		</td>
+		<td align="right">
+			<b>Prescription Date:</b>{{date('F d,Y', strtotime(Carbon\Carbon::now()))}}
+		</td>
+	</tr>
+</table>
 </div>
 <hr>
 <section id="body"> 
 	<br>
 	<br>
-	<div><img src="img/rx.png"></div>
+	<div>
+		<img src="img/rx.png">
+		@foreach ($presc_table as $pre)
+			<table>
+					<tr>
+						<td><b>{{$pre['prescription']['medicine_name']}}</b></td>
+					</tr>
+					<tr>
+						<td>{{$pre['quantity']}} Pieces</td>
+					</tr>
+					<tr>
+						<td>{{$pre['sig']}}</td>
+					</tr>
+				
+			</table>
+			<br>
+		@endforeach
+	</div>
 </section>
 <footer>
 		<table align="right">

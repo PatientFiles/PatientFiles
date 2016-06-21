@@ -17,11 +17,11 @@ div#patientListing:hover
  </section>
 	 
 	<hr id="p_hr1">
-                        @if(session('message'))
-                            <p style="padding-top: 5px;color: white;background-color: red;font-style: italic;" class="alert alert-{{session ('message.type')}} form-control" >
-                                    {{session('message.text')}}
-                            </p>
-                        @endif
+    @if(session('message'))
+        <p style="padding-top: 5px;color: white;background-color: red;font-style: italic;" class="alert alert-{{session ('message.type')}} form-control" >
+                {{session('message.text')}}
+        </p>
+    @endif
 
 	<div class="panel panel-default" >
   <div class="panel-body" >

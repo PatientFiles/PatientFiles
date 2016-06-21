@@ -207,7 +207,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                      <li><a href="/register"><i class="ion ion-person-add"></i>Add Patient</a></li>
                   </ul>
              </li>
-            <li ><a href="/queue"><i class="fa fa-calendar-check-o"></i> <span>Queues</span></a></li>
              <li class="treeview">
               <a href=""><i class="fa fa-black-tie"></i> <span>Management</span> <i class="fa fa-angle-left pull-right"></i></a>
                   <ul class="treeview-menu">
@@ -392,8 +391,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
          </form>
       </div>
       <div class="tab-pane" id="vaccine" role="tabpanel">
-         <h3>Vaccination</h3>
-      <hr>
+      <br>
      <div class="row">
         <div class="col-lg-6">
       <form action="/consultation/vaccination" method="POST" role="form" id="vac_submit">
@@ -449,8 +447,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   </div>
 </div>
       <div class="tab-pane" id="prescription" role="tabpanel">
-       <h3>Prescriptions</h3>
-      <hr>
+      <br>
      <div class="row">
 
         <div class="col-lg-6">
@@ -459,7 +456,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
            <div class="row container-fluid">
             <div class="col-lg-9" >
                  <label>Medicine</label>  
-                     <select id="select_generic"  placeholder="Medicine Name" name="select_generic">
+                     <select id="select_generic" class="demo-default"  placeholder="Medicine Name" name="select_generic" required>
                         <option value disabled selected>None</option>
                         @foreach ($medicine as $med)
                           <option value="{{$med['id']}}">{{$med['medicine_name']}}</option>
@@ -469,11 +466,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
              <div class="col-lg-3">
                <label>Quantity</label>
-               <input class="form-control" type="number"  name="quantity" />
+               <input class="form-control" type="number"  name="quantity" required/>
             </div>
             <div class="col-lg-12">
                <label>Sig</label>
-               <input class="form-control" type="text" placeholder="Sig" name="sig" />
+               <input class="form-control" type="text" placeholder="Sig" name="sig" required />
             </div>
              <div class="col-lg-4">
                 <br>
@@ -512,8 +509,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </div>
       
     <div class="tab-pane" id="labrequest" role="tabpanel">
-        <h3>Lab Request</h3>
-      <hr>
+    <br>
      <div class="row">
         <div class="col-lg-6">
       <form action="/consultation/labrequest" method="POST" id="lab_submit">
@@ -564,8 +560,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>  
 
 <div class="tab-pane" id="diagnosis" role="tabpanel">
-         <h3>Diagnosis</h3>
-      <hr>
+<br>
      <div class="row">
         <div class="col-lg-6">
       <form action="/consultation/diagnosis" method="POST" role="form" id="diagnosis_submit">
@@ -643,30 +638,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="tab-content">
           <!-- Home tab content -->
           <div class="tab-pane active" id="control-sidebar-home-tab">
-            <h3 class="control-sidebar-heading">Recent Activity</h3>
             <ul class="control-sidebar-menu">
               <li>
-                <a href="javascript::;">
-                  <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-                  <div class="menu-info">
-                    <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-                    <p>Will be 23 on April 24th</p>
-                  </div>
-                </a>
-              </li>
-            </ul><!-- /.control-sidebar-menu -->
-            <h3 class="control-sidebar-heading">Tasks Progress</h3>
-            <ul class="control-sidebar-menu">
-              <li>
-                <a href="javascript::;">
-                  <h4 class="control-sidebar-subheading">
-                    Custom Template Design
-                    <span class="label label-danger pull-right">70%</span>
-                  </h4>
-                  <div class="progress progress-xxs">
-                    <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-                  </div>
-                </a>
+                
               </li>
             </ul><!-- /.control-sidebar-menu -->
           </div><!-- /.tab-pane -->
@@ -674,18 +648,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div><!-- /.tab-pane -->
           <!-- Settings tab content -->
           <div class="tab-pane" id="control-sidebar-settings-tab">
-            <form method="post">
-              <h3 class="control-sidebar-heading">General Settings</h3>
-              <div class="form-group">
-                <label class="control-sidebar-subheading">
-                  Report panel usage
-                  <input type="checkbox" class="pull-right" checked>
-                </label>
-                <p>
-                  Some information about this general settings option
-                </p>
-              </div><!-- /.form-group -->
-            </form>
+            
           </div><!-- /.tab-pane -->
         </div>
       </aside><!-- /.control-sidebar -->

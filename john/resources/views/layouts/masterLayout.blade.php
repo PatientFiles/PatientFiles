@@ -195,7 +195,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                      <li><a href="/register"><i class="ion ion-person-add"></i>Add Patient</a></li>
                   </ul>
              </li>
-            <li ><a href="/queue"><i class="fa fa-calendar-check-o"></i> <span>Queues</span></a></li>
              <li class="treeview">
               <a href=""><i class="fa fa-black-tie"></i> <span>Management</span> <i class="fa fa-angle-left pull-right"></i></a>
                   <ul class="treeview-menu">
@@ -288,7 +287,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <ul class="nav nav-stacked">
                 <li><a href="#">PRC License <span class="pull-right badge bg-blue">{{Session::get('prc')}}</span></a></li>
                 <li><a href="#">PTR License <span class="pull-right badge bg-red">{{Session::get('ptr')}}</span></a></li>
-                <li><a href="#">S2 License <span class="pull-right badge bg-green">{{Session::get('ptr')}}</span></a></li>
+                <li><a href="#">S2 License <span class="pull-right badge bg-green">{{Session::get('license')}}</span></a></li>
               </ul></div>                                     
               </div>
                     <br>   

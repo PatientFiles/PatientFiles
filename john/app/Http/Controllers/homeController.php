@@ -76,12 +76,14 @@ class homeController extends Controller
 
         $patients = $this->medix->get('patient?take=1000');
         //dd(date('H:i:s', strtotime(Carbon::now())));
-        //dd($patients);
+        $collection = collect($patients->data);
+        $sorted = $collection->sortByDesc('created_at');
+        //dd($sorted->values()->all());
         $mytime = Carbon::now();
 
         return view('pages.patientRecordsPage')
             ->with('time', $mytime)
-            ->with('patients', $patients->data);
+            ->with('patients', $sorted->values()->all());
     }
 
     /*---------------------------------------------------------------------------------------------------------------------------------------------

@@ -18,6 +18,17 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
    
 <hr id="p_hr1">
 
+@if(session('visit'))
+  <small style=" padding-top: 5px;color: white;background-color: red;font-style: italic;" class="box-title alert alert-{{session ('visit.type')}} form-control" >
+                            {{session('visit.text')}}
+  </small>
+@endif
+@if(session('message'))
+  <p style="padding-top: 5px;color: white;background-color: red;font-style: italic;" class="alert alert-{{session ('message.type')}} form-control" >
+        {{session('message.text')}}
+  </p>
+@endif
+
 <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12 col-sm-12 table-responsive">  
@@ -43,19 +54,7 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
       </div>
     </div>
   </div>
-  @if(session('visit'))
-          <small style=" padding-top: 5px;color: white;background-color: red;font-style: italic;" class="box-title alert alert-{{session ('visit.type')}} form-control" >
-                                    {{session('visit.text')}}
-          </small>
-             
-      @endif
-        @if(session('message'))
-            <p style="padding-top: 5px;color: white;background-color: red;font-style: italic;" class="alert alert-{{session ('message.type')}} form-control" >
-                  {{session('message.text')}}
-            </p>
-        @endif
 
- 
 <br>
  <div class="panel panel-default"  >
   <div class="panel-body" >

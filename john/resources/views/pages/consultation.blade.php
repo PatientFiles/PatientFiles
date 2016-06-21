@@ -477,12 +477,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
      <div class="row">
 
         <div class="col-lg-6">
-      <form>
+      <form action="/consultation/prescription" method="POST" id="prescription_submit">
         <div class="row container-fluid">
            <div class="row container-fluid">
             <div class="col-lg-9" >
                  <label>Medicine</label>  
-                     <select id="select_generic"  placeholder="Medicine Name">
+                     <select id="select_generic"  placeholder="Medicine Name" name="select_generic">
                         <option value disabled selected>None</option>
                         @foreach ($medicine as $med)
                           <option value="{{$med['id']}}">{{$med['medicine_name']}}</option>
@@ -492,11 +492,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
              <div class="col-lg-3">
                <label>Quantity</label>
-               <input class="form-control" type="number"  />
+               <input class="form-control" type="number"  name="quantity" />
             </div>
             <div class="col-lg-12">
                <label>Sig</label>
-               <input class="form-control" type="text" placeholder="Sig" />
+               <input class="form-control" type="text" placeholder="Sig" name="sig" />
             </div>
              <div class="col-lg-4">
                 <br>
@@ -539,11 +539,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <hr>
      <div class="row">
         <div class="col-lg-6">
-      <form>
+      <form action="/consultation/labrequest" method="POST" id="lab_submit">
         <div class="row container-fluid">
             <div class="col-lg-12" >
                   <label>Laboratory Type</label>
-                  <select id="select_lab"  placeholder="Laboratory Type"> 
+                  <select id="select_lab"  placeholder="Laboratory Type" name="select_lab"> 
                   <option value disabled selected> None </option>
                   @foreach ($lab as $labs)
                     <option value="{{$labs['id']}}">{{$labs['lab_name']}}</option>
@@ -552,7 +552,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
             <div class="col-lg-12" >
                <label>Remarks</label>
-               <input class="form-control" type="text" placeholder="Remarks" />
+               <input class="form-control" type="text" placeholder="Remarks" name="remarks" />
             </div>
              <div class="col-lg-4">
                 <br>

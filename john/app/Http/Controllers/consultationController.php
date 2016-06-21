@@ -252,4 +252,98 @@ class consultationController extends Controller
         }
         return false;
     }
+
+    /*---------------------------------------------------------------------------------------------------------------------------------------------
+    | ADD LAB REQUEST
+    |----------------------------------------------------------------------------------------------------------------------------------------------
+    |
+    */
+    public function labrequest(Request $req)
+    {
+       
+        if (! \Session::has('consult')) {
+           return redirect('/home')->with('message',['type'=> 'danger','text' => 'Consultation not yet Started! Please select a patient to be consulted!']);
+        }
+
+
+        if ($req->ajax()) {
+
+            $req->only('select_lab','remarks');
+
+            $lab_id          = $req->input('select_lab');
+            $remarks         = $req->input('remarks');
+            $patient_id      = $req->input('patient_id');
+            $appointment_id  = $req->input('appointment_id');
+            $practitioner_id = \Session::get('user_id');
+
+            
+
+            $data = [
+                'lab_id'            => $lab_id,
+                'remarks'           => $remarks,
+                'patient_id'        => \Session::get('patient_appoint'),
+                'appointment_id'    => \Session::get('appoint'),
+                'practitioner_id'   => $practitioner_id,
+            ];
+
+            $lab           = Labrequest::create($data);
+            //dd($user);
+
+           $response = array(
+                'status' => 'success',
+                'msg'    => 'Lab Request added successfully',
+                'data'   => $lab,
+            );
+            return \Response::json($response);
+        }
+        return false;
+    }
+
+    /*---------------------------------------------------------------------------------------------------------------------------------------------
+    | ADD PRESCRIPTION
+    |----------------------------------------------------------------------------------------------------------------------------------------------
+    |
+    */
+    public function prescription(Request $req)
+    {
+       
+        if (! \Session::has('consult')) {
+           return redirect('/home')->with('message',['type'=> 'danger','text' => 'Consultation not yet Started! Please select a patient to be consulted!']);
+        }
+
+
+        if ($req->ajax()) {
+
+            $req->only('select_generic','quantity','sig');
+
+            $select_generic  = $req->input('select_generic');
+            $quantity        = $req->input('quantity');
+            $sig             = $req->input('sig');
+            $patient_id      = $req->input('patient_id');
+            $appointment_id  = $req->input('appointment_id');
+            $practitioner_id = \Session::get('user_id');
+
+            
+
+            $data = [
+                'medicine_id'       => $select_generic,
+                'quantity'          => $quantity,
+                'sig'               => $sig,
+                'patient_id'        => \Session::get('patient_appoint'),
+                'appointment_id'    => \Session::get('appoint'),
+                'practitioner_id'   => $practitioner_id,
+            ];
+
+            $prescription           = Prescription::create($data);
+            //dd($user);
+
+           $response = array(
+                'status' => 'success',
+                'msg'    => 'Lab Request added successfully',
+                'data'   => $prescription,
+            );
+            return \Response::json($response);
+        }
+        return false;
+    }
 }

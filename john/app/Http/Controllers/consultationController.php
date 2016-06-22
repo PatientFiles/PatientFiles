@@ -41,6 +41,18 @@ class consultationController extends Controller
         $id 				= $req->input('patient_id');
         $chief_complaints 	= $req->input('chief_complaints');
 
+        
+        $profile        = $this->medix->get('patient/'.$id);
+        $key            = end($profile->data->patient_appointments);
+        //dd(\Session::get('consult') == $profile->data->id);
+        if (\Session::get('consult') == $profile->data->id) {
+            return redirect('/patientRecords')->with('message',['type'=> 'danger','text' => 'This patient is now on the visit process. End the visit first before re-queuing this patient']);
+        }
+
+        if ($key->status == 'active') {
+            return redirect('/patientRecords')->with('message',['type'=> 'danger','text' => 'This patient already queued to doctor!']);
+        }
+
         $data =
         [
             'practitioner_id'   => \Session::get('user_id'),
@@ -52,10 +64,6 @@ class consultationController extends Controller
             'status'            => 'active',
         ];
 		$appointment = $this->medix->post('appointment', $data);
-
-		return redirect('consultation/'.$id)
-                ->with('prof', $profile->data)
-                ->with('appoint', $appointment->data);
 
         return redirect('/home')->with('message',['type'=> 'success','text' => 'Patient successfully queued to doctor!']);
 
@@ -77,6 +85,17 @@ class consultationController extends Controller
         $id                 = $req->input('patient_id');
         $purpose_id         = $req->input('purpose_id');
         $chief_complaints   = $req->input('chief_complaints');
+
+        $profile        = $this->medix->get('patient/'.$id);
+        $key            = end($profile->data->patient_appointments);
+        //dd(\Session::get('consult') == $profile->data->id);
+        if (\Session::get('consult') == $profile->data->id) {
+            return redirect('/patientRecords')->with('message',['type'=> 'danger','text' => 'This patient is now on the visit process. End the visit first before re-queuing this patient']);
+        }
+
+        if ($key->status == 'active') {
+            return redirect('/patientRecords')->with('message',['type'=> 'danger','text' => 'This patient already queued to doctor!']);
+        }
 
         $data =
         [
@@ -350,19 +369,14 @@ class consultationController extends Controller
     */
     public function start_visit($id)
     {
-        //dd(\Session::has('url'));
         if (! \Session::has('token')) {
             return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
         }
 
-        if (\Session::has('url')) {
-            return redirect('/home')->with('message',['type'=> 'danger','text' => 'There is an ongoing visit! Please end the ongoing visit before proceeding. ']);
-        }
-        
-
         $profile        = $this->medix->get('patient/'.$id);
         $key            = end($profile->data->patient_appointments);
-
+        //dd(\Session::get('appoint'));
+        if (\Session::get('appoint') == null || \Session::get('appoint') == $key->id) {
         \Session::put('appoint', $key->id);
         \Session::put('patient_appoint', $profile->data->id);
         \Session::put('complaint', $profile->data->patient_appointments[count($profile->data->patient_appointments) - 1]->chief_complaints);
@@ -396,5 +410,9 @@ class consultationController extends Controller
                 ->with('medicine', $medicine)
                 ->with('vaccine', $vaccine)
                 ->with('lab', $lab);
+        }
+        elseif (\Session::get('appoint') != $key->id) {
+            return redirect('/home')->with('message',['type'=> 'danger','text' => 'There is an ongoing visit! Please end the ongoing visit before proceeding. ']);
+        }
     }
 }

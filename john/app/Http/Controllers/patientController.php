@@ -43,6 +43,7 @@ class patientController extends Controller
         try {
             /***RETRIVES PAST CONSULTATIONS***/
             $cons        = $this->medix->get('patient/' . $id .'/consultations/past');
+
             $pastCons    = $cons->data->patient_appointments;
 
             /***RETRIVES PAST VITALS***/
@@ -102,7 +103,7 @@ class patientController extends Controller
         }
 
         $profile = $this->medix->get('patient/'.$id);
-        // dd($profile);
+        //dd($profile);
         return view('pages.patientProfile')
             ->with('prof', $profile->data)
             ->with('consult', $pastCons)
@@ -402,35 +403,5 @@ class patientController extends Controller
 
     }
 
-
-    /*---------------------------------------------------------------------------------------------------------------------------------------------
-    | DISPLAYS THE PAGE FOR THE MAIN CONSULTATION PROCESS
-    |----------------------------------------------------------------------------------------------------------------------------------------------
-    |
-    */
-    public function newConsult($id)
-    {
-        if (! \Session::get('consult') == $id) {
-            return redirect('/home')->with('message',['type'=> 'danger','text' => 'Consultation not yet Started! Please select a patient to be consulted!']);
-        }
-         if (! \Session::has('token')) {
-            return redirect('/home')->with('message',['type'=> 'danger','text' => 'Consultation not yet Started! Please select a patient to be consulted!']);
-        } 
-
-        $profile        = $this->medix->get('patient/'.$id);
-        $address        = $profile->data->user->user_addresses;
-        $medicine       = Medicine::all()->sortBy('medicine_name');
-        $vaccine        = Vaccine::all()->sortBy('vaccine_name');
-        $lab            = Lab::all()->sortBy('lab_name');
-        $vaccination    = Vaccination::with('vaccine')
-                            ->where('appointment_id', \Session::get('appoint'));
-
-        return  view('pages.consultation')
-                ->with('prof', $profile->data)
-                ->with('medicine', $medicine)
-                ->with('address', $address)
-                ->with('vaccine', $vaccine)
-                ->with('lab', $lab);
-    }
 
 }

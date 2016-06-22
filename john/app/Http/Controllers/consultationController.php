@@ -11,6 +11,9 @@ use App\Http\Models\Diagnosis;
 use App\Http\Models\Labrequest;
 use App\Http\Models\Vaccination;
 use App\Http\Models\Prescription;
+use App\Http\Models\Lab;
+use App\Http\Models\Vaccine;
+use App\Http\Models\Medicine;
 
 
 class consultationController extends Controller
@@ -33,9 +36,6 @@ class consultationController extends Controller
 		if (! \Session::has('fname')) {
             return redirect('/#about')->with('success',['type'=> 'danger','text' => 'Access denied, Please Login to view a patient profile!']);
         }
-        if (\Session::has('consult')) {
-            return redirect('/patientRecords')->with('message',['type'=> 'danger','text' => 'There is an ongoing visit! Please end the ongoing visit before proceeding. ']);
-        }
 
         $req->only('chief_complaints', 'patient_id');
         $id 				= $req->input('patient_id');
@@ -49,18 +49,15 @@ class consultationController extends Controller
         	'appointment_time'	=> date('H:i:s', strtotime(Carbon::now()->setTimezone('GMT+8'))),
         	'purpose_id'		=> 1,
         	'chief_complaints'	=> $chief_complaints,
+            'status'            => 'active',
         ];
-        //dd($data);
-        $consult = \Session::put('consult', $id);
 		$appointment = $this->medix->post('appointment', $data);
-        $profile = $this->medix->get('patient/'.$id);
-        \Session::put('type', 'New Patient Consultation');
-        \Session::put('complaint', $chief_complaints);
-        \Session::put('url', '/consultation/'.$id);
 
 		return redirect('consultation/'.$id)
                 ->with('prof', $profile->data)
                 ->with('appoint', $appointment->data);
+
+        return redirect('/home')->with('message',['type'=> 'success','text' => 'Patient successfully queued to doctor!']);
 
 	}
 
@@ -74,9 +71,6 @@ class consultationController extends Controller
     {
         if (! \Session::has('fname')) {
             return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login to view a patient profile!']);
-        }
-        if (\Session::has('consult')) {
-            return redirect('/patientRecords')->with('message',['type'=> 'danger','text' => 'There is an ongoing visit! Please end the ongoing visit before proceeding. ']);
         }
 
         $req->only('chief_complaints', 'patient_id','purpose_id');
@@ -92,28 +86,12 @@ class consultationController extends Controller
             'appointment_time'  => date('H:i:s', strtotime(Carbon::now()->setTimezone('GMT+8'))),
             'purpose_id'        => $purpose_id,
             'chief_complaints'  => $chief_complaints,
+            'status'            => 'active',
         ];
 
-        $consult        = \Session::put('consult', $id);
         $appointment    = $this->medix->post('appointment', $data);
-        $profile        = $this->medix->get('patient/'.$id);
-        $key            = end($profile->data->patient_appointments);
-        \Session::put('appoint', $key->id);
-        \Session::put('patient_appoint', $profile->data->id);
-        \Session::put('complaint', $chief_complaints);
-        \Session::put('url', '/consultation/'.$id);
-        \Session::put('visit_patient', $profile->data->user->firstname.' '.$profile->data->user->lastname);
-        //dd($profile);
-        //dd(\Session::get('appoint'));
 
-        if ($purpose_id = 1) {
-            \Session::put('type', 'Old Patient Consultation');
-        } if ($purpose_id = 2) {
-            \Session::put('type', 'Follow-up Consultation');
-        }
-
-        return redirect('consultation/'.$id)
-                ->with('prof', $profile->data);
+        return redirect('/home')->with('message',['type'=> 'success','text' => 'Patient successfully queued to doctor!']);
 
     }
 
@@ -151,6 +129,13 @@ class consultationController extends Controller
     */
     public function endVisit()
     {
+        $data =
+        [
+            'status'   => 'completed',
+        ];
+
+        $status = $this->medix->put('appointment/'.\Session::get('appoint'), $data);
+
        \Session::forget('consult');
        \Session::forget('type');
        \Session::forget('appoint');
@@ -354,5 +339,61 @@ class consultationController extends Controller
             return \Response::json($response);
         }
         return false;
+    }
+
+
+
+    /*---------------------------------------------------------------------------------------------------------------------------------------------
+    | ANALYTICS PAGE
+    |----------------------------------------------------------------------------------------------------------------------------------------------
+    |
+    */
+    public function start_visit($id)
+    {
+        if (! \Session::has('token')) {
+            return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
+        }
+
+        if (! \Session::get('consult') == $id ) {
+            return redirect('/patientRecords')->with('message',['type'=> 'danger','text' => 'There is an ongoing visit! Please end the ongoing visit before proceeding. ']);
+        }
+        
+
+        $profile        = $this->medix->get('patient/'.$id);
+        $key            = end($profile->data->patient_appointments);
+
+        \Session::put('appoint', $key->id);
+        \Session::put('patient_appoint', $profile->data->id);
+        \Session::put('complaint', $profile->data->patient_appointments[count($profile->data->patient_appointments) - 1]->chief_complaints);
+        \Session::put('url', '/consultation/'.$id);
+        \Session::put('visit_patient', $profile->data->user->firstname.' '.$profile->data->user->lastname);
+        $consult        = \Session::put('consult', $id);
+
+        $data =
+        [
+            'status'   => 'ongoing',
+        ];
+
+        $status         = $this->medix->put('appointment/'.\Session::get('appoint'), $data);
+        $medicine       = Medicine::all()->sortBy('medicine_name');
+        $vaccine        = Vaccine::all()->sortBy('vaccine_name');
+        $lab            = Lab::all()->sortBy('lab_name');
+        $vaccination    = Vaccination::with('vaccine')
+                            ->where('appointment_id', \Session::get('appoint'));
+
+
+        if ($profile->data->patient_appointments[count($profile->data->patient_appointments) - 1]->purpose_id = 1) {
+            \Session::put('type', 'New Patient Visit');
+        } if ($profile->data->patient_appointments[count($profile->data->patient_appointments) - 1]->purpose_id = 2) {
+            \Session::put('type', 'Old Patient Visit');
+        } if ($profile->data->patient_appointments[count($profile->data->patient_appointments) - 1]->purpose_id = 3) {
+            \Session::put('type', 'Follow-up Visit');
+        }
+
+        return  view('pages.consultation')
+                ->with('prof', $profile->data)
+                ->with('medicine', $medicine)
+                ->with('vaccine', $vaccine)
+                ->with('lab', $lab);
     }
 }

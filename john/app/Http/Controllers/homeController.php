@@ -175,18 +175,20 @@ class homeController extends Controller
     public function recent()
     {
         $patients = $this->medix->get('patient?take=1000');
-        $reports  = $this->medix->get('management/reports');
         //dd($patients);
         $mytime = Carbon::now();
         $reminders = Vaccination::with('vaccine')
                         ->where('date', date('Y-m-d',strtotime($mytime)))
                         ->get();
+        $collection = collect($patients->data);
+        $sorted = $collection->sortByDesc('created_at');
+        //dd($sorted->values()->all());
+        
 
         //dd($reminders);
         return view('pages.homePage')
             ->with('time', $mytime)
-            ->with('counts', $reports->data)
-            ->with('consults', $patients->data)
+            ->with('consults', $sorted->values()->all())
             ->with('reminder', $reminders);
        //return dd($result);
     }

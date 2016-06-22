@@ -44,8 +44,23 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
                       <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 177px;">Appointment ID</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 224px;">Patient Name</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 205px;">Purpose</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 152px;">Chief Complaints</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 152px;">Action</th></tr>
                     </thead>
                      <tbody>
-                        <tr role="row" class="even">                            
-                        </tr>              
+                      @foreach ($consults as $consult)
+                          @if (! $consult->patient_appointments)
+
+                          @else
+                            @if ($consult->patient_appointments[count($consult->patient_appointments) - 1]->status == 'active')
+                            <tr role="row" class="even">
+                                  <td>{{$consult->patient_appointments[count($consult->patient_appointments) - 1]->id}}</td>
+                                  <td>{{$consult->user->firstname .' '. $consult->user->lastname}}</td>
+                                  <td>{{$consult->patient_appointments[count($consult->patient_appointments) - 1]->purpose_id}}</td>
+                                  <td>{{$consult->patient_appointments[count($consult->patient_appointments) - 1]->chief_complaints}}</td>
+                                  <td><a href="/consultation/{{$consult->id}}" class="btn btn-primary">Start Visit</a></td>
+                            </tr>
+                            @else
+
+                            @endif
+                          @endif 
+                      @endforeach          
                   </table>
 
 
@@ -113,24 +128,18 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
                         <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Patient ID</th>
                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Patient Name</th>
                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Chief Complaints</th>
-                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Consultation Start</th>
-                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Consultation End</th>
                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Status</th></tr>
                     </thead>
                     <tbody>
                       @foreach($consults as $consult)
                           @if (! $consult->patient_appointments)
                           @else
-                            @if (strcasecmp($consult->patient_appointments[0]->type, 'consultation') == 0)
                               <tr role="row">
                                 <td>{{$consult->id}}</td>
                                 <td>{{$consult->user->firstname .' '. $consult->user->lastname}}</td>
-                                <td>{{$consult->patient_appointments[0]->chief_complaints}}</td>
-                                <td>{{$consult->patient_appointments[0]->consultation_start}}</td>
-                                <td>{{$consult->patient_appointments[0]->consultation_end}}</td>
-                                <td>{{$consult->patient_appointments[0]->status}}</td>
+                                <td>{{$consult->patient_appointments[count($consult->patient_appointments) - 1]->chief_complaints}}</td>
+                                <td>{{$consult->patient_appointments[count($consult->patient_appointments) - 1]->status}}</td>
                               </tr>
-                            @endif 
                           @endif
                       @endforeach
                     </tbody>
@@ -140,36 +149,4 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
             </div>
        </div>
 </div>     
-<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="/plugins/morris/morris.min.js"></script>
- <script >
-          var donut = new Morris.Donut({
-          element: 'sales-chart2',
-          resize: true,
-          colors: ["#3c8dbc", "#f56954", "#05a65a", "#333"],
-          data: [
-            {label: "Consultations", value: {{$counts->totalConsultations}}},
-            {label: "Laboratory", value: {{$counts->totalLaboratory}}},
-            {label: "Imaging Processed", value: {{$counts->totalImaging}}}
-          ],
-          hideHover: 'auto'
-        });
-</script>
- <script >
-          var male = {{$counts->totalMaleFemalePatient[0]->MALE}};
-          var female = {{$counts->totalMaleFemalePatient[0]->FEMALE}};
-          var total = male + female;
-          var aveM =Math.round((male/total)*100);
-          var aveF =Math.round((female/total)*100);
-          var donut = new Morris.Donut({
-          element: 'sales-chart',
-          resize: true,
-          colors: ["#00c0ef", "#ca87be", "#00a65a","#444"],
-          data: [
-            {label: "Male ("+aveM+"%)", value: {{$counts->totalMaleFemalePatient[0]->MALE}}},
-            {label: "Female ("+aveF+"%)", value: {{$counts->totalMaleFemalePatient[0]->FEMALE}}},
-          ],
-          hideHover: 'auto'
-        });
-</script>
 @stop

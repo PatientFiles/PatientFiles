@@ -50,9 +50,17 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
                           @else
                             @if ($consult->patient_appointments[count($consult->patient_appointments) - 1]->status == 'active')
                             <tr role="row" class="even">
-                                  <td>{{$consult->patient_appointments[count($consult->patient_appointments) - 1]->id}}</td>
+                                  <td><b>{{$consult->patient_appointments[count($consult->patient_appointments) - 1]->id}}</b></td>
                                   <td>{{$consult->user->firstname .' '. $consult->user->lastname}}</td>
-                                  <td>{{$consult->patient_appointments[count($consult->patient_appointments) - 1]->purpose_id}}</td>
+                                  @if ($consult->patient_appointments[count($consult->patient_appointments) - 1]->purpose_id == 1)
+                                      <td>New Patient Visit</td>
+                                  @endif
+                                  @if ($consult->patient_appointments[count($consult->patient_appointments) - 1]->purpose_id == 2)
+                                      <td>Old Patient Visit</td>
+                                  @endif
+                                  @if ($consult->patient_appointments[count($consult->patient_appointments) - 1]->purpose_id == 3)
+                                      <td>Follow-up Visit</td>
+                                  @endif
                                   <td>{{$consult->patient_appointments[count($consult->patient_appointments) - 1]->chief_complaints}}</td>
                                   <td><a href="/consultation/{{$consult->id}}" class="btn btn-primary">Start Visit</a></td>
                             </tr>

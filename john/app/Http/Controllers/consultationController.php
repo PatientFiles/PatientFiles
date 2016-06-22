@@ -350,12 +350,13 @@ class consultationController extends Controller
     */
     public function start_visit($id)
     {
+        //dd(\Session::has('url'));
         if (! \Session::has('token')) {
             return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
         }
 
-        if (! \Session::get('consult') == $id ) {
-            return redirect('/patientRecords')->with('message',['type'=> 'danger','text' => 'There is an ongoing visit! Please end the ongoing visit before proceeding. ']);
+        if (\Session::has('url')) {
+            return redirect('/home')->with('message',['type'=> 'danger','text' => 'There is an ongoing visit! Please end the ongoing visit before proceeding. ']);
         }
         
 
@@ -382,11 +383,11 @@ class consultationController extends Controller
                             ->where('appointment_id', \Session::get('appoint'));
 
 
-        if ($profile->data->patient_appointments[count($profile->data->patient_appointments) - 1]->purpose_id = 1) {
+        if ($profile->data->patient_appointments[count($profile->data->patient_appointments) - 1]->purpose_id == 1) {
             \Session::put('type', 'New Patient Visit');
-        } if ($profile->data->patient_appointments[count($profile->data->patient_appointments) - 1]->purpose_id = 2) {
+        } if ($profile->data->patient_appointments[count($profile->data->patient_appointments) - 1]->purpose_id == 2) {
             \Session::put('type', 'Old Patient Visit');
-        } if ($profile->data->patient_appointments[count($profile->data->patient_appointments) - 1]->purpose_id = 3) {
+        } if ($profile->data->patient_appointments[count($profile->data->patient_appointments) - 1]->purpose_id == 3) {
             \Session::put('type', 'Follow-up Visit');
         }
 

@@ -8,7 +8,7 @@
  </section>
 	 
 <hr id="p_hr1">
-     @foreach($patients as $patient)  
+     @foreach($result as $patient)  
            <div   class="row container-fluid contact-name"    id="patientListing" >
              <ul style="padding:0;" class="patient-list-style">      <!-- START UL -->           
                 <li style="list-style: none;"  > <!-- START LI -->   

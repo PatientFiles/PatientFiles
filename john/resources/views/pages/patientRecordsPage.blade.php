@@ -131,8 +131,8 @@ div#patientListing:hover
                 {!! csrf_field() !!}
               <select class="form-control" name="purpose_id" style="height: 34px; width:100%" required="">
                     <option value disabled selected>Select...</option>
-                    <option value="2">Old Patient Consult</option>
-                    <option value="3">Follow-up Consult</option>
+                    <option value="2">Old Patient Visit</option>
+                    <option value="3">Follow-up Visit</option>
              </select>
       </div>
       <div class="modal-body">

@@ -1,6 +1,6 @@
 @extends('layouts.masterLayout')
 
-@section('title', 'Dashboard | Patient Files')
+@section('title', 'Dashboard | Pedix')
 @section('content')
 <section class="content-header">
             <ol class="breadcrumb">

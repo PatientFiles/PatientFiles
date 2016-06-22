@@ -8,8 +8,7 @@
               Overview
             </h1>
             <ol class="breadcrumb">
-             <a href="/register" style="color: white;font-weight: bold;" class="btn btn-success"> <span class="
-glyphicon glyphicon-plus-sign"></span> Add Patient</a>        
+          
             </ol>
   </section>
 

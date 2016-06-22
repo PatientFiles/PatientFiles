@@ -323,9 +323,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       @endif
 <div class="row">
   <div class="col-lg-12">
-      <!-- Widget: user widget style 1 -->
-              <div class="box box-widget widget-user container">
-                <!-- Add the bg color to the header using any of the bg-* classes -->
+      <!-- Add the bg color to the header using any of the bg-* classes -->
                 <div class="col-lg-12 col-sm-12">
     <div class="card hovercard">
         <div class="card-background">
@@ -339,693 +337,469 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         </div>
     </div>
+
+
+
     <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
-        <div class="btn-group" role="group">
-            <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-star" aria-hidden="false"></span>
-                <div class="hidden-xs">Current Visit</div>
-            </button>
-        </div>
-        <div class="btn-group" role="group">
-            <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="false"></span>
-                <div class="hidden-xs">Past Visit</div>
-            </button>
-        </div>
-        <div class="btn-group" role="group">
-            <button type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="false"></span>
-                <div class="hidden-xs">Basic Information</div>
-            </button>
-        </div>
+              <div class="btn-group" role="group">
+                      <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-star" aria-hidden="false"></span>
+                          <div class="hidden-xs">Current Visit</div>
+                      </button>
+              </div>
+              <div class="btn-group" role="group">
+                      <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="false"></span>
+                          <div class="hidden-xs">Past Visit</div>
+                      </button>
+              </div>
+              <div class="btn-group" role="group">
+                      <button type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="false"></span>
+                          <div class="hidden-xs">Basic Information</div>
+                      </button>
+              </div>
+    </div>
+    </div>
+    </div>
     </div>
 
-        <div class="well">
       <div class="tab-content">
-
-                    <div class="tab-pane fade in active" id="tab1">
-                      <div class="col-lg-12 col-sm-12">  
- <div class="panel panel-default">
-  <div class="panel-body">  
-    <!-- Nav tabs -->
-    <div class="nav-tabs-custom">
-    <ul class="nav nav-tabs" role="tablist">
-      <li class="active">
-        <a data-toggle="tab" href="#vitals" role="tab">Vitals</a>
-      </li>
-      <li class="nav-item">
-        <a data-toggle="tab" href="#vaccine" role="tab">Vaccination</a>
-      </li>
-      <li class="nav-item">
-        <a data-toggle="tab" href="#prescription" role="tab">Prescription</a>
-      </li>
-      <li class="nav-item">
-        <a data-toggle="tab" href="#labrequest" role="tab">Lab Request</a>
-      </li>
-      <li class="nav-item">
-        <a data-toggle="tab" href="#diagnosis" role="tab">Diagnosis</a>
-      </li>
-
-    </ul>
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <div class="tab-pane active" id="vitals" role="tabpanel">
-          <form role="form" action="/saveVitals/{{$prof->id}}" method="POST">
-          <div class="modal-body">
-              {!! csrf_field() !!}
-              <div class="row form-group">
-                  <div class="col-lg-6">
-                      <label for="number">Height:</label>
-                      <input max="999" type="number" name="height" class="form-control" placeholder="Height in centimeters">
-                  </div>
-                  <div class="col-lg-6">
-                      <label for="number">Weight:</label>
-                      @if($errors->has('weight'))
-                          <span class="error" style="color: red">{{ $errors->first('weight') }}</span>
-                      @endif
-                      <input max="999" type="number" name="weight" class="form-control" placeholder="Weight in kilograms">
-                  </div>
-              </div>
-              <div class="row form-group">
-                  <div class="col-lg-6">
-                    <label for="number">Pulse Rate:</label>
-                      @if($errors->has('pulse'))
-                          <span class="error" style="color: red">{{ $errors->first('pulse') }}</span>
-                      @endif
-                    <input max="999" type="number" name="pulse" class="form-control" placeholder="Pulse Rate (Pulse per minute)">
-                  </div>
-                  <div class="col-lg-6">
-                    <label for="number">Respiratory Rate:</label>
-                      @if($errors->has('respiratory'))
-                          <span class="error" style="color: red">{{ $errors->first('respiratory') }}</span>
-                      @endif
-                    <input max="999" type="number" name="respiratory" class="form-control" placeholder="Respiratory Rate">
-                  </div>
-              </div>
-              <div class="row form-group">
-                  <div class="col-lg-6">
-                    <label for="number">Body Temperature:</label>
-                      @if($errors->has('temp'))
-                          <span class="error" style="color: red">{{ $errors->first('temp') }}</span>
-                      @endif
-                    <input max="999" type="number" name="temp" class="form-control" placeholder="Temperature in Celsius">
-                  </div>
-                  <div class="col-lg-6">
-                    <label class="control-label" for="mens">Last Menstrual:</label>
-                      @if($errors->has('mens'))
-                          <span class="error" style="color: red">{{ $errors->first('mens') }}</span>
-                      @endif
-                      <div class="input-group">
-                          <input name="mens" type="text" name="idTourDateDetails" id="idTourDateDetails" readonly="readonly" class="form-control" placeholder="Click here to pick date of last menstruation">
-                          <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                      </div>
-                  </div>
-              </div>
-              <div class="row form-group">
-                  <div class="col-lg-6">
-                    <label for="number">Blood Pressure (Systolic):</label>
-                      @if($errors->has('sys'))
-                          <span class="error" style="color: red">{{ $errors->first('sys') }}</span>
-                      @endif
-                    <input max="999" type="number" name="sys" class="form-control" placeholder="Systolic Value">
-                  </div>
-                  <div class="col-lg-6">
-                    <label for="number">Blood Pressure (Diastolic):</label>
-                      @if($errors->has('dia'))
-                          <span class="error" style="color: red">{{ $errors->first('dia') }}</span>
-                      @endif
-                    <input max="999" type="number" name="dia" class="form-control" placeholder="Diastolic Value">
-                  </div>
-              </div>
-              <div class="form-group">
-                <label for="number">Doctor Notes:</label>
-                      @if($errors->has('notes'))
-                          <span class="error" style="color: red">{{ $errors->first('notes') }}</span>
-                      @endif
-                <textarea name="notes" class="form-control" rows="5" placeholder="Doctors vital notes"></textarea>
-              </div>
-          </div>
-          <div class="modal-footer">
-            <button type="submit" name="saveVitals" class="btn btn-primary pull-left">Save</button>
-            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
-          </div>
-         </form>
-      </div>
-      <div class="tab-pane" id="vaccine" role="tabpanel">
-      <br>
-     <div class="row">
-        <div class="col-lg-6">
-      <form action="/consultation/vaccination" method="POST" role="form" id="vac_submit">
-        <div class="row container-fluid">
-            <div class="col-lg-6" >
-                  <label>Vaccine Name</label>
-                  <select id="select_vaccine" name="select_vaccine" class="demo-default" data-placeholder="Vaccine Name" required>
-                    <option disabled selected value>None</option>
-
-                    @foreach ($vaccine as $vac)
-                    <option value="{{$vac['id']}}">{{$vac['vaccine_name']}}</option>
-                    @endforeach
-
-                  </select>
-            </div>
-            <div class="col-lg-6" id="sandbox-container" >
-               <label>Vaccination Date </label>
-               <input class="form-control" type="text" name="vac_date" id="vac_date" placeholder="Vaccination Date" required />
-            </div>
-        </div>
-           <div class="col-lg-4">  
-           <br> 
-           <br> 
-             <input class="form-control btn btn-primary " value="Submit" type="submit"  />
-          </div>
-      </form>
-      </div>
-     <div class="col-lg-6">
-      <div class="container-fluid">
-           <br> 
-        <table id="table_med"  data-toggle="table"
-      data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
-       id="example2" class="table table-bordered table-hover dataTable">
-          <thead>
-            <tr>
-              <th>Vaccine Name</th>
-              <th>Purpose</th>
-              <th>Date</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody id="vaccination_tbody">
-            <tr>
-              <td>Vaccine 101</td>
-              <td>For H1N1 3 in 1P Plus 1</td>
-              <td>Jun 13 , 2016</td>
-              <td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>    
-      </div>
-  </div>
-</div>
-      <div class="tab-pane" id="prescription" role="tabpanel">
-      <br>
-     <div class="row">
-
-        <div class="col-lg-6">
-      <form action="/consultation/prescription" method="POST" id="prescription_submit">
-        <div class="row container-fluid">
-           <div class="row container-fluid">
-            <div class="col-lg-9" >
-                 <label>Medicine</label>  
-                     <select id="select_generic" class="demo-default"  placeholder="Medicine Name" name="select_generic" required>
-                        <option value disabled selected>None</option>
-                        @foreach ($medicine as $med)
-                          <option value="{{$med['id']}}">{{$med['medicine_name']}}</option>
-                        @endforeach
-
-                    </select>
-            </div>
-             <div class="col-lg-3">
-               <label>Quantity</label>
-               <input class="form-control" type="number"  name="quantity" required/>
-            </div>
-            <div class="col-lg-12">
-               <label>Sig</label>
-               <input class="form-control" type="text" placeholder="Sig" name="sig" required />
-            </div>
-             <div class="col-lg-4">
-                <br>
-               <input class="form-control btn btn-primary " value="Submit" type="submit"  />
-            </div>
-        </div>
-      </div>
-      </form>
-      </div>
-     <div class="col-lg-6">
-      <div class="container-fluid">
-     <table id="table_med"  data-toggle="table"
-      data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
-       id="example2" class="table table-bordered table-hover dataTable">
-          <thead>
-            <tr>
-              <th>Medicine Name</th>
-              <th>Quantity</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Bear Brand</td>
-              <td>10pcs</td>
-              <td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td>
-            </tr>
-          </tbody>
-        </table>
-          <br>
-          <br>
-         <a href="/printPrescription/{{Session::get('patient_appoint')}}" target="_blank" class="btn btn-primary "> Print Prescription</a>
-      </div>    
-      </div>
-  </div>
-</div>
-      
-    <div class="tab-pane" id="labrequest" role="tabpanel">
-    <br>
-     <div class="row">
-        <div class="col-lg-6">
-      <form action="/consultation/labrequest" method="POST" id="lab_submit">
-        <div class="row container-fluid">
-            <div class="col-lg-12" >
-                  <label>Laboratory Type</label>
-                  <select id="select_lab"  placeholder="Laboratory Type" name="select_lab"> 
-                  <option value disabled selected> None </option>
-                  @foreach ($lab as $labs)
-                    <option value="{{$labs['id']}}">{{$labs['lab_name']}}</option>
-                  @endforeach
-                  </select>
-            </div>
-            <div class="col-lg-12" >
-               <label>Remarks</label>
-               <input class="form-control" type="text" placeholder="Remarks" name="remarks" />
-            </div>
-             <div class="col-lg-4">
-                <br>
-               <input class="form-control btn btn-primary " value="Add" type="submit"  />
-            </div>
-        </div>
-      </form>
-      </div>
-     <div class="col-lg-6">
-      <div class="container-fluid">  
-        <table id="table_med"  data-toggle="table"
-      data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
-       id="example2" class="table table-bordered table-hover dataTable">
-          <thead>
-            <tr>
-              <th>Type</th>
-              <th>Remarks</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>-</td>
-              <td>-</td>
-              <td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td>
-            </tr>
-          </tbody>
-        </table>
-        </div>
-        </div>
-      </div>
-    </div>  
-
-<div class="tab-pane" id="diagnosis" role="tabpanel">
-<br>
-     <div class="row">
-        <div class="col-lg-6">
-      <form action="/consultation/diagnosis" method="POST" role="form" id="diagnosis_submit">
-        <div class="row container-fluid">
-            <div class="col-lg-12">
-                <label for="number">Result</label>
-                <textarea name="result" class="form-control" rows="5" placeholder="Result" type="text" required></textarea>
-            </div>
-            <div class="col-lg-12">
-               <label>Remarks</label>
-               <input class="form-control" type="text" name="remarks" placeholder="Remarks" />
-            </div>
-            <div class="col-lg-4">
-                <br>
-               <input class="form-control btn btn-primary " value="Submit"  type="submit" />
-      
-            </div>
-        </div>
-      </div>
-     <div class="col-lg-6">
-      <div class="container-fluid"> 
-        <div class="row container-fluid">
-            <div class="col-lg-12">
-                <label for="number">Assessment</label>
-                <textarea disabled id="assessment" name="assessment" class="form-control" rows="5"></textarea>
-            </div>
-             </div>    
-        </div>
-      </div>
-    </div>
-  </div>    </form> 
-
- </div>
-  </div>
-  </div>
-</div>
-                    </div>
-
-
-                    <div class="tab-pane fade in" id="tab2">
-                      <h3>This is tab 2</h3>
-                    </div>
-
-
-                    <div class="tab-pane fade in" id="tab3">
-                      <h3>This is tab 3</h3>
-                    </div>
-                  </div>
-
-
-    </div>
-    
-    </div>
-
-
-
-
- <div class=" tab-content">   <!-- START TAB CONTENT -->
-
-                                  <div class=" tab-pane" id="cc">
-                                        
+                                                                    
+          <div class="tab-pane fade in active" id="tab1">  
+              <div class="col-lg-12 col-sm-12">  
+                    <div class="panel panel-default">
+                         <div class="panel-body">  
+                                    
+                                    <!-- Nav tabs -->
+                                <div class="nav-tabs-custom">
+                                      <ul class="nav nav-tabs" role="tablist">
+                                          <li class="active">
+                                            <a data-toggle="tab" href="#vitals" role="tab">Vitals</a>
+                                          </li>
+                                          <li class="nav-item">
+                                            <a data-toggle="tab" href="#vaccine" role="tab">Vaccination</a>
+                                          </li>
+                                          <li class="nav-item">
+                                            <a data-toggle="tab" href="#prescription" role="tab">Prescription</a>
+                                          </li>
+                                          <li class="nav-item">
+                                            <a data-toggle="tab" href="#labrequest" role="tab">Lab Request</a>
+                                          </li>
+                                          <li class="nav-item">
+                                            <a data-toggle="tab" href="#diagnosis" role="tab">Diagnosis</a>
+                                          </li>
+                                     </ul>
                                   </div>
+                                    <!-- Tab panes -->
+                                 <div class="tab-content">
+                                      <div class="tab-pane active" id="vitals" role="tabpanel">
+                                          <form role="form" action="/saveVitals/{{$prof->id}}" method="POST">
+                                              <div class="modal-body">
+                                                 {!! csrf_field() !!}
+                                                  <div class="row form-group">
+                                                     <div class="col-lg-6">
+                                                          <label for="number">Height:</label>
+                                                            <input max="999" type="number" name="height" class="form-control" placeholder="Height in centimeters">
+                                                      </div>
+                                                      <div class="col-lg-6">
+                                                          <label for="number">Weight:</label>
+                                                             @if($errors->has('weight'))
+                                                            <span class="error" style="color: red">{{ $errors->first('weight') }}</span>
+                                                             @endif
+                                                            <input max="999" type="number" name="weight" class="form-control" placeholder="Weight in kilograms">
+                                                      </div>
+                                                 </div>
+                                                 <div class="row form-group">
+                                                        <div class="col-lg-6">
+                                                          <label for="number">Pulse Rate:</label>
+                                                            @if($errors->has('pulse'))
+                                                                <span class="error" style="color: red">{{ $errors->first('pulse') }}</span>
+                                                            @endif
+                                                          <input max="999" type="number" name="pulse" class="form-control" placeholder="Pulse Rate (Pulse per minute)">
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                          <label for="number">Respiratory Rate:</label>
+                                                            @if($errors->has('respiratory'))
+                                                                <span class="error" style="color: red">{{ $errors->first('respiratory') }}</span>
+                                                            @endif
+                                                          <input max="999" type="number" name="respiratory" class="form-control" placeholder="Respiratory Rate">
+                                                        </div>
+                                                  </div>
+                                                  <div class="row form-group">
+                                                            <div class="col-lg-6">
+                                                              <label for="number">Body Temperature:</label>
+                                                                @if($errors->has('temp'))
+                                                                    <span class="error" style="color: red">{{ $errors->first('temp') }}</span>
+                                                                @endif
+                                                              <input max="999" type="number" name="temp" class="form-control" placeholder="Temperature in Celsius">
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                              <label class="control-label" for="mens">Last Menstrual:</label>
+                                                                @if($errors->has('mens'))
+                                                                    <span class="error" style="color: red">{{ $errors->first('mens') }}</span>
+                                                                @endif
+                                                                <div class="input-group">
+                                                                    <input name="mens" type="text" name="idTourDateDetails" id="idTourDateDetails" readonly="readonly" class="form-control" placeholder="Click here to pick date of last menstruation">
+                                                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                                </div>
+                                                            </div>
+                                                  </div>
+                                                  <div class="row form-group">
+                                                                <div class="col-lg-6">
+                                                                  <label for="number">Blood Pressure (Systolic):</label>
+                                                                    @if($errors->has('sys'))
+                                                                        <span class="error" style="color: red">{{ $errors->first('sys') }}</span>
+                                                                    @endif
+                                                                  <input max="999" type="number" name="sys" class="form-control" placeholder="Systolic Value">
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                  <label for="number">Blood Pressure (Diastolic):</label>
+                                                                    @if($errors->has('dia'))
+                                                                        <span class="error" style="color: red">{{ $errors->first('dia') }}</span>
+                                                                    @endif
+                                                                  <input max="999" type="number" name="dia" class="form-control" placeholder="Diastolic Value">
+                                                                </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                                <label for="number">Doctor Notes:</label>
+                                                                      @if($errors->has('notes'))
+                                                                          <span class="error" style="color: red">{{ $errors->first('notes') }}</span>
+                                                                      @endif
+                                                                <textarea name="notes" class="form-control" rows="5" placeholder="Doctors vital notes"></textarea>
+                                                  </div>
+                                               </div>
+                                            <div class="modal-footer">
+                                            <button type="submit" name="saveVitals" class="btn btn-primary pull-left">Save</button>
+                                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+                                            </div>
+                                         </form>
+                                      </div>
+                                      <div class="tab-pane" id="vaccine" role="tabpanel">
+                                            <br>
+                                          <div class="row">
+                                                <div class="col-lg-6">
+                                                  <form action="/consultation/vaccination" method="POST" role="form" id="vac_submit">
+                                                    <div class="row container-fluid">
+                                                        <div class="col-lg-6" >
+                                                              <label>Vaccine Name</label>
+                                                              <select id="select_vaccine" name="select_vaccine" class="demo-default" data-placeholder="Vaccine Name" required>
+                                                                <option disabled selected value>None</option>
 
-                                  <div class=" tab-pane" id="vh">
-                                               
-                                  </div><!-- /.widget-user -->
+                                                                @foreach ($vaccine as $vac)
+                                                                <option value="{{$vac['id']}}">{{$vac['vaccine_name']}}</option>
+                                                                @endforeach
+
+                                                              </select>
+                                                        </div>
+                                                        <div class="col-lg-6" id="sandbox-container" >
+                                                           <label>Vaccination Date </label>
+                                                           <input class="form-control" type="text" name="vac_date" id="vac_date" placeholder="Vaccination Date" required />
+                                                        </div>
+                                                    </div>
+                                                       <div class="col-lg-4">  
+                                                       <br> 
+                                                       <br> 
+                                                         <input class="form-control btn btn-primary " value="Submit" type="submit"  />
+                                                      </div>
+                                                  </form>
+                                              </div>
+                                              <div class="col-lg-6">
+                                                    <div class="container-fluid">
+                                                         <br> 
+                                                      <table id="table_med"  data-toggle="table"
+                                                    data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+                                                     id="example2" class="table table-bordered table-hover dataTable">
+                                                        <thead>
+                                                          <tr>
+                                                            <th>Vaccine Name</th>
+                                                            <th>Purpose</th>
+                                                            <th>Date</th>
+                                                            <th>Action</th>
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody id="vaccination_tbody">
+                                                          <tr>
+                                                            <td>Vaccine 101</td>
+                                                            <td>For H1N1 3 in 1P Plus 1</td>
+                                                            <td>Jun 13 , 2016</td>
+                                                            <td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+                                                    </div>    
+                                              </div>
+                                          </div>
+                                </div>
+                                <div class="tab-pane" id="prescription" role="tabpanel">
+                                      <br>
+                                        <div class="row">
+
+                                              <div class="col-lg-6">
+                                                  <form action="/consultation/prescription" method="POST" id="prescription_submit">
+                                                    <div class="row container-fluid">
+                                                       <div class="row container-fluid">
+                                                        <div class="col-lg-9" >
+                                                             <label>Medicine</label>  
+                                                                 <select id="select_generic" class="demo-default"  placeholder="Medicine Name" name="select_generic" required>
+                                                                    <option value disabled selected>None</option>
+                                                                    @foreach ($medicine as $med)
+                                                                      <option value="{{$med['id']}}">{{$med['medicine_name']}}</option>
+                                                                    @endforeach
+
+                                                                </select>
+                                                        </div>
+                                                         <div class="col-lg-3">
+                                                           <label>Quantity</label>
+                                                           <input class="form-control" type="number"  name="quantity" required/>
+                                                        </div>
+                                                        <div class="col-lg-12">
+                                                           <label>Sig</label>
+                                                           <input class="form-control" type="text" placeholder="Sig" name="sig" required />
+                                                        </div>
+                                                         <div class="col-lg-4">
+                                                            <br>
+                                                           <input class="form-control btn btn-primary " value="Submit" type="submit"  />
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </form>
+                                             </div>
+                                             <div class="col-lg-6">
+                                                  <div class="container-fluid">
+                                                     <table id="table_med"  data-toggle="table"
+                                                      data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+                                                       id="example2" class="table table-bordered table-hover dataTable">
+                                                          <thead>
+                                                            <tr>
+                                                              <th>Medicine Name</th>
+                                                              <th>Quantity</th>
+                                                              <th>Action</th>
+                                                            </tr>
+                                                          </thead>
+                                                          <tbody>
+                                                            <tr>
+                                                              <td>Bear Brand</td>
+                                                              <td>10pcs</td>
+                                                              <td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td>
+                                                            </tr>
+                                                          </tbody>
+                                                        </table>
+                                                      <br>
+                                                      <br>
+                                                     <a href="/printPrescription/{{Session::get('patient_appoint')}}" target="_blank" class="btn btn-primary "> Print Prescription</a>
+                                                  </div>    
+                                              </div>
+                                        </div>
+                                </div>
+                                      
+                                <div class="tab-pane" id="labrequest" role="tabpanel">
+                                    <br>
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                            <form action="/consultation/labrequest" method="POST" id="lab_submit">
+                                              <div class="row container-fluid">
+                                                  <div class="col-lg-12" >
+                                                        <label>Laboratory Type</label>
+                                                        <select id="select_lab"  placeholder="Laboratory Type" name="select_lab"> 
+                                                        <option value disabled selected> None </option>
+                                                        @foreach ($lab as $labs)
+                                                          <option value="{{$labs['id']}}">{{$labs['lab_name']}}</option>
+                                                        @endforeach
+                                                        </select>
+                                                  </div>
+                                                  <div class="col-lg-12" >
+                                                     <label>Remarks</label>
+                                                     <input class="form-control" type="text" placeholder="Remarks" name="remarks" />
+                                                  </div>
+                                                   <div class="col-lg-4">
+                                                      <br>
+                                                     <input class="form-control btn btn-primary " value="Add" type="submit"  />
+                                                  </div>
+                                              </div>
+                                            </form>
+                                      </div>
+                                       <div class="col-lg-6">
+                                        <div class="container-fluid">  
+                                              <table id="table_med"  data-toggle="table"
+                                            data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+                                             id="example2" class="table table-bordered table-hover dataTable">
+                                                <thead>
+                                                  <tr>
+                                                    <th>Type</th>
+                                                    <th>Remarks</th>
+                                                    <th>Action</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <tr>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td>
+                                                  </tr>
+                                                </tbody>
+                                              </table>
+                                              </div>
+                                          </div>
+                                    </div>
+                                </div>  
+
+                                <div class="tab-pane" id="diagnosis" role="tabpanel">
+                                     <br>
+                                     <div class="row">
+                                        <div class="col-lg-6">
+                                              <form action="/consultation/diagnosis" method="POST" role="form" id="diagnosis_submit">
+                                                <div class="row container-fluid">
+                                                    <div class="col-lg-12">
+                                                        <label for="number">Result</label>
+                                                        <textarea name="result" class="form-control" rows="5" placeholder="Result" type="text" required></textarea>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                       <label>Remarks</label>
+                                                       <input class="form-control" type="text" name="remarks" placeholder="Remarks" />
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <br>
+                                                       <input class="form-control btn btn-primary " value="Submit"  type="submit" />
+                                              
+                                                    </div>
+                                                </div>
+                                            </form>
+                                      </div>
+                                      <div class="col-lg-6">
+                                            <div class="container-fluid"> 
+                                              <div class="row container-fluid">
+                                                  <div class="col-lg-12">
+                                                      <label for="number">Assessment</label>
+                                                      <textarea disabled id="assessment" name="assessment" class="form-control" rows="5"></textarea>
+                                                  </div>
+                                                   </div>    
+                                              </div>
+                                      </div>
+                                    </div>
+                                </div> 
+                              </div>
                             </div>
+                          </div>  
+                        </div>
+                                                 
+          </div> <!-- END TAB1 TAB -->
+
+                                                                                   
+          <div class="tab-pane fade in" id="tab2"> 
+
+
+              <div class="col-lg-12 col-sm-12">  
+                    <div class="panel panel-default">
+                         <div class="panel-body">  
+                                    
+                                    <!-- Nav tabs -->
+                                <div class="nav-tabs-custom">
+                                      <ul class="nav nav-tabs" role="tablist">
+                                          
+                                          <li class="active">
+                                            <a data-toggle="tab" href="#vh" role="tab">Vitals History</a>
+                                          </li>
+                                          <li class="nav-item">
+                                            <a data-toggle="tab" href="#ch" role="tab">Consultation History</a>
+                                          </li>
+                                     </ul>
+                                  </div>
+                                    <!-- Tab panes -->
+                                 <div class="tab-content">
+                                        
+                                <div class="tab-pane" id="vh" role="tabpanel">
+                                   <table data-toggle="table"
+                       data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+                       data-card-view="true"
+                       data-search="true"
+                       data-show-refresh="true"
+                       data-show-toggle="true"
+                       data-show-columns="true" id="table2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                       
+                      <thead>
+                      <tr role="row">
+                      <th class="sorting_asc" tabindex="0" aria-controlsne: activate to sort column descending style="width: 177px;" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engi">Date Recorded</th>
+                      <th class="sorting_asc" tabindex="0" aria-controlsne: activate to sort column descending style="width: 177px;" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engi">Height</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 224px;">Weight</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 152px;">Pulserate</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Respiratory</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Body Temperature</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Blood Presure</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Doctor Notes</th>
+                    </thead>
+                    <tbody>
+                    @if($vitals !== null)
+                      @foreach ($vitals as $vital)
+                        <tr>
+                          <td> <b>{{date('F d, Y', strtotime($vital->general->created_at))}} </b></td>
+                           <td> {{$vital->general->height.' cm.'}} </td>
+                           <td> {{$vital->general->weight.' kg.'}} </td>
+                           <td> {{$vital->general->pulserate}} </td>
+                           <td> {{$vital->general->respiratoryrate}} </td>
+                           <td> {{$vital->general->bodytemperature}}&nbsp&deg c</td>
+                           <td> {{$vital->general->bloodpressure_sys.'/'.$vital->general->bloodpressure_dia}} </td>
+                           <td> {{$vital->general->notes}} </td>
+                        </tr> 
+                      @endforeach
+                      @endif
+                    </tbody>
+                  </table>
+                                </div>  
+
+                                <div class="tab-pane" id="ch" role="tabpanel"></div>
+
+                              </div>
+                            </div>
+                          </div>  
+                        </div>
+                        
+                    </div> <!-- END TAB2 TAB -->
+
+          
+                                                                           
+                    <div class="tab-pane fade in" id="tab3">
+
+
+                      <div class="col-lg-12 col-sm-12">  
+                    <div class="panel panel-default">
+                         <div class="panel-body">  
+                                    
+                                    <!-- Nav tabs -->
+                                <div class="nav-tabs-custom">
+                                      <ul class="nav nav-tabs" role="tablist">
+                                          
+                                          <li class="active">
+                                            <a data-toggle="tab" href="#pr" role="tab">Patient Record</a>
+                                          </li>
+                                          
+                                     </ul>
+                                  </div>
+                                    <!-- Tab panes -->
+                                 <div class="tab-content">
+                                        
+                                <div class="tab-pane" id="pr" role="tabpanel">
+                                  
+                                </div>  
+
+                              
+
+                              </div>
+                            </div>
+                          </div>  
+                        </div>
+                    </div>  <!-- END TAB3 TAB -->
+                  
+      </div>  <!-- END -->
+       
+
+
+
+
+ 
+
  
 
 
 
-<div class="col-lg-12 col-sm-12">  
- <div class="panel panel-default">
-  <div class="panel-body">  
-    <!-- Nav tabs -->
-    <div class="nav-tabs-custom">
-    <ul class="nav nav-tabs" role="tablist">
-      <li class="active">
-        <a data-toggle="tab" href="#vitals" role="tab">Vitals</a>
-      </li>
-      <li class="nav-item">
-        <a data-toggle="tab" href="#vaccine" role="tab">Vaccination</a>
-      </li>
-      <li class="nav-item">
-        <a data-toggle="tab" href="#prescription" role="tab">Prescription</a>
-      </li>
-      <li class="nav-item">
-        <a data-toggle="tab" href="#labrequest" role="tab">Lab Request</a>
-      </li>
-      <li class="nav-item">
-        <a data-toggle="tab" href="#diagnosis" role="tab">Diagnosis</a>
-      </li>
 
-    </ul>
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <div class="tab-pane active" id="vitals" role="tabpanel">
-          <form role="form" action="/saveVitals/{{$prof->id}}" method="POST">
-          <div class="modal-body">
-              {!! csrf_field() !!}
-              <div class="row form-group">
-                  <div class="col-lg-6">
-                      <label for="number">Height:</label>
-                      <input max="999" type="number" name="height" class="form-control" placeholder="Height in centimeters">
-                  </div>
-                  <div class="col-lg-6">
-                      <label for="number">Weight:</label>
-                      @if($errors->has('weight'))
-                          <span class="error" style="color: red">{{ $errors->first('weight') }}</span>
-                      @endif
-                      <input max="999" type="number" name="weight" class="form-control" placeholder="Weight in kilograms">
-                  </div>
-              </div>
-              <div class="row form-group">
-                  <div class="col-lg-6">
-                    <label for="number">Pulse Rate:</label>
-                      @if($errors->has('pulse'))
-                          <span class="error" style="color: red">{{ $errors->first('pulse') }}</span>
-                      @endif
-                    <input max="999" type="number" name="pulse" class="form-control" placeholder="Pulse Rate (Pulse per minute)">
-                  </div>
-                  <div class="col-lg-6">
-                    <label for="number">Respiratory Rate:</label>
-                      @if($errors->has('respiratory'))
-                          <span class="error" style="color: red">{{ $errors->first('respiratory') }}</span>
-                      @endif
-                    <input max="999" type="number" name="respiratory" class="form-control" placeholder="Respiratory Rate">
-                  </div>
-              </div>
-              <div class="row form-group">
-                  <div class="col-lg-6">
-                    <label for="number">Body Temperature:</label>
-                      @if($errors->has('temp'))
-                          <span class="error" style="color: red">{{ $errors->first('temp') }}</span>
-                      @endif
-                    <input max="999" type="number" name="temp" class="form-control" placeholder="Temperature in Celsius">
-                  </div>
-                  <div class="col-lg-6">
-                    <label class="control-label" for="mens">Last Menstrual:</label>
-                      @if($errors->has('mens'))
-                          <span class="error" style="color: red">{{ $errors->first('mens') }}</span>
-                      @endif
-                      <div class="input-group">
-                          <input name="mens" type="text" name="idTourDateDetails" id="idTourDateDetails" readonly="readonly" class="form-control" placeholder="Click here to pick date of last menstruation">
-                          <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                      </div>
-                  </div>
-              </div>
-              <div class="row form-group">
-                  <div class="col-lg-6">
-                    <label for="number">Blood Pressure (Systolic):</label>
-                      @if($errors->has('sys'))
-                          <span class="error" style="color: red">{{ $errors->first('sys') }}</span>
-                      @endif
-                    <input max="999" type="number" name="sys" class="form-control" placeholder="Systolic Value">
-                  </div>
-                  <div class="col-lg-6">
-                    <label for="number">Blood Pressure (Diastolic):</label>
-                      @if($errors->has('dia'))
-                          <span class="error" style="color: red">{{ $errors->first('dia') }}</span>
-                      @endif
-                    <input max="999" type="number" name="dia" class="form-control" placeholder="Diastolic Value">
-                  </div>
-              </div>
-              <div class="form-group">
-                <label for="number">Doctor Notes:</label>
-                      @if($errors->has('notes'))
-                          <span class="error" style="color: red">{{ $errors->first('notes') }}</span>
-                      @endif
-                <textarea name="notes" class="form-control" rows="5" placeholder="Doctors vital notes"></textarea>
-              </div>
-          </div>
-          <div class="modal-footer">
-            <button type="submit" name="saveVitals" class="btn btn-primary pull-left">Save</button>
-            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
-          </div>
-         </form>
-      </div>
-      <div class="tab-pane" id="vaccine" role="tabpanel">
-      <br>
-     <div class="row">
-        <div class="col-lg-6">
-      <form action="/consultation/vaccination" method="POST" role="form" id="vac_submit">
-        <div class="row container-fluid">
-            <div class="col-lg-6" >
-                  <label>Vaccine Name</label>
-                  <select id="select_vaccine" name="select_vaccine" class="demo-default" data-placeholder="Vaccine Name" required>
-                    <option disabled selected value>None</option>
-
-                    @foreach ($vaccine as $vac)
-                    <option value="{{$vac['id']}}">{{$vac['vaccine_name']}}</option>
-                    @endforeach
-
-                  </select>
-            </div>
-            <div class="col-lg-6" id="sandbox-container" >
-               <label>Vaccination Date </label>
-               <input class="form-control" type="text" name="vac_date" id="vac_date" placeholder="Vaccination Date" required />
-            </div>
-        </div>
-           <div class="col-lg-4">  
-           <br> 
-           <br> 
-             <input class="form-control btn btn-primary " value="Submit" type="submit"  />
-          </div>
-      </form>
-      </div>
-     <div class="col-lg-6">
-      <div class="container-fluid">
-           <br> 
-        <table id="table_med"  data-toggle="table"
-      data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
-       id="example2" class="table table-bordered table-hover dataTable">
-          <thead>
-            <tr>
-              <th>Vaccine Name</th>
-              <th>Purpose</th>
-              <th>Date</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody id="vaccination_tbody">
-            <tr>
-              <td>Vaccine 101</td>
-              <td>For H1N1 3 in 1P Plus 1</td>
-              <td>Jun 13 , 2016</td>
-              <td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>    
-      </div>
-  </div>
-</div>
-      <div class="tab-pane" id="prescription" role="tabpanel">
-      <br>
-     <div class="row">
-
-        <div class="col-lg-6">
-      <form action="/consultation/prescription" method="POST" id="prescription_submit">
-        <div class="row container-fluid">
-           <div class="row container-fluid">
-            <div class="col-lg-9" >
-                 <label>Medicine</label>  
-                     <select id="select_generic" class="demo-default"  placeholder="Medicine Name" name="select_generic" required>
-                        <option value disabled selected>None</option>
-                        @foreach ($medicine as $med)
-                          <option value="{{$med['id']}}">{{$med['medicine_name']}}</option>
-                        @endforeach
-
-                    </select>
-            </div>
-             <div class="col-lg-3">
-               <label>Quantity</label>
-               <input class="form-control" type="number"  name="quantity" required/>
-            </div>
-            <div class="col-lg-12">
-               <label>Sig</label>
-               <input class="form-control" type="text" placeholder="Sig" name="sig" required />
-            </div>
-             <div class="col-lg-4">
-                <br>
-               <input class="form-control btn btn-primary " value="Submit" type="submit"  />
-            </div>
-        </div>
-      </div>
-      </form>
-      </div>
-     <div class="col-lg-6">
-      <div class="container-fluid">
-     <table id="table_med"  data-toggle="table"
-      data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
-       id="example2" class="table table-bordered table-hover dataTable">
-          <thead>
-            <tr>
-              <th>Medicine Name</th>
-              <th>Quantity</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Bear Brand</td>
-              <td>10pcs</td>
-              <td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td>
-            </tr>
-          </tbody>
-        </table>
-          <br>
-          <br>
-         <a href="/printPrescription/{{Session::get('patient_appoint')}}" target="_blank" class="btn btn-primary "> Print Prescription</a>
-      </div>    
-      </div>
-  </div>
-</div>
-      
-    <div class="tab-pane" id="labrequest" role="tabpanel">
-    <br>
-     <div class="row">
-        <div class="col-lg-6">
-      <form action="/consultation/labrequest" method="POST" id="lab_submit">
-        <div class="row container-fluid">
-            <div class="col-lg-12" >
-                  <label>Laboratory Type</label>
-                  <select id="select_lab"  placeholder="Laboratory Type" name="select_lab"> 
-                  <option value disabled selected> None </option>
-                  @foreach ($lab as $labs)
-                    <option value="{{$labs['id']}}">{{$labs['lab_name']}}</option>
-                  @endforeach
-                  </select>
-            </div>
-            <div class="col-lg-12" >
-               <label>Remarks</label>
-               <input class="form-control" type="text" placeholder="Remarks" name="remarks" />
-            </div>
-             <div class="col-lg-4">
-                <br>
-               <input class="form-control btn btn-primary " value="Add" type="submit"  />
-            </div>
-        </div>
-      </form>
-      </div>
-     <div class="col-lg-6">
-      <div class="container-fluid">  
-        <table id="table_med"  data-toggle="table"
-      data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
-       id="example2" class="table table-bordered table-hover dataTable">
-          <thead>
-            <tr>
-              <th>Type</th>
-              <th>Remarks</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>-</td>
-              <td>-</td>
-              <td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td>
-            </tr>
-          </tbody>
-        </table>
-        </div>
-        </div>
-      </div>
-    </div>  
-
-<div class="tab-pane" id="diagnosis" role="tabpanel">
-<br>
-     <div class="row">
-        <div class="col-lg-6">
-      <form action="/consultation/diagnosis" method="POST" role="form" id="diagnosis_submit">
-        <div class="row container-fluid">
-            <div class="col-lg-12">
-                <label for="number">Result</label>
-                <textarea name="result" class="form-control" rows="5" placeholder="Result" type="text" required></textarea>
-            </div>
-            <div class="col-lg-12">
-               <label>Remarks</label>
-               <input class="form-control" type="text" name="remarks" placeholder="Remarks" />
-            </div>
-            <div class="col-lg-4">
-                <br>
-               <input class="form-control btn btn-primary " value="Submit"  type="submit" />
-      
-            </div>
-        </div>
-      </div>
-     <div class="col-lg-6">
-      <div class="container-fluid"> 
-        <div class="row container-fluid">
-            <div class="col-lg-12">
-                <label for="number">Assessment</label>
-                <textarea disabled id="assessment" name="assessment" class="form-control" rows="5"></textarea>
-            </div>
-             </div>    
-        </div>
-      </div>
-    </div>
-  </div>    </form> 
-
- </div>
-  </div>
-  </div>
-</div>
-</div>
-</div> <!-- END ROW --> 
 
 
 

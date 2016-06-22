@@ -121,5 +121,38 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
 </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="/plugins/morris/morris.min.js"></script>
+ <script >
+          var donut = new Morris.Donut({
+          element: 'sales-chart2',
+          resize: true,
+          colors: ["#3c8dbc", "#f56954", "#05a65a", "#333"],
+          data: [
+            {label: "Consultations", value: {{$counts->totalConsultations}}},
+            {label: "Laboratory", value: {{$counts->totalLaboratory}}},
+            {label: "Imaging Processed", value: {{$counts->totalImaging}}}
+          ],
+          hideHover: 'auto'
+        });
+</script>
+ <script >
+          var male = {{$counts->totalMaleFemalePatient[0]->MALE}};
+          var female = {{$counts->totalMaleFemalePatient[0]->FEMALE}};
+          var total = male + female;
+          var aveM =Math.round((male/total)*100);
+          var aveF =Math.round((female/total)*100);
+          var donut = new Morris.Donut({
+          element: 'sales-chart',
+          resize: true,
+          colors: ["#00c0ef", "#ca87be", "#00a65a","#444"],
+          data: [
+            {label: "Male ("+aveM+"%)", value: {{$counts->totalMaleFemalePatient[0]->MALE}}},
+            {label: "Female ("+aveF+"%)", value: {{$counts->totalMaleFemalePatient[0]->FEMALE}}},
+          ],
+          hideHover: 'auto'
+        });
+</script>
+
 
 @stop

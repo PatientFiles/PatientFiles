@@ -103,7 +103,7 @@ class patientController extends Controller
         }
 
         $profile = $this->medix->get('patient/'.$id);
-        //dd($profile);
+        dd($profile);
         return view('pages.patientProfile')
             ->with('prof', $profile->data)
             ->with('consult', $pastCons)

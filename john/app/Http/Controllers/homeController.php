@@ -174,6 +174,7 @@ class homeController extends Controller
     */
     public function recent()
     {
+        //dd(\Session::get('appoint'));
         $patients = $this->medix->get('patient?take=1000');
         //dd($patients);
         $mytime = Carbon::now();

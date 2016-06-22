@@ -58,6 +58,97 @@ scratch. This page gets rid of all links and provides the needed markup only.
              height: 350px;
 
            }
+
+          /* ------------------------------------------------------------------- 
+
+/* USER PROFILE PAGE */
+ .card {
+    margin-top: 20px;
+    padding: 30px;
+    background-color: rgba(214, 224, 226, 0.2);
+    -webkit-border-top-left-radius:5px;
+    -moz-border-top-left-radius:5px;
+    border-top-left-radius:5px;
+    -webkit-border-top-right-radius:5px;
+    -moz-border-top-right-radius:5px;
+    border-top-right-radius:5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.card.hovercard {
+    position: relative;
+    padding-top: 0;
+    overflow: hidden;
+    text-align: center;
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, 1);
+}
+.card.hovercard .card-background {
+    height: 130px;
+}
+.card-background img {
+    -webkit-filter: blur(25px);
+    -moz-filter: blur(25px);
+    -o-filter: blur(25px);
+    -ms-filter: blur(25px);
+    filter: blur(25px);
+    margin-left: -100px;
+    margin-top: -200px;
+    min-width: 130%;
+}
+.card.hovercard .useravatar {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+}
+.card.hovercard .useravatar img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+}
+.card.hovercard .card-info {
+    position: absolute;
+    bottom: 14px;
+    left: 0;
+    right: 0;
+}
+.card.hovercard .card-info .card-title {
+    padding:0 5px;
+    font-size: 20px;
+    line-height: 1;
+    color: #262626;
+    background-color: rgba(255, 255, 255, 0.1);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.card.hovercard .card-info {
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 20px;
+    color: #737373;
+    text-overflow: ellipsis;
+}
+.card.hovercard .bottom {
+    padding: 0 20px;
+    margin-bottom: 17px;
+}
+.btn-pref .btn {
+    -webkit-border-radius:0 !important;
+}
+
+
+
+          ---------------------------------------------------------------------*/
+
+
       </style>
 
   </head>
@@ -223,18 +314,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->      
         <!-- Main content -->  
-      <section class="content">     
-
-        <section class="content-header">
-          <h1>
-           Visit Process
-          </h1>
-          <ol class="breadcrumb">
-            <a class="btn btn-primary" href="/patientProfile/{{Session::get('patient_appoint')}}" target="_blank">View Patient Profile</a>
-          </ol>
-      </section>
-      <hr>
-
+      <section class="content">
 
       @if(session('success'))
           <small style=" padding-top: 5px;color: white;background-color: red;font-style: italic;" class="box-title alert alert-{{session ('success.type')}} form-control" >
@@ -246,43 +326,390 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Widget: user widget style 1 -->
               <div class="box box-widget widget-user container">
                 <!-- Add the bg color to the header using any of the bg-* classes -->
-                <div class="widget-user-header bg-aqua-active row">
-             <div class="col-lg-1 col-sm-12">
-                <img class="img-circle" src="/img/prof_pic.png " alt="User profile picture" style="width: 90px" />
-              </div>
-              <div class="col-lg-4 col-sm-4"> 
-                  <h3 class="widget-user-username"><b>&nbsp {{$prof->user->firstname.' '.$prof->user->lastname}}</b></h3>
-                  <h5 class="widget-user-desc">&nbsp &nbsp{{Session::get('type')}}</h5>
-                  <h5 class="widget-user-desc">&nbsp &nbsp Chief Complaints:&nbsp{{Session::get('complaint')}}</h5>
-              </div>    
-                </div>
-                <div class="box-footer" style="padding-top: 10px;">
-                  <div class="row">
-                    <div class="col-sm-4 border-right">
-                      <div class="description-block">
-                      @if ($prof->user->gender == 1)
-                          <h5 class="description-header">Male</h5>
-                        @else
-                          <h5 class="description-header">Female</h5>
+                <div class="col-lg-12 col-sm-12">
+    <div class="card hovercard">
+        <div class="card-background">
+            <img class="card-bkimg" alt="" src="http://lorempixel.com/100/100/people/9/">
+            <!-- http://lorempixel.com/850/280/people/9/ -->
+        </div>
+        <div class="useravatar">
+            <img alt="" src="/img/prof_pic.png ">
+        </div>
+        <div class="card-info"> <span class="card-title">Pamela Anderson</span>
+
+        </div>
+    </div>
+    <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+            <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-star" aria-hidden="false"></span>
+                <div class="hidden-xs">Current Visit</div>
+            </button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="false"></span>
+                <div class="hidden-xs">Past Visit</div>
+            </button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="false"></span>
+                <div class="hidden-xs">Basic Information</div>
+            </button>
+        </div>
+    </div>
+
+        <div class="well">
+      <div class="tab-content">
+
+                    <div class="tab-pane fade in active" id="tab1">
+                      <div class="col-lg-12 col-sm-12">  
+ <div class="panel panel-default">
+  <div class="panel-body">  
+    <!-- Nav tabs -->
+    <div class="nav-tabs-custom">
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="active">
+        <a data-toggle="tab" href="#vitals" role="tab">Vitals</a>
+      </li>
+      <li class="nav-item">
+        <a data-toggle="tab" href="#vaccine" role="tab">Vaccination</a>
+      </li>
+      <li class="nav-item">
+        <a data-toggle="tab" href="#prescription" role="tab">Prescription</a>
+      </li>
+      <li class="nav-item">
+        <a data-toggle="tab" href="#labrequest" role="tab">Lab Request</a>
+      </li>
+      <li class="nav-item">
+        <a data-toggle="tab" href="#diagnosis" role="tab">Diagnosis</a>
+      </li>
+
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div class="tab-pane active" id="vitals" role="tabpanel">
+          <form role="form" action="/saveVitals/{{$prof->id}}" method="POST">
+          <div class="modal-body">
+              {!! csrf_field() !!}
+              <div class="row form-group">
+                  <div class="col-lg-6">
+                      <label for="number">Height:</label>
+                      <input max="999" type="number" name="height" class="form-control" placeholder="Height in centimeters">
+                  </div>
+                  <div class="col-lg-6">
+                      <label for="number">Weight:</label>
+                      @if($errors->has('weight'))
+                          <span class="error" style="color: red">{{ $errors->first('weight') }}</span>
                       @endif
-                        <span class="description-text">Gender</span>
-                      </div><!-- /.description-block -->
-                    </div><!-- /.col -->
-                    <div class="col-sm-4 border-right">
-                      <div class="description-block">
-                        <h5 class="description-header">{{date('F d,Y',strtotime($prof->user->birthdate))}}</h5>
-                        <span class="description-text">Birth Date</span>
-                      </div><!-- /.description-block -->
-                    </div><!-- /.col -->
-                    <div class="col-sm-4">
-                      <div class="description-block">
-                          <a href="/end_visit" class="btn btn-info active">End Visit</a>
-                      </div><!-- /.description-block -->
-                    </div><!-- /.col -->
-                  </div><!-- /.row -->
-                </div>
-              </div><!-- /.widget-user -->
+                      <input max="999" type="number" name="weight" class="form-control" placeholder="Weight in kilograms">
+                  </div>
+              </div>
+              <div class="row form-group">
+                  <div class="col-lg-6">
+                    <label for="number">Pulse Rate:</label>
+                      @if($errors->has('pulse'))
+                          <span class="error" style="color: red">{{ $errors->first('pulse') }}</span>
+                      @endif
+                    <input max="999" type="number" name="pulse" class="form-control" placeholder="Pulse Rate (Pulse per minute)">
+                  </div>
+                  <div class="col-lg-6">
+                    <label for="number">Respiratory Rate:</label>
+                      @if($errors->has('respiratory'))
+                          <span class="error" style="color: red">{{ $errors->first('respiratory') }}</span>
+                      @endif
+                    <input max="999" type="number" name="respiratory" class="form-control" placeholder="Respiratory Rate">
+                  </div>
+              </div>
+              <div class="row form-group">
+                  <div class="col-lg-6">
+                    <label for="number">Body Temperature:</label>
+                      @if($errors->has('temp'))
+                          <span class="error" style="color: red">{{ $errors->first('temp') }}</span>
+                      @endif
+                    <input max="999" type="number" name="temp" class="form-control" placeholder="Temperature in Celsius">
+                  </div>
+                  <div class="col-lg-6">
+                    <label class="control-label" for="mens">Last Menstrual:</label>
+                      @if($errors->has('mens'))
+                          <span class="error" style="color: red">{{ $errors->first('mens') }}</span>
+                      @endif
+                      <div class="input-group">
+                          <input name="mens" type="text" name="idTourDateDetails" id="idTourDateDetails" readonly="readonly" class="form-control" placeholder="Click here to pick date of last menstruation">
+                          <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                      </div>
+                  </div>
+              </div>
+              <div class="row form-group">
+                  <div class="col-lg-6">
+                    <label for="number">Blood Pressure (Systolic):</label>
+                      @if($errors->has('sys'))
+                          <span class="error" style="color: red">{{ $errors->first('sys') }}</span>
+                      @endif
+                    <input max="999" type="number" name="sys" class="form-control" placeholder="Systolic Value">
+                  </div>
+                  <div class="col-lg-6">
+                    <label for="number">Blood Pressure (Diastolic):</label>
+                      @if($errors->has('dia'))
+                          <span class="error" style="color: red">{{ $errors->first('dia') }}</span>
+                      @endif
+                    <input max="999" type="number" name="dia" class="form-control" placeholder="Diastolic Value">
+                  </div>
+              </div>
+              <div class="form-group">
+                <label for="number">Doctor Notes:</label>
+                      @if($errors->has('notes'))
+                          <span class="error" style="color: red">{{ $errors->first('notes') }}</span>
+                      @endif
+                <textarea name="notes" class="form-control" rows="5" placeholder="Doctors vital notes"></textarea>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" name="saveVitals" class="btn btn-primary pull-left">Save</button>
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+          </div>
+         </form>
+      </div>
+      <div class="tab-pane" id="vaccine" role="tabpanel">
+      <br>
+     <div class="row">
+        <div class="col-lg-6">
+      <form action="/consultation/vaccination" method="POST" role="form" id="vac_submit">
+        <div class="row container-fluid">
+            <div class="col-lg-6" >
+                  <label>Vaccine Name</label>
+                  <select id="select_vaccine" name="select_vaccine" class="demo-default" data-placeholder="Vaccine Name" required>
+                    <option disabled selected value>None</option>
+
+                    @foreach ($vaccine as $vac)
+                    <option value="{{$vac['id']}}">{{$vac['vaccine_name']}}</option>
+                    @endforeach
+
+                  </select>
+            </div>
+            <div class="col-lg-6" id="sandbox-container" >
+               <label>Vaccination Date </label>
+               <input class="form-control" type="text" name="vac_date" id="vac_date" placeholder="Vaccination Date" required />
+            </div>
+        </div>
+           <div class="col-lg-4">  
+           <br> 
+           <br> 
+             <input class="form-control btn btn-primary " value="Submit" type="submit"  />
+          </div>
+      </form>
+      </div>
+     <div class="col-lg-6">
+      <div class="container-fluid">
+           <br> 
+        <table id="table_med"  data-toggle="table"
+      data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+       id="example2" class="table table-bordered table-hover dataTable">
+          <thead>
+            <tr>
+              <th>Vaccine Name</th>
+              <th>Purpose</th>
+              <th>Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="vaccination_tbody">
+            <tr>
+              <td>Vaccine 101</td>
+              <td>For H1N1 3 in 1P Plus 1</td>
+              <td>Jun 13 , 2016</td>
+              <td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>    
+      </div>
+  </div>
 </div>
+      <div class="tab-pane" id="prescription" role="tabpanel">
+      <br>
+     <div class="row">
+
+        <div class="col-lg-6">
+      <form action="/consultation/prescription" method="POST" id="prescription_submit">
+        <div class="row container-fluid">
+           <div class="row container-fluid">
+            <div class="col-lg-9" >
+                 <label>Medicine</label>  
+                     <select id="select_generic" class="demo-default"  placeholder="Medicine Name" name="select_generic" required>
+                        <option value disabled selected>None</option>
+                        @foreach ($medicine as $med)
+                          <option value="{{$med['id']}}">{{$med['medicine_name']}}</option>
+                        @endforeach
+
+                    </select>
+            </div>
+             <div class="col-lg-3">
+               <label>Quantity</label>
+               <input class="form-control" type="number"  name="quantity" required/>
+            </div>
+            <div class="col-lg-12">
+               <label>Sig</label>
+               <input class="form-control" type="text" placeholder="Sig" name="sig" required />
+            </div>
+             <div class="col-lg-4">
+                <br>
+               <input class="form-control btn btn-primary " value="Submit" type="submit"  />
+            </div>
+        </div>
+      </div>
+      </form>
+      </div>
+     <div class="col-lg-6">
+      <div class="container-fluid">
+     <table id="table_med"  data-toggle="table"
+      data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+       id="example2" class="table table-bordered table-hover dataTable">
+          <thead>
+            <tr>
+              <th>Medicine Name</th>
+              <th>Quantity</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Bear Brand</td>
+              <td>10pcs</td>
+              <td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td>
+            </tr>
+          </tbody>
+        </table>
+          <br>
+          <br>
+         <a href="/printPrescription/{{Session::get('patient_appoint')}}" target="_blank" class="btn btn-primary "> Print Prescription</a>
+      </div>    
+      </div>
+  </div>
+</div>
+      
+    <div class="tab-pane" id="labrequest" role="tabpanel">
+    <br>
+     <div class="row">
+        <div class="col-lg-6">
+      <form action="/consultation/labrequest" method="POST" id="lab_submit">
+        <div class="row container-fluid">
+            <div class="col-lg-12" >
+                  <label>Laboratory Type</label>
+                  <select id="select_lab"  placeholder="Laboratory Type" name="select_lab"> 
+                  <option value disabled selected> None </option>
+                  @foreach ($lab as $labs)
+                    <option value="{{$labs['id']}}">{{$labs['lab_name']}}</option>
+                  @endforeach
+                  </select>
+            </div>
+            <div class="col-lg-12" >
+               <label>Remarks</label>
+               <input class="form-control" type="text" placeholder="Remarks" name="remarks" />
+            </div>
+             <div class="col-lg-4">
+                <br>
+               <input class="form-control btn btn-primary " value="Add" type="submit"  />
+            </div>
+        </div>
+      </form>
+      </div>
+     <div class="col-lg-6">
+      <div class="container-fluid">  
+        <table id="table_med"  data-toggle="table"
+      data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+       id="example2" class="table table-bordered table-hover dataTable">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Remarks</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        </div>
+      </div>
+    </div>  
+
+<div class="tab-pane" id="diagnosis" role="tabpanel">
+<br>
+     <div class="row">
+        <div class="col-lg-6">
+      <form action="/consultation/diagnosis" method="POST" role="form" id="diagnosis_submit">
+        <div class="row container-fluid">
+            <div class="col-lg-12">
+                <label for="number">Result</label>
+                <textarea name="result" class="form-control" rows="5" placeholder="Result" type="text" required></textarea>
+            </div>
+            <div class="col-lg-12">
+               <label>Remarks</label>
+               <input class="form-control" type="text" name="remarks" placeholder="Remarks" />
+            </div>
+            <div class="col-lg-4">
+                <br>
+               <input class="form-control btn btn-primary " value="Submit"  type="submit" />
+      
+            </div>
+        </div>
+      </div>
+     <div class="col-lg-6">
+      <div class="container-fluid"> 
+        <div class="row container-fluid">
+            <div class="col-lg-12">
+                <label for="number">Assessment</label>
+                <textarea disabled id="assessment" name="assessment" class="form-control" rows="5"></textarea>
+            </div>
+             </div>    
+        </div>
+      </div>
+    </div>
+  </div>    </form> 
+
+ </div>
+  </div>
+  </div>
+</div>
+                    </div>
+
+
+                    <div class="tab-pane fade in" id="tab2">
+                      <h3>This is tab 2</h3>
+                    </div>
+
+
+                    <div class="tab-pane fade in" id="tab3">
+                      <h3>This is tab 3</h3>
+                    </div>
+                  </div>
+
+
+    </div>
+    
+    </div>
+
+
+
+
+ <div class=" tab-content">   <!-- START TAB CONTENT -->
+
+                                  <div class=" tab-pane" id="cc">
+                                        
+                                  </div>
+
+                                  <div class=" tab-pane" id="vh">
+                                               
+                                  </div><!-- /.widget-user -->
+                            </div>
+ 
+
+
+
 <div class="col-lg-12 col-sm-12">  
  <div class="panel panel-default">
   <div class="panel-body">  
@@ -1178,4 +1605,22 @@ $('#search_ped').click(function(){
 
     }
 });
+</script>
+
+
+
+
+
+
+<!--- -------------------------------------------- -->
+<script >
+  
+$(document).ready(function() {
+$(".btn-pref .btn").click(function () {
+    $(".btn-pref .btn").removeClass("btn-primary").addClass("btn-default");
+    // $(".tab").addClass("active"); // instead of this do the below 
+    $(this).removeClass("btn-default").addClass("btn-primary");   
+});
+});
+
 </script>

@@ -8,7 +8,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>@yield('title')</title>
+      <title>Visit Process | Pedix</title>
       <!-- Tell the browser to be responsive to screen width -->
       <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
       <!-- Bootstrap 3.3.5 -->
@@ -44,12 +44,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <link rel="stylesheet" href="/css/fullcalendar.css">
        
 
-       <script src="/js/vendor/jquery.js"></script> 
+      <script src="/js/vendor/jquery.js"></script> 
       <script src="/js/kendo.web.min.js"></script> 
       <script src="//fast.eager.io/CAcQLdp-HA.js"></script>
 
-      
-        <script >
+     <script >
         
       $(document).ready(function() {
       $(".btn-pref .btn").click(function () {
@@ -60,10 +59,113 @@ scratch. This page gets rid of all links and provides the needed markup only.
       });
 
     </script>
+
+
+      <style type="text/css">
+
+           .fixed-table-body 
+           {
+             overflow-x: auto;
+             overflow-y: auto;
+             height: 350px;
+
+           }
+
+          /* ------------------------------------------------------------------- 
+
+/* USER PROFILE PAGE */
+ .card {
+    margin-top: 20px;
+    padding: 30px;
+    background-color: rgba(214, 224, 226, 0.2);
+    -webkit-border-top-left-radius:5px;
+    -moz-border-top-left-radius:5px;
+    border-top-left-radius:5px;
+    -webkit-border-top-right-radius:5px;
+    -moz-border-top-right-radius:5px;
+    border-top-right-radius:5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.card.hovercard {
+    position: relative;
+    padding-top: 0;
+    overflow: hidden;
+    text-align: center;
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, 1);
+}
+.card.hovercard .card-background {
+    height: 130px;
+}
+.card-background img {
+    -webkit-filter: blur(25px);
+    -moz-filter: blur(25px);
+    -o-filter: blur(25px);
+    -ms-filter: blur(25px);
+    filter: blur(25px);
+    margin-left: -100px;
+    margin-top: -200px;
+    min-width: 130%;
+}
+.card.hovercard .useravatar {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+}
+.card.hovercard .useravatar img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+}
+.card.hovercard .card-info {
+    position: absolute;
+    bottom: 14px;
+    left: 0;
+    right: 0;
+}
+.card.hovercard .card-info .card-title {
+    padding:0 5px;
+    font-size: 20px;
+    line-height: 1;
+    color: #262626;
+    background-color: rgba(255, 255, 255, 0.1);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.card.hovercard .card-info {
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 20px;
+    color: #737373;
+    text-overflow: ellipsis;
+}
+.card.hovercard .bottom {
+    padding: 0 20px;
+    margin-bottom: 17px;
+}
+.btn-pref .btn {
+    -webkit-border-radius:0 !important;
+}
+
+
+
+          ---------------------------------------------------------------------*/
+
+
+      </style>
+
   </head>
 
-
- <body class="hold-transition skin-blue sidebar-mini fixed">
+ <body class="sidebar-mini fixed  skin-green-light pace-done sidebar-collapse">
     <div class="wrapper">
 
       <!-- Main Header -->
@@ -169,7 +271,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <form action="/searchResult" method="post" class="sidebar-form">
           {{csrf_field()}}
             <div class="input-group">
-              <input type="text" name="q" class="form-control" placeholder="Search..." required>
+              <input type="text" name="q" class="form-control" placeholder="Search...">
               <span class="input-group-btn">
                 <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
               </span>
@@ -178,9 +280,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- /.search form -->
           <!-- Sidebar Menu -->
           <ul class="sidebar-menu" >
-            <li class="header">MENU</li>
+            <li class="header">Menu</li>
             <!-- Optionally, you can add icons to the links -->
-            <li ><a href="/home"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+            <li class="active"><a href="/home"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
             <li class="treeview">
               <a href=""><i class="ion ion-ios-contact-outline"></i> <span>Patient</span> <i class="fa fa-angle-left pull-right"></i></a>
                   <ul class="treeview-menu">
@@ -203,10 +305,151 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->      
-        <!-- Main content -->  
-      <section class="content">     
-      @yield('content') 
-      </section>                             
+
+
+
+                                                     <!-- Main content -->  
+
+
+      @if(session('success'))
+          <small style=" padding-top: 5px;color: white;background-color: red;font-style: italic;" class="box-title alert alert-{{session ('success.type')}} form-control" >
+                                    {{session('success.text')}}
+          </small>
+      @endif
+
+     
+    <div class="card hovercard">
+        <div class="card-background">
+            <img class="card-bkimg" alt="" src="http://lorempixel.com/100/100/people/9/">
+            <!-- http://lorempixel.com/850/280/people/9/ -->
+        </div>
+        <div class="useravatar">
+            <img alt="" src="http://lorempixel.com/100/100/people/9/">
+        </div>
+        <div class="card-info"> <span class="card-title">Pamela Anderson</span>
+
+        </div>
+    </div>
+    <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+            <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                <div class="hidden-xs">Stars</div>
+            </button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+                <div class="hidden-xs">Favorites</div>
+            </button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                <div class="hidden-xs">Following</div>
+            </button>
+        </div>
+    </div>
+
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+          <div class="tab-content">
+        <div class="tab-pane fade in active" id="tab1">
+            
+            <form role="form" action="/saveVitals/{{$prof->id}}" method="POST">
+                  <div class="modal-body">
+                     {!! csrf_field() !!}
+                      <div class="row form-group">
+                         <div class="col-lg-6">
+                              <label for="number">Height:</label>
+                                <input max="999" type="number" name="height" class="form-control" placeholder="Height in centimeters">
+                          </div>
+                          <div class="col-lg-6">
+                              <label for="number">Weight:</label>
+                                 @if($errors->has('weight'))
+                                <span class="error" style="color: red">{{ $errors->first('weight') }}</span>
+                                 @endif
+                                <input max="999" type="number" name="weight" class="form-control" placeholder="Weight in kilograms">
+                          </div>
+                     </div>
+                     <div class="row form-group">
+                            <div class="col-lg-6">
+                              <label for="number">Pulse Rate:</label>
+                                @if($errors->has('pulse'))
+                                    <span class="error" style="color: red">{{ $errors->first('pulse') }}</span>
+                                @endif
+                              <input max="999" type="number" name="pulse" class="form-control" placeholder="Pulse Rate (Pulse per minute)">
+                            </div>
+                            <div class="col-lg-6">
+                              <label for="number">Respiratory Rate:</label>
+                                @if($errors->has('respiratory'))
+                                    <span class="error" style="color: red">{{ $errors->first('respiratory') }}</span>
+                                @endif
+                              <input max="999" type="number" name="respiratory" class="form-control" placeholder="Respiratory Rate">
+                            </div>
+                      </div>
+                      <div class="row form-group">
+                                <div class="col-lg-6">
+                                  <label for="number">Body Temperature:</label>
+                                    @if($errors->has('temp'))
+                                        <span class="error" style="color: red">{{ $errors->first('temp') }}</span>
+                                    @endif
+                                  <input max="999" type="number" name="temp" class="form-control" placeholder="Temperature in Celsius">
+                                </div>
+                                <div class="col-lg-6">
+                                  <label class="control-label" for="mens">Last Menstrual:</label>
+                                    @if($errors->has('mens'))
+                                        <span class="error" style="color: red">{{ $errors->first('mens') }}</span>
+                                    @endif
+                                    <div class="input-group">
+                                        <input name="mens" type="text" name="idTourDateDetails" id="idTourDateDetails" readonly="readonly" class="form-control" placeholder="Click here to pick date of last menstruation">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+                      </div>
+                      <div class="row form-group">
+                                    <div class="col-lg-6">
+                                      <label for="number">Blood Pressure (Systolic):</label>
+                                        @if($errors->has('sys'))
+                                            <span class="error" style="color: red">{{ $errors->first('sys') }}</span>
+                                        @endif
+                                      <input max="999" type="number" name="sys" class="form-control" placeholder="Systolic Value">
+                                    </div>
+                                    <div class="col-lg-6">
+                                      <label for="number">Blood Pressure (Diastolic):</label>
+                                        @if($errors->has('dia'))
+                                            <span class="error" style="color: red">{{ $errors->first('dia') }}</span>
+                                        @endif
+                                      <input max="999" type="number" name="dia" class="form-control" placeholder="Diastolic Value">
+                                    </div>
+                      </div>
+                      <div class="form-group">
+                                    <label for="number">Doctor Notes:</label>
+                                          @if($errors->has('notes'))
+                                              <span class="error" style="color: red">{{ $errors->first('notes') }}</span>
+                                          @endif
+                                    <textarea name="notes" class="form-control" rows="5" placeholder="Doctors vital notes"></textarea>
+                      </div>
+                   </div>
+                <div class="modal-footer">
+                <button type="submit" name="saveVitals" class="btn btn-primary pull-left">Save</button>
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+                </div>
+             </form>
+
+
+        </div>
+        <div class="tab-pane fade in" id="tab2">
+          <h3>This is tab 2</h3>
+        </div>
+        <div class="tab-pane fade in" id="tab3">
+          <h3>This is tab 3</h3>
+        </div>
+      </div>
+   </div>
+   </div>
+    
+  
+
+
       </div><!-- /.content-wrapper -->
       <!-- Main Footer -->
       <footer class="main-footer">
@@ -219,13 +462,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </footer>
       <!-- Control Sidebar -->
       <aside class="control-sidebar control-sidebar-dark">
+        <!-- Create the tabs -->
+        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+          <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+          <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+        </ul>
+        <!-- Tab panes -->
         <div class="tab-content">
           <!-- Home tab content -->
           <div class="tab-pane active" id="control-sidebar-home-tab">
+            <ul class="control-sidebar-menu">
+              <li>
+                
+              </li>
+            </ul><!-- /.control-sidebar-menu -->
           </div><!-- /.tab-pane -->
           <!-- Stats tab content -->
           <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div><!-- /.tab-pane -->
           <!-- Settings tab content -->
+          <div class="tab-pane" id="control-sidebar-settings-tab">
+            
+          </div><!-- /.tab-pane -->
         </div>
       </aside><!-- /.control-sidebar -->
       <!-- Add the sidebar's background. This div must be placed
@@ -280,7 +537,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <ul class="nav nav-stacked">
                 <li><a href="#">PRC License <span class="pull-right badge bg-blue">{{Session::get('prc')}}</span></a></li>
                 <li><a href="#">PTR License <span class="pull-right badge bg-red">{{Session::get('ptr')}}</span></a></li>
-                <li><a href="#">S2 License <span class="pull-right badge bg-green">{{Session::get('license')}}</span></a></li>
+                <li><a href="#">S2 License <span class="pull-right badge bg-green">{{Session::get('ptr')}}</span></a></li>
               </ul></div>                                     
               </div>
                     <br>   
@@ -309,11 +566,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="/js/items/items.js"></script>
 <script src="/js/consultation.js"></script>
 <script src="/js/toast/toastr.js"></script>
-
-
-
-
-
  <!-- CHART DONUT -->
  <script >
    $("#scrollButton").click(function () {
@@ -760,3 +1012,4 @@ $('#search_ped').click(function(){
     }
 });
 </script>
+

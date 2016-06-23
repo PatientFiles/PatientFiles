@@ -103,7 +103,7 @@ class patientController extends Controller
         }
 
         $profile = $this->medix->get('patient/'.$id);
-        dd($profile);
+        //dd($profile);
         return view('pages.patientProfile')
             ->with('prof', $profile->data)
             ->with('consult', $pastCons)
@@ -304,7 +304,7 @@ class patientController extends Controller
             'lname'         => 'required|min:1',
             'mname'         => 'min:1',
             'nickname'      => 'min:1',
-            'bdate'         => 'required|date|before:tomorrow|date_format:m/d/Y',
+            'bdate'         => 'required|date|before:tomorrow|date_format:Y-m-d',
             'gender'        => 'required',
             'email'         => 'email|min:1',
             'efname'        => 'min:1',

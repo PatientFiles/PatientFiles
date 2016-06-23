@@ -283,7 +283,7 @@
 		@if($errors->has('zip_code'))
             <span class="error" style="color: red">{{ $errors->first('zip_code') }}</span>
         @endif
-			<input value="{{old('zip_code')}}" type="number" name="zip_code" class="form-control" placeholder="Zip Code" aria-describedby="basic-addon1" value="{{old('zip_code')}}">
+			<input maxlength="4" value="{{old('zip_code')}}" type="number" name="zip_code" class="form-control" placeholder="Zip Code" aria-describedby="basic-addon1" value="{{old('zip_code')}}">
 		</div>
 
 		

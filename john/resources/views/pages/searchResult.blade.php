@@ -4,7 +4,7 @@
 @section('content')
 
 <section class="content-header">
-		<h1>Search Results : {{$total}} Found</h1>
+		<h1>Search Results : {{$total}}</h1>
  </section>
 	 
 <hr id="p_hr1">
@@ -34,7 +34,7 @@
                                   <div style="color:#848688;"><small >  <b >Birth Date:&nbsp</b>{{date('F d, Y',strtotime($patient->user->birthdate))}}</small>
                                   </div>
                                   <div style="color:#848688;" ><small >
-                                  <b >Date Registered:</b><span > </span><span >{{date('F d, Y',strtotime($patient->user->created_at))}}</span><span > </span></small><span>&nbsp;</span><small ><b >Last Visit:</b><span > </span><span >{{$patient->user->created_at}}</span><span > </span></small>
+                                  <b >Date Registered:</b><span > </span><span >{{date('F d, Y',strtotime($patient->user->created_at))}}</span><span > </span></small><span>&nbsp;</span><small ><b >Last Visit:</b><span > </span><span >{{date('F d, Y', strtotime($patient->patient_appointments[count($patient->patient_appointments)-1]->appointment_date)).' '.$patient->patient_appointments[count($patient->patient_appointments)-1]->appointment_time}}</span><span > </span></small>
                                   </div>
                               </div> <!-- END 8 COLUMNS -->
                                     @if (!$patient->patient_appointments)

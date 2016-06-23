@@ -372,7 +372,7 @@ class consultationController extends Controller
         if (! \Session::has('token')) {
             return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
         }
-
+       
         $profile        = $this->medix->get('patient/'.$id);
         $key            = end($profile->data->patient_appointments);
         //dd(\Session::get('appoint'));
@@ -395,7 +395,29 @@ class consultationController extends Controller
         $lab            = Lab::all()->sortBy('lab_name');
         $vaccination    = Vaccination::with('vaccine')
                             ->where('appointment_id', \Session::get('appoint'));
+         try {
+            
+            $past         = $this->medix->get('vitals/patient/' . $id . '/past');
+            $vitals_date  = current((array)$past->data);
+            $rVitals      = $this->medix->get('patient/' . $id . '/vitals/' . $vitals_date->general->created_at);
+            $height       = $rVitals->data->vitals->general_survey->height * 0.01;
 
+            if ($height == 0) {
+                $bmi = 'N/A';
+            } else {
+                $bmi = round(($rVitals->data->vitals->general_survey->weight) / pow($height,2),2);
+            }
+
+            $vitals      = $rVitals->data->vitals->general_survey;
+            $pastVitals  = $past->data;
+
+        } catch (\Exception $e) {
+
+        $pastVitals = null;
+        $bmi        = 'N/A';
+        $vitals     = null;
+           
+        }
 
         if ($profile->data->patient_appointments[count($profile->data->patient_appointments) - 1]->purpose_id == 1) {
             \Session::put('type', 'New Patient Visit');
@@ -409,7 +431,10 @@ class consultationController extends Controller
                 ->with('prof', $profile->data)
                 ->with('medicine', $medicine)
                 ->with('vaccine', $vaccine)
-                ->with('lab', $lab);
+                ->with('lab', $lab)
+                ->with('vitals', $pastVitals)
+                ->with('bmi', $bmi)
+                ->with('recentVitals', $vitals);
         }
         elseif (\Session::get('appoint') != $key->id) {
             return redirect('/home')->with('message',['type'=> 'danger','text' => 'There is an ongoing visit! Please end the ongoing visit before proceeding. ']);

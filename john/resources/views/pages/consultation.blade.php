@@ -391,7 +391,7 @@
                                 </div>    
                           </div>
                       </div>  <!-- END VACCINATION -->
-                          <a href="/end_visit" class="btn btn-primary"> END VISIT</a>
+                        
         </div> <!-- END TAB 1 -->
 
 
@@ -586,7 +586,8 @@
 
 
 <div class="tab-pane fade in" id="tab3">
-        @if(session('message'))
+          <!-- ###########################################333 -->
+          @if(session('message'))
                             <p style="padding-top: 5px;color: white;background-color: red;font-style: italic;" class="alert alert-{{session ('message.type')}} form-control" >
                                     {{session('message.text')}} <a href="/patientRecords" class="primary pull-right">Go to Patient List?</a>
                             </p>
@@ -893,19 +894,29 @@
     </div>
 </div>
 </div> 
+
 </form>
+
+          <!-- #################################################### -->
+
+
+
 </div> <!-- END TAB 3 -->
 
 
 
 
-        </div> <!-- END TAB -- >
-
-
+        </div> <!-- END TAB -->
 
 
       </div>
+
+       <div class="panel-footer" style="padding-left: 33%">
+          <a style="padding-left:23% ;padding-right: 23%" href="/end_visit" class="btn btn-success">END VISIT</a>
+       </div>
      </div> 
 
+        
+ 
 
 @stop

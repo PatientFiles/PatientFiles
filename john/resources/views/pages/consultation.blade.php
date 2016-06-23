@@ -1,6 +1,6 @@
 @extends('layouts.masterLayout')
 
-@section('title', 'Dashboard | Pedix')
+@section('title', 'Visit Process | Pedix')
   <style type="text/css">
 
 
@@ -126,17 +126,17 @@
     <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
         <div class="btn-group" role="group">
             <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                <div class="hidden-xs">Stars</div>
+                <div class="hidden-xs">Consultation</div>
             </button>
         </div>
         <div class="btn-group" role="group">
             <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-                <div class="hidden-xs">Favorites</div>
+                <div class="hidden-xs">Past Visits</div>
             </button>
         </div>
         <div class="btn-group" role="group">
             <button type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                <div class="hidden-xs">Following</div>
+                <div class="hidden-xs">Basic Information</div>
             </button>
         </div>
     </div>
@@ -283,6 +283,7 @@
                                           <th>Action</th>
                                         </tr>
                                       </thead>
+
                                       <tbody>
                                         <tr>
                                           <td>Bear Brand</td>
@@ -394,14 +395,198 @@
                           <a href="/end_visit" class="btn btn-primary"> END VISIT</a>
         </div>
 
-           
-        <div class="tab-pane fade in" id="tab2">
-          <h3>This is tab 2</h3>
-        </div>
-          
+
+
+
+
+<div class="tab-pane fade in" id="tab2">
+
+
+
+               <div >                  
+                           @if(session('success'))
+                            <small style=" padding-top: 5px;color: white;background-color: red;font-style: italic;" class="box-title alert alert-{{session ('success.type')}} form-control" >
+                                    {{session('success.text')}}
+                                  </small>
+                              @endif
+              </div>
+              <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                  
+                  <li class="active"> <a href="#vitals1" data-toggle="tab">Vitals Records</a></li>
+                  <li><a href="#vaccine1" data-toggle="tab">Consultation Records</a></li>
+                </ul>
+
+            <div class=" tab-content">   <!-- START TAB CONTENT -->
+                  
+                <!-- START VITALS TAB -->
+                     <div class="active tab-pane" id="vitals1">
+                      <div class="panel panel-default" >
+                          <div class="panel-body" >
+                            <div class="row container-fluid" >
+                      <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12">
+                      <table data-toggle="table"
+                       data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+                       data-card-view="true"
+                       data-search="true"
+                       data-show-refresh="true"
+                       data-show-toggle="true"
+                       data-show-columns="true" id="table2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                      <h3 class="box-title pull-left" >Vitals Record</h3> 
+                      <thead>
+                      <tr role="row">
+                      <th class="sorting_asc" tabindex="0" aria-controlsne: activate to sort column descending style="width: 177px;" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engi">Date Recorded</th>
+                      <th class="sorting_asc" tabindex="0" aria-controlsne: activate to sort column descending style="width: 177px;" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engi">Height</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 224px;">Weight</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 152px;">Pulserate</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Respiratory</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Body Temperature</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Blood Presure</th>
+                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Doctor Notes</th>
+                    </thead>
+                    <tbody>
+                    @if($vitals !== null)
+                      @foreach ($vitals as $vital)
+                        <tr>
+                          <td> <b>{{date('F d, Y', strtotime($vital->general->created_at))}} </b></td>
+                           <td> {{$vital->general->height.' cm.'}} </td>
+                           <td> {{$vital->general->weight.' kg.'}} </td>
+                           <td> {{$vital->general->pulserate}} </td>
+                           <td> {{$vital->general->respiratoryrate}} </td>
+                           <td> {{$vital->general->bodytemperature}}&nbsp&deg c</td>
+                           <td> {{$vital->general->bloodpressure_sys.'/'.$vital->general->bloodpressure_dia}} </td>
+                           <td> {{$vital->general->notes}} </td>
+                        </tr> 
+                      @endforeach
+                      @endif
+                    </tbody>
+                  </table></div></div></div>
+                            </div>
+                          </div>          
+                      </div>    
+                </div><!-- END VITALS TAB --> 
+
+
+                <!-- START CONSULTATION TAB -->
+                <div class="tab-pane" id="vaccine1">
+                <div id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          Date
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="nav-tabs-custom">
+<ul class="nav nav-pills">
+  <li class="active" ><a class="nav-link" data-toggle="pill" href="#vaccinepill">Vaccine</a></li>
+  <li ><a class="nav-link" data-toggle="pill" href="#prescriptionpill">Prescription</a></li>
+  <li ><a class="nav-link" data-toggle="pill" href="#diagnosispill">Diagnosis</a></li>
+  <li ><a class="nav-link" data-toggle="pill" href="#labpill">Lab Request</a></li>
+</ul>
+<div>
+<div class=" tab-content">   <!-- START TAB CONTENT -->
+
+          <div class="active tab-pane" id="vaccinepill">
+                <table id="table_med"  data-toggle="table"
+      data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+       id="example2" class="table table-bordered table-hover dataTable">
+          <thead>
+            <tr>
+              <th>Vaccine Name</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+          </div>
+
+           <div class=" tab-pane" id="prescriptionpill">
+                <table id="table_med"  data-toggle="table"
+      data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+       id="example2" class="table table-bordered table-hover dataTable">
+          <thead>
+            <tr>
+              <th>Medicine Name</th>
+              <th>Quantity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+          </div>
+
+           <div class=" tab-pane" id="diagnosispill">
+                <table id="table_med"  data-toggle="table"
+      data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+       id="example2" class="table table-bordered table-hover dataTable">
+          <thead>
+            <tr>
+              <th>Result</th>
+              <th>Remarks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+          </div>
+
+           <div class=" tab-pane" id="labpill">
+                <table id="table_med"  data-toggle="table"
+      data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+       id="example2" class="table table-bordered table-hover dataTable">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Remarks</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </table>
+          </div>
+
+
+</div>  <!-- END TAB CONTENT -->
+     </div>
+    </div>
+  </div>
+
+
+
+ 
+</div> <!-- END CONSULTATION TAB -->
+
+              </div><!-- END TAB CONTENT -->
+    
+</div> <!-- END TAB 2 -->
+
+
+
         <div class="tab-pane fade in" id="tab3">
           <h3>This is tab 3</h3>
         </div>
+
 
         </div>
       </div>

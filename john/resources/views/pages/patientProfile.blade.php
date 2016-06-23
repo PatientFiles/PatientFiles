@@ -345,5 +345,7 @@
             </div><!-- End NAV TABS -->
           </div><!-- /.row  col-lg-9  -->
             </div> <!-- END MAIN ROW -->
+            </div>
+            </div>
         </section><!-- /.content -->
 @stop

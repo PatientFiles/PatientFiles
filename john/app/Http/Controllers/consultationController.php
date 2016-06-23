@@ -437,4 +437,34 @@ class consultationController extends Controller
             return redirect('/home')->with('message',['type'=> 'danger','text' => 'There is an ongoing visit! Please end the ongoing visit before proceeding. ']);
         }
     }
+
+    /*---------------------------------------------------------------------------------------------------------------------------------------------
+    | FINISH A VACCINATION
+    |----------------------------------------------------------------------------------------------------------------------------------------------
+    |
+    */
+    public function finish_vaccine(Request $req, $id)
+    {
+       
+        if (! \Session::has('token')) {
+           return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied. Please Login']);
+        }
+
+
+        if ($req->ajax()) {
+
+            $med = Vaccination::find($id);
+           //dd($med);
+            $med->status = 'finished';
+
+            $med->save();
+
+           $response = array(
+                'status' => 'success',
+                'msg'    => 'Patient successfully vaccinated!',
+            );
+            return \Response::json($response);
+        }
+        return false;
+    }
 }

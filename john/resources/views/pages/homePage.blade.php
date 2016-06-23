@@ -28,7 +28,7 @@
   </p>
 @endif
 
-<div class="panel panel-default"  style="margin-top:10px;">
+<div class="panel panel-default"  style="margin-top:20px;">
 <div class="panel-body" >
 <div class="row container-fluid"> 
                 <div class="box-body table-responsive">
@@ -84,20 +84,20 @@
           </div>
         </form>    
                 <div class="box-body table-responsive" >
-                  <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table class="table table-fixedheader table-bordered table-striped" id="table"  data-toggle="table"
-       data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
-       data-search="true"
-       data-show-refresh="true"
-       data-show-toggle="true"
-       data-show-columns="true" id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                  <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12">
+                  <table class="table table-fixedheader table-bordered table-striped" id="remind_table"  data-toggle="table"
+                   data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+                   data-search="true"
+                   data-show-refresh="true"
+                   data-show-toggle="true"
+                   data-show-columns="true" id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
           <h4 class="pull-left"><b>Reminders (Vaccination)</b></h4>
           <thead>
             <tr role="row">
-                <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Patient ID</th>
-                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Patient Name</th>
-                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Vaccine</th>
-                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Date</th>
-                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Action</th>
+                <th style="padding: 8px; line-height: 24px; vertical-align: top; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Patient ID</th>
+                <th style="padding: 8px; line-height: 24px; vertical-align: top; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Patient Name</th>
+                <th style="padding: 8px; line-height: 24px; vertical-align: top; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Vaccine</th>
+                <th style="padding: 8px; line-height: 24px; vertical-align: top; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Action</th>
             </tr>
           </thead>
                     <tbody>
@@ -106,11 +106,33 @@
                               <td>{{$remind['patient_id']}}</td>
                               <td>{{$remind['patient_name']}}</td>
                               <td>{{$remind['vaccine']['vaccine_name']}}</td>
-                              <td>{{date('F d,Y',strtotime($remind['date']))}}</td>
-                              <td><a href="/finish_vaccine/{{$remind['patient_id']}}" class="btn btn-primary"><span class="fa fa-check-square-o">&nbsp</span>Mark as Finish</a></td>
+                              <td><a class="fModal btn btn-primary" href="#" data-toggle="modal" data-id="{{$remind['id']}}" data-patname="{{$remind['patient_name']}}" data-vaccinationname="{{$remind['vaccine']['vaccine_name']}}" data-target="#finishVacsConfirm"><span class="fa fa-check-square-o">&nbsp</span>Mark as Finish</a></td>
                         </tr>
                       @endforeach
                     </tbody>
+
+                    <!--CONFIRM DELETE MODAL-->
+                        <div id="finishVacsConfirm" data-name="" class="modal fade finishVacsConfirm" role="dialog">
+                          <div class="modal-dialog">
+                            <!-- Modal content-->
+                              <div class="modal-content" >
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h4 class="modal-title" style="color: white">Finish Vaccination ?</h4>
+                                </div>
+                                <div class="modal-body">
+                                   <b>Finish Vaccination for:</b> <span id="pat_name"></span><br>
+                                   <b>Vaccine:</b> <span id="vaccination_name"></span>  
+                                </div>
+                                <div class="modal-footer">
+                                  <a href="#" class="btn btn-primary finish_vac_button">Yes</a>
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                                </div>
+                              </div>
+                          </div>
+                        </div>
+                    <!--end modal-->
+
                   </table></div></div></div>
                 </div><!-- /.box-body -->
             </div>

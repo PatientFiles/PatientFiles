@@ -110,4 +110,40 @@ jQuery( document ).ready( function() {
               }
           }); 
          });
+
+      /*--------------------------------
+      |
+      |finish a vaccination
+      |
+      |--------------------------------
+      */
+      $( '.finish_vac_button' ).on('click', function(e) {
+          e.preventDefault(); 
+          var deleteUrl = $(this).attr('href');
+          $('.finishVacsConfirm').modal('hide');
+          $.post(deleteUrl, {"_method" : "POST"}, function(response) {
+                // This is a callback. Do stuff here if you want.
+              console.log('testing');
+              toastr.options.positionClass = 'toast-top-center';
+              toastr.success('Patient successfully vaccinated!');
+              toastr.options.showMethod        = 'slideDown';
+              toastr.options.hideMethod        = 'slideUp';
+              toastr.options.closeDuration     = 100;
+              $( "#remind_table" ).load( "/home #remind_table" );
+            });
+         });
+
+      $(document).on('click', '.fModal', function(e){
+        console.log(e);
+        var id = $(this).data('id');
+        var patName = $(this).data('patname');
+        var finish_vaccination_name = $(this).data('vaccinationname');
+
+        console.log(id);
+        console.log(patName);
+        $('#pat_name').text(patName);
+        $('#vaccination_name').text(finish_vaccination_name);
+        $('.finish_vac_button').attr('href', '/finish_vaccine/'+id);
+      });
+
 });

@@ -6,36 +6,19 @@
 @section('title', 'Add User Account | Pedix')
 
 <style type="text/css">
-  
-div#patientListing:hover
+
+  div#patientListing:hover
   {
-
      background-color: #E3E3E3;
-
   }
 
-
 </style>
-
 @section('content')
-
-
 <section class="content-header">
- 
-      <h1>
-              Add User Account
-          
-     </h1>
-        
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i>Pediatricians -> Add Account</a></li>
-      </ol>
- </section>
-	 
-	<hr id="p_hr1"> 
+  <h1> Add User Account</h1>
+</section>
 
-
-  <div class="panel panel-default" >
+  <div class="panel panel-default" style="margin-top:20px">
       <div class="panel-body" >
                 <form action="/add_account" method="POST" role="form" class="form-horizontal">
                           {!! csrf_field() !!}

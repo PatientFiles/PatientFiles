@@ -33,8 +33,24 @@
                                    @endif
                                   <div style="color:#848688;"><small >  <b >Birth Date:&nbsp</b>{{date('F d, Y',strtotime($patient->user->birthdate))}}</small>
                                   </div>
-                                  <div style="color:#848688;" ><small >
-                                  <b >Date Registered:</b><span > </span><span >{{date('F d, Y',strtotime($patient->user->created_at))}}</span><span > </span></small><span>&nbsp;</span><small ><b >Last Visit:</b><span > </span><span >{{date('F d, Y', strtotime($patient->patient_appointments[count($patient->patient_appointments)-1]->appointment_date)).' '.$patient->patient_appointments[count($patient->patient_appointments)-1]->appointment_time}}</span><span > </span></small>
+                                  <div style="color:#848688;" >
+                                    <small>
+                                      <b >Date Registered:</b>
+                                      <span >{{date('F d, Y',strtotime($patient->user->created_at))}}</span>
+                                    </small>
+                                    <span>&nbsp;</span>
+                                    <small >
+                                        <b >Last Visit:</b>
+                                        @if (! $patient->patient_appointments)
+                                          <span >
+                                            No Visits Yet.
+                                          </span>
+                                              @else
+                                              <span >
+                                                  {{date('F d, Y', strtotime($patient->patient_appointments[count($patient->patient_appointments)-1]->appointment_date)).' '.$patient->patient_appointments[count($patient->patient_appointments)-1]->appointment_time}}
+                                              </span>
+                                        @endif
+                                    </small>
                                   </div>
                               </div> <!-- END 8 COLUMNS -->
                                     @if (!$patient->patient_appointments)

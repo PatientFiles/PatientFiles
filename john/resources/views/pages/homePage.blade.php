@@ -90,10 +90,16 @@
        data-show-refresh="true"
        data-show-toggle="true"
        data-show-columns="true" id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
-                     <h4 class="pull-left"><b>Reminders (Vaccination)</b></h4>
-                     <thead>
-                      <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Patient ID</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Patient Name</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Vaccine</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Date</th></tr>
-                    </thead>
+          <h4 class="pull-left"><b>Reminders (Vaccination)</b></h4>
+          <thead>
+            <tr role="row">
+                <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Patient ID</th>
+                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Patient Name</th>
+                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Vaccine</th>
+                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Date</th>
+                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Action</th>
+            </tr>
+          </thead>
                     <tbody>
                       @foreach ($reminder as $remind)
                         <tr>
@@ -101,6 +107,7 @@
                               <td>{{$remind['patient_name']}}</td>
                               <td>{{$remind['vaccine']['vaccine_name']}}</td>
                               <td>{{date('F d,Y',strtotime($remind['date']))}}</td>
+                              <td><a href="/finish_vaccine/{{$remind['patient_id']}}" class="btn btn-primary"><span class="fa fa-check-square-o">&nbsp</span>Mark as Finish</a></td>
                         </tr>
                       @endforeach
                     </tbody>

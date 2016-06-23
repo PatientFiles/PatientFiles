@@ -128,9 +128,6 @@ class consultationController extends Controller
         $presc_table = Prescription::where('appointment_id', \Session::get('appoint'))
                         ->with('prescription')
                         ->get();
-        if ($presc_table->isEmpty()) {
-            return redirect()->back()->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
-        }
         //dd($presc_table);
 		$pdf = App::make('dompdf.wrapper');
 		$pdf->loadView('pdf.prescription', compact('prof', 'presc_table'));

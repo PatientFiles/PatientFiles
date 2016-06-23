@@ -79,12 +79,31 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- Header Navbar -->
         <nav class="navbar navbar-static-top " role="navigation">
+
+        
+     
           <!-- Sidebar toggle button-->
           <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">Toggle navigation</span>
           </a>
           <!-- Navbar Right Menu -->
           <!-- Navbar Right Menu -->
+
+
+
+      
+          <!-- search form (Optional) -->
+          <form action="/searchResult" method="post" class="col-lg-4" >
+          {{csrf_field()}}
+            <div class="input-group" style="margin-top: 8px">
+              <input type="text" name="q" class="form-control" placeholder="Search..." required>
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </form>
+          
+      
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <!-- Messages: style can be found in dropdown.less-->
@@ -125,6 +144,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <small>{{  Session::get('role') }}</small>
                     </p>
                   </li>
+
                   <!-- Menu Body -->
                  
                   <!-- Menu Footer-->
@@ -144,6 +164,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </li>
             </ul>
           </div>
+               
         </nav>
       </header>
       <!-- Left side column. contains the logo and sidebar -->
@@ -165,17 +186,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <!-- Status -->    
             </div>
           </div>
-          <!-- search form (Optional) -->
-          <form action="/searchResult" method="post" class="sidebar-form">
-          {{csrf_field()}}
-            <div class="input-group">
-              <input type="text" name="q" class="form-control" placeholder="Search..." required>
-              <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
-              </span>
-            </div>
-          </form>
-          <!-- /.search form -->
+
           <!-- Sidebar Menu -->
           <ul class="sidebar-menu" >
             <li class="header">MENU</li>

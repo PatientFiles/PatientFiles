@@ -79,12 +79,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- Header Navbar -->
         <nav class="navbar navbar-static-top " role="navigation">
+
+        
+     
           <!-- Sidebar toggle button-->
           <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">Toggle navigation</span>
           </a>
           <!-- Navbar Right Menu -->
           <!-- Navbar Right Menu -->
+
 
 
       
@@ -100,7 +104,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </form>
           
       
-
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <!-- Messages: style can be found in dropdown.less-->
@@ -141,6 +144,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <small>{{  Session::get('role') }}</small>
                     </p>
                   </li>
+
                   <!-- Menu Body -->
                  
                   <!-- Menu Footer-->
@@ -160,6 +164,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </li>
             </ul>
           </div>
+               
         </nav>
       </header>
       <!-- Left side column. contains the logo and sidebar -->
@@ -181,6 +186,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <!-- Status -->    
             </div>
           </div>
+
           <!-- Sidebar Menu -->
           <ul class="sidebar-menu" >
             <li class="header">MENU</li>

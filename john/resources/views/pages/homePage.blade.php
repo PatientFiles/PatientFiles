@@ -36,10 +36,11 @@
        data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
        data-show-refresh="true"
        data-show-toggle="true"
-       data-show-columns="true">
+       data-show-columns="true"
+       data-sort-order="asc">
        <h4 class="pull-left"><b>Visit Queue</b></h4>
       <thead>
-                      <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 177px;">Queue Number</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 224px;">Patient Name</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 205px;">Purpose</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 152px;">Chief Complaints</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 152px;">Action</th></tr>
+                      <tr role="row"><th data-sortable="true" class="th-inner sortable both asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 177px;">Queue Number</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 224px;">Patient Name</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 205px;">Purpose</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 152px;">Chief Complaints</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 152px;">Action</th></tr>
                     </thead>
                      <tbody>
                       @foreach ($queue as $consult)
@@ -152,6 +153,7 @@
                   <table class="table table-fixedheader table-bordered table-striped" id="table" data-toggle="table"
        data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
        data-search="true"
+       data-pagination="true"
        data-sort-name ="Checked In Date"
        data-sort-order ="desc"
        data-show-refresh="true"

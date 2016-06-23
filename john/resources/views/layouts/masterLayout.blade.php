@@ -187,7 +187,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <ul class="sidebar-menu" >
             <li class="header">Menu</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="/home"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+            <li ><a href="/home"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
             <li class="treeview">
               <a href=""><i class="ion ion-ios-contact-outline"></i> <span>Patient</span> <i class="fa fa-angle-left pull-right"></i></a>
                   <ul class="treeview-menu">

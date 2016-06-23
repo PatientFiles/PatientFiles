@@ -141,15 +141,17 @@
 
 
      <div class="tab-content">
+     <div class="panel panel-default">
+      <div class="panel-body">
         <div class="tab-pane fade in active" id="tab1">
          
-          <div id="vitals" style="background-color: lightblue;height: 600px"> 
+          <div id="vitals" style="height: 600px"> 
             <form role="form" action="/saveVitals/{{$prof->id}}" method="POST">   <!-- VITALS -->
                    <div class="container-fluid">
                       <h3>Vitals</h3>
                   </div>
 
-                  <div class="modal-body">
+                  <div>
                      {!! csrf_field() !!}
                       <div class="row form-group">
                          <div class="col-lg-6">
@@ -223,15 +225,16 @@
                                     <textarea name="notes" class="form-control" rows="5" placeholder="Doctors vital notes"></textarea>
                       </div>
                    </div>
-                <div class="modal-footer">
-                <button type="submit" name="saveVitals" class="btn btn-primary pull-left">Save</button>
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
-                </div>
-             </form>  <!--END VItals -->
-            
+                    <div class="modal-footer">
+                        <button type="submit" name="saveVitals" class="btn btn-primary pull-left">Save</button>
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+                    </div>
+             </form>  <!--END VItals -->   
             </div> 
-                     
-                  <div id="prescription" class="row" style="background-color: lightgreen; height: 600px"> <!-- PRESCRIPTION -->
+                  
+                    
+
+                  <div id="prescription" class="row" style=" height: 600px"> <!-- PRESCRIPTION -->
                          <div class="container-fluid">
                             <h3>Prescription</h3>
                         </div>    
@@ -294,7 +297,7 @@
                           <hr>
                   </div>  <!-- END PRESCRIPTION -->
                         
-                  <div id="diagnosis" class="row" style="background-color: lightblue; height: 600px"> <!-- DIAGNOSIS -->
+                  <div id="diagnosis" class="row" style=" height: 600px"> <!-- DIAGNOSIS -->
                          <div class="container-fluid">
                             <h3>Diagnosis</h3>
                         </div>
@@ -330,7 +333,7 @@
                              <hr>
                     </div>  <!-- END DIAGNOSIS -->
                          
-                    <div id="vaccination" class="row" style="background-color: lightgreen; height: 600px">  <!-- VACCINATION -->
+                    <div id="vaccination" class="row" style=" height: 600px">  <!-- VACCINATION -->
                        <div class="container-fluid">
                             <h3>Vaccination</h3>
                         </div>
@@ -399,6 +402,7 @@
         </div>
       </div>
    
-
+</div>
+</div>
 
 @stop

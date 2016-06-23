@@ -49,10 +49,6 @@ class consultationController extends Controller
             return redirect('/patientRecords')->with('message',['type'=> 'danger','text' => 'This patient is now on the visit process. End the visit first before re-queuing this patient']);
         }
 
-        if ($key->status == 'active') {
-            return redirect('/patientRecords')->with('message',['type'=> 'danger','text' => 'This patient already queued to doctor!']);
-        }
-
         $data =
         [
             'practitioner_id'   => \Session::get('user_id'),

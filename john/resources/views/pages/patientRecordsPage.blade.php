@@ -8,22 +8,18 @@ div#patientListing:hover
 
 </style>
 @section('content')
-<section class="content-header">
-      <h1>
-              Patient List
-             
-            </h1>
-     
- </section>
+
+  <section class="content-header" style="margin-bottom:10px">
+      <h1>Patient List</h1>
+  </section>
 	 
-	<hr id="p_hr1">
     @if(session('message'))
         <p style="padding-top: 5px;color: white;background-color: red;font-style: italic;" class="alert alert-{{session ('message.type')}} form-control" >
                 {{session('message.text')}}
         </p>
     @endif
 
-	<div class="panel panel-default" >
+	<div class="panel panel-default" style="margin-top:20px;">
   <div class="panel-body" >
        <div class="input-group pull-right" style="width: 50%" >              
              <input id="search-criteria"  type="text" class="form-control" placeholder="Search for...">
@@ -103,7 +99,7 @@ div#patientListing:hover
                     <span class="error" style="color: red">{{ $errors->first('chief_complaints') }}</span>
                 @endif
                 {!! csrf_field() !!}
-            <input type="text" name="chief_complaints" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="">
+            <input type="text" name="chief_complaints" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" required>
             <input type="hidden" name="patient_id" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="{{ $patient->id }}">
         </div>
         <div class="modal-footer">
@@ -129,7 +125,7 @@ div#patientListing:hover
                       <span class="error" style="color: red">{{ $errors->first('purpose_id') }}</span>
                   @endif
                 {!! csrf_field() !!}
-              <select class="form-control" name="purpose_id" style="height: 34px; width:100%" required="">
+              <select class="form-control" name="purpose_id" style="height: 34px; width:100%" required>
                     <option value disabled selected>Select...</option>
                     <option value="2">Old Patient Visit</option>
                     <option value="3">Follow-up Visit</option>
@@ -140,7 +136,7 @@ div#patientListing:hover
                   @if($errors->has('chief_complaints'))
                           <span class="error" style="color: red">{{ $errors->first('chief_complaints') }}</span>
                       @endif
-                    <input type="text" name="chief_complaints" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="">                  
+                    <input type="text" name="chief_complaints" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" required>                  
                     <input type="hidden" name="patient_id" class="form-control" placeholder="Chief Complaint" aria-describedby="basic-addon1" value="{{ $patient->id }}">
     </div>
       <div class="modal-footer">

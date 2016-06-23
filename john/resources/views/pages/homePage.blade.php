@@ -4,10 +4,10 @@
 @section('content')
 <section class="content-header">
     <div class="row">
-            <h1 class="col-lg-6">
-              What's Happening? - {{date('F d, Y',strtotime($time))}}      
-            </h1>
-      <div class="col-lg-6" align="right">
+            <span style="font-size:21px; padding-top: 5px;" class="col-lg-10">
+              <b>What's Happening?</b> - {{date('F d, Y',strtotime($time))}}      
+            </span>
+      <div class="col-lg-2" align="right">
             <a href="/register" style="color: white;font-weight: bold;" class="btn btn-success"> 
                 <span class="glyphicon glyphicon-plus-sign"></span> 
                 Add Patient
@@ -17,8 +17,6 @@
 </section>
 
    
-<hr id="p_hr1">
-
 @if(session('visit'))
   <small style=" padding-top: 5px;color: white;background-color: red;font-style: italic;" class="box-title alert alert-{{session ('visit.type')}} form-control" >
                             {{session('visit.text')}}
@@ -30,7 +28,7 @@
   </p>
 @endif
 
-<div class="panel panel-default"  >
+<div class="panel panel-default"  style="margin-top:10px;">
 <div class="panel-body" >
 <div class="row container-fluid"> 
                 <div class="box-body table-responsive">
@@ -39,9 +37,9 @@
        data-show-refresh="true"
        data-show-toggle="true"
        data-show-columns="true">
-       <h4 class="pull-left">Visit Queue</h4>
+       <h4 class="pull-left"><b>Visit Queue</b></h4>
       <thead>
-                      <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 177px;">Appointment ID</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 224px;">Patient Name</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 205px;">Purpose</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 152px;">Chief Complaints</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 152px;">Action</th></tr>
+                      <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 177px;">Queue Number</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 224px;">Patient Name</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 205px;">Purpose</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 152px;">Chief Complaints</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 152px;">Action</th></tr>
                     </thead>
                      <tbody>
                       @foreach ($queue as $consult)
@@ -50,7 +48,7 @@
                           @else
                             @if ($consult->patient_appointments[count($consult->patient_appointments) - 1]->status == 'active')
                             <tr role="row" class="even">
-                                  <td><b>{{$consult->patient_appointments[count($consult->patient_appointments) - 1]->id}}</b></td>
+                                  <td align="center"><b>{{$consult->patient_appointments[count($consult->patient_appointments) - 1]->id}}</b></td>
                                   <td>{{$consult->user->firstname .' '. $consult->user->lastname}}</td>
                                   @if ($consult->patient_appointments[count($consult->patient_appointments) - 1]->purpose_id == 1)
                                       <td>New Patient Visit</td>
@@ -92,10 +90,16 @@
        data-show-refresh="true"
        data-show-toggle="true"
        data-show-columns="true" id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
-                     <h4 class="pull-left">Reminders (Vaccination)</h4>
-                     <thead>
-                      <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Patient ID</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Patient Name</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Vaccine</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Date</th></tr>
-                    </thead>
+          <h4 class="pull-left"><b>Reminders (Vaccination)</b></h4>
+          <thead>
+            <tr role="row">
+                <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Patient ID</th>
+                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Patient Name</th>
+                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Vaccine</th>
+                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Date</th>
+                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Action</th>
+            </tr>
+          </thead>
                     <tbody>
                       @foreach ($reminder as $remind)
                         <tr>
@@ -103,6 +107,7 @@
                               <td>{{$remind['patient_name']}}</td>
                               <td>{{$remind['vaccine']['vaccine_name']}}</td>
                               <td>{{date('F d,Y',strtotime($remind['date']))}}</td>
+                              <td><a href="/finish_vaccine/{{$remind['patient_id']}}" class="btn btn-primary"><span class="fa fa-check-square-o">&nbsp</span>Mark as Finish</a></td>
                         </tr>
                       @endforeach
                     </tbody>
@@ -130,7 +135,7 @@
        data-show-refresh="true"
        data-show-toggle="true"
        data-show-columns="true" id="table2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
-                    <h4 class="pull-left">Recent Visits by Each Patients</h4>
+                    <h4 class="pull-left"><b>Recent Visits by Each Patients</b></h4>
                     <thead >
                         <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Patient ID</th>
                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Patient Name</th>

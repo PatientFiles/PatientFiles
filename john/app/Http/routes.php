@@ -66,8 +66,9 @@ Route::get('/error','homeController@error');
 |
 */
 Route::get('/end_visit','consultationController@endVisit');
-Route::get('/printPrescription/{id}','consultationController@createPrescription');
 Route::get('/consultation/{id}','consultationController@start_visit');
+Route::get('/finish_vaccine/{id}', 'consultationController@finish_vaccine');
+Route::get('/printPrescription/{id}','consultationController@createPrescription');
 Route::post('/new_appointment', 'consultationController@appointmentForNewPatient');
 Route::post('/old_appointment', 'consultationController@appointmentForOldPatient');
 

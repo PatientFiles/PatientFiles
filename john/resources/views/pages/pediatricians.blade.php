@@ -13,7 +13,7 @@ div#patientListing:hover
           List of Peditricians
      </h1>
  </section>
-	<hr id="p_hr1">
+
     @if (session('delete'))
           <small style=" padding-top: 5px;color: white;background-color: red;font-style: italic;" class="box-title alert alert-{{session ('delete.type')}} form-control" >
                   {{session('delete.text')}}
@@ -24,7 +24,7 @@ div#patientListing:hover
                   {{session('added.text')}}
           </small> 
     @endif
-	<div class="panel panel-default" >
+	<div class="panel panel-default" style="margin-top:20px;">
   <div class="panel-body" >
       <div class="input-group pull-left" style="width: 50%" > 
           <a href="/account/add_account" class="btn btn-primary"><span class="ion ion-person-add"></span> Add Pediatricians</a>

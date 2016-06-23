@@ -100,7 +100,7 @@
                       @foreach ($reminder as $remind)
                         <tr>
                               <td>{{$remind['patient_id']}}</td>
-                              <td>{{$remind['patient_id']}}</td>
+                              <td>{{$remind['patient_name']}}</td>
                               <td>{{$remind['vaccine']['vaccine_name']}}</td>
                               <td>{{date('F d,Y',strtotime($remind['date']))}}</td>
                         </tr>

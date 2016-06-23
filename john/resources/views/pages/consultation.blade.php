@@ -2,6 +2,8 @@
 
 @section('title', 'Dashboard | Pedix')
   <style type="text/css">
+
+
            /* ------------------------------------------------------------------- 
 
 /* USER PROFILE PAGE */
@@ -115,9 +117,9 @@
             <!-- http://lorempixel.com/850/280/people/9/ -->
         </div>
         <div class="useravatar">
-            <img alt="" src="http://lorempixel.com/100/100/people/9/">
+            <img alt="" src="/img/prof_pic.png">
         </div>
-        <div class="card-info"> <span class="card-title">Pamela Anderson</span>
+        <div class="card-info"> <span class="card-title">John Benedict De Castro</span>
 
         </div>
     </div>
@@ -139,10 +141,10 @@
         </div>
     </div>
 
-
+<div class="panel panel-default">
+  <div class="panel-body">
      <div class="tab-content">
-     <div class="panel panel-default">
-      <div class="panel-body">
+      
         <div class="tab-pane fade in active" id="tab1">
          
           <div id="vitals" style="height: 600px"> 
@@ -231,10 +233,10 @@
                     </div>
              </form>  <!--END VItals -->   
             </div> 
-                  
+                  <hr>
                     
 
-                  <div id="prescription" class="row" style=" height: 600px"> <!-- PRESCRIPTION -->
+                  <div id="prescription" class="row" > <!-- PRESCRIPTION -->
                          <div class="container-fluid">
                             <h3>Prescription</h3>
                         </div>    
@@ -294,10 +296,10 @@
                                  <a href="/printPrescription/{{Session::get('patient_appoint')}}" target="_blank" class="btn btn-primary "> Print Prescription</a>
                               </div>    
                           </div>
-                          <hr>
-                  </div>  <!-- END PRESCRIPTION -->
                         
-                  <div id="diagnosis" class="row" style=" height: 600px"> <!-- DIAGNOSIS -->
+                  </div>  <!-- END PRESCRIPTION -->
+                         <hr>
+                  <div id="diagnosis" class="row" > <!-- DIAGNOSIS -->
                          <div class="container-fluid">
                             <h3>Diagnosis</h3>
                         </div>
@@ -330,10 +332,10 @@
                                        </div>    
                                   </div>
                           </div>
-                             <hr>
+                     
                     </div>  <!-- END DIAGNOSIS -->
-                         
-                    <div id="vaccination" class="row" style=" height: 600px">  <!-- VACCINATION -->
+                          <hr>
+                    <div id="vaccination" class="row" >  <!-- VACCINATION -->
                        <div class="container-fluid">
                             <h3>Vaccination</h3>
                         </div>
@@ -400,9 +402,9 @@
         <div class="tab-pane fade in" id="tab3">
           <h3>This is tab 3</h3>
         </div>
+
+        </div>
       </div>
-   
-</div>
-</div>
+     </div> 
 
 @stop

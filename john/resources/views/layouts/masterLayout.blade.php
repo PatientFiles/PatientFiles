@@ -176,7 +176,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <form action="/searchResult" method="post" class="sidebar-form">
           {{csrf_field()}}
             <div class="input-group">
-              <input type="text" name="q" class="form-control" placeholder="Search...">
+              <input type="text" name="q" class="form-control" placeholder="Search..." required>
               <span class="input-group-btn">
                 <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
               </span>
@@ -185,7 +185,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- /.search form -->
           <!-- Sidebar Menu -->
           <ul class="sidebar-menu" >
-            <li class="header">Menu</li>
+            <li class="header">MENU</li>
             <!-- Optionally, you can add icons to the links -->
             <li ><a href="/home"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
             <li class="treeview">

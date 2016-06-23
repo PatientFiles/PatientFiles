@@ -65,7 +65,7 @@ class consultationController extends Controller
         ];
 		$appointment = $this->medix->post('appointment', $data);
 
-        return redirect('/home')->with('message',['type'=> 'success','text' => 'Patient successfully queued to doctor!']);
+        return redirect('/patientRecords')->with('message',['type'=> 'success','text' => 'Patient successfully queued to doctor!']);
 
 	}
 
@@ -110,7 +110,7 @@ class consultationController extends Controller
 
         $appointment    = $this->medix->post('appointment', $data);
 
-        return redirect('/home')->with('message',['type'=> 'success','text' => 'Patient successfully queued to doctor!']);
+        return redirect('/patientRecords')->with('message',['type'=> 'success','text' => 'Patient successfully queued to doctor!']);
 
     }
 
@@ -197,6 +197,8 @@ class consultationController extends Controller
                 'patient_id'        => \Session::get('patient_appoint'),
                 'appointment_id'    => \Session::get('appoint'),
                 'practitioner_id'   => $practitioner_id,
+                'patient_name'      => \Session::get('visit_patient'),
+                'status'            => 'pending',
             ];
 
             $vaccine = Vaccination::create($data);
@@ -240,7 +242,6 @@ class consultationController extends Controller
             $practitioner_id = \Session::get('user_id');
 
             
-
             $data = [
                 'diagnosis_remarks' => $remarks,
                 'diagnosis_result'  => $result,

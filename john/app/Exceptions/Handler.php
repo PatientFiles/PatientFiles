@@ -57,9 +57,9 @@ class Handler extends ExceptionHandler
         if ($e instanceof NotFoundHttpException) {
             return redirect('/error');
         }
-        if ($e instanceof RequestException) {
-            return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
-        }
+        //if ($e instanceof RequestException) {
+        //   return redirect('/#about')->with('message',['type'=> 'danger','text' => 'Access denied, Please Login!']);
+       // }
         return parent::render($request, $e);
     }
 }

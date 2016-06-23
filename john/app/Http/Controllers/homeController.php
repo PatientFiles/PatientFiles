@@ -102,6 +102,7 @@ class homeController extends Controller
 
         $lastname = $this->medix->get('patient?lastname='. $search);
         $firstname = $this->medix->get('patient?firstname='. $search);
+        //dd($search);
         //$firstname = $this->medix->get('patient?firstname='. $search);
 
         //dd($firstname);
@@ -180,15 +181,21 @@ class homeController extends Controller
         $mytime = Carbon::now();
         $reminders = Vaccination::with('vaccine')
                         ->where('date', date('Y-m-d',strtotime($mytime)))
+                        ->where('status', 'pending')
                         ->get();
         $collection = collect($patients->data);
         $sorted = $collection->sortByDesc('created_at');
+
+
+        $collection1 = collect($patients->data);
+        $queue = $collection1->sortBy('created_at');
         //dd($sorted->values()->all());
         
 
         //dd($reminders);
         return view('pages.homePage')
-            ->with('time', $mytime)
+            ->with('time',     $mytime)
+            ->with('queue',    $queue->values()->all())
             ->with('consults', $sorted->values()->all())
             ->with('reminder', $reminders);
        //return dd($result);

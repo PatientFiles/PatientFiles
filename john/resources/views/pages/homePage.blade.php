@@ -3,17 +3,18 @@
 @section('title', 'Dashboard | Pedix')
 @section('content')
 <section class="content-header">
-            <ol class="breadcrumb">
-             <a href="/register" style="color: white;font-weight: bold;" class="btn btn-success"> <span class="
-glyphicon glyphicon-plus-sign"></span> Add Patient</a>        
-            </ol>
-  </section>
-
-<section class="content-header">
-            <h1>
-              What's Happening - {{date('F d, Y',strtotime($time))}}      
-            </h1>        
-  </section>
+    <div class="row">
+            <h1 class="col-lg-6">
+              What's Happening? - {{date('F d, Y',strtotime($time))}}      
+            </h1>
+      <div class="col-lg-6" align="right">
+            <a href="/register" style="color: white;font-weight: bold;" class="btn btn-success"> 
+                <span class="glyphicon glyphicon-plus-sign"></span> 
+                Add Patient
+            </a>
+      </div>
+    </div>      
+</section>
 
    
 <hr id="p_hr1">
@@ -29,11 +30,10 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
   </p>
 @endif
 
-<div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-12 col-sm-12 table-responsive">  
-        <div class="box">
-                <div class="box-body">
+<div class="panel panel-default"  >
+<div class="panel-body" >
+<div class="row container-fluid"> 
+                <div class="box-body table-responsive">
                     <table  data-toggle="table"
        data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
        data-show-refresh="true"
@@ -44,7 +44,7 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
                       <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 177px;">Appointment ID</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 224px;">Patient Name</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 205px;">Purpose</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 152px;">Chief Complaints</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 152px;">Action</th></tr>
                     </thead>
                      <tbody>
-                      @foreach ($consults as $consult)
+                      @foreach ($queue as $consult)
                           @if (! $consult->patient_appointments)
 
                           @else
@@ -73,10 +73,9 @@ glyphicon glyphicon-plus-sign"></span> Add Patient</a>
 
 
                 </div><!-- /.box-body -->
-              </div>  
-      </div>
     </div>
-  </div>
+</div>
+</div>
 
 <br>
  <div class="panel panel-default"  >

@@ -8,7 +8,7 @@ div#patientListing:hover
 
 </style>
 @section('content')
-<section class="content-header">
+<section class="content-header" style="margin-bottom:20px">
       <h1>
           List of Peditricians
      </h1>
@@ -67,7 +67,7 @@ div#patientListing:hover
                       </div>
                   </div>
                   <div  class="col-md-4" style="padding-top:4rem;"><a class="btn btn-primary" href="/account/edit_account/{{$user->id}}">Edit Account</a>&nbsp | &nbsp
-                        <a class="btn btn-danger" href="/delete_account/{{$user->id}}">Delete Account</a>
+                        <a class="deletePedModal btn btn-danger" href="#" data-toggle="modal" data-id="{{ $user->id }}" data-pedname="{{$user->firstname .' '.$user->lastname}}" data-target="#deletePedConfirm">Delete Account</a>
                   </div>
               <!--    <div  class="col-md-4" style="padding-top:4rem;" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1"><a class="btn btn-danger" href="/delete_account/{{$user->id}}" data-reactid=".0.0.0.2.0.1.1.1.0.$0.0.1.1.0">Delete Account</a>
                   </div>
@@ -79,6 +79,28 @@ div#patientListing:hover
                 </div>
   @endif
   @endforeach
+
+                    <!--CONFIRM DELETE MODAL-->
+                        <div id="deletePedConfirm" data-name="" class="modal fade finishVacsConfirm" role="dialog">
+                          <div class="modal-dialog">
+                            <!-- Modal content-->
+                              <div class="modal-content" >
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h4 class="modal-title" style="color: white">Confirm Deletion ?</h4>
+                                </div>
+                                <div class="modal-body">
+                                   <b>Delete:</b> <span id="ped_name"></span><span>&nbsp?</span><br> 
+                                </div>
+                                <div class="modal-footer">
+                                  <a href="#" class="btn btn-primary delete_ped_button">Yes</a>
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                                </div>
+                              </div>
+                          </div>
+                        </div>
+                    <!--end modal-->
+
           <!-- END CARD TABLE -->                
        </div>
 </div>     

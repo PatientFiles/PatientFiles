@@ -144,13 +144,15 @@ class consultationController extends Controller
     */
     public function endVisit()
     {
-        $data =
-        [
-            'status'   => 'completed',
-        ];
+        if (\Session::has('appoint')) {
+            $data =
+            [
+                'status'   => 'completed',
+            ];
 
-        $status = $this->medix->put('appointment/'.\Session::get('appoint'), $data);
-
+            $status = $this->medix->put('appointment/'.\Session::get('appoint'), $data);
+        }
+        
        \Session::forget('consult');
        \Session::forget('type');
        \Session::forget('appoint');
@@ -237,23 +239,39 @@ class consultationController extends Controller
             $appointment_id  = $req->input('appointment_id');
             $practitioner_id = \Session::get('user_id');
 
-            
-            $data = [
-                'diagnosis_remarks' => $remarks,
-                'diagnosis_result'  => $result,
-                'patient_id'        => \Session::get('patient_appoint'),
-                'appointment_id'    => \Session::get('appoint'),
-                'practitioner_id'   => $practitioner_id,
-            ];
+            $dia = Diagnosis::where('appointment_id', \Session::get('appoint'))->get();
 
-            $diagnosis = Diagnosis::create($data);
-            //dd($user);
+            if ($dia->isEmpty()) {
+                $data = [
+                    'diagnosis_remarks' => $remarks,
+                    'diagnosis_result'  => $result,
+                    'patient_id'        => \Session::get('patient_appoint'),
+                    'appointment_id'    => \Session::get('appoint'),
+                    'practitioner_id'   => $practitioner_id,
+                ];
+                $diagnosis = Diagnosis::create($data);
+                $response = array(
+                    'status' => 'success',
+                    'msg'    => 'Vaccination added successfully',
+                    'data'   => $diagnosis,
+                );
+            } else {
+                $diag = [
+                    'diagnosis_remarks' => $remarks,
+                    'diagnosis_result'  => $result,
+                    'patient_id'        => \Session::get('patient_appoint'),
+                    'practitioner_id'   => $practitioner_id,
+                ];
+                $updated_diag = Diagnosis::where('appointment_id', \Session::get('appoint'))
+                                ->update($diag);
 
-           $response = array(
-                'status' => 'success',
-                'msg'    => 'Vaccination added successfully',
-                'data'   => $diagnosis,
-            );
+                $response = array(
+                    'status' => 'success',
+                    'msg'    => 'Vaccination added successfully',
+                    'data'   => $updated_diag,
+                );
+            }
+           
             return \Response::json($response);
         }
         return false;

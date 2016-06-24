@@ -14,9 +14,18 @@
               <p>
                 Your Internet Connection is unstable.
                 
-                Please check your internet connection and <a href="/">Try again</a>.
+                Please check your internet connection and <a onclick="goBack()"  style="cursor:pointer;" >Try again</a>.
               </p>
             </div><!-- /.error-content -->
           </div><!-- /.error-page -->
         </section><!-- /.content -->
+
+
+<script>
+function goBack() {
+    window.history.go(-2);
+}
+</script>
+
+
 @endsection

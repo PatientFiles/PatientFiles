@@ -48,11 +48,11 @@ div#patientListing:hover
                                   <div style="color:#848688;" ><small ><b >Patient ID: &nbsp</b><span >{{ $patient->id }}</span></small>
                                   </div>
                                    @if ($patient->user->gender == 0)  
-                                  <div style="color:#848688;" ><small > <b >Gender: &nbsp</b>{{ "Male" }}</small>
+                                  <div style="color:#848688;" ><small > <b >Gender: &nbsp</b>{{ "Female" }}</small>
                                   </div>
                                    @endif
                                     @if ($patient->user->gender == 1)  
-                                  <div style="color:#848688;" ><small >  <b >Gender: &nbsp</b>{{ "Female" }}</small>
+                                  <div style="color:#848688;" ><small >  <b >Gender: &nbsp</b>{{ "Male" }}</small>
                                   </div>
                                    @endif
                                   <div style="color:#848688;"><small >  <b >Birth Date:&nbsp</b>{{date('F d, Y',strtotime($patient->user->birthdate))}}</small>

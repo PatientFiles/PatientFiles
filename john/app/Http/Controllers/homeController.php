@@ -178,12 +178,6 @@ class homeController extends Controller
     */
     public function recent()
     {
-        //$dia = Diagnosis::where('appointment_id', \Session::get('appoint'))->get();
-         $presc_table = Prescription::where('appointment_id', \Session::get('appoint'))
-                        ->with('prescription')
-                        ->get();
-        dd($presc_table);
-        //dd(\Session::get('appoint'));
         $patients = $this->medix->get('patient?take=1000');
         //dd($patients);
         $mytime = Carbon::now();

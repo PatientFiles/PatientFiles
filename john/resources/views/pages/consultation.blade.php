@@ -124,18 +124,18 @@
         <div class="useravatar">
             <img alt="" src="/img/prof_pic.png">
         </div>
-        <div class="card-info"> <span class="card-title">{{Session::get('visit_patient')}}</span>
+        <div class="card-info"> <b class="card-title">{{Session::get('visit_patient')}}</b>
 
         </div>
     </div>
     <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
         <div class="btn-group" role="group">
-            <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                <div class="hidden-xs">Consultation</div>
+            <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="fa fa-stethoscope" aria-hidden="true"></span>
+                <div class="hidden-xs">Current Visit</div>
             </button>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+            <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="fa fa-clock-o" aria-hidden="true"></span>
                 <div class="hidden-xs">Past Visits</div>
             </button>
         </div>
@@ -326,7 +326,7 @@
                           </tr>
                         </thead>
 
-                        <tbody>
+                        <tbody id="presc_t">
                         @foreach ($presc_table as $pre)
                           <tr>
                             <td>{{$pre['prescription']['medicine_name']}}</td>
@@ -389,7 +389,7 @@
                                         <th>Action</th>
                                       </tr>
                                     </thead>
-                                    <tbody id="vaccination_tbody">
+                                    <tbody id="vacs_t">
                                     @foreach ($vac_table as $vacs)
                                       <tr>
                                         <td>{{$vacs['vaccine']['vaccine_name']}}</td>
@@ -421,7 +421,7 @@
                   </select>
             </div>
             <div class="col-lg-12" >
-               <label>Description</label>
+               <label>Remarks</label>
                <input class="form-control" type="text" placeholder="Remarks" name="remarks" />
             </div>
              <div class="col-lg-4">
@@ -438,15 +438,15 @@
           <thead>
             <tr>
               <th>Laboratory Type</th>
-              <th>Description</th>
+              <th>Remarks</th>
               <th>Action</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="labs_visit">
           @foreach ($lab_table as $labs)
             <tr>
               <td>{{$labs['lab']['lab_name']}}</td>
-              <td>{{$labs['lab']['lab_desc']}}</td>
+              <td>{{$labs['remarks']}}</td>
               <td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td>
             </tr>
           @endforeach
@@ -519,7 +519,6 @@
                        data-search="true"
                        data-show-refresh="true"
                        data-show-toggle="true"
-                       data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
                        data-show-columns="true" id="table2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
 
                       <h3 class="box-title pull-left" >Vitals Record</h3> 
@@ -570,7 +569,8 @@
     <div class="panel-heading" role="tab" id="headingOne">
       <h4 class="panel-title ">
         <a  data-toggle="collapse" data-parent="#accordion" href="#collapseOne-{{$past->id}}" aria-expanded="false" class="collapsed" aria-controls="collapseOne">
-          <b>{{date('F d, Y' ,strtotime($past->appointment_date))}}</b>
+          <b style="margin-left:20px">Date Visited:</b><span style="margin-right:10px">{{' '. date('F d, Y' ,strtotime($past->appointment_date))}}</span>
+          <b>Time Visited:</b>{{$past->appointment_time}}
         </a>
       </h4>
     </div>

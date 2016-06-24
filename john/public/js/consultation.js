@@ -3,7 +3,7 @@ jQuery( document ).ready( function() {
 
         /*--------------------------------
         |
-        |add a medicine
+        |add a vaccination
         |
         |--------------------------------
         */
@@ -16,9 +16,9 @@ jQuery( document ).ready( function() {
               data: data,
               success: function(res) {
                 console.log(res);
-                var name = res.data.vaccine.vaccine_name;
-                var vfor = res.data.vaccine.vaccine_for;
-                var date = res.date;
+                var name = res.v.vaccine.vaccine_name;
+                var vfor = res.v.vaccine.vaccine_for;
+                var date = res.data.date;
                 console.log(name);
                 console.log(vfor);
                 console.log(date);
@@ -27,7 +27,7 @@ jQuery( document ).ready( function() {
             		toastr.options.showMethod        = 'slideDown';
             		toastr.options.hideMethod        = 'slideUp';
                   $("#vac_submit")[0].reset();
-                  $('#vaccination_body').append('<tr><td>'+name+'</td><td> <a href="#" class="editMedModal" data-toggle="modal" data-id="'+vfor+'" data-medname="'+date+'" data-target="#editMedicine"> <span class="glyphicon glyphicon-edit "></span> &nbsp </a> |  </span> </a></td></tr>');
+                  $('#vacs_t').append('<tr><td>'+name+'</td><td>'+vfor+'</td><td>'+date+'</td><td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td></tr>');
               }
           }); 
          });
@@ -74,13 +74,15 @@ jQuery( document ).ready( function() {
               data: data,
               success: function(res) {
                 console.log(res);
-                var result = res.data.diagnosis_result;
-                var remarks = res.data.diagnosis_remarks;
+                var rems = res.data.remarks;
+                var name = res.labs.lab.lab_name;
                 toastr.options.positionClass = 'toast-top-center';
                 toastr.success('Lab Request successfully added!');
                 toastr.options.showMethod        = 'slideDown';
                 toastr.options.hideMethod        = 'slideUp';
                   $("#lab_submit")[0].reset();
+                  $('#labs_visit').append('<tr><td>'+name+'</td><td>'+rems+'</td><td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td></tr>');
+
               }
           }); 
          });
@@ -100,14 +102,18 @@ jQuery( document ).ready( function() {
               data: data,
               success: function(res) {
                 console.log(res);
-                var result = res.data.diagnosis_result;
-                var remarks = res.data.diagnosis_remarks;
+                var name = res.presc.prescription.medicine_name;
+                var qty = res.data.quantity;
+                var sig = res.data.sig;
+                console.log(name);
+                console.log(qty);
+                console.log(sig);
                 toastr.options.positionClass = 'toast-top-center';
                 toastr.success('Prescription successfully added!');
                 toastr.options.showMethod        = 'slideDown';
                 toastr.options.hideMethod        = 'slideUp';
                   $("#prescription_submit")[0].reset(); 
-                  $('#presc_t').append('<tr><td>'+name+'</td><td> <a href="#" class="editMedModal" data-toggle="modal" data-id="'+vfor+'" data-medname="'+date+'" data-target="#editMedicine"> <span class="glyphicon glyphicon-edit "></span> &nbsp </a> |  </span> </a></td></tr>');
+                  $('#presc_t').append('<tr><td>'+name+'</td><td>'+qty+'</td><td>'+sig+'</td><td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td></tr>');
 
               }
           }); 

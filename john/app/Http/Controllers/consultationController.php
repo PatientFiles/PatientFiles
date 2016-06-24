@@ -208,7 +208,8 @@ class consultationController extends Controller
            $response = array(
                 'status' => 'success',
                 'msg'    => 'Vaccination added successfully',
-                'data'   => $vaccine_table,
+                'data'   => $vaccine,
+                'v'      => $vaccine_table,
                 'date'   => $vaccine->date,
             );
             return \Response::json($response);
@@ -311,12 +312,17 @@ class consultationController extends Controller
             ];
 
             $lab           = Labrequest::create($data);
+
+            $lab_t            = Labrequest::with('lab')
+                                            ->where('lab_id', $lab->lab_id)
+                                            ->first();
             //dd($user);
 
            $response = array(
                 'status' => 'success',
                 'msg'    => 'Lab Request added successfully',
                 'data'   => $lab,
+                'labs'       => $lab_t,
             );
             return \Response::json($response);
         }

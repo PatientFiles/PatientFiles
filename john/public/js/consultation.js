@@ -105,7 +105,8 @@ jQuery( document ).ready( function() {
                 toastr.success('Prescription successfully added!');
                 toastr.options.showMethod        = 'slideDown';
                 toastr.options.hideMethod        = 'slideUp';
-                  $("#prescription_submit")[0].reset();
+                  $("#prescription_submit")[0].reset(); 
+                  $( "#presc_table" ).load( "/home #presc_table" );
               }
           }); 
          });
@@ -161,5 +162,26 @@ jQuery( document ).ready( function() {
         $('#ped_name').text(patName);
         $('.delete_ped_button').attr('href', '/delete_account/'+id);
       });
+
+      /*--------------------------------
+      |
+      |delete in pediatrician
+      |
+      |--------------------------------
+      */
+      $(document).on('click', "#a", function(e){
+        console.log(e);
+        
+          $("#a").addClass("active");
+
+      });
+
+      $(document).off('click', "#a", function(e){
+        console.log(e);
+        
+          $("#a").removeClass("active");
+
+      });
+
 
 });

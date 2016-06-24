@@ -115,7 +115,7 @@ class homeController extends Controller
             } if (strcasecmp($search, $fname1)==0) {
             return view('pages.searchResult')
                 ->with('result', $firstname->data)
-                ->with('total', count((array)$firstname->data))
+                ->with('total', count((array)$firstname->data). ' Matching records found.')
                 ->with('search', $search);
             }
         } if (empty((array)$firstname->data)) {
@@ -126,13 +126,13 @@ class homeController extends Controller
                 } if (strcasecmp($search, $lname2)==0) {
                 return view('pages.searchResult')
                     ->with('result', $lastname->data)
-                    ->with('total', count((array)$lastname->data))
+                    ->with('total', count((array)$lastname->data). ' Matching records found.')
                     ->with('search', $search);
                 }
             } if (empty((array)$lastname->data)){
                 return view('pages.searchResult')
                 ->with('result', $lastname->data)
-                ->with('total', 0 . ' Records')
+                ->with('total', 'No matching records found!')
                 ->with('search', $search);
             }
         }

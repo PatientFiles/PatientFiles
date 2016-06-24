@@ -41,8 +41,9 @@ jQuery( document ).ready( function() {
       $( '#diagnosis_submit' ).on( 'submit', function(e) {
           e.preventDefault(); 
         var data = $(this).serialize();
-        var a = $("input[name='remarks']").val();
-        var b = $("textarea[name='result']").val();
+        var a = $("#remarks").val();
+        var b = $("#result").val();
+        console.log(a);
         $.ajax({
               type: "POST",
               url: '/consultation/diagnosis',
@@ -53,7 +54,7 @@ jQuery( document ).ready( function() {
                 toastr.options.showMethod        = 'slideDown';
                 toastr.options.hideMethod        = 'slideUp';
                   $("#diagnosis_submit")[0].reset();
-                  $('#assessment').text('Diagnosis result:\n          '+a+'\nRemarks:\n          '+b);
+                  $('#assessment').text('Diagnosis result:\n          '+b+'\nRemarks:\n          '+a);
               }
           }); 
          });
@@ -162,26 +163,5 @@ jQuery( document ).ready( function() {
         $('#ped_name').text(patName);
         $('.delete_ped_button').attr('href', '/delete_account/'+id);
       });
-
-      /*--------------------------------
-      |
-      |delete in pediatrician
-      |
-      |--------------------------------
-      */
-      $(document).on('click', "#a", function(e){
-        console.log(e);
-        
-          $("#a").addClass("active");
-
-      });
-
-      $(document).off('click', "#a", function(e){
-        console.log(e);
-        
-          $("#a").removeClass("active");
-
-      });
-
 
 });

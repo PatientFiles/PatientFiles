@@ -112,13 +112,13 @@
      
     <div class="card hovercard">
         <div class="card-background">
-            <img class="card-bkimg" alt="" src="http://lorempixel.com/100/100/people/9/">
+            <img class="card-bkimg bg-green">
             <!-- http://lorempixel.com/850/280/people/9/ -->
         </div>
         <div class="useravatar">
             <img alt="" src="/img/prof_pic.png">
         </div>
-        <div class="card-info"> <span class="card-title">John Benedict De Castro</span>
+        <div class="card-info"> <span class="card-title">{{Session::get('visit_patient')}}</span>
 
         </div>
     </div>
@@ -147,13 +147,46 @@
         <div class="tab-pane fade in active" id="tab1">
          
           <div id="vitals" > 
-            <form role="form" action="/saveVitals/{{$prof->id}}" method="POST">   <!-- VITALS -->
-                   <div class="container-fluid">
+
+                      <a  href="#" data-toggle="modal" data-target="#newVitals" class="btn btn-success pull-right">Latest Vitals</a>
+
+                      <div id="newVitals" class="modal fade" role="dialog">
+                        <div class="modal-dialog ">
+                          <!-- Modal content-->
+                          <form action="/new_appointment" method="POST">
+                            <div class="modal-content" >
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title" style="color: white">Patient Latest Vitals</h4>
+                              </div>
+                              <div class="modal-body">
+                                  @if ($recentVitals !== null)
+                                    <div class="box-body">
+                                     <h5> <strong>Date Recorded:</strong> <p class="pull-right">{{date('F d, Y', strtotime($recentVitals->created_at))}}</p> </h5>
+                                     <h5> Height (cm): <p class="pull-right">{{$recentVitals->height}}</p> </h5>
+                                     <h5> Weight (kg): <p class="pull-right">{{$recentVitals->weight}}</p> </h5>
+                                     <h5> BMI : <p class="pull-right">{{$bmi}}</p> </h5>
+                                     <h5> Pulse Rate : <p class="pull-right">{{$recentVitals->pulserate}}</p> </h5>
+                                     <h5> Respiratory Rate : <p class="pull-right">{{$recentVitals->respiratoryrate}}</p> </h5>
+                                     <h5> Body Temperature (c): <p class="pull-right">{{$recentVitals->bodytemperature}}</p> </h5>
+                                     <h5> Blood Pressure : <p class="pull-right">{{$recentVitals->bloodpressure_sys.'/'.$recentVitals->bloodpressure_dia}}</p> </h5>
+                                     <hr>
+                                     <strong><i class="fa fa-file-text-o margin-r-5"></i> Doctor's Notes</strong>
+                                     <p>{{$recentVitals->notes}}</p>
+                                    </div><!-- /.box-body -->
+                                  @else
+                                      <h3 align="center">No Vitals Yet.</h3>
+                                     @endif
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                      
+
                       <h3>Vitals</h3>
-          <a  href="#" class="btn btn-success">Past Vital</a>
-
-                  </div>
-
+                      <div class="container-fluid">
+            <form role="form" action="/saveVitals/{{$prof->id}}" method="POST">   <!-- VITALS -->
                   <div>
                      {!! csrf_field() !!}
                       <div class="row form-group">
@@ -228,115 +261,82 @@
                                     <textarea name="notes" class="form-control" rows="5" placeholder="Doctors vital notes"></textarea>
                       </div>
                    </div>
-                    <div class="modal-footer">
+                    <div class="pull-right">
                         <button type="submit" name="saveVitals" class="btn btn-primary pull-left">Save</button>
                         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
                     </div>
-             </form>  <!--END VItals -->   
+                    <br>
+             </form> 
+             </div> <!--END VItals -->   
             </div> 
-                  <hr>
-                    
+    <hr style="border-top:3px solid #0073b7; border-radius:5px;">
+      
 
-                  <div id="prescription" class="row" > <!-- PRESCRIPTION -->
-                         <div class="container-fluid">
-                            <h3>Prescription</h3>
-                        </div>    
+    <div id="prescription" class="row" > <!-- PRESCRIPTION -->
+           <div class="container-fluid">
+              <h3>Prescription</h3>
+          </div>    
 
-                          <div class="col-lg-6">
-                              <form action="/consultation/prescription" method="POST" id="prescription_submit">
-                                <div class="row container-fluid">
-                                   <div class="row container-fluid">
-                                    <div class="col-lg-9" >
-                                         <label>Medicine</label>  
-                                             <select id="select_generic" class="demo-default"  placeholder="Medicine Name" name="select_generic" required>
-                                                <option value disabled selected>None</option>
-                                                @foreach ($medicine as $med)
-                                                  <option value="{{$med['id']}}">{{$med['medicine_name']}}</option>
-                                                @endforeach
+            <div class="col-lg-6">
+                <form action="/consultation/prescription" method="POST" id="prescription_submit">
+                  <div class="row container-fluid">
+                     <div class="row container-fluid">
+                      <div class="col-lg-9" >
+                           <label>Medicine</label>  
+                               <select id="select_generic" class="demo-default"  placeholder="Medicine Name" name="select_generic" required>
+                                  <option value disabled selected>None</option>
+                                  @foreach ($medicine as $med)
+                                    <option value="{{$med['id']}}">{{$med['medicine_name']}}</option>
+                                  @endforeach
 
-                                            </select>
-                                    </div>
-                                     <div class="col-lg-3">
-                                       <label>Quantity</label>
-                                       <input class="form-control" type="number"  name="quantity" required/>
-                                    </div>
-                                    <div class="col-lg-12">
-                                       <label>Sig</label>
-                                       <input class="form-control" type="text" placeholder="Sig" name="sig" required />
-                                    </div>
-                                     <div class="col-lg-4">
-                                        <br>
-                                       <input class="form-control btn btn-primary " value="Submit" type="submit"  />
-                                    </div>
-                                  </div>
-                                </div>
-                              </form>
-                         </div>
-                         <div class="col-lg-6">
-                              <div class="container-fluid">
-                                 <table id="table_med"  data-toggle="table"
-                                  data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
-                                   id="example2" class="table table-bordered table-hover dataTable">
-                                      <thead>
-                                        <tr>
-                                          <th>Medicine Name</th>
-                                          <th>Quantity</th>
-                                          <th>Action</th>
-                                        </tr>
-                                      </thead>
+                              </select>
+                      </div>
+                       <div class="col-lg-3">
+                         <label>Quantity</label>
+                         <input class="form-control" type="number"  name="quantity" required/>
+                      </div>
+                      <div class="col-lg-12">
+                         <label>Sig</label>
+                         <input class="form-control" type="text" placeholder="Sig" name="sig" required />
+                      </div>
+                       <div class="col-lg-4">
+                          <br>
+                         <input class="form-control btn btn-primary " value="Submit" type="submit"  />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+           </div>
+           <div class="col-lg-6">
+                <div class="container-fluid">
+                   <table id="table_med"  data-toggle="table"
+                    data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+                     id="example2" class="table table-bordered table-hover dataTable">
+                        <thead>
+                          <tr>
+                            <th>Medicine Name</th>
+                            <th>Quantity</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
 
-                                      <tbody>
-                                        <tr>
-                                          <td>Bear Brand</td>
-                                          <td>10pcs</td>
-                                          <td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td>
-                                        </tr>
-                                      </tbody>
-                                    </table>
-                                  <br>
-                                  <br>
-                                 <a href="/printPrescription/{{Session::get('patient_appoint')}}" target="_blank" class="btn btn-primary "> Print Prescription</a>
-                              </div>    
-                          </div>
-                        
-                  </div>  <!-- END PRESCRIPTION -->
-                         <hr>
-                  <div id="diagnosis" class="row" > <!-- DIAGNOSIS -->
-                         <div class="container-fluid">
-                            <h3>Diagnosis</h3>
-                        </div>
-                        <div class="col-lg-6">
-                          <form action="/consultation/diagnosis" method="POST" role="form" id="diagnosis_submit">
-                            <div class="row container-fluid">
-                                <div class="col-lg-12">
-                                    <label for="number">Result</label>
-                                    <textarea name="result" class="form-control" rows="5" placeholder="Result" type="text" required></textarea>
-                                </div>
-                                <div class="col-lg-12">
-                                   <label>Remarks</label>
-                                   <input class="form-control" type="text" name="remarks" placeholder="Remarks" />
-                                </div>
-                                <div class="col-lg-4">
-                                    <br>
-                                   <input class="form-control btn btn-primary " value="Submit"  type="submit" />
-                          
-                                    </div>
-                                </div>
-                            </form>
-                         </div>
-                          <div class="col-lg-6">
-                                <div class="container-fluid"> 
-                                  <div class="row container-fluid">
-                                      <div class="col-lg-12">
-                                          <label for="number">Assessment</label>
-                                          <textarea disabled id="assessment" name="assessment" class="form-control" rows="5"></textarea>
-                                      </div>
-                                       </div>    
-                                  </div>
-                          </div>
-                     
-                    </div>  <!-- END DIAGNOSIS -->
-                          <hr>
+                        <tbody>
+                          <tr>
+                            <td>Bear Brand</td>
+                            <td>10pcs</td>
+                            <td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    <br>
+                    <br>
+                   <a href="/printPrescription/{{Session::get('patient_appoint')}}" target="_blank" class="btn btn-primary "> Print Prescription</a>
+                </div>    
+            </div>
+          
+    </div>  <!-- END PRESCRIPTION -->
+
+                          <hr style="border-top:3px solid #0073b7; border-radius:5px;">
                     <div id="vaccination" class="row" >  <!-- VACCINATION -->
                        <div class="container-fluid">
                             <h3>Vaccination</h3>
@@ -393,6 +393,95 @@
                                 </div>    
                           </div>
                       </div>  <!-- END VACCINATION -->
+
+
+      <hr style="border-top:3px solid #0073b7; border-radius:5px;"><!--Start lab request-->
+        <h3>Lab Request</h3>
+     <div id="labrequest" class="row">
+        <div class="col-lg-6">
+      <form action="/consultation/labrequest" method="POST" id="lab_submit">
+        <div class="row container-fluid">
+            <div class="col-lg-12" >
+                  <label>Laboratory Type</label>
+                  <select id="select_lab"  placeholder="Laboratory Type" name="select_lab"> 
+                  <option value disabled selected> None </option>
+                  @foreach ($lab as $labs)
+                    <option value="{{$labs['id']}}">{{$labs['lab_name']}}</option>
+                  @endforeach
+                  </select>
+            </div>
+            <div class="col-lg-12" >
+               <label>Remarks</label>
+               <input class="form-control" type="text" placeholder="Remarks" name="remarks" />
+            </div>
+             <div class="col-lg-4">
+                <br>
+               <input class="form-control btn btn-primary " value="Add" type="submit"  />
+            </div>
+        </div>
+      </form>
+      </div>
+     <div class="col-lg-6">
+      <div class="container-fluid">  
+        <table id="table_med"  data-toggle="table"
+      data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+       id="example2" class="table table-bordered table-hover dataTable">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Remarks</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        </div>
+      </div> <!--end labrequest-->
+
+
+                         <hr style="border-top:3px solid #0073b7; border-radius:5px;">
+                  <div id="diagnosis" class="row" > <!-- DIAGNOSIS -->
+                         <div class="container-fluid">
+                            <h3>Diagnosis</h3>
+                        </div>
+                        <div class="col-lg-6">
+                          <form action="/consultation/diagnosis" method="POST" role="form" id="diagnosis_submit">
+                            <div class="row container-fluid">
+                                <div class="col-lg-12">
+                                    <label for="number">Result</label>
+                                    <textarea name="result" id="result" class="form-control" rows="5" placeholder="Result" type="text" required></textarea>
+                                </div>
+                                <div class="col-lg-12">
+                                   <label>Remarks</label>
+                                   <input class="form-control" id="remarks" type="text" name="remarks" placeholder="Remarks" />
+                                </div>
+                                <div class="col-lg-4">
+                                    <br>
+                                   <input class="form-control btn btn-primary " value="Submit"  type="submit" />
+                          
+                                    </div>
+                                </div>
+                            </form>
+                         </div>
+                          <div class="col-lg-6">
+                                <div class="container-fluid"> 
+                                  <div class="row container-fluid">
+                                      <div class="col-lg-12">
+                                          <label for="number">Assessment</label>
+                                          <textarea disabled id="assessment" name="assessment" class="form-control" rows="5"></textarea>
+                                      </div>
+                                       </div>    
+                                  </div>
+                          </div>
+                     
+                    </div>  <!-- END DIAGNOSIS -->
                         
         </div> <!-- END TAB 1 -->
 
@@ -416,17 +505,13 @@
                 <ul class="nav nav-tabs">
                   
                   <li class="active"> <a href="#vitals1" data-toggle="tab">Vitals Records</a></li>
-                  <li><a href="#vaccine1" data-toggle="tab">Consultation Records</a></li>
+                  <li><a href="#vaccine1" data-toggle="tab">Past Visits</a></li>
                 </ul>
 
             <div class=" tab-content">   <!-- START TAB CONTENT -->
                   
                 <!-- START VITALS TAB -->
                      <div class="active tab-pane" id="vitals1">
-                      <div class="panel panel-default" >
-                          <div class="panel-body" >
-                       
-
                       <table data-toggle="table"
 
                        data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
@@ -468,10 +553,6 @@
                     </tbody>
 
                   </table>
-
-                  
-                  </div> 
-                  </div>
                 </div><!-- END VITALS TAB --> 
 
 
@@ -480,24 +561,12 @@
                 <!-- START CONSULTATION TAB -->
                 <div class="tab-pane" id="vaccine1">
 
-                   <div >
-                  <!-- search form (Optional) -->
-          <form action="/searchResult" method="post" class="col-lg-4"  >
-            <div class="input-group" style="margin-top: 8px" align="right">
-              <input type="text" name="q" class="form-control" placeholder="Search..." required>
-              <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
-              </span>
-            </div>
-          </form>
-             </div>
+               <div id="accordion" role="tablist" aria-multiselectable="true">
 
-               <div id="accordion" role="tablist" aria-multiselectable="true" style="padding: 65px">
-
-  <div class="panel panel-default">
+  <div class="panel panel-default collapsed"   data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
     <div class="panel-heading" role="tab" id="headingOne">
-      <h4 class="panel-title">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+      <h4 class="panel-title" align="center">
+        <a  data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" class="collapsed" aria-controls="collapseOne">
           Date
         </a>
       </h4>
@@ -505,7 +574,7 @@
     </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
       
-               <div class="container-fluid"> <h3> Vaccine </h3> </div>  
+               <h3> Vaccine </h3> 
                             <table id="table_med"  data-toggle="table"
                   data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
                    id="example2" class="table table-bordered table-hover dataTable">
@@ -595,11 +664,9 @@
                             </p>
                         @endif
 <form role="form" method="POST" action="/edit_patient">
-<div class="panel panel-default" > <!-- Start PANEL -->
- <div class="panel-body"> <!-- Start PANEL -->
   <h4 style="font-weight: bold;">Personal Information<small><i>&nbsp(Fields with <span style="color: red">*</span> are &nbsprequired)</i></small></h4>
-  
   <br>
+<div class="container-fluid">
  <div class="row form-group">
   <input type="hidden" name="patient_id" class="form-control" placeholder="First Name" aria-describedby="basic-addon1" value="{{$prof->id}}" required>
   <div class="col-lg-3">
@@ -756,11 +823,14 @@
   
   
   </div>
+</div>
+
 <div >
-  <hr>
+  <hr >
   <h4 style="font-weight: bold;">Contact Informations</h4>
   <br>
 </div>
+<div class="container-fluid">
 <div class="row form-group">
   
   <div class="col-lg-5">
@@ -788,13 +858,14 @@
     <input type="text" name="mobile_num" placeholder="Mobile Number Eg. 0935 123-1234" class="form-control" aria-describedby="basic-addon1" value="@if (! $prof->user->user_phone_numbers){{''}}@else {{$prof->user->user_phone_numbers[0]->number}}@endif">
   </div>
 </div>
-  
-  <hr>
+ 
+<div >
+  <hr >
+  <h4 style="font-weight: bold;">Emergency Contact Person</h4>
+  <br>
 </div>
-  <div class="container">
-    <h4 style="font-weight: bold;">Emergency Contact Person</h4>
-  </div>
-<div class="row form-group container-fluid">
+
+<div class="row form-group">
   
   <div class="col-lg-4">
     <strong>First Name:</strong>
@@ -819,7 +890,7 @@
   </div>
   
 </div>
-<div class="row form-group container-fluid">
+<div class="row form-group">
   
   <div class="col-lg-6">
     <strong>Emergency Contact Number: </strong>
@@ -852,18 +923,22 @@
   </div>
   
 </div>
-<hr>
-<div class="container">
-  <h4 style="font-weight: bold;">Emergency Contact Person Address</h4>
 </div>
-  
-<div class="row form-group container">    
+
+<div >
+  <hr >
+  <h4 style="font-weight: bold;">Emergency Contact Person Address</h4>
+  <br>
+</div>
+
+<div class="container-fluid">
+<div class="row form-group">    
     <div class="col-lg-8">
     <strong>Street:</strong>
       <input type="text" name="street" class="form-control" placeholder="Street" aria-describedby="basic-addon1" value="@if (! $prof->user->user_addresses){{''}}@else{{$prof->user->user_addresses[0]->street}}@endif">
     </div>  
 </div>
-<div class="row form-group container">
+<div class="row form-group">
     
     <div class="col-lg-4">
     <strong>Barangay/District:</strong>
@@ -874,7 +949,7 @@
       <input type="text" name="city" class="form-control" placeholder="City" aria-describedby="basic-addon1" value="@if (! $prof->user->user_addresses){{''}}@else{{$prof->user->user_addresses[0]->municipality}}@endif">
     </div>
 </div>
-<div class="row form-group container">
+<div class="row form-group">
     
     <div class="col-lg-4">
     <strong>Province:</strong>
@@ -889,13 +964,14 @@
     </div>
     
 </div>
+</div>
+
 <hr>
-<div class="row form-group container">
+<div class="row form-group pull-right">
   <div class="col-lg-12 pull-right" style="float: right">
       <input type="submit" name="addPatient" id="addPatient" id="submit" value="Save Changes" class="btn btn-primary">
     </div>
 </div>
-</div> 
 
 </form>
 
@@ -917,8 +993,4 @@
           <a style="padding-left:23% ;padding-right: 23%" href="/end_visit" class="btn btn-success">END VISIT</a>
        </div>
      </div> 
-
-        
- 
-
 @stop

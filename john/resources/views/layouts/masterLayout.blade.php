@@ -94,7 +94,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <header class="main-header" >
 
         <!-- Logo -->
-        <a href="/home" class="logo" style="height: 57px">
+        <a href="/home" class="logo" style="height: 52px">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>P</b>DX</span>
           <!-- logo for regular state and mobile devices -->
@@ -102,7 +102,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </a>
 
         <!-- Header Navbar -->
-        <nav class="navbar navbar-static-top " role="navigation">
+        <nav class="navbar navbar-static-top " role="navigation" style="height: 52px">
 
         
      
@@ -123,7 +123,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="input-group" style="padding-top: 10px;">
               <input id="demo" type="text" name="q" class="form-control" placeholder="Search... " required >
               <span class="input-group-btn">
-               <input type="submit" name="search" id="demo2" class="btn btn-flat form-control" value="Go"  style="opacity: .8" /> 
+               <input type="submit" name="search" id="demo2" class="btn btn-flat form-control" value="Go"  style="opacity: .8; border-radius: 4px;" /> 
               </span>
             </div>
           </form>

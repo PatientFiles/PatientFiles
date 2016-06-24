@@ -109,6 +109,12 @@
           </small>
       @endif
 
+          <!-- ###########################################333 -->
+          @if(session('message'))
+            <p style="padding-top: 5px;color: white;background-color: red;font-style: italic;" class="alert alert-{{session ('message.type')}} form-control" >
+                    {{session('message.text')}}
+          @endif
+
      
     <div class="card hovercard">
         <div class="card-background">
@@ -657,12 +663,6 @@
 
 
 <div class="tab-pane fade in" id="tab3">
-          <!-- ###########################################333 -->
-          @if(session('message'))
-                            <p style="padding-top: 5px;color: white;background-color: red;font-style: italic;" class="alert alert-{{session ('message.type')}} form-control" >
-                                    {{session('message.text')}} <a href="/patientRecords" class="primary pull-right">Go to Patient List?</a>
-                            </p>
-                        @endif
 <form role="form" method="POST" action="/edit_patient">
   <h4 style="font-weight: bold;">Personal Information<small><i>&nbsp(Fields with <span style="color: red">*</span> are &nbsprequired)</i></small></h4>
   <br>
@@ -967,7 +967,7 @@
 </div>
 
 <hr>
-<div class="row form-group pull-right">
+<div class="row form-group">
   <div class="col-lg-12 pull-right" style="float: right">
       <input type="submit" name="addPatient" id="addPatient" id="submit" value="Save Changes" class="btn btn-primary">
     </div>

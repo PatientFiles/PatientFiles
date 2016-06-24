@@ -413,6 +413,9 @@ class consultationController extends Controller
         $presc_table = Prescription::where('appointment_id', \Session::get('appoint'))
                         ->with('prescription')
                         ->get();
+        $vac_table = Vaccination::where('appointment_id', \Session::get('appoint'))
+                        ->with('vaccine')
+                        ->get();
         try {
             
             $past         = $this->medix->get('vitals/patient/' . $id . '/past');
@@ -445,6 +448,8 @@ class consultationController extends Controller
             \Session::put('type', 'Follow-up Visit');
         }
 
+        //$past_vaccine = Vaccination::sortByDesc(date)where();
+
         return  view('pages.consultation')
                 ->with('prof', $profile->data)
                 ->with('medicine', $medicine)
@@ -453,7 +458,8 @@ class consultationController extends Controller
                 ->with('vitals', $pastVitals)
                 ->with('bmi', $bmi)
                 ->with('recentVitals', $vitals)
-                ->with('presc_table', $presc_table);
+                ->with('presc_table', $presc_table)
+                ->with('vac_table', $vac_table);
         }
         elseif (\Session::get('appoint') != $key->id) {
             return redirect('/home')->with('message',['type'=> 'danger','text' => 'There is an ongoing visit! Please end the ongoing visit before proceeding. ']);

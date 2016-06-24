@@ -10,6 +10,7 @@ use App\Http\Models\Vaccine;
 use App\Http\Models\Medicine;
 use App\Http\Models\Lab;
 use App\Http\Models\Vaccination;
+use App\Http\Models\Diagnosis;
 
 class homeController extends Controller
 {
@@ -114,7 +115,7 @@ class homeController extends Controller
             } if (strcasecmp($search, $fname1)==0) {
             return view('pages.searchResult')
                 ->with('result', $firstname->data)
-                ->with('total', count((array)$firstname->data))
+                ->with('total', count((array)$firstname->data). ' Matching records found.')
                 ->with('search', $search);
             }
         } if (empty((array)$firstname->data)) {
@@ -125,13 +126,13 @@ class homeController extends Controller
                 } if (strcasecmp($search, $lname2)==0) {
                 return view('pages.searchResult')
                     ->with('result', $lastname->data)
-                    ->with('total', count((array)$lastname->data))
+                    ->with('total', count((array)$lastname->data). ' Matching records found.')
                     ->with('search', $search);
                 }
             } if (empty((array)$lastname->data)){
                 return view('pages.searchResult')
                 ->with('result', $lastname->data)
-                ->with('total', 0 . ' Records')
+                ->with('total', 'No matching records found!')
                 ->with('search', $search);
             }
         }
@@ -175,6 +176,9 @@ class homeController extends Controller
     */
     public function recent()
     {
+        //$dia = Diagnosis::where('appointment_id', \Session::get('appoint'))->get();
+
+        //dd($dia[0]['id']);
         //dd(\Session::get('appoint'));
         $patients = $this->medix->get('patient?take=1000');
         //dd($patients);

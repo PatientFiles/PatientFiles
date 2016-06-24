@@ -135,56 +135,14 @@
               </div>
               <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
-                  <li class="active"><a href="#visits" data-toggle="tab">Visit History</a></li>
-                  <li><a href="#vitals" data-toggle="tab">Vitals Records</a></li>
+                  <li class="active"><a href="#vitals" data-toggle="tab">Vitals Records</a></li>
                   <li><a href="#vaccine" data-toggle="tab">Consultation Records</a></li>
                 </ul>
 
             <div class=" tab-content">   <!-- START TAB CONTENT -->
-                     <div class="active tab-pane" id="visits">  <!--  START OF VISITS TAB -->
-                      <div class="panel panel-default" >
-                          <div class="panel-body" >
-                            <div class="row container-fluid" > 
-                      <div  id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table data-toggle="table"
-                       data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"                    
-                       data-search="true"
-                       data-show-refresh="true"
-                       data-show-toggle="true"
-                       data-show-columns="true" id="table2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
-                      <h3 class="box-title pull-left" >Visit History</h3> 
-                      <thead>
-                      <tr role="row">
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Consultation Date</th>
-                      <th class="sorting_asc" tabindex="0" aria-controlsne: activate to sort column descending style="width: 177px;" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engi">Reason</th>
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 224px;">Subjective</th>                  
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 152px;">Objective</th>
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Assessment</th>
-                      <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 110px;">Plan</th>
-                    </thead>
-                    <tbody>
-                      @if ($consult !== null)
-                        @foreach ($consult as $appoint)
-                            @if (! is_object($appoint->consultation))
-                            @else
-                            <tr role = "row">
-                              <td><b>{{date('F d, Y', strtotime($appoint->appointment_date))}}</b></td>
-                              <td>{{$appoint->chief_complaints}}</td>
-                              <td>{{$appoint->consultation->subjective}}</td>
-                              <td>{{$appoint->consultation->objective}}</td>
-                              <td>{{$appoint->consultation->assessment}}</td>
-                              <td>{{$appoint->consultation->plan}}</td>    
-                            </tr>
-                            @endif
-                        @endforeach
-                      @endif
-                    </tbody>    
-                  </table></div></div></div>                
-                            </div>
-                          </div>          
-                      </div>    
-                </div><!-- END VISITS TAB -->
+                     
                 <!-- START VITALS TAB -->
-                     <div class="tab-pane" id="vitals">
+                     <div class="active tab-pane" id="vitals">
                       <div class="panel panel-default" >
                           <div class="panel-body" >
                             <div class="row container-fluid" >

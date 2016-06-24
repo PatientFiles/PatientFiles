@@ -738,7 +738,7 @@
                     '>');
 
                 html.push(sprintf('<div class="th-inner %s">', that.options.sortable && column.sortable ?
-                    'sortable both' : ''));
+                    'sortable both asc' : ''));
 
                 text = column.title;
 

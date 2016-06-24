@@ -150,6 +150,8 @@
             <form role="form" action="/saveVitals/{{$prof->id}}" method="POST">   <!-- VITALS -->
                    <div class="container-fluid">
                       <h3>Vitals</h3>
+          <a  href="#" class="btn btn-success">Past Vital</a>
+
                   </div>
 
                   <div>
@@ -477,7 +479,20 @@
 
                 <!-- START CONSULTATION TAB -->
                 <div class="tab-pane" id="vaccine1">
-                <div id="accordion" role="tablist" aria-multiselectable="true">
+
+                   <div >
+                  <!-- search form (Optional) -->
+          <form action="/searchResult" method="post" class="col-lg-4"  >
+            <div class="input-group" style="margin-top: 8px" align="right">
+              <input type="text" name="q" class="form-control" placeholder="Search..." required>
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </form>
+             </div>
+
+               <div id="accordion" role="tablist" aria-multiselectable="true" style="padding: 65px">
 
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
@@ -487,17 +502,10 @@
         </a>
       </h4>
     </div>
+    </div>
     <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-      <div class="nav-tabs-custom">
-          <ul class="nav nav-pills">
-            <li class="active" ><a class="nav-link" data-toggle="pill" href="#vaccinepill">Vaccine</a></li>
-            <li ><a class="nav-link" data-toggle="pill" href="#prescriptionpill">Prescription</a></li>
-            <li ><a class="nav-link" data-toggle="pill" href="#diagnosispill">Diagnosis</a></li>
-            <li ><a class="nav-link" data-toggle="pill" href="#labpill">Lab Request</a></li>
-          </ul>
-
-            <div class=" tab-content">   <!-- START TAB CONTENT -->
-                      <div class="active tab-pane" id="vaccinepill">
+      
+               <div class="container-fluid"> <h3> Vaccine </h3> </div>  
                             <table id="table_med"  data-toggle="table"
                   data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
                    id="example2" class="table table-bordered table-hover dataTable">
@@ -514,10 +522,9 @@
                         </tr>
                       </tbody>
                     </table>
-                      </div>
 
-                       <div class=" tab-pane" id="prescriptionpill">
-                            <table id="table_med"  data-toggle="table"
+                <div class="container-fluid"> <h3> Pescription </h3> </div>
+                          <table id="table_med"  data-toggle="table"
                   data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
                    id="example2" class="table table-bordered table-hover dataTable">
                       <thead>
@@ -533,9 +540,8 @@
                         </tr>
                       </tbody>
                     </table>
-                      </div>
 
-                       <div class=" tab-pane" id="diagnosispill">
+                <div class="container-fluid"> <h3> Diagnosis </h3> </div>
                             <table id="table_med"  data-toggle="table"
                   data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
                    id="example2" class="table table-bordered table-hover dataTable">
@@ -552,10 +558,10 @@
                         </tr>
                       </tbody>
                     </table>
-                      </div>
+                   
 
-                       <div class=" tab-pane" id="labpill">
-                            <table id="table_med"  data-toggle="table"
+                 <div class="container-fluid"> <h3> Lab Request </h3> </div>
+                        <table id="table_med"  data-toggle="table"
                   data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
                    id="example2" class="table table-bordered table-hover dataTable">
                       <thead>
@@ -572,13 +578,9 @@
                         </tr>
                       </tbody>
                     </table>
-                      </div>
-            </div>  
-         </div>   
-      </div>
-     </div>
+            </div>
     </div>
-   </div>   
+   </div> <!-- END CONSULTATION TAB -->    
   </div> 
 </div>
 </div>  <!-- END TAB 2 -->

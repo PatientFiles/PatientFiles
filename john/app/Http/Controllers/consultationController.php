@@ -144,13 +144,15 @@ class consultationController extends Controller
     */
     public function endVisit()
     {
-        $data =
-        [
-            'status'   => 'completed',
-        ];
+        if (\Session::has('appoint')) {
+            $data =
+            [
+                'status'   => 'completed',
+            ];
 
-        $status = $this->medix->put('appointment/'.\Session::get('appoint'), $data);
-
+            $status = $this->medix->put('appointment/'.\Session::get('appoint'), $data);
+        }
+        
        \Session::forget('consult');
        \Session::forget('type');
        \Session::forget('appoint');
@@ -237,23 +239,39 @@ class consultationController extends Controller
             $appointment_id  = $req->input('appointment_id');
             $practitioner_id = \Session::get('user_id');
 
-            
-            $data = [
-                'diagnosis_remarks' => $remarks,
-                'diagnosis_result'  => $result,
-                'patient_id'        => \Session::get('patient_appoint'),
-                'appointment_id'    => \Session::get('appoint'),
-                'practitioner_id'   => $practitioner_id,
-            ];
+            $dia = Diagnosis::where('appointment_id', \Session::get('appoint'))->get();
 
-            $diagnosis = Diagnosis::create($data);
-            //dd($user);
+            if ($dia->isEmpty()) {
+                $data = [
+                    'diagnosis_remarks' => $remarks,
+                    'diagnosis_result'  => $result,
+                    'patient_id'        => \Session::get('patient_appoint'),
+                    'appointment_id'    => \Session::get('appoint'),
+                    'practitioner_id'   => $practitioner_id,
+                ];
+                $diagnosis = Diagnosis::create($data);
+                $response = array(
+                    'status' => 'success',
+                    'msg'    => 'Vaccination added successfully',
+                    'data'   => $diagnosis,
+                );
+            } else {
+                $diag = [
+                    'diagnosis_remarks' => $remarks,
+                    'diagnosis_result'  => $result,
+                    'patient_id'        => \Session::get('patient_appoint'),
+                    'practitioner_id'   => $practitioner_id,
+                ];
+                $updated_diag = Diagnosis::where('appointment_id', \Session::get('appoint'))
+                                ->update($diag);
 
-           $response = array(
-                'status' => 'success',
-                'msg'    => 'Vaccination added successfully',
-                'data'   => $diagnosis,
-            );
+                $response = array(
+                    'status' => 'success',
+                    'msg'    => 'Vaccination added successfully',
+                    'data'   => $updated_diag,
+                );
+            }
+           
             return \Response::json($response);
         }
         return false;
@@ -392,7 +410,10 @@ class consultationController extends Controller
         $lab            = Lab::all()->sortBy('lab_name');
         $vaccination    = Vaccination::with('vaccine')
                             ->where('appointment_id', \Session::get('appoint'));
-         try {
+        $presc_table = Prescription::where('appointment_id', \Session::get('appoint'))
+                        ->with('prescription')
+                        ->get();
+        try {
             
             $past         = $this->medix->get('vitals/patient/' . $id . '/past');
             $vitals_date  = current((array)$past->data);
@@ -408,12 +429,12 @@ class consultationController extends Controller
             $vitals      = $rVitals->data->vitals->general_survey;
             $pastVitals  = $past->data;
 
-        } catch (\Exception $e) {
+            } catch (\Exception $e) {
 
-        $pastVitals = null;
-        $bmi        = 'N/A';
-        $vitals     = null;
-           
+            $pastVitals = null;
+            $bmi        = 'N/A';
+            $vitals     = null;
+               
         }
 
         if ($profile->data->patient_appointments[count($profile->data->patient_appointments) - 1]->purpose_id == 1) {
@@ -431,7 +452,8 @@ class consultationController extends Controller
                 ->with('lab', $lab)
                 ->with('vitals', $pastVitals)
                 ->with('bmi', $bmi)
-                ->with('recentVitals', $vitals);
+                ->with('recentVitals', $vitals)
+                ->with('presc_table', $presc_table);
         }
         elseif (\Session::get('appoint') != $key->id) {
             return redirect('/home')->with('message',['type'=> 'danger','text' => 'There is an ongoing visit! Please end the ongoing visit before proceeding. ']);

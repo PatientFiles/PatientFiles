@@ -41,20 +41,19 @@ jQuery( document ).ready( function() {
       $( '#diagnosis_submit' ).on( 'submit', function(e) {
           e.preventDefault(); 
         var data = $(this).serialize();
+        var a = $("input[name='remarks']").val();
+        var b = $("textarea[name='result']").val();
         $.ajax({
               type: "POST",
               url: '/consultation/diagnosis',
               data: data,
               success: function(res) {
-                console.log(res);
-                var result = res.data.diagnosis_result;
-                var remarks = res.data.diagnosis_remarks;
                 toastr.options.positionClass = 'toast-top-center';
                 toastr.success('Diagnosis successfully added!');
                 toastr.options.showMethod        = 'slideDown';
                 toastr.options.hideMethod        = 'slideUp';
                   $("#diagnosis_submit")[0].reset();
-                  $('#assessment').text('Diagnosis result:\n          '+result+'\nRemarks:\n          '+remarks);
+                  $('#assessment').text('Diagnosis result:\n          '+a+'\nRemarks:\n          '+b);
               }
           }); 
          });
@@ -106,7 +105,8 @@ jQuery( document ).ready( function() {
                 toastr.success('Prescription successfully added!');
                 toastr.options.showMethod        = 'slideDown';
                 toastr.options.hideMethod        = 'slideUp';
-                  $("#prescription_submit")[0].reset();
+                  $("#prescription_submit")[0].reset(); 
+                  $( "#presc_table" ).load( "/home #presc_table" );
               }
           }); 
          });
@@ -145,5 +145,43 @@ jQuery( document ).ready( function() {
         $('#vaccination_name').text(finish_vaccination_name);
         $('.finish_vac_button').attr('href', '/finish_vaccine/'+id);
       });
+
+      /*--------------------------------
+      |
+      |delete in pediatrician
+      |
+      |--------------------------------
+      */
+      $(document).on('click', '.deletePedModal', function(e){
+        console.log(e);
+        var id = $(this).data('id');
+        var patName = $(this).data('pedname');
+
+        console.log(id);
+        console.log(patName);
+        $('#ped_name').text(patName);
+        $('.delete_ped_button').attr('href', '/delete_account/'+id);
+      });
+
+      /*--------------------------------
+      |
+      |delete in pediatrician
+      |
+      |--------------------------------
+      */
+      $(document).on('click', "#a", function(e){
+        console.log(e);
+        
+          $("#a").addClass("active");
+
+      });
+
+      $(document).off('click', "#a", function(e){
+        console.log(e);
+        
+          $("#a").removeClass("active");
+
+      });
+
 
 });

@@ -107,7 +107,7 @@ jQuery( document ).ready( function() {
                 toastr.options.showMethod        = 'slideDown';
                 toastr.options.hideMethod        = 'slideUp';
                   $("#prescription_submit")[0].reset(); 
-                  $( "#presc_table" ).load( "/home #presc_table" );
+                  $( "#presc_table" ).load("/items #presc_table" );
               }
           }); 
          });

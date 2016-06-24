@@ -9,4 +9,10 @@ class Lab extends Model
     //
     protected $guarded = ['id'];
     protected $table = 'lab';
+
+
+    public function labrequest()
+    {
+        return $this->hasMany('App\Http\Models\Labrequest', 'lab_id');
+    }
 }

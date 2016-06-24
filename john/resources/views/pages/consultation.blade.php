@@ -118,7 +118,7 @@
      
     <div class="card hovercard">
         <div class="card-background">
-            <img class="card-bkimg bg-green">
+            <img class="card-bkimg" src="/img/ped4.jpg">
             <!-- http://lorempixel.com/850/280/people/9/ -->
         </div>
         <div class="useravatar">
@@ -315,23 +315,26 @@
            </div>
            <div class="col-lg-6">
                 <div class="container-fluid">
-                   <table id="table_med"  data-toggle="table"
-                    data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
+                   <table id="presc_table"  data-toggle="table" 
                      id="example2" class="table table-bordered table-hover dataTable">
                         <thead>
                           <tr>
                             <th>Medicine Name</th>
                             <th>Quantity</th>
+                            <th>Sig</th>
                             <th>Action</th>
                           </tr>
                         </thead>
 
                         <tbody>
+                        @foreach ($presc_table as $pre)
                           <tr>
-                            <td>Bear Brand</td>
-                            <td>10pcs</td>
+                            <td>{{$pre['prescription']['medicine_name']}}</td>
+                            <td>{{$pre['quantity']}}</td>
+                            <td>{{$pre['sig']}}</td>
                             <td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td>
                           </tr>
+                        @endforeach
                         </tbody>
                       </table>
                     <br>
@@ -377,7 +380,6 @@
                                 <div class="container-fluid">
                                      <br> 
                                   <table id="table_med"  data-toggle="table"
-                                data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
                                  id="example2" class="table table-bordered table-hover dataTable">
                                     <thead>
                                       <tr>
@@ -388,12 +390,14 @@
                                       </tr>
                                     </thead>
                                     <tbody id="vaccination_tbody">
+                                    @foreach ($vac_table as $vacs)
                                       <tr>
-                                        <td>Vaccine 101</td>
-                                        <td>For H1N1 3 in 1P Plus 1</td>
-                                        <td>Jun 13 , 2016</td>
+                                        <td>{{$vacs['vaccine']['vaccine_name']}}</td>
+                                        <td>{{$vacs['vaccine']['vaccine_for']}}</td>
+                                        <td>{{$vacs['date']}}</td>
                                         <td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td>
                                       </tr>
+                                    @endforeach
                                     </tbody>
                                   </table>
                                 </div>    
@@ -417,7 +421,7 @@
                   </select>
             </div>
             <div class="col-lg-12" >
-               <label>Remarks</label>
+               <label>Description</label>
                <input class="form-control" type="text" placeholder="Remarks" name="remarks" />
             </div>
              <div class="col-lg-4">
@@ -430,21 +434,22 @@
      <div class="col-lg-6">
       <div class="container-fluid">  
         <table id="table_med"  data-toggle="table"
-      data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
        id="example2" class="table table-bordered table-hover dataTable">
           <thead>
             <tr>
-              <th>Type</th>
-              <th>Remarks</th>
+              <th>Laboratory Type</th>
+              <th>Description</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
+          @foreach ($lab_table as $labs)
             <tr>
-              <td>-</td>
-              <td>-</td>
+              <td>{{$labs['lab']['lab_name']}}</td>
+              <td>{{$labs['lab']['lab_desc']}}</td>
               <td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td>
             </tr>
+          @endforeach
           </tbody>
         </table>
         </div>
@@ -498,15 +503,6 @@
 
 <div class="tab-pane fade in" id="tab2">
 
-               <div>                  
-                           @if(session('success'))
-                            <small style=" padding-top: 5px;color: white;background-color: red;font-style: italic;" class="box-title alert alert-{{session ('success.type')}} form-control" >
-                                    {{session('success.text')}}
-                                  </small>
-                              @endif
-              </div>
-
-
               <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
                   
@@ -519,13 +515,13 @@
                 <!-- START VITALS TAB -->
                      <div class="active tab-pane" id="vitals1">
                       <table data-toggle="table"
-
-                       data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
                        data-card-view="true"
                        data-search="true"
                        data-show-refresh="true"
                        data-show-toggle="true"
+                       data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
                        data-show-columns="true" id="table2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+
                       <h3 class="box-title pull-left" >Vitals Record</h3> 
 
                       <thead>
@@ -566,23 +562,23 @@
 
                 <!-- START CONSULTATION TAB -->
                 <div class="tab-pane" id="vaccine1">
-
-               <div id="accordion" role="tablist" aria-multiselectable="true">
+@foreach ($prof->patient_appointments as $past)
+<div class="panel">
+               <div id="accordion" role="tablist">
 
   <div class="panel panel-default collapsed"   data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
     <div class="panel-heading" role="tab" id="headingOne">
-      <h4 class="panel-title" align="center">
-        <a  data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" class="collapsed" aria-controls="collapseOne">
-          Date
+      <h4 class="panel-title ">
+        <a  data-toggle="collapse" data-parent="#accordion" href="#collapseOne-{{$past->id}}" aria-expanded="false" class="collapsed" aria-controls="collapseOne">
+          <b>{{date('F d, Y' ,strtotime($past->appointment_date))}}</b>
         </a>
       </h4>
     </div>
     </div>
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+    <div id="collapseOne-{{$past->id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
       
                <h3> Vaccine </h3> 
                             <table id="table_med"  data-toggle="table"
-                  data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
                    id="example2" class="table table-bordered table-hover dataTable">
                       <thead>
                         <tr>
@@ -600,7 +596,6 @@
 
                 <div class="container-fluid"> <h3> Pescription </h3> </div>
                           <table id="table_med"  data-toggle="table"
-                  data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
                    id="example2" class="table table-bordered table-hover dataTable">
                       <thead>
                         <tr>
@@ -618,7 +613,6 @@
 
                 <div class="container-fluid"> <h3> Diagnosis </h3> </div>
                             <table id="table_med"  data-toggle="table"
-                  data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
                    id="example2" class="table table-bordered table-hover dataTable">
                       <thead>
                         <tr>
@@ -637,7 +631,6 @@
 
                  <div class="container-fluid"> <h3> Lab Request </h3> </div>
                         <table id="table_med"  data-toggle="table"
-                  data-url="/gh/get/response.json/wenzhixin/bootstrap-table/tree/master/docs/data/data1/"
                    id="example2" class="table table-bordered table-hover dataTable">
                       <thead>
                         <tr>
@@ -655,6 +648,8 @@
                     </table>
             </div>
     </div>
+    </div>
+@endforeach
    </div> <!-- END CONSULTATION TAB -->    
   </div> 
 </div>

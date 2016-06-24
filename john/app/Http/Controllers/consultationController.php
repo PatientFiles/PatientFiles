@@ -389,6 +389,7 @@ class consultationController extends Controller
         }
        
         $profile        = $this->medix->get('patient/'.$id);
+        //dd($profile);
         $key            = end($profile->data->patient_appointments);
         //dd(\Session::get('appoint'));
         if (\Session::get('appoint') == null || \Session::get('appoint') == $key->id) {
@@ -415,6 +416,10 @@ class consultationController extends Controller
                         ->get();
         $vac_table = Vaccination::where('appointment_id', \Session::get('appoint'))
                         ->with('vaccine')
+                        ->get();
+
+         $lab_table = Labrequest::where('appointment_id', \Session::get('appoint'))
+                        ->with('lab')
                         ->get();
         try {
             
@@ -459,7 +464,8 @@ class consultationController extends Controller
                 ->with('bmi', $bmi)
                 ->with('recentVitals', $vitals)
                 ->with('presc_table', $presc_table)
-                ->with('vac_table', $vac_table);
+                ->with('vac_table', $vac_table)
+                ->with('lab_table', $lab_table);
         }
         elseif (\Session::get('appoint') != $key->id) {
             return redirect('/home')->with('message',['type'=> 'danger','text' => 'There is an ongoing visit! Please end the ongoing visit before proceeding. ']);

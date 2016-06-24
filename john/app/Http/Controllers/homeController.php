@@ -11,6 +11,8 @@ use App\Http\Models\Medicine;
 use App\Http\Models\Lab;
 use App\Http\Models\Vaccination;
 use App\Http\Models\Diagnosis;
+use App\Http\Models\Prescription;
+use App\Http\Models\Labrequest;
 
 class homeController extends Controller
 {
@@ -177,8 +179,10 @@ class homeController extends Controller
     public function recent()
     {
         //$dia = Diagnosis::where('appointment_id', \Session::get('appoint'))->get();
-
-        //dd($dia[0]['id']);
+         $presc_table = Prescription::where('appointment_id', \Session::get('appoint'))
+                        ->with('prescription')
+                        ->get();
+        dd($presc_table);
         //dd(\Session::get('appoint'));
         $patients = $this->medix->get('patient?take=1000');
         //dd($patients);

@@ -70,9 +70,8 @@
 	<br>
 	<div>
 		<img src="img/rx.png">
+		<div style="margin-left: 200px; padding-top:-5px;">
 		@foreach ($presc_table as $pre)
-
-		<div style="margin-left: 200px">
 			<table>
 					<tr>
 						<td><b>{{$pre['prescription']['medicine_name']}}</b></td>
@@ -85,9 +84,10 @@
 					</tr>
 				
 			</table>
-		</div>
 			<br>
 		@endforeach
+
+		</div>
 	</div>
 </section>
 <footer style="position: absolute; bottom: 20px">

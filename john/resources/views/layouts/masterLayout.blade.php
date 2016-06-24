@@ -65,11 +65,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <style type="text/css">
         #demo {
             opacity: 0.5;
+       
+            background-image: url('searchicon.png');
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: white;
+            width: 98%;
+          
         }
 
         #demo:focus {
            opacity: 1;
            box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+
         }
 
         
@@ -113,9 +121,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <form action="/searchResult" method="post" class="col-lg-4" >
           {{csrf_field()}}
             <div class="input-group" style="padding-top: 10px;">
-              <input id="demo" type="text" name="q" class="form-control" placeholder="Search..." required >
+              <input id="demo" type="text" name="q" class="form-control" placeholder="Search... " required >
               <span class="input-group-btn">
-                <input type="submit" name="search" id="demo2" class="btn btn-flat" value="Go"  style="opacity: .8" />
+               <input type="submit" name="search" id="demo2" class="btn btn-flat form-control" value="Go"  style="opacity: .8" /> 
               </span>
             </div>
           </form>

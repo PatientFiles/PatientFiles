@@ -161,7 +161,8 @@
        data-show-columns="true" id="table2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                     <h4 class="pull-left"><b>Recent Visits by Each Patients</b></h4>
                     <thead >
-                        <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Patient ID</th>
+                        <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Date Visited</th>
+                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Patient ID</th>
                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Patient Name</th>
                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Chief Complaints</th>
                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Status</th></tr>
@@ -171,6 +172,7 @@
                           @if (! $consult->patient_appointments)
                           @else
                               <tr role="row">
+                                <td><b>{{date('F d, Y' ,strtotime($consult->patient_appointments[count($consult->patient_appointments) - 1]->appointment_date))}}</b></td>
                                 <td>{{$consult->id}}</td>
                                 <td>{{$consult->user->firstname .' '. $consult->user->lastname}}</td>
                                 <td>{{$consult->patient_appointments[count($consult->patient_appointments) - 1]->chief_complaints}}</td>

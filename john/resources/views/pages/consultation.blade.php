@@ -223,7 +223,7 @@
                                           @if($errors->has('notes'))
                                               <span class="error" style="color: red">{{ $errors->first('notes') }}</span>
                                           @endif
-                                    <textarea name="notes" class="form-control" rows="5" placeholder="Doctors vital notes"></textarea>
+                                    <textarea name="notes" class="form-control" rows="10" placeholder="Doctors vital notes"></textarea>
                       </div>
                    </div>
                     <div class="modal-footer">

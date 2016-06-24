@@ -116,15 +116,15 @@
           @endif
 
      
-    <div class="card hovercard">
+    <div class="card hovercard" style="background-color : #00a65a">
         <div class="card-background">
-            <img class="card-bkimg" src="/img/ped4.jpg">
+       <!--     <img class="card-bkimg" src="/img/ped4.jpg">   -->
             <!-- http://lorempixel.com/850/280/people/9/ -->
         </div>
         <div class="useravatar">
             <img alt="" src="/img/prof_pic.png">
         </div>
-        <div class="card-info"> <b class="card-title">{{Session::get('visit_patient')}}</b>
+        <div class="card-info"> <b class="card-title" style="color : white ; background-color: transparent">{{Session::get('visit_patient')}}</b>
 
         </div>
     </div>
@@ -168,13 +168,13 @@
                               <div class="modal-body">
                                   @if ($recentVitals !== null)
                                     <div class="box-body">
-                                     <h5> <strong>Date Recorded:</strong> <p class="pull-right">{{date('F d, Y', strtotime($recentVitals->created_at))}}</p> </h5>
-                                     <h5> Height (cm): <p class="pull-right">{{$recentVitals->height}}</p> </h5>
-                                     <h5> Weight (kg): <p class="pull-right">{{$recentVitals->weight}}</p> </h5>
+                                     <h5> <strong>Date Recorded:</strong> <b class="pull-right">{{date('F d, Y', strtotime($recentVitals->created_at))}}</b> </h5>
+                                     <h5> Height (cm): <p class="pull-right">{{$recentVitals->height.' cm.'}}</p> </h5>
+                                     <h5> Weight (kg): <p class="pull-right">{{$recentVitals->weight.' kg.'}}</p> </h5>
                                      <h5> BMI : <p class="pull-right">{{$bmi}}</p> </h5>
                                      <h5> Pulse Rate : <p class="pull-right">{{$recentVitals->pulserate}}</p> </h5>
                                      <h5> Respiratory Rate : <p class="pull-right">{{$recentVitals->respiratoryrate}}</p> </h5>
-                                     <h5> Body Temperature (c): <p class="pull-right">{{$recentVitals->bodytemperature}}</p> </h5>
+                                     <h5> Body Temperature (c): <p class="pull-right">{{$recentVitals->bodytemperature}} &#8451</p> </h5>
                                      <h5> Blood Pressure : <p class="pull-right">{{$recentVitals->bloodpressure_sys.'/'.$recentVitals->bloodpressure_dia}}</p> </h5>
                                      <hr>
                                      <strong><i class="fa fa-file-text-o margin-r-5"></i> Doctor's Notes</strong>
@@ -269,7 +269,6 @@
                    </div>
                     <div class="pull-right">
                         <button type="submit" name="saveVitals" class="btn btn-primary pull-left">Save</button>
-                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
                     </div>
                     <br>
              </form> 
@@ -332,7 +331,7 @@
                             <td>{{$pre['prescription']['medicine_name']}}</td>
                             <td>{{$pre['quantity']}}</td>
                             <td>{{$pre['sig']}}</td>
-                            <td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td>
+                            <td><span class="fa fa-close"></span> <a href="#">Remove</a> </td>
                           </tr>
                         @endforeach
                         </tbody>
@@ -395,7 +394,7 @@
                                         <td>{{$vacs['vaccine']['vaccine_name']}}</td>
                                         <td>{{$vacs['vaccine']['vaccine_for']}}</td>
                                         <td>{{$vacs['date']}}</td>
-                                        <td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td>
+                                        <td><span class="fa fa-close"></span> <a href="#">Remove</a> </td>
                                       </tr>
                                     @endforeach
                                     </tbody>
@@ -447,7 +446,7 @@
             <tr>
               <td>{{$labs['lab']['lab_name']}}</td>
               <td>{{$labs['remarks']}}</td>
-              <td><span class="glyphicon glyphicon-trash"></span> <a href="#">Delete</a> </td>
+              <td><span class="fa fa-close"></span> <a href="#">Remove</a> </td>
             </tr>
           @endforeach
           </tbody>
@@ -518,8 +517,7 @@
                        data-card-view="true"
                        data-search="true"
                        data-show-refresh="true"
-                       data-show-toggle="true"
-                       data-show-columns="true" id="table2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                       data-show-toggle="true" id="table2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
 
                       <h3 class="box-title pull-left" >Vitals Record</h3> 
 
@@ -570,7 +568,7 @@
       <h4 class="panel-title ">
         <a  data-toggle="collapse" data-parent="#accordion" href="#collapseOne-{{$past->id}}" aria-expanded="false" class="collapsed" aria-controls="collapseOne">
           <b style="margin-left:20px">Date Visited:</b><span style="margin-right:10px">{{' '. date('F d, Y' ,strtotime($past->appointment_date))}}</span>
-          <b>Time Visited:</b>{{$past->appointment_time}}
+          <b>Time Visited:</b><span>{{$past->appointment_time}}</span>
         </a>
       </h4>
     </div>

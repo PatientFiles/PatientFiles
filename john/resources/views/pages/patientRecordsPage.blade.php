@@ -64,7 +64,7 @@ div#patientListing:hover
                                     @if (!$patient->patient_appointments)
                                     <div class="col-lg-6 container-fluid"  style="padding-top: 40px"> <!-- START cl4 -->
                                           <div class="btn-group" role="group">  
-                                             <a class="btn btn-default" href="patientProfile/{{$patient->id}}" >View Patient</a>
+                                         
                                             <a class="btn btn-primary" href="#"  data-toggle="modal" data-target="#newVisit-{{$patient->id}}">New Visit</a>
                                             <a class="btn btn-default" href="patient/edit_patient/{{$patient->id}}" >Edit Patient</a>
                                           </div>        
@@ -72,7 +72,7 @@ div#patientListing:hover
                                     @else
                                      <div class="col-lg-6 container-fluid"  style="padding-top: 40px"> <!-- START cl4 -->
                                           <div class="btn-group" role="group">      
-                                             <a class="btn btn-default" href="patientProfile/{{$patient->id}}" >View Patient</a>
+                                           
                                             <a class="btn btn-primary" href="#"  data-toggle="modal" data-target="#patientVisit-{{$patient->id}}">Patient Visit</a>
                                             <a class="btn btn-default" href="patient/edit_patient/{{$patient->id}}" >Edit Patient</a>
                                           </div>        

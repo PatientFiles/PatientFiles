@@ -60,6 +60,30 @@ scratch. This page gets rid of all links and provides the needed markup only.
       });
 
     </script>
+
+
+    <style type="text/css">
+        #demo {
+            opacity: 0.5;
+       
+            background-image: url('searchicon.png');
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: white;
+            width: 98%;
+          
+        }
+
+        #demo:focus {
+           opacity: 1;
+           box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+
+        }
+
+        
+    </style>
+
+
   </head>
 
 
@@ -93,16 +117,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
       
           <!-- search form (Optional) -->
+         <div id="top-search"> 
           <form action="/searchResult" method="post" class="col-lg-4" >
           {{csrf_field()}}
-            <div class="input-group" style="margin-top: 8px">
-              <input type="text" name="q" class="form-control" placeholder="Search..." required>
+            <div class="input-group" style="padding-top: 10px;">
+              <input id="demo" type="text" name="q" class="form-control" placeholder="Search... " required >
               <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+               <input type="submit" name="search" id="demo2" class="btn btn-flat form-control" value="Go"  style="opacity: .8" /> 
               </span>
             </div>
           </form>
-          
+         </div> 
       
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
@@ -110,7 +135,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <li class="dropdown messages-menu">
             @if (! Session::has('url'))
               <a href="#" class="bottom" title="No ongoing session" data-placement="bottom" data-toggle="tooltip">
-                <i class="fa fa-stethoscope"></i>
+                <i class="fa fa-stethoscope"></i>  <span class="label label-success">0</span>
               </a>
             @else
               <a href="{{Session::get('url')}}" class="bottom" title="Ongoing visit: {{Session::get('visit_patient')}}" data-placement="bottom" data-toggle="tooltip">
